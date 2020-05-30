@@ -7,6 +7,9 @@ public class CourseDAOImpl implements ICourseDAO{
 
 	private static String selectAllQuery = "SELECT * FROM COURSE";
 	
+	
+	
+	
 	@Override
 	public List<Course> findAll() {
 

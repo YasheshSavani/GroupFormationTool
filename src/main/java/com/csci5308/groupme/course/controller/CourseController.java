@@ -2,6 +2,7 @@ package com.csci5308.groupme.course.controller;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,7 @@ import ch.qos.logback.classic.Logger;
 public class CourseController {
 	
 	Logger logger = (Logger) LoggerFactory.getLogger(CourseController.class);
-	
-//	Logger logger = Logger.getLogger(CourseController.class.getName())
-	
+		
 	@Autowired
 //	private ICourseService iCourseService;
 	
@@ -29,15 +28,14 @@ public class CourseController {
 
 		
 //		List<Course> getCourseService;
-		List<Course> coursedetails = new ArrayList<>();
-//		coursedetails.add(new CourseDetails("CSCI 5308", "Adv. Software Development", "30490")); 
-//		HashMap<String, String> detailsList = new HashMap<String, String>();
-//		detailsList.put("courseCode", coursedetails.getCourseCode());
-//		detailsList.put("courseName", coursedetails.getCourseName());
-//		detailsList.put("courseCrn", coursedetails.getCourseCrn());
+		Course coursedetails =  new Course("CSCI 5308", "Adv. Software Development", "30490"); 
+		HashMap<String, String> detailsList = new HashMap<String, String>();
+		detailsList.put("courseCode", coursedetails.getCourseCode());
+		detailsList.put("courseName", coursedetails.getCourseName());
+		detailsList.put("courseCrn", coursedetails.getCourseCrn());
 
 		ModelAndView mView = new ModelAndView();
-		mView.addObject("details", coursedetails);
+		mView.addObject("details", detailsList);
 		mView.setViewName("course");
 		return mView;
 	}
