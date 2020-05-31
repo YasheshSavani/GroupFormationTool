@@ -4,15 +4,16 @@ public class Course {
 
 	private String courseCode;
 	private String courseName;
-	private String courseCrn;
+	private Integer courseCrn;
 
 	
 	public Course() {
-		super();
+		this.courseCode = null;
+		this.courseName = null;
+		this.courseCrn = null;
 	}
 
-	public Course(String courseCode, String courseName, String courseCrn) {
-		super();
+	public Course(String courseCode, String courseName, Integer courseCrn) {
 		this.courseCode = courseCode;
 		this.courseName = courseName;
 		this.courseCrn = courseCrn;
@@ -34,11 +35,11 @@ public class Course {
 		this.courseName = courseName;
 	}
 
-	public String getCourseCrn() {
+	public Integer getCourseCrn() {
 		return courseCrn;
 	}
 
-	public void setCourseCrn(String courseCrn) {
+	public void setCourseCrn(Integer courseCrn) {
 		this.courseCrn = courseCrn;
 	}
 

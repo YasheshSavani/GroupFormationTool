@@ -5,5 +5,5 @@ import com.csci5308.groupme.course.model.Course;
 
 public interface ICourseService {
 
-	List<Course> getCourseService();
+	public List<Course> findAllCourses() throws Exception;
 }

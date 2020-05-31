@@ -2,16 +2,14 @@ package com.csci5308.groupme.course.dao;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
 
 import com.csci5308.groupme.course.model.Course;
 
-@Repository
 public interface ICourseDAO {
 
 	public String insertCourse();
 	
-	public List<Course> findAll();
+	public List<Course> findAllCourses() throws Exception;
 
 	public List<Course> findByCourseCode();
 
