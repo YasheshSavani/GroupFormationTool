@@ -74,8 +74,7 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					//dataSource.closeConnection();
-					connection.close();
+					dataSource.closeConnection();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -127,8 +126,7 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					connection.close();
-					//dataSource.closeConnection();
+					dataSource.closeConnection();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -171,8 +169,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					//dataSource.closeConnection();
-					connection.close();
+					dataSource.closeConnection();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -218,8 +216,7 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-				//	dataSource.closeConnection();
-					connection.close();
+					dataSource.closeConnection();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -273,8 +270,7 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					//dataSource.closeConnection();
-					connection.close();
+					dataSource.closeConnection();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -313,8 +309,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					//dataSource.closeConnection();
-					connection.close();
+					dataSource.closeConnection();
+				
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
