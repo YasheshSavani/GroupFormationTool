@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class GroupmeApplicationTests {
 
+//	@Ignore
 	@Test
 	void contextLoads() {
 	}
