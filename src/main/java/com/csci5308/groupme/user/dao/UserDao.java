@@ -14,9 +14,11 @@ public interface UserDao {
 	
 	public List<User> findByName(String firstName, String lastName);
 	
-	public boolean save(User user);
+	public int save(User user);
 	
-	public boolean update(User user);
+	public int addRole(String userName, String roleName);
+	
+	public boolean updateRole(User user, String oldRole, String newRole);
 	
 	public boolean remove(User user);
 	

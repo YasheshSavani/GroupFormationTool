@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.csci5308.groupme.user.service.UserService;
-
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
@@ -37,8 +35,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .and()
 		    .formLogin();
 	}
-	
-	
+		
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

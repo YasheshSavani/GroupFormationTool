@@ -48,13 +48,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean create(User user) {
+	public boolean register(User user) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean update(User user) {
+	public boolean updateRole(User user, String oldRole, String newRole) {
 		// TODO Auto-generated method stub
 		return false;
 	}

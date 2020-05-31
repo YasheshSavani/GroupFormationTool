@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.csci5308.datasource.DataSource;
 import com.csci5308.groupme.user.model.User;
 
+import sql.UserQuery;
+
 @Repository
 public class UserDaoImpl implements UserDao {
 
@@ -176,13 +178,54 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public boolean save(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public int save(User user) {
+		int addedUserCount = 0;
+		try {
+			connection = dataSource.openConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(UserQuery.ADD_USER);
+			preparedStatement.setString(1, user.getUserName());
+			preparedStatement.setString(2, user.getFirstName());
+			preparedStatement.setString(3, user.getLastName());
+			preparedStatement.setString(4, user.getEmail());
+			preparedStatement.setString(5, user.getPassword());
+			addedUserCount = preparedStatement.executeUpdate();
+			preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);
+			preparedStatement.setString(1, user.getUserName());
+			preparedStatement.setString(2, "ROLE_GUEST");
+			addedUserCount = preparedStatement.executeUpdate();
+			connection.commit();
+
+		} catch (SQLException se) {
+			try {
+				connection.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			se.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se) {
+			}
+
+			if (connection != null)
+				try {
+					dataSource.closeConnection();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		}
+		return addedUserCount;
 	}
 
+	
 	@Override
-	public boolean update(User user) {
+	public boolean updateRole(User user, String oldRole, String newRole) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -234,8 +277,43 @@ public class UserDaoImpl implements UserDao {
 		return users;
 	}
 
-	public User setUser() {
-		return new User();
+	@Override
+	public int addRole(String userName, String roleName) {
+		int addedUserCount = 0;
+		try {
+			connection = dataSource.openConnection();
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);
+			preparedStatement.setString(1, userName);
+			preparedStatement.setString(2, "ROLE_GUEST");
+			addedUserCount = preparedStatement.executeUpdate();
+			connection.commit();
+
+		} catch (SQLException se) {
+			try {
+				connection.rollback();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			se.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se) {
+			}
+
+			if (connection != null)
+				try {
+					dataSource.closeConnection();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		}
+		return addedUserCount;
 	}
 
 }

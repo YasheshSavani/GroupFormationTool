@@ -16,9 +16,9 @@ public interface UserService extends UserDetailsService{
 	
 	public List<User> getByName(String firstName, String lastName);
 	
-	public boolean create(User user);
+	public boolean register(User user);
 	
-	public boolean update(User user);
+	public boolean updateRole(User user, String oldRole, String newRole);
 	
 	public boolean delete(User user);
 		
