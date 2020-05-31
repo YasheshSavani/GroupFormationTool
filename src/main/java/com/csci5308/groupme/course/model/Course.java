@@ -6,7 +6,6 @@ public class Course {
 	private String courseName;
 	private Integer courseCrn;
 
-	
 	public Course() {
 		this.courseCode = null;
 		this.courseName = null;
@@ -23,8 +22,8 @@ public class Course {
 		return courseCode;
 	}
 
-	public void setCourseId(String courseId) {
-		this.courseCode = courseId;
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
 	}
 
 	public String getCourseName() {

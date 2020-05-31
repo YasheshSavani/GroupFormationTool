@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.csci5308.groupme.course.model.Course;
 
-public interface ICourseDAO {
+public interface CourseDAO {
 
 	public String insertCourse();
 	

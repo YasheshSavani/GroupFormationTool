@@ -1,7 +1,6 @@
 package com.csci5308.groupme.course.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -10,19 +9,18 @@ import java.util.List;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.csci5308.datasource.DataSource;
+import com.csci5308.datasource.MySqlDataSource;
 import com.csci5308.groupme.course.model.Course;
 
 import ch.qos.logback.classic.Logger;
 
 @Repository
-public class CourseDAOImpl implements ICourseDAO {
+public class CourseDAOImpl implements CourseDAO {
 
 	Logger logger = (Logger) LoggerFactory.getLogger(CourseDAOImpl.class);
 
-	private static String dataBase = "groupme";
-	private static String URL = "jdbc:mysql://localhost:3306/" + dataBase;
-	private static String userName = "root";
-	private static String userPassword = "root";
+	private DataSource dataSource;
 
 	private Statement statement = null;
 	private Connection connection = null;
@@ -33,22 +31,31 @@ public class CourseDAOImpl implements ICourseDAO {
 	@Override
 	public List<Course> findAllCourses() throws Exception {
 
-		List<Course> retrievedCourseList = new ArrayList<Course>();
+		List<Course> retrievedCourseList = null;
 
-		connection = DriverManager.getConnection(URL, userName, userPassword);
-		statement = connection.createStatement();
+		try {
+			dataSource = new MySqlDataSource();
+			retrievedCourseList = new ArrayList<Course>();
+			connection = dataSource.openConnection();
+			statement = connection.createStatement();
 
-		resultSet = statement.executeQuery(selectAllQuery);
-		while (resultSet.next()) {
-			String courseName = resultSet.getString("courseName");
-			String courseCode = resultSet.getString("courseCode");
-			Integer courseCrn = resultSet.getInt("crn");
-			retrievedCourseList.add(new Course(courseCode, courseName, courseCrn));
+			resultSet = statement.executeQuery(selectAllQuery);
+			logger.info("Execution of Course Select Query is Completed...");
+			while (resultSet.next()) {
+				String courseName = resultSet.getString("courseName");
+				String courseCode = resultSet.getString("courseCode");
+				Integer courseCrn = resultSet.getInt("crn");
+				retrievedCourseList.add(new Course(courseCode, courseName, courseCrn));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			resultSet.close();
+			statement.close();
+			logger.info("Statement and ResultSet Closed...");
+			dataSource.closeConnection();
 		}
 
-		resultSet.close();
-		statement.close();
-		connection.close();
 		return retrievedCourseList;
 	}
 

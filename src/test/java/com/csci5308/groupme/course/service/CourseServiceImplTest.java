@@ -26,13 +26,13 @@ public class CourseServiceImplTest {
 
 	@Test
 	public void findAllCoursesTest() throws Exception {
+
 		List<Course> defaultCourseList = new ArrayList<Course>();
 		Course courseOne = new Course("CSCI 5308", "Adv Software Development", 12345);
 		defaultCourseList.add(courseOne);
 
 		when(courseDAO.findAllCourses()).thenReturn(defaultCourseList);
 
-		// test
 		List<Course> checkCourseList = courseServiceImpl.findAllCourses();
 
 		assertEquals(1, checkCourseList.size());

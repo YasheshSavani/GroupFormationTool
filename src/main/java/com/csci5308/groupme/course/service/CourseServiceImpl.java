@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.csci5308.groupme.course.dao.CourseDAOImpl;
-import com.csci5308.groupme.course.dao.ICourseDAO;
+import com.csci5308.groupme.course.dao.CourseDAO;
 import com.csci5308.groupme.course.model.Course;
 
 @Service
-public class CourseServiceImpl implements ICourseService {
+public class CourseServiceImpl implements CourseService {
 
-	private ICourseDAO iCourseDAO = new CourseDAOImpl();
+	private CourseDAO courseDAO = new CourseDAOImpl();
 	
 	@Override
 	public List<Course> findAllCourses() throws Exception {
 		
-		List<Course> getCourseDatafromDAO = iCourseDAO.findAllCourses();
+		List<Course> getCourseDatafromDAO = courseDAO.findAllCourses();
 
 		return getCourseDatafromDAO;
 	}

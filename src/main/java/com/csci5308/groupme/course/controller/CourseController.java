@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.ICourseService;
+import com.csci5308.groupme.course.service.CourseService;
 
 import ch.qos.logback.classic.Logger;
 
@@ -20,12 +20,12 @@ public class CourseController {
 	Logger logger = (Logger) LoggerFactory.getLogger(CourseController.class);
 
 	@Autowired
-	private ICourseService iCourseService;
+	private CourseService courseService;
 
 	@RequestMapping(value = "/course", method = RequestMethod.GET)
 	public ModelAndView getCoursePageByRole() throws Exception {
 
-		List<Course> getCourseService = iCourseService.findAllCourses();
+		List<Course> getCourseService = courseService.findAllCourses();
 
 		ModelAndView mView = new ModelAndView("GuestCoursePage");
 		mView.addObject("details", getCourseService);
