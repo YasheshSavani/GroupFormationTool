@@ -1,6 +1,6 @@
 package com.csci5308.groupme.user.service;
 
-public interface IUserService {
+public interface UserService {
 
     boolean sendCredentials(User user);
 

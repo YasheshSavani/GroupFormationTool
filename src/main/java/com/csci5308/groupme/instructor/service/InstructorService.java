@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.Multipart;
 
-public interface IInstructorService {
+public interface InstructorService {
 
     String uploadCSV(MultipartFile file, Model model);
 
