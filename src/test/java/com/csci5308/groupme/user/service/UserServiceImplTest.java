@@ -1,5 +1,6 @@
 package com.csci5308.groupme.user.service;
 
+import com.csci5308.groupme.user.model.UserMock;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

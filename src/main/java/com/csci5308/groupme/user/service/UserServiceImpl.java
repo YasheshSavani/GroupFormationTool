@@ -1,5 +1,6 @@
 package com.csci5308.groupme.user.service;
 
+import com.csci5308.groupme.user.model.User;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 

@@ -1,4 +1,4 @@
-package com.csci5308.groupme.user.service;
+package com.csci5308.groupme.user.model;
 
 public class User {
 

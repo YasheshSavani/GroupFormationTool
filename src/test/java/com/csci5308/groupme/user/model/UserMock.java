@@ -1,4 +1,6 @@
-package com.csci5308.groupme.user.service;
+package com.csci5308.groupme.user.model;
+
+import com.csci5308.groupme.user.model.User;
 
 public class UserMock {
 
