@@ -1,6 +1,6 @@
 package com.csci5308.groupme.student.service;
 
-import com.csci5308.groupme.datasource.ProcedureManager;
+import com.csci5308.datasource.ProcedureManager;
 import com.csci5308.groupme.student.model.Student;
 import com.csci5308.groupme.user.model.User;
 
@@ -37,7 +37,7 @@ public class StudentServiceImpl implements StudentService {
             statement.setString("procusername", user.getUserName());
             statement.setString("procfirstname", user.getFirstName());
             statement.setString("proclastname", user.getLastName());
-            statement.setString("procemail", user.getEmailaddress());
+            statement.setString("procemail", user.getEmail());
             statement.setString("procpassword", user.getPassword());
             statement.setString("procbannerid", student.getBannerID());
             statement.executeUpdate();

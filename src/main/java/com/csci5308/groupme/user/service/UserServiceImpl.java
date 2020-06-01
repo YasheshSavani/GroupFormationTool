@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
             MimeMessage emailContent = emailSender.createMimeMessage();
             MimeMessageHelper messageHelper = new MimeMessageHelper(emailContent, false);
 
-            messageHelper.setTo(user.getEmailaddress());
+            messageHelper.setTo(user.getEmail());
             messageHelper.setSubject(subject);
             messageHelper.setText(content);
 

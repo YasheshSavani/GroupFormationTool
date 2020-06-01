@@ -1,18 +1,22 @@
 package com.csci5308.groupme.user.model;
 
+import java.util.List;
+
 public class User {
 
     private String userName;
     private String firstName;
     private String lastName;
-    private String emailaddress;
+    private String email;
     private String password;
+    private List<String> roles;
+    private List<String> permissions;
 
-    public User(String userName, String lastName, String firstName, String emailaddress, String password) {
+    public User(String userName, String lastName, String firstName, String email, String password) {
         this.userName = userName;
         this.lastName = lastName;
         this.firstName = firstName;
-        this.emailaddress = emailaddress;
+        this.email = email;
         this.password = password;
     }
 
@@ -40,12 +44,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmailaddress() {
-        return emailaddress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailaddress(String emailaddress) {
-        this.emailaddress = emailaddress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -56,4 +60,19 @@ public class User {
         this.password = password;
     }
 
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+    public List<String> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<String> permissions) {
+        this.permissions = permissions;
+    }
 }

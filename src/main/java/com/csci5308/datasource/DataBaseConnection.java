@@ -1,4 +1,4 @@
-package com.csci5308.groupme.datasource;
+package com.csci5308.datasource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
