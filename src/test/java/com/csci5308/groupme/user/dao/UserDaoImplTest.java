@@ -75,6 +75,18 @@ public class UserDaoImplTest {
 		assertEquals(1, rowCount);
 	}
 	
+	@Test
+	public void duplicateEntryTest() {
+		User user = new User();
+		user.setUserName("abhinav78");
+		user.setFirstName("Test");
+		user.setLastName("User");
+		user.setEmail("test_");
+		user.setPassword(passwordEncoder.encode("testpassword"));
+		int rowCount = userDao.save(user);
+		assertEquals(1, rowCount);
+	}
+	
 //	@Test
 //	public void addRoleTest() {
 //		User user = new User();

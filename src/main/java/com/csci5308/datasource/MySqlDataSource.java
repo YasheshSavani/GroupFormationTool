@@ -18,16 +18,16 @@ public class MySqlDataSource implements DataSource {
 
 	Logger logger = LoggerFactory.getLogger(MySqlDataSource.class);
 	
-	@Value("${development.driver}")
+	@Value("${local.driver}")
 	private String JDBC_DRIVER;
 
-	@Value("${development.url}")
+	@Value("${local.url}")
 	private String DB_URL;
 
-	@Value("${development.username}")
+	@Value("${local.username}")
 	private String USER;
 
-	@Value("${development.password}")
+	@Value("${local.password}")
 	private String PASS;
 
 	private Connection connection;
