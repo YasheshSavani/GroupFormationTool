@@ -1,18 +1,22 @@
 package com.csci5308.groupme.user.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
-import com.csci5308.datasource.DataSource;
+
 import com.csci5308.groupme.user.model.User;
 
+import errors.EditCodes;
+import errors.SqlErrors;
 import sql.UserQuery;
 
 @Repository
@@ -20,12 +24,24 @@ public class UserDaoImpl implements UserDao {
 
 	Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
-	@Autowired
-	DataSource dataSource;
+	@Value("${development.driver}")
+	private String JDBC_DRIVER;
 
-	private Connection connection;
+	@Value("${development.url}")
+	private String DB_URL;
 
-	private PreparedStatement preparedStatement;
+	@Value("${development.username}")
+	private String USER;
+
+	@Value("${development.password}")
+	private String PASS;
+
+	private Connection connection = null;
+
+//	@Autowired
+//	DataSource dataSource;
+
+	private PreparedStatement preparedStatement = null;
 
 	private ResultSet resultSet;
 
@@ -34,22 +50,27 @@ public class UserDaoImpl implements UserDao {
 
 		User user = new User();
 		try {
-			connection = dataSource.openConnection();
-			String sql = "SELECT * FROM user where userName = ?";
-			preparedStatement = connection.prepareStatement(sql);
+			// connection = dataSource.openConnection();
+
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_USERNAME);
 			preparedStatement.setString(1, userName);
 			ResultSet resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
+			if (resultSet.next() == false)
+				return null;
+			do {
 				user.setUserName(resultSet.getString("userName"));
 				user.setFirstName(resultSet.getString("firstName"));
 				user.setLastName(resultSet.getString("lastName"));
 				user.setEmail(resultSet.getString("email"));
 				user.setPassword(resultSet.getString("password"));
-			}
+			} while (resultSet.next());
 			resultSet.close();
 
-			String sql2 = "SELECT roleName FROM userrole where userName=?";
-			preparedStatement = connection.prepareStatement(sql2);
+			preparedStatement = connection.prepareStatement(UserQuery.FIND_ROLES_BY_USERNAME);
 			preparedStatement.setString(1, userName);
 			resultSet = preparedStatement.executeQuery();
 			List<String> roles = new ArrayList<String>();
@@ -63,7 +84,6 @@ public class UserDaoImpl implements UserDao {
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
-
 			e.printStackTrace();
 		} finally {
 			try {
@@ -74,7 +94,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					dataSource.closeConnection();
+					// dataSource.closeConnection();
+					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -86,22 +107,26 @@ public class UserDaoImpl implements UserDao {
 	public User findByEmail(String email) {
 		User user = new User();
 		try {
-			connection = dataSource.openConnection();
-			String sql = "SELECT * FROM user where email = ?";
-			preparedStatement = connection.prepareStatement(sql);
+			// connection = dataSource.openConnection();
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
 			preparedStatement.setString(1, email);
 			resultSet = preparedStatement.executeQuery();
-			while (resultSet.next()) {
+			if (resultSet.next() == false)
+				return null;
+			do {
 				user.setUserName(resultSet.getString("userName"));
 				user.setFirstName(resultSet.getString("firstName"));
 				user.setLastName(resultSet.getString("lastName"));
 				user.setEmail(resultSet.getString("email"));
 				user.setPassword(resultSet.getString("password"));
-			}
+			} while (resultSet.next());
 			resultSet.close();
 
-			String sql2 = "SELECT roleName FROM userrole where userName = ?";
-			preparedStatement = connection.prepareStatement(sql2);
+			preparedStatement = connection.prepareStatement(UserQuery.FIND_ROLES_BY_USERNAME);
 			preparedStatement.setString(1, user.getUserName());
 			resultSet = preparedStatement.executeQuery();
 			List<String> roles = new ArrayList<String>();
@@ -126,7 +151,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					dataSource.closeConnection();
+					// dataSource.closeConnection();
+					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -139,9 +165,12 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		List<User> users = new ArrayList<User>();
 		try {
-			connection = dataSource.openConnection();
-			String sql = "SELECT * FROM user where firstName = ? and lastName = ?";
-			preparedStatement = connection.prepareStatement(sql);
+			// connection = dataSource.openConnection();
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_NAME);
 			preparedStatement.setString(1, firstName);
 			preparedStatement.setString(2, lastName);
 			resultSet = preparedStatement.executeQuery();
@@ -169,8 +198,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					dataSource.closeConnection();
-					
+					// dataSource.closeConnection();
+					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -182,7 +211,11 @@ public class UserDaoImpl implements UserDao {
 	public int save(User user) {
 		int addedUserCount = 0;
 		try {
-			connection = dataSource.openConnection();
+			// connection = dataSource.openConnection();
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(UserQuery.ADD_USER);
 			preparedStatement.setString(1, user.getUserName());
@@ -199,8 +232,12 @@ public class UserDaoImpl implements UserDao {
 
 		} catch (SQLException se) {
 			try {
-				logger.debug(se.getMessage());
 				connection.rollback();
+				logger.info(se.getMessage());
+				String duplicateKey = se.getMessage().split(" ")[5];
+				logger.info(duplicateKey);
+				if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY && duplicateKey.equalsIgnoreCase("'PRIMARY'"))
+					return EditCodes.USERNAME_EXISTS;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -217,7 +254,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					dataSource.closeConnection();
+					// dataSource.closeConnection();
+					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -225,7 +263,6 @@ public class UserDaoImpl implements UserDao {
 		return addedUserCount;
 	}
 
-	
 	@Override
 	public boolean updateRole(User user, String oldRole, String newRole) {
 		// TODO Auto-generated method stub
@@ -243,9 +280,12 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		List<User> users = new ArrayList<User>();
 		try {
-			connection = dataSource.openConnection();
-			String sql = "SELECT * FROM user";
-			preparedStatement = connection.prepareStatement(sql);
+			// connection = dataSource.openConnection();
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			preparedStatement = connection.prepareStatement(UserQuery.FIND_ALL);
 			resultSet = preparedStatement.executeQuery();
 			while (resultSet.next()) {
 				user.setUserName(resultSet.getString("userName"));
@@ -271,7 +311,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					dataSource.closeConnection();
+					// dataSource.closeConnection();
+					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -283,7 +324,11 @@ public class UserDaoImpl implements UserDao {
 	public int addRole(String userName, String roleName) {
 		int addedUserCount = 0;
 		try {
-			connection = dataSource.openConnection();
+			// connection = dataSource.openConnection();
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);
 			preparedStatement.setString(1, userName);
@@ -310,8 +355,8 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					dataSource.closeConnection();
-				
+					// dataSource.closeConnection();
+					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -2,6 +2,7 @@ package com.csci5308.groupme.user.dao;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -16,13 +17,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.csci5308.groupme.user.model.User;
 
+import errors.EditCodes;
 import util.RandomUtil;
 
 
 @SpringBootTest
-public class UserDaoImplTest {
+public class UserDaoTest {
 
-	Logger logger = LoggerFactory.getLogger(UserDaoImplTest.class);
+	Logger logger = LoggerFactory.getLogger(UserDaoTest.class);
 		
 	@Autowired
 	UserDao userDao;
@@ -39,6 +41,17 @@ public class UserDaoImplTest {
 		assertEquals(userName, user.getUserName());
 		assertTrue(!user.getRoles().isEmpty());
 		assertEquals(2, user.getRoles().size());
+	}
+	
+	@Test
+	public void UserDoesNotExistTest() {
+		User user = new User();
+		String userName = "lorem_ipsum234";
+		String email = "lorem_ipsum@gmail.com";
+		user = userDao.findByUserName(userName);
+		assertNull(user);
+		user = userDao.findByEmail(email);
+		assertNull(user);
 	}
 	
 	@Test
@@ -75,17 +88,17 @@ public class UserDaoImplTest {
 		assertEquals(1, rowCount);
 	}
 	
-//	@Test
-//	public void duplicateEntryTest() {
-//		User user = new User();
-//		user.setUserName("abhinav78");
-//		user.setFirstName("Test");
-//		user.setLastName("User");
-//		user.setEmail("test_");
-//		user.setPassword(passwordEncoder.encode("testpassword"));
-//		int rowCount = userDao.save(user);
-//		assertEquals(1, rowCount);
-//	}
+	@Test
+	public void duplicateUserNameTest() {
+		User user = new User();
+		user.setUserName("abhinav78");
+		user.setFirstName("Test");
+		user.setLastName("User");
+		user.setEmail("test_");
+		user.setPassword(passwordEncoder.encode("testpassword"));
+		int status = userDao.save(user);
+		assertEquals(EditCodes.USERNAME_EXISTS, status);
+	}
 	
 //	@Test
 //	public void addRoleTest() {

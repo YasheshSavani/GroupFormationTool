@@ -2,20 +2,30 @@ package com.csci5308.groupme.user.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.csci5308.groupme.user.dao.UserDao;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.model.UserAuthDetails;
 
+import errors.EditCodes;
+
 @Service
 public class UserServiceImpl implements UserService {
 
+	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 		
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -31,14 +41,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getByUserName(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = userDao.findByUserName(userName);
+	    return user;
 	}
 
 	@Override
 	public User getByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		User user = userDao.findByEmail(email);
+		return user;
 	}
 
 	@Override
@@ -48,9 +58,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean register(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public int register(User user) {
+        int insertStatus = 0;
+        String rawPassword = user.getPassword();
+		if(userDao.findByEmail(user.getEmail()) != null) 
+			return EditCodes.EMAIL_EXISTS;
+		logger.info(user.getUserName());
+		user.setPassword(passwordEncoder.encode(rawPassword));
+	    insertStatus = userDao.save(user);
+		return insertStatus;
 	}
 
 	@Override

@@ -14,11 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import com.csci5308.groupme.user.model.User;
-import com.csci5308.groupme.user.model.UserAuthDetails;
 
 @ExtendWith(SpringExtension.class)
 public class UserAuthDetailsTest {
