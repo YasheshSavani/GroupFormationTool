@@ -1,28 +1,32 @@
 package com.csci5308.groupme.student.service;
 
-import com.csci5308.datasource.ProcedureManager;
+import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.student.model.Student;
 import com.csci5308.groupme.user.model.User;
 
 import java.sql.CallableStatement;
-import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class StudentServiceImpl implements StudentService {
 
     Student student;
-    ProcedureManager procedureManager;
+    Connection connection;
     CallableStatement statement;
+    DatabaseProperties databaseProperties;
 
     public StudentServiceImpl(Student student) {
         this.student = student;
-        this.procedureManager = new ProcedureManager();
+        this.databaseProperties = new DatabaseProperties();
     }
 
     @Override
     public boolean isNotEnrolled() {
         try {
             boolean status = false;
-            statement = procedureManager.getStoredProcedureStatement("GET_STUDENT(?)");
+            connection = DriverManager.getConnection(
+                    databaseProperties.getDbURL(), databaseProperties.getDbUserName(), databaseProperties.getDbPassword());
+            statement = connection.prepareCall("{call GET_STUDENT(?)}");
             if (statement != null) {
                 statement.setString("procbannerid", student.getBannerID());
                 if (statement.execute()) {
@@ -30,7 +34,9 @@ public class StudentServiceImpl implements StudentService {
                 }
                 statement.close();
             }
-            procedureManager.close();
+            if (connection != null) {
+                connection.close();
+            }
             return status;
         } catch (Exception e) {
             return false;
@@ -40,7 +46,9 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public boolean enrol(User user) {
         try {
-            statement = procedureManager.getStoredProcedureStatement("INSERT_STUDENT(?, ?, ?, ?, ?, ?)");
+            connection = DriverManager.getConnection(
+                    databaseProperties.getDbURL(), databaseProperties.getDbUserName(), databaseProperties.getDbPassword());
+            statement = connection.prepareCall("{call INSERT_STUDENT(?, ?, ?, ?, ?, ?)}");
             if (statement != null) {
                 statement.setString("procusername", user.getUserName());
                 statement.setString("procfirstname", user.getFirstName());
@@ -51,7 +59,9 @@ public class StudentServiceImpl implements StudentService {
                 statement.executeUpdate();
                 statement.close();
             }
-            procedureManager.close();
+            if (connection != null) {
+                connection.close();
+            }
             return true;
         } catch (Exception e) {
             return false;
