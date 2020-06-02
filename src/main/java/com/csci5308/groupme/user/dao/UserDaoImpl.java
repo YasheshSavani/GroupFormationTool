@@ -11,6 +11,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
 import com.csci5308.groupme.user.model.User;
@@ -20,6 +21,7 @@ import errors.SqlErrors;
 import sql.UserQuery;
 
 @Repository
+@PropertySource("classpath:database.properties")
 public class UserDaoImpl implements UserDao {
 
 	Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);

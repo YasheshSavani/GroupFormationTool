@@ -39,7 +39,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .anyRequest().authenticated()
 		    .and()
 		    .csrf().disable()
-		    .formLogin();
+		    .formLogin()
+		    .defaultSuccessUrl("/home");
 	}
 		
 	@Bean

@@ -24,6 +24,20 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
+	@GetMapping("/")
+	public String applicationPage(Model model) {
+	    User user = new User();
+	    model.addAttribute("user", user);
+	    return "index";
+	}
+	
+	@GetMapping("/home")
+	public String homePage(Model model) {
+	    User user = new User();
+	    model.addAttribute("user", user);
+	    return "home";
+	}
+	
 	@GetMapping("/signup")
 	public String showRegistrationForm(Model model) {
 	    User user = new User();
