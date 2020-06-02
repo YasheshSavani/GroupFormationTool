@@ -53,6 +53,7 @@ public class CourseDAOImpl implements CourseDAO {
             resultSet = statement.executeQuery(selectAllQuery);
 
             logger.info("Execution of Course Select Query is Completed...");
+
             while (resultSet.next()) {
                 String courseName = resultSet.getString("courseName");
                 String courseCode = resultSet.getString("courseCode");
@@ -63,9 +64,23 @@ public class CourseDAOImpl implements CourseDAO {
             e.printStackTrace();
         } finally {
             resultSet.close();
-            statement.close();
-            connection.close();
-            logger.info("Connection to database Closed...");
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                    logger.info("Connection to database Closed...");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
         }
 
         return retrievedCourseList;
