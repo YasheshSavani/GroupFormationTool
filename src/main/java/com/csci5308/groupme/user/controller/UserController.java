@@ -28,7 +28,7 @@ public class UserController {
 	public String showRegistrationForm(Model model) {
 	    User user = new User();
 	    model.addAttribute("user", user);
-	    return "signup";
+	    return "Signup";
 	}
 	
 	@PostMapping("/signup")

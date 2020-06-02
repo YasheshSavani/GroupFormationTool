@@ -1,6 +1,5 @@
 package com.csci5308.groupme.instructor.controller;
 
-import com.csci5308.groupme.instructor.service.InstructorService;
 import com.csci5308.groupme.student.model.Student;
 import com.csci5308.groupme.student.service.StudentService;
 import com.csci5308.groupme.student.service.StudentServiceImpl;
@@ -34,7 +33,12 @@ public class InstructorController {
                     Student student = new Student(record[0] + record[1], record[0]);
                     StudentService studentService = new StudentServiceImpl(student);
                     if (studentService.isNotEnrolled()) {
-                        User user = new User(record[0] + record[1], record[1], record[2], record[3], record[0]);
+                        User user = new User();
+                        user.setUserName(record[0] + record[1]);
+                        user.setLastName(record[1]);
+                        user.setFirstName(record[2]);
+                        user.setEmail(record[3]);
+                        user.setPassword(record[0]);
                         if (studentService.enrol(user)) {
                             UserService userService = new UserServiceImpl();
                             userService.sendCredentials(user);
@@ -43,14 +47,14 @@ public class InstructorController {
                     }
                 }
                 model.addAttribute("status", "Students enrolled successfully.");
-                return "courseadmin";
+                return "CourseAdmin";
             }
         } catch (Exception e) {
             model.addAttribute("status", "Enrolment failed.");
-            return "courseadmin";
+            return "CourseAdmin";
         }
         model.addAttribute("status", "Enrolment failed.");
-        return "courseadmin";
+        return "CourseAdmin";
     }
 
     private List<String[]> readAll(Reader reader) {

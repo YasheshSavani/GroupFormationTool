@@ -34,9 +34,8 @@ public class UserDaoTest {
 	
 	@Test
 	public void findByUserNameTest() {
-		User user = new User();
 		String userName = "testuser1";
-		user = userDao.findByUserName(userName);
+		User user = userDao.findByUserName(userName);
 		assertNotNull(user);
 		assertEquals(userName, user.getUserName());
 		assertTrue(!user.getRoles().isEmpty());
@@ -45,10 +44,9 @@ public class UserDaoTest {
 	
 	@Test
 	public void UserDoesNotExistTest() {
-		User user = new User();
 		String userName = "lorem_ipsum234";
 		String email = "lorem_ipsum@gmail.com";
-		user = userDao.findByUserName(userName);
+		User user = userDao.findByUserName(userName);
 		assertNull(user);
 		user = userDao.findByEmail(email);
 		assertNull(user);
@@ -56,9 +54,8 @@ public class UserDaoTest {
 	
 	@Test
 	public void finByEmailTest() {
-		User user = new User();
 		String email = "user.test1@gmail.com";
-		user = userDao.findByEmail(email);
+		User user = userDao.findByEmail(email);
 		assertNotNull(user);
 		assertEquals(email, user.getEmail());
 		assertTrue(!user.getRoles().isEmpty());
@@ -67,10 +64,9 @@ public class UserDaoTest {
 	
 	@Test
 	public void finByNameTest() {
-		List<User> users = new ArrayList<User>();
 		String firstName = "User";
 		String lastName = "Test";
-		users = userDao.findByName(firstName, lastName);
+		List<User> users = userDao.findByName(firstName, lastName);
 		assertTrue(!users.isEmpty());
 		assertEquals(firstName + lastName, users.get(0).getFirstName() + users.get(0).getLastName());
 	}
