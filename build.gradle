@@ -10,6 +10,7 @@ sourceCompatibility = '1.8'
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -18,6 +19,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testCompile "org.mockito:mockito-core:2.+"
 	runtimeOnly 'mysql:mysql-connector-java'
 	compile 'com.opencsv:opencsv:5.2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
