@@ -19,31 +19,41 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean isNotEnrolled() throws SQLException {
-        statement = procedureManager.getStoredProcedureStatement("GET_STUDENT(?)");
-        statement.setString("procbannerid", student.getBannerID());
-        if (statement.execute()) {
-            boolean status = !statement.getResultSet().next();
-            statement.close();
+    public boolean isNotEnrolled() {
+        try {
+            boolean status = false;
+            statement = procedureManager.getStoredProcedureStatement("GET_STUDENT(?)");
+            if (statement != null) {
+                statement.setString("procbannerid", student.getBannerID());
+                if (statement.execute()) {
+                    status = !statement.getResultSet().next();
+                }
+                statement.close();
+            }
+            procedureManager.close();
             return status;
+        } catch (Exception e) {
+            return false;
         }
-        return false;
     }
 
     @Override
     public boolean enrol(User user) {
         try {
             statement = procedureManager.getStoredProcedureStatement("INSERT_STUDENT(?, ?, ?, ?, ?, ?)");
-            statement.setString("procusername", user.getUserName());
-            statement.setString("procfirstname", user.getFirstName());
-            statement.setString("proclastname", user.getLastName());
-            statement.setString("procemail", user.getEmail());
-            statement.setString("procpassword", user.getPassword());
-            statement.setString("procbannerid", student.getBannerID());
-            statement.executeUpdate();
-            statement.close();
+            if (statement != null) {
+                statement.setString("procusername", user.getUserName());
+                statement.setString("procfirstname", user.getFirstName());
+                statement.setString("proclastname", user.getLastName());
+                statement.setString("procemail", user.getEmail());
+                statement.setString("procpassword", user.getPassword());
+                statement.setString("procbannerid", student.getBannerID());
+                statement.executeUpdate();
+                statement.close();
+            }
+            procedureManager.close();
             return true;
-        } catch (SQLException exception) {
+        } catch (Exception e) {
             return false;
         }
     }

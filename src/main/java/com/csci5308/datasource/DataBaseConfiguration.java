@@ -3,9 +3,9 @@ package com.csci5308.datasource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public interface DataBaseConnection {
+public interface DataBaseConfiguration {
 
-    Connection getConnection() throws SQLException;
+    Connection openConnection() throws SQLException;
 
     void closeConnection() throws SQLException;
 }

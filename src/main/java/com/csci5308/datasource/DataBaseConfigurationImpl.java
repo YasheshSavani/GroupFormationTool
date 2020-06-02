@@ -8,14 +8,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DataBaseConnectionImpl implements DataBaseConnection {
+public class DataBaseConfigurationImpl implements DataBaseConfiguration {
 
     private String dbURL;
     private String dbUserName;
     private String dbPassword;
     private Connection connection;
 
-    public DataBaseConnectionImpl() {
+    public DataBaseConfigurationImpl() {
         try {
             Properties applicationProperties = new Properties();
             Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/application.properties"));
@@ -30,7 +30,7 @@ public class DataBaseConnectionImpl implements DataBaseConnection {
     }
 
     @Override
-    public Connection getConnection() throws SQLException {
+    public Connection openConnection() throws SQLException {
         if (this.connection.isClosed()){
             this.connection = DriverManager.getConnection(dbURL, dbUserName, dbPassword);
         }

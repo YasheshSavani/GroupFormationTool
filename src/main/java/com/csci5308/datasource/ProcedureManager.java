@@ -5,18 +5,29 @@ import java.sql.Connection;
 
 public class ProcedureManager {
 
-    DataBaseConnection databaseConnection;
+    DataBaseConfiguration databaseConfiguration;
+    Connection connection;
 
     public ProcedureManager() {
-        databaseConnection = new DataBaseConnectionImpl();
+        databaseConfiguration = new DataBaseConfigurationImpl();
     }
 
     public CallableStatement getStoredProcedureStatement(String procedure) {
-        try{
-            Connection connection = databaseConnection.getConnection();
+        try {
+            connection = databaseConfiguration.openConnection();
             return connection.prepareCall("{call " + procedure + "}");
-        } catch (Exception e){
+        } catch (Exception e) {
             return null;
+        }
+    }
+
+    public void close() {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

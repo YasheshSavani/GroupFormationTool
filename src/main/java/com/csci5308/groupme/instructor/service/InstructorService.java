@@ -8,6 +8,4 @@ import javax.mail.Multipart;
 
 public interface InstructorService {
 
-    String uploadCSV(MultipartFile file, Model model);
-
 }

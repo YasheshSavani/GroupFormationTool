@@ -21,9 +21,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Controller
-public class InstructorController implements InstructorService {
+public class InstructorController {
 
-    @Override
     @PostMapping("/uploadfile")
     public String uploadCSV(@RequestParam("file") MultipartFile file, Model model) {
         try {
