@@ -31,6 +31,13 @@ public class UserController {
 	    return "index";
 	}
 	
+	@GetMapping("/admin")
+	public String adminLandingPage(Model model) {
+	    User user = new User();
+	    model.addAttribute("user", user);
+	    return "admin_home";
+	}
+	
 	@GetMapping("/home")
 	public String homePage(Model model) {
 	    User user = new User();
