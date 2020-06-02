@@ -1,5 +1,8 @@
 package com.csci5308.groupme.course.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Course {
 
 	private String courseCode;
@@ -9,7 +12,7 @@ public class Course {
 	public Course() {
 		this.courseCode = null;
 		this.courseName = null;
-		this.courseCrn = null;
+		this.courseCrn = 0;
 	}
 
 	public Course(String courseCode, String courseName, Integer courseCrn) {

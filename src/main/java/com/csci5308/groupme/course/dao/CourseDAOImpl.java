@@ -1,104 +1,116 @@
 package com.csci5308.groupme.course.dao;
 
+import ch.qos.logback.classic.Logger;
+import com.csci5308.groupme.course.model.Course;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Reader;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-
-import com.csci5308.datasource.DataSource;
-import com.csci5308.datasource.MySqlDataSource;
-import com.csci5308.groupme.course.model.Course;
-
-import ch.qos.logback.classic.Logger;
+import java.util.Properties;
 
 @Repository
 public class CourseDAOImpl implements CourseDAO {
 
-	Logger logger = (Logger) LoggerFactory.getLogger(CourseDAOImpl.class);
+    private final Logger logger = (Logger) LoggerFactory.getLogger(CourseDAOImpl.class);
 
-	private DataSource dataSource;
+    @Override
+    public List<Course> findAllCourses() throws Exception {
 
-	private Statement statement = null;
-	private Connection connection = null;
-	private ResultSet resultSet = null;
+        List<Course> retrievedCourseList = null;
+        ResultSet resultSet = null;
+        Connection connection = null;
+        Statement statement = null;
 
-	private static String selectAllQuery = "SELECT * FROM course";
+        try {
+            retrievedCourseList = new ArrayList<>();
 
-	@Override
-	public List<Course> findAllCourses() throws Exception {
+            String databasePropertiesFilePath = "src/main/resources/database.properties";
+            Reader dbPropertiesReader = new BufferedReader(new FileReader(databasePropertiesFilePath));
+            Properties properties = new Properties();
+            properties.load(dbPropertiesReader);
 
-		List<Course> retrievedCourseList = null;
+            String JDBC_DRIVER = properties.getProperty("development.driver");
+            String DB_URL = properties.getProperty("development.url");
+            String USER = properties.getProperty("development.username");
+            String PASSWORD = properties.getProperty("development.password");
 
-		try {
-			dataSource = new MySqlDataSource();
-			retrievedCourseList = new ArrayList<Course>();
-			connection = dataSource.openConnection();
-			statement = connection.createStatement();
+            Class.forName(JDBC_DRIVER);
+            logger.info("Connecting to the selected database...");
 
-			resultSet = statement.executeQuery(selectAllQuery);
-			logger.info("Execution of Course Select Query is Completed...");
-			while (resultSet.next()) {
-				String courseName = resultSet.getString("courseName");
-				String courseCode = resultSet.getString("courseCode");
-				Integer courseCrn = resultSet.getInt("crn");
-				retrievedCourseList.add(new Course(courseCode, courseName, courseCrn));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			resultSet.close();
-			statement.close();
-			logger.info("Statement and ResultSet Closed...");
-			dataSource.closeConnection();
-		}
+            connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            logger.info("Connected to the database successfully...");
 
-		return retrievedCourseList;
-	}
+            statement = connection.createStatement();
+            String selectAllQuery = "SELECT * FROM course";
+            resultSet = statement.executeQuery(selectAllQuery);
 
-	@Override
-	public List<Course> findByCourseCode() {
-		return null;
-		// TODO Auto-generated method stub
+            logger.info("Execution of Course Select Query is Completed...");
+            while (resultSet.next()) {
+                String courseName = resultSet.getString("courseName");
+                String courseCode = resultSet.getString("courseCode");
+                Integer courseCrn = resultSet.getInt("crn");
+                retrievedCourseList.add(new Course(courseCode, courseName, courseCrn));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            resultSet.close();
+            statement.close();
+            connection.close();
+            logger.info("Connection to database Closed...");
+        }
 
-	}
+        return retrievedCourseList;
+    }
 
-	@Override
-	public List<Course> findByCourseName() {
-		return null;
-		// TODO Auto-generated method stub
+    @Override
+    public List<Course> findByCourseCode() {
+        return null;
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public List<Course> findByCourseCrn() {
-		return null;
-		// TODO Auto-generated method stub
+    @Override
+    public List<Course> findByCourseName() {
+        return null;
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public String insertCourse() {
-		return null;
-		// TODO Auto-generated method stub
+    @Override
+    public List<Course> findByCourseCrn() {
+        return null;
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public String deleteCourse() {
-		return null;
-		// TODO Auto-generated method stub
+    @Override
+    public String insertCourse() {
+        return null;
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	@Override
-	public String updateCourse() {
-		return null;
-		// TODO Auto-generated method stub
+    @Override
+    public String deleteCourse() {
+        return null;
+        // TODO Auto-generated method stub
 
-	}
+    }
+
+    @Override
+    public String updateCourse() {
+        return null;
+        // TODO Auto-generated method stub
+
+    }
 
 }

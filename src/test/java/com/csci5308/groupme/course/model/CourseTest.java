@@ -1,7 +1,7 @@
 package com.csci5308.groupme.course.model;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +20,7 @@ public class CourseTest {
 		Course course = new Course();
 		assertNull(course.getCourseCode());
 		assertNull(course.getCourseName());
-		assertNull(course.getCourseCrn());
+		assertEquals(0, course.getCourseCrn());
 	}
 
 	@Test
