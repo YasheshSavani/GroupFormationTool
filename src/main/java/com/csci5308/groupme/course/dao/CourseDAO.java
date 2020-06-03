@@ -21,4 +21,5 @@ public interface CourseDAO {
 
 	public String updateCourse();
 
+	List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception;
 }

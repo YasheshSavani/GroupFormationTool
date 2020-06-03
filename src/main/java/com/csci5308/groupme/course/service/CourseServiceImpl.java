@@ -22,4 +22,11 @@ public class CourseServiceImpl implements CourseService {
 		return getCourseDatafromDAO;
 	}
 
+	@Override
+	public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
+
+		List<Course> courseAdminCourses = courseDAO.getCoursesByUserNameAndRole(userName, roleName);
+		return null;
+	}
+
 }
