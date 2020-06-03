@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/css/admin.css}" />
+<meta charset="ISO-8859-1">
+<title>Delete Courses</title>
+<script type="text/javascript">
+	function validate() {
+
+		if (document.courseDeleteForm.crn.value == "") {
+			alert("Please provide crn!");
+			document.courseDeleteForm.crn.focus();
+			return false;
+		}
+		return (true);
+	}
+</script>
+</head>
+<body>
+
+	<ul class="hNavbar">
+		<li class="hNavbar"><a href="/"> GroupMe</a></li>
+		<li style="float: right"><a href="#logOut">Logout</a></li>
+		<li style="float: right"><a class="active" href="#AdminAccount">Account</a></li>
+		<!-- Redirect to logout page! -->
+	</ul>
+	<br/>
+	<ul class="vNavbar">
+		<li><a href="admin">Dashboard</a></li>
+		<li><a class="active" href="adminManageCourses">Manage
+				Courses</a></li>
+		<li><a href="adminManageInstructors">Manage Instructors</a></li>
+	</ul>
+	<br/>
+	<div style="margin-left: 21%; padding: 1px;">
+		<h2 style="text-align: center">ADMIN DASHBOARD</h2>
+		<form name="courseDeleteForm" onSubmit="return (validate());"
+			th:action="@{/courseDelete}" method="post">
+
+			<table>
+				<tr>
+					<td colspan="2"><h3 style="text-align: center">Delete a
+							course</h3></td>
+				</tr>
+				<tr>
+					<td align="right">CRN</td>
+					<td><input type="text" name="crn" /></td>
+				</tr>
+				<tr>
+					<td align="right"></td>
+					<td><input type="submit" value="Submit" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
