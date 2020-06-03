@@ -15,7 +15,6 @@ public class EmailConfigurationMock {
         mailSender.setPort(587);
         mailSender.setUsername("groupmecsci5308@gmail.com");
         mailSender.setPassword("groupme@CSCI5308");
-
         properties = mailSender.getJavaMailProperties();
         properties.put("mail.transport.protocal", "smtp");
         properties.put("mail.smtp.starttls.enable", "true");
