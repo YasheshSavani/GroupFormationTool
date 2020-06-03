@@ -60,7 +60,7 @@ public class InstructorController {
     }
 
     private List<String[]> readAll(Reader reader) {
-        CSVReader csvReader = new CSVReader(reader);
+    	CSVReader csvReader = new CSVReader(reader);
         try {
             List<String[]> records = csvReader.readAll();
             reader.close();
