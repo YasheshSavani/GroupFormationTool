@@ -19,7 +19,7 @@ public interface UserDao {
 	public int addRole(String userName, String roleName);
 	
 	public boolean updateRole(User user, String oldRole, String newRole);
-	
+		
 	public boolean remove(User user);
 	
 }

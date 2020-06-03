@@ -25,3 +25,19 @@
     background-color: #4CAF50;
     color: white;
   }
+  
+  .pull-right {
+  float:right;
+  }
+  
+  
+ .home-loggedin button {
+  padding: 14px 16px;
+  background: #4CAF50;
+  color: #fff;
+  border-style: none;
+  font-size: 17px;
+  
+  }
+  
+  

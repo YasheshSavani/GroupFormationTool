@@ -24,27 +24,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("/")
-	public String applicationPage(Model model) {
-	    User user = new User();
-	    model.addAttribute("user", user);
-	    return "index";
-	}
-	
-	@GetMapping("/admin")
-	public String adminLandingPage(Model model) {
-	    User user = new User();
-	    model.addAttribute("user", user);
-	    return "admin_home";
-	}
-	
-	@GetMapping("/home")
-	public String homePage(Model model) {
-	    User user = new User();
-	    model.addAttribute("user", user);
-	    return "home";
-	}
-	
 	@GetMapping("/signup")
 	public String showRegistrationForm(Model model) {
 	    User user = new User();
