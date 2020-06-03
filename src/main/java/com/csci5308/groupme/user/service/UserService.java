@@ -20,9 +20,9 @@ public interface UserService extends UserDetailsService {
     
     public boolean delete(User user);
 
-    boolean sendCredentials(User user);
+    public boolean sendCredentials(User user);
 
-	int updatePassword(String email, String newPassword);
+	public int updatePassword(String email, String newPassword);
 
 }
 
