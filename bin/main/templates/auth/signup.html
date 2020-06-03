@@ -66,24 +66,22 @@
 </script>
 </head>
 <body>
-	<ul>
-		<li class="logo"><a href="/"> GroupMe</a></li>
-		<li style="float: right"><a class="active" href="#signUp">Sign
-				Up</a></li>
-		<li style="float: right"><a href="#logIn">Login</a></li>
-		<!-- Redirect to login page! -->
-	</ul>
+   <div class="topnav">
+		<a class="active" href="/">GroupMe</a> 
+		<a style="float: right" href="/signup">Sign Up</a> 
+		<a style="float: right" href="/login">Login</a>
+	</div>
 
 	<div class="container">
 
 		<h2 style="text-align: center">Sign Up Form</h2>
 
 		<form name="signUpForm" onSubmit="return (validate());"
-			th:action="@{/signUp}" method="post" th:object="${User}">
+			th:action="@{/signup}" method="post" th:object="${user}">
 
 			<table>
 				<tr>
-					<td align="right">User Name</td>
+					<td align="right">Username</td>
 					<td><input type="text" name="userName" th:field="*{userName}" /></td>
 				</tr>
 				<tr>

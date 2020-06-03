@@ -113,4 +113,17 @@ public class UserDaoTest {
 //		assertEquals(1, rowCount);
 //	}
 	
+	@Test
+	public void updateUserTest() {
+		User user = new User();
+		user.setUserName("abhinav78");
+		user.setFirstName("Test");
+		user.setLastName("User");
+		user.setEmail("test_abhinav@gmail.com");
+		user.setPassword(passwordEncoder.encode("testpassword"));
+		int status = userDao.update(user);
+		assertEquals(1, status);
+	}
+	
+	
 }

@@ -9,18 +9,20 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" th:href="@{/css/home_styles.css}">
+        <link rel="stylesheet" th:href="@{/css/theme.css}">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="topnav">
-            <a class="active" href="#home">GroupMe</a>
-            
+       <div class="topnav">
+            <a class="active" href="#home-loggedin">GroupMe</a>
+            <form class="pull-right" id="home-loggedin" method="post" th:action="@{/logout}">
+            <button type="submit">Logout</button>
+            </form>
           </div>
 
-          <p>GroupMe is a tool designed for forming and managing teams for projects, and collaborative assignments.</p>
+          <p>Form and manage groups for your course projects and assignments with GroupMe! Get started...</p>
 
 
         <script src="" async defer></script>

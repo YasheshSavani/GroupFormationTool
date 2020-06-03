@@ -31,7 +31,8 @@
   }
   
   
- .home-loggedin button {
+ .top-nav-button {
+  float:right;
   padding: 14px 16px;
   background: #4CAF50;
   color: #fff;

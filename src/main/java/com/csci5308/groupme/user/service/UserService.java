@@ -20,6 +20,8 @@ public interface UserService extends UserDetailsService{
 	
 	public boolean updateRole(User user, String oldRole, String newRole);
 	
+	public int updatePassword(String email, String newPassword);
+	
 	public boolean delete(User user);	
 		
 }

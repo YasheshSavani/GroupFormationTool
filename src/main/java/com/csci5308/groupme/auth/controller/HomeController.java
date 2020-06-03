@@ -26,7 +26,7 @@ public class HomeController {
 	public String applicationPage(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
-		return "index";
+		return "auth/index";
 	}
 
 	@GetMapping("/admin")
@@ -49,10 +49,10 @@ public class HomeController {
 			@RequestParam(value="isInstructor", required=false, defaultValue="false") boolean isInstructor, Principal principal) {
 		logger.info("Student: ", isStudent);
 		System.out.println(isStudent);
-		ModelAndView mView = new ModelAndView("home");
+		ModelAndView mView = new ModelAndView("auth/home");
 		mView.addObject("isStudent", isStudent);
 		mView.addObject("isTA", isTA);
-		mView.addObject("isStudent", isInstructor);
+		mView.addObject("isInstructor", isInstructor);
 		mView.addObject("userName", principal.getName());
 		return mView;
 	}

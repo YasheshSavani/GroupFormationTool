@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.csci5308.groupme.user.model.User;
@@ -25,10 +26,10 @@ public class UserController {
 	UserService userService;
 	
 	@GetMapping("/signup")
-	public String showRegistrationForm(Model model) {
+	public String showSignUpPage(Model model) {
 	    User user = new User();
 	    model.addAttribute("user", user);
-	    return "signup";
+	    return "auth/signup";
 	}
 	
 	@PostMapping("/signup")
@@ -43,4 +44,36 @@ public class UserController {
 		return "Signed Up";
 	}
 	
+	@GetMapping("/login")
+	public String showLoginPage(Model model) {
+	    User user = new User();
+	    model.addAttribute("user", user);
+	    return "auth/login";
+	}
+	
+	@GetMapping("/forgotPassword")
+	public String forgotPasswordPage() {
+	    return "auth/forgotPassword";
+	}
+	
+	@PostMapping("/forgotPassword")
+	public String userEmail(@RequestParam("email") String email) {
+		String message = "";
+        User user = userService.getByEmail(email);
+        if(null == user)
+        	message = "Email is not registered!";
+        else {
+        	
+        }
+	    return message;
+	}
+	
+//	@PostMapping("/changePassword")
+//	public String changePassword() {
+//		String message;
+//        userService.updatePassword(email, newPassword)
+//		
+//	    return message;
+//	}
+//	
 }

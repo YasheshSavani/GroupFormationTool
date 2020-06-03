@@ -20,13 +20,13 @@ import errors.EditCodes;
 public class UserServiceImpl implements UserService {
 
 	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-	
+
 	@Autowired
 	private UserDao userDao;
-	
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-		
+
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		User user = userDao.findByUserName(userName);
@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getByUserName(String userName) {
 		User user = userDao.findByUserName(userName);
-	    return user;
+		return user;
 	}
 
 	@Override
@@ -59,13 +59,15 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int register(User user) {
-        int insertStatus = 0;
-        String rawPassword = user.getPassword();
-		if(userDao.findByEmail(user.getEmail()) != null) 
-			return EditCodes.EMAIL_EXISTS;
-		logger.info(user.getUserName());
+		int insertStatus = 0;
+		String rawPassword = user.getPassword();
+		if (userDao.findByEmail(user.getEmail()) != null)
+			insertStatus = EditCodes.EMAIL_EXISTS;
+		else {
+		logger.info("Encoding the password for {}", user.getUserName());
 		user.setPassword(passwordEncoder.encode(rawPassword));
-	    insertStatus = userDao.save(user);
+		insertStatus = userDao.save(user);
+		}
 		return insertStatus;
 	}
 
@@ -73,6 +75,19 @@ public class UserServiceImpl implements UserService {
 	public boolean updateRole(User user, String oldRole, String newRole) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public int updatePassword(String email, String newPassword) {
+		int updateStatus = 0;
+		User user = this.getByEmail(email);
+		if (null == user)
+			updateStatus = EditCodes.EMAIL_DOES_NOT_EXIST;
+		else {
+		user.setPassword(passwordEncoder.encode(newPassword));
+		updateStatus = userDao.update(user);
+		}
+		return updateStatus;
 	}
 
 	@Override
