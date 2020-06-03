@@ -44,7 +44,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean enrol(User user) {
+    public boolean enrol(User user, String instructorID, String courseID) {
         try {
             connection = DriverManager.getConnection(
                     databaseProperties.getDbURL(), databaseProperties.getDbUserName(), databaseProperties.getDbPassword());

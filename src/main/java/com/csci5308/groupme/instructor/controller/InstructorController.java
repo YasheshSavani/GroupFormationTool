@@ -39,7 +39,9 @@ public class InstructorController {
                         user.setFirstName(record[2]);
                         user.setEmail(record[3]);
                         user.setPassword(record[0]);
-                        if (studentService.enrol(user)) {
+                        String instructorID = "";
+                        String courseID = "";
+                        if (studentService.enrol(user, instructorID, courseID)) {
                             UserService userService = new UserServiceImpl();
                             userService.sendCredentials(user);
                             System.out.println("Student Enrolled Successfully");

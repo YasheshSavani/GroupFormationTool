@@ -10,6 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -22,10 +23,11 @@ class CourseControllerTest {
 	private MockMvc mockMvc;
 
 	@Test
+	@WithMockUser(username = "admin_test", password = "admin19", authorities = {"ADMIN"})
 	void getCoursePageByRoleTest() throws Exception {
 
-//		this.mockMvc.perform(get("/course")).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("GuestCoursePage"));
+		this.mockMvc.perform(get("/course")).andDo(print()).andExpect(status().isOk())
+				.andExpect(view().name("GuestCoursePage"));
 
 	}
 }
