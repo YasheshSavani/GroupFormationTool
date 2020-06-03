@@ -32,4 +32,9 @@ public class CourseController {
 		return mView;
 	}
 
+    @RequestMapping(value = "/courseadmin", method = RequestMethod.GET)
+    public String courseAdmin() {
+        return "CourseAdmin";
+    }
+
 }

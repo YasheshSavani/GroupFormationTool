@@ -32,8 +32,7 @@ public class UserAuthDetailsTest {
 		roles.add("ROLE_STUDENT");
 		roles.add("ROLE_TA");
 		when(user.getRoles()).thenReturn(roles);
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		authorities = (Set<GrantedAuthority>) userAuthDetails.getAuthorities();
+		Set<GrantedAuthority> authorities = (Set<GrantedAuthority>) userAuthDetails.getAuthorities();
 		assertTrue(!authorities.isEmpty());
 		assertEquals(2, authorities.size());
 	} 

@@ -91,6 +91,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public boolean sendCredentials(User user) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
 	public boolean delete(User user) {
 		// TODO Auto-generated method stub
 		return false;

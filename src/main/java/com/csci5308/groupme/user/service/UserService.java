@@ -1,27 +1,28 @@
 package com.csci5308.groupme.user.service;
+import com.csci5308.groupme.user.model.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
+public interface UserService extends UserDetailsService {
 
-import com.csci5308.groupme.user.model.User;
+    public List<User> getAll();
 
-public interface UserService extends UserDetailsService{
+    public User getByUserName(String userName);
 
-	public List<User> getAll();
-	
-	public User getByUserName(String userName);
-	
-	public User getByEmail(String email);
-	
-	public List<User> getByName(String firstName, String lastName);
-	
-	public int register(User user);
-	
-	public boolean updateRole(User user, String oldRole, String newRole);
-	
-	public int updatePassword(String email, String newPassword);
-	
-	public boolean delete(User user);	
-		
+    public User getByEmail(String email);
+
+    public List<User> getByName(String firstName, String lastName);
+
+    public int register(User user);
+
+    public boolean updateRole(User user, String oldRole, String newRole);
+    
+    public boolean delete(User user);
+
+    boolean sendCredentials(User user);
+
+	int updatePassword(String email, String newPassword);
+
 }
+
