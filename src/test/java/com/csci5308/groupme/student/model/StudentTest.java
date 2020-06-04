@@ -14,8 +14,18 @@ class StudentTest {
     }
 
     @Test
+    public void setUserNameTest() {
+        assertEquals("kharechaB00", student.getUserName());
+    }
+
+
+    @Test
     public void getBannerIDTest() {
         assertEquals("B00xxxxxx", student.getBannerID());
     }
 
+    @Test
+    public void setBannerIDTest() {
+        assertEquals("B00xxxxxx", student.getBannerID());
+    }
 }

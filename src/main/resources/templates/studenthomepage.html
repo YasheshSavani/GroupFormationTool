@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Home Page</title>
+    <script th:inline="javascript">
+        var isTA = [[${isTA}]]
+
+        function showCourseAdminButton() {
+            if (isTA === true) {
+                document.getElementById('courseAdminButton').style.display = "block";
+            }
+        }
+
+
+    </script>
+</head>
+<body onload="showCourseAdminButton()">
+
+<div class="topnav">
+    <a class="active" href="#home-loggedin">GroupMe</a>
+    <form class="pull-right" id="home-loggedin" method="post" th:action="@{/logout}">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+<div style="text-align: center; margin: 0 auto;">
+    <h1>Details of Course</h1>
+    <div id="courseAdminButton" style="text-align: center; display: none;">
+        <form th:action="@{/TAcoursepage}">
+            <button type="submit">Course Admin Page</button>
+        </form>
+    </div>
+    <form name="form" method="GET">
+
+        <table th:if="${studentCourseDetails != null}">
+            <thead>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="details : ${studentCourseDetails}">
+                <td th:text="${details.courseName}"></td>
+                <td th:text="${details.courseCode}"></td>
+                <td>
+                    <a th:href="@{/coursepage(courseCode=${details.courseCode},courseName=${details.courseName})}">
+                        Go To Course
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <span th:if="${studentCourseDetails == null}">You are not Enrolled in any Courses.</span>
+    </form>
+</div>
+</body>
+</html>
