@@ -76,6 +76,21 @@ body{
 .custom-form-control p{
 	text-align: center;
 }
+
+.custom-form-control button{
+	width: auto;
+
+}
+.w-25{width:25%;}
+
+.mt-20{
+	margin-top:20%;
+}
+
+.mb-10{
+	margin-bottom: 10px;
+}
+
     
   
   

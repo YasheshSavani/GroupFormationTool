@@ -11,4 +11,8 @@ public class CourseQuery {
     public static final String SELECT_COURSE_BY_COURSE_CODE = "SELECT courseName,crn FROM course WHERE courseCode=?";
 
     public static final String SELECT_COURSE_STUDENT_ENROLLED_IN_BY_USERNAME_STUDENT = "SELECT DISTINCT courseCode FROM enrollment WHERE studentUserName=?";
+    
+    public static final String ADD_COURSE = "INSERT INTO course(courseCode, courseName, crn) VALUES(?,?,?)";
+    
+    public static final String DELETE_COURSE = "DELETE FROM course WHERE courseCode=?";
 }

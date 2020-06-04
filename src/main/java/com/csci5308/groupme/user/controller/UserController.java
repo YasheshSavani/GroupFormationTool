@@ -35,7 +35,6 @@ public class UserController {
 	}
 
 	@PostMapping("/signup")
-	@ResponseBody
 	public ModelAndView signUpUser(@ModelAttribute("user") User user) {
 		ModelAndView mView = new ModelAndView("auth/signup");
 		String message;

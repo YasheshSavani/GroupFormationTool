@@ -11,6 +11,8 @@ import com.csci5308.groupme.course.model.Course;
 @Service
 public class CourseServiceImpl implements CourseService {
 
+	
+	
 	@Autowired
 	private CourseDAO courseDAO;;
 
@@ -30,6 +32,19 @@ public class CourseServiceImpl implements CourseService {
 	public List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception {
 		return courseDAO.findCoursesByStudentUserName(studentUserName);
 	}
+	
+	@Override
+	public int createCourse(Course course) throws Exception {
+		int status = courseDAO.save(course);
+		return status;
+	}
+	
+	@Override
+	public int delete(String courseCode) throws Exception {
+		int rowCount = courseDAO.remove(courseCode);
+		return rowCount;
+	}
+
 
 
 }

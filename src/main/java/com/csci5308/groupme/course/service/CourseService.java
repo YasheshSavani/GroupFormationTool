@@ -5,9 +5,13 @@ import com.csci5308.groupme.course.model.Course;
 
 public interface CourseService {
 
-	List<Course> findAllCourses() throws Exception;
+	public List<Course> findAllCourses() throws Exception;
 
-	List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception;
+	public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception;
 
-	List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception;
+	public List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception;
+	
+	public int createCourse(Course course) throws Exception;
+	
+	public int delete(String courseCode) throws Exception;
 }
