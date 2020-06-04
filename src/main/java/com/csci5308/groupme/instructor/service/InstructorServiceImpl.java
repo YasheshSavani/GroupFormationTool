@@ -18,7 +18,7 @@ import java.util.List;
 public class InstructorServiceImpl implements InstructorService {
 
     @Override
-    public boolean upload(MultipartFile file) {
+    public boolean upload(MultipartFile file, String instructorID, String courseCode) {
         try {
             Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8));
             List<String[]> records = readAll(reader);
@@ -34,9 +34,7 @@ public class InstructorServiceImpl implements InstructorService {
                         user.setFirstName(record[2]);
                         user.setEmail(record[3]);
                         user.setPassword(record[0]);
-                        String instructorID = "";
-                        String courseID = "";
-                        if (studentDAO.enrol(user, instructorID, courseID)) {
+                        if (studentDAO.enrol(user, instructorID, courseCode)) {
                             UserService userService = new UserServiceImpl();
                             userService.sendCredentials(user);
                         }
@@ -50,7 +48,7 @@ public class InstructorServiceImpl implements InstructorService {
         return false;
     }
 
-    private List<String[]> readAll(Reader reader) {
+    public List<String[]> readAll(Reader reader) {
         CSVReader csvReader = new CSVReader(reader);
         try {
             List<String[]> records = csvReader.readAll();

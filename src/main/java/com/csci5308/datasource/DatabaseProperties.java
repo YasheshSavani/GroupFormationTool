@@ -16,11 +16,11 @@ public class DatabaseProperties {
     public DatabaseProperties() {
         try {
             Properties databaseProperties = new Properties();
-            Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/application.properties"));
+            Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/database.properties"));
             databaseProperties.load(propertiesReader);
-            dbURL = databaseProperties.getProperty("spring.datasource.url");
-            dbUserName = databaseProperties.getProperty("spring.datasource.username");
-            dbPassword = databaseProperties.getProperty("spring.datasource.password");
+            dbURL = databaseProperties.getProperty("development.url");
+            dbUserName = databaseProperties.getProperty("development.username");
+            dbPassword = databaseProperties.getProperty("development.password");
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -3,6 +3,9 @@ package com.csci5308.groupme.student.dao;
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.student.model.Student;
 import com.csci5308.groupme.user.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -14,6 +17,8 @@ public class StudentDAOImpl implements StudentDAO {
     Connection connection;
     CallableStatement statement;
     DatabaseProperties databaseProperties;
+
+    BCryptPasswordEncoder passwordEncoder;
 
     public StudentDAOImpl(Student student) {
         this.student = student;
@@ -46,16 +51,19 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean enrol(User user, String instructorID, String courseID) {
         try {
+            passwordEncoder = new BCryptPasswordEncoder(10);
             connection = DriverManager.getConnection(
                     databaseProperties.getDbURL(), databaseProperties.getDbUserName(), databaseProperties.getDbPassword());
-            statement = connection.prepareCall("{call INSERT_STUDENT(?, ?, ?, ?, ?, ?)}");
+            statement = connection.prepareCall("{call INSERT_STUDENT(?, ?, ?, ?, ?, ?, ?, ?)}");
             if (statement != null) {
                 statement.setString("procusername", user.getUserName());
                 statement.setString("procfirstname", user.getFirstName());
                 statement.setString("proclastname", user.getLastName());
                 statement.setString("procemail", user.getEmail());
-                statement.setString("procpassword", user.getPassword());
+                statement.setString("procpassword", passwordEncoder.encode(user.getPassword()));
                 statement.setString("procbannerid", student.getBannerID());
+                statement.setString("procinstructorid", instructorID);
+                statement.setString("proccoursecode", courseID);
                 statement.executeUpdate();
                 statement.close();
             }
@@ -67,5 +75,6 @@ public class StudentDAOImpl implements StudentDAO {
             return false;
         }
     }
+
 
 }

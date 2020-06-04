@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Details</title>
+</head>
+<body>
+<h1 th:text="${courseCode}"></h1>
+<h1 th:text="${courseName}"></h1>
+<h1 th:text="${courseCrn}"></h1>
+<form action="/InstructorTAStudent/uploadfile" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="courseCode" th:value="${courseCode}">
+    <input type="hidden" name="courseName" th:value="${courseName}">
+    <input type="hidden" name="courseCrn" th:value="${courseCrn}">
+    <input type="file" id="file" name="file"/>
+    <br>
+    <input type="submit"/>
+</form>
+
+</body>
+</html>

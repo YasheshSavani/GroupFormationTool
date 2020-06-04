@@ -6,6 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public interface InstructorService {
 
-    public boolean upload(MultipartFile file);
+    public boolean upload(MultipartFile file, String instructorID, String courseCode);
 
 }
