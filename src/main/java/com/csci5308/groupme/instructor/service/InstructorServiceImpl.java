@@ -1,5 +1,24 @@
 package com.csci5308.groupme.instructor.service;
 
+import com.csci5308.groupme.instructor.dao.InstructorDAO;
+import com.csci5308.groupme.student.dao.StudentDAO;
+import com.csci5308.groupme.student.dao.StudentDAOImpl;
+import com.csci5308.groupme.student.model.Student;
+import com.csci5308.groupme.user.model.User;
+import com.csci5308.groupme.user.service.UserService;
+import com.csci5308.groupme.user.service.UserServiceImpl;
+import com.opencsv.CSVReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
+@Service
 import com.csci5308.groupme.student.dao.StudentDAO;
 import com.csci5308.groupme.student.dao.StudentDAOImpl;
 import com.csci5308.groupme.student.model.Student;
@@ -16,6 +35,24 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class InstructorServiceImpl implements InstructorService {
+
+    @Autowired
+    InstructorDAO instructorDAO;
+
+    @Override
+    public String findByTAEmailId(String emailId, String courseCode) throws Exception {
+
+        String assignmentConfirmation = null;
+
+        try {
+            assignmentConfirmation = instructorDAO.findByTAEmailId(emailId, courseCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return assignmentConfirmation;
+
+    }
 
     @Override
     public boolean upload(MultipartFile file, String instructorID, String courseCode) {
@@ -60,5 +97,4 @@ public class InstructorServiceImpl implements InstructorService {
         }
         return null;
     }
-
 }

@@ -1,5 +1,7 @@
 package com.csci5308.groupme.auth.controller;
 
+import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.course.service.CourseService;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import org.slf4j.Logger;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class HomeController {
@@ -20,6 +23,9 @@ public class HomeController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    CourseService courseService;
 
     @GetMapping("/")
     public String applicationPage(Model model) {
@@ -36,8 +42,16 @@ public class HomeController {
     }
 
     @GetMapping("/guest")
-    public ModelAndView guestUserHomePage(Principal principal) {
+    public ModelAndView guestUserHomePage(Principal principal) throws Exception {
         ModelAndView mView = new ModelAndView("guest/home_guest");
+        List<Course> guestCourses = courseService.findAllCourses();
+        if (!guestCourses.isEmpty()) {
+
+            mView.addObject("details", guestCourses);
+        } else {
+            mView.addObject("details", null);
+        }
+
         mView.addObject("userName", principal.getName());
         return mView;
     }
@@ -47,21 +61,23 @@ public class HomeController {
                                    @RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
                                    @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor, Principal principal) {
 
-        if (isStudent && isTA && isInstructor) {
-            return "redirect:/InstructorTAStudent";
-        } else if (isInstructor && isStudent) {
-            return "redirect:/InstructorStudent";
-        } else if (isStudent && isTA) {
-            return "redirect:/TACourses";
-        } else if (isInstructor && isTA) {
-            return "redirect:/InstructorTA";
-        } else if (isInstructor) {
-            return "redirect:/Instructor";
-        } else if (isTA) {
-            return "redirect:/TACourses";
-        } else {
-            return "redirect:/studenthomepage";
+
+        if (isStudent && !isTA && !isInstructor) {
+            return "redirect:/studenthomepage?isStudent=true";
+        } else if (!isStudent && isTA && !isInstructor) {
+            return "redirect:/studenthomepage?isTA=true";
+        } else if (!isStudent && !isTA && isInstructor) {
+            return "redirect:/studenthomepage/isInstructor=true";
+        } else if (isStudent && isTA && !isInstructor) {
+            return "redirect:/studenthomepage?isStudent=true&isTA=true";
+        } else if (isStudent && !isTA && isInstructor) {
+            return "redirect:/studenthomepage?isStudent=true&isInstructor=true";
+        } else if (!isStudent && isTA && isInstructor) {
+            return "redirect:/studenthomepage?isTA=true&isInstructor=true";
+        } else if (isStudent && isTA && isInstructor) {
+            return "redirect:/studenthomepage?isStudent=true&isTA=true&isInstructor=true";
         }
+        return null;
     }
 
 }

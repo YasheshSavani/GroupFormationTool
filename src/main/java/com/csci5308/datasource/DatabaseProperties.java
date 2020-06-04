@@ -3,8 +3,6 @@ package com.csci5308.datasource;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.Properties;
 
 public class DatabaseProperties {
@@ -30,11 +28,23 @@ public class DatabaseProperties {
         return dbURL;
     }
 
+    public void setDbURL(String dbURL) {
+        this.dbURL = dbURL;
+    }
+
     public String getDbUserName() {
         return dbUserName;
     }
 
+    public void setDbUserName(String dbUserName) {
+        this.dbUserName = dbUserName;
+    }
+
     public String getDbPassword() {
         return dbPassword;
+    }
+
+    public void setDbPassword(String dbPassword) {
+        this.dbPassword = dbPassword;
     }
 }
