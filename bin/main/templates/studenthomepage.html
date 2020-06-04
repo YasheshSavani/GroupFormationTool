@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Student Home Page</title>
     <script th:inline="javascript">
-        var isTA = [[${isTA}]]
+        var isTA = "[[${isTA}]]";
 
         function showCourseAdminButton() {
-            if (isTA === true) {
+            if (isTA === "true") {
                 document.getElementById('courseAdminButton').style.display = "block";
             }
         }
