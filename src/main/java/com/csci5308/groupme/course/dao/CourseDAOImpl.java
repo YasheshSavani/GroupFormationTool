@@ -294,7 +294,7 @@ public class CourseDAOImpl implements CourseDAO {
     @Override
     public Course findCourseByCourseCode(String courseCode) throws Exception {
         ResultSet courseResultSet = null;
-        Connection connection;
+        Connection connection = null;
         PreparedStatement getCourseStatement = null;
         Course course = new Course();
         try {
@@ -321,6 +321,13 @@ public class CourseDAOImpl implements CourseDAO {
             if (getCourseStatement != null) {
                 try {
                     getCourseStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

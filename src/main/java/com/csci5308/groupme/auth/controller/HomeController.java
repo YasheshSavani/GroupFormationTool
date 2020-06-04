@@ -31,7 +31,7 @@ public class HomeController {
     public String applicationPage(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "index";
+        return "auth/index";
     }
 
     @GetMapping("/admin")
@@ -68,7 +68,7 @@ public class HomeController {
             return "redirect:/studenthomepage?isTA=true";
         } else if (!isStudent && !isTA && isInstructor) {
             return "redirect:/Instructor";
-        } else if (isStudent && isTA && !isInstructor) { // yashesh
+        } else if (isStudent && isTA && !isInstructor) {
             return "redirect:/studenthomepage?isStudent=true&isTA=true";
         } else if (isStudent && !isTA && isInstructor) {
             return "redirect:/InstructorTAStudent/InstructorStudent";
