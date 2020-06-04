@@ -1,16 +1,5 @@
 package com.csci5308.groupme.course.dao;
 
-import ch.qos.logback.classic.Logger;
-import errors.EditCodes;
-import errors.SqlErrors;
-
-import com.csci5308.datasource.DatabaseProperties;
-import com.csci5308.groupme.course.model.Course;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-import sql.CourseQuery;
-import sql.UserQuery;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,6 +7,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
+import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.course.model.Course;
+
+import ch.qos.logback.classic.Logger;
+import errors.EditCodes;
+import errors.SqlErrors;
+import sql.CourseQuery;
 
 @Repository
 public class CourseDAOImpl implements CourseDAO {
@@ -191,8 +191,7 @@ public class CourseDAOImpl implements CourseDAO {
 			connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			logger.info("Connected to the database successfully...");
 
-			preparedStatement = connection
-					.prepareStatement(CourseQuery.SELECT_COURSE_STUDENT_ENROLLED_IN_BY_USERNAME_STUDENT);
+			preparedStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_STUDENT_ENROLLED_IN_BY_USERNAME_STUDENT);
 			preparedStatement.setString(1, studentUserName);
 			resultSet = preparedStatement.executeQuery();
 
@@ -355,74 +354,70 @@ public class CourseDAOImpl implements CourseDAO {
 	}
 	
 	@Override
-	public List<Course> findCoursesByInstructorAndTA(String userName) throws Exception {
+	public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception {
 	    List<Course> courseList = new ArrayList<>();
-	ResultSet courseResultSet;
-	Connection connection = null;
-	PreparedStatement getCourseStatement;
+	    ResultSet courseResultSet;
+	    Connection connection = null;
+	    PreparedStatement getCourseStatement;
 	    try {
 	        String DB_URL = databaseProperties.getDbURL();
-	String USER = databaseProperties.getDbUserName();
-	String PASSWORD = databaseProperties.getDbPassword();
-	connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-	getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_USERNAME_INSTRUCTOR_TA);
-	getCourseStatement.setString(1, userName);
-	getCourseStatement.setString(2, userName);
-	courseResultSet = getCourseStatement.executeQuery();
+	        String USER = databaseProperties.getDbUserName();
+	        String PASSWORD = databaseProperties.getDbPassword();
+	        connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+	        getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_USERNAME_INSTRUCTOR);
+	        getCourseStatement.setString(1, instructorUserName);
+	        courseResultSet = getCourseStatement.executeQuery();
 	        while (courseResultSet.next()) {
 	            Course course = new Course();
-	course.setCourseName(courseResultSet.getString("courseName"));
-	course.setCourseCode(courseResultSet.getString("courseCode"));
-	course.setCourseCrn(courseResultSet.getInt("crn"));
-	courseList.add(course);
-	}
+	            course.setCourseName(courseResultSet.getString("courseName"));
+	            course.setCourseCode(courseResultSet.getString("courseCode"));
+	            course.setCourseCrn(courseResultSet.getInt("crn"));
+	            courseList.add(course);
+	        }
 	        if (getCourseStatement != null) {
 	            getCourseStatement.close();
-	}
+	        }
 	        if (connection != null) {
 	            connection.close();
-	}
+	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	}
+	    }
 	    return courseList;
 	}
-
-@Override
-public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception {
-    List<Course> courseList = new ArrayList<>();
-ResultSet courseResultSet;
-Connection connection = null;
-PreparedStatement getCourseStatement;
-    try {
-        String DB_URL = databaseProperties.getDbURL();
-String USER = databaseProperties.getDbUserName();
-String PASSWORD = databaseProperties.getDbPassword();
-connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_USERNAME_INSTRUCTOR);
-getCourseStatement.setString(1, instructorUserName);
-courseResultSet = getCourseStatement.executeQuery();
-        while (courseResultSet.next()) {
-            Course course = new Course();
-course.setCourseName(courseResultSet.getString("courseName"));
-course.setCourseCode(courseResultSet.getString("courseCode"));
-course.setCourseCrn(courseResultSet.getInt("crn"));
-courseList.add(course);
-}
-        if (getCourseStatement != null) {
-            getCourseStatement.close();
-}
-        if (connection != null) {
-            connection.close();
-}
-    } catch (Exception e) {
-        e.printStackTrace();
-}
-    return courseList;
-}
-
-
-    
-    
+	
+	@Override
+	public List<Course> findCoursesByInstructorAndTA(String userName) throws Exception {
+	    List<Course> courseList = new ArrayList<>();
+	    ResultSet courseResultSet;
+	    Connection connection = null;
+	    PreparedStatement getCourseStatement;
+	    try {
+	        String DB_URL = databaseProperties.getDbURL();
+	        String USER = databaseProperties.getDbUserName();
+	        String PASSWORD = databaseProperties.getDbPassword();
+	        connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+	        getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_USERNAME_INSTRUCTOR_TA);
+	        getCourseStatement.setString(1, userName);
+	        getCourseStatement.setString(2, userName);
+	        courseResultSet = getCourseStatement.executeQuery();
+	        while (courseResultSet.next()) {
+	            Course course = new Course();
+	            course.setCourseName(courseResultSet.getString("courseName"));
+	            course.setCourseCode(courseResultSet.getString("courseCode"));
+	            course.setCourseCrn(courseResultSet.getInt("crn"));
+	            courseList.add(course);
+	        }
+	        if (getCourseStatement != null) {
+	            getCourseStatement.close();
+	        }
+	        if (connection != null) {
+	            connection.close();
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return courseList;
+	}
 
 }
