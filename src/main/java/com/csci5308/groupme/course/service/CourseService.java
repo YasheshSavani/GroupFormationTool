@@ -8,4 +8,6 @@ public interface CourseService {
 	List<Course> findAllCourses() throws Exception;
 
 	List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception;
+
+	List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception;
 }

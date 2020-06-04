@@ -2,14 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Course Admin Page</title>
+    <title>Course Operation</title>
 </head>
 <body>
-<form action="/uploadfile" method="post" enctype="multipart/form-data">
-    <input type="file" id="file" name="file"/>
-    <br>
-    <input type="submit"/>
-</form>
 <p th:text="'Status: ' + ${status}"></p>
 </body>
 </html>

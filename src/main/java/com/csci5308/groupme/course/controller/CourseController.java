@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -22,41 +22,44 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @RequestMapping(value = "/course", method = RequestMethod.GET)
-    public ModelAndView getCoursesForGuest() throws Exception {
-
-        List<Course> guestCourses = courseService.findAllCourses();
-        ModelAndView mView = new ModelAndView();
-        if (guestCourses.size() > 0) {
-
-            mView.addObject("details", guestCourses);
-        } else {
-            mView.addObject("details", null);
-        }
-        mView.setViewName("guestcoursepage");
-        return mView;
-    }
-
-    @RequestMapping(value = "/courseadminpage", method = RequestMethod.GET)
-    public ModelAndView getCoursesByUserNameAndRole() throws Exception {
-        String userName =  "ysavani";   //p.getName();
+    @RequestMapping(value = "/TAcoursepage", method = RequestMethod.GET)
+    public ModelAndView getCoursesByUserNameAndRole(Principal p) throws Exception {
+        String userName = p.getName();
         String roleName = "ROLE_TA";
 
-        List<Course> courseAdminCourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
+        List<Course> courseTACourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
 
         ModelAndView mView = new ModelAndView();
-        if (courseAdminCourses.size() > 0) {
-            mView.addObject("courseAdminCourses", courseAdminCourses);
+        if (!courseTACourses.isEmpty()) {
+            mView.addObject("courseTACourses", courseTACourses);
         } else {
-            mView.addObject("courseAdminCourses", null);
+            mView.addObject("courseTACourses", null);
         }
-        mView.setViewName("courseadminpage");
+        mView.setViewName("tahomepage");
         return mView;
     }
 
-    @RequestMapping(value = "/courseadmin", method = RequestMethod.GET)
-    public String courseAdmin() {
-        return "CourseAdmin";
+    @RequestMapping(value = "/operationoncourse", method = RequestMethod.GET)
+    public ModelAndView showOpearationsOnCourse(@RequestParam("courseCode") String courseCode,
+                                                @RequestParam("courseName") String courseName) {
+        ModelAndView mView = new ModelAndView();
+        mView.setViewName("operationoncourse");
+        mView.addObject("courseCode", courseCode);
+        mView.addObject("courseName", courseName);
+        return mView;
     }
+
+    @RequestMapping(value = "/coursepage", method = RequestMethod.GET)
+    public ModelAndView getCoursePage(@RequestParam("courseName") String courseName,
+                                      @RequestParam("courseCode") String courseCode) throws Exception {
+        logger.info(courseCode);
+        logger.info(courseName);
+        ModelAndView mView = new ModelAndView();
+        mView.setViewName("coursepage");
+        mView.addObject("courseCode", courseCode);
+        mView.addObject("courseName", courseName);
+        return mView;
+    }
+
 
 }

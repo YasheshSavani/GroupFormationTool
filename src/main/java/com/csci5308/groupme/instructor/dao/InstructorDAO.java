@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface InstructorDAO {
 
-    public List<TeachingAssistant> findByTAEmailId(String emailId) throws Exception;
+    String findByTAEmailId(String emailId, String courseCodes) throws Exception;
 }

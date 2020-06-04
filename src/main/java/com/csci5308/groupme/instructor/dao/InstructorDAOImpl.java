@@ -1,19 +1,14 @@
 package com.csci5308.groupme.instructor.dao;
 
 import ch.qos.logback.classic.Logger;
-import com.csci5308.groupme.teaching_assistant.model.TeachingAssistant;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import sql.UserQuery;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
 import java.util.Properties;
 
 @Repository
@@ -22,15 +17,14 @@ public class InstructorDAOImpl implements InstructorDAO {
     private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorDAOImpl.class);
 
     @Override
-    public List<TeachingAssistant> findByTAEmailId(String emailId) throws Exception {
+    public String findByTAEmailId(String emailId, String courseCode) throws Exception {
 
-        List<TeachingAssistant> informationOfTA = null;
+
         ResultSet resultSet = null;
         Connection connection = null;
-        Statement statement = null;
+        PreparedStatement preparedStatement = null;
 
         try {
-            informationOfTA = new ArrayList<>();
 
             String databasePropertiesFilePath = "src/main/resources/database.properties";
             Reader dbPropertiesReader = new BufferedReader(new FileReader(databasePropertiesFilePath));
@@ -48,25 +42,37 @@ public class InstructorDAOImpl implements InstructorDAO {
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to the database successfully...");
 
-            statement = connection.createStatement();
-            String selectUserByEmailQuery = "SELECT userName, firstName, lastName FROM user WHERE email=" + emailId;
-            resultSet = statement.executeQuery(selectUserByEmailQuery);
+            preparedStatement = connection.prepareStatement(UserQuery.FIND_USERNAME_BY_EMAIL);
+            preparedStatement.setString(1, emailId);
+            resultSet = preparedStatement.executeQuery();
 
             logger.info("Execution of Course Select Query is Completed...");
 
-            while (resultSet.next()) {
-                String userName = resultSet.getString("userName");
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
-                informationOfTA.add(new TeachingAssistant(userName, firstName, lastName));
+            if (!resultSet.next()) {
+                return "No User account available";
             }
+            do {
+                String taUserName = resultSet.getString("userName");
+                CallableStatement callableStatementToAddTA = connection.prepareCall("{call INSERT_TA(?,?)}");
+                try {
+                    if (callableStatementToAddTA != null) {
+                        callableStatementToAddTA.setString(1,taUserName);
+                        callableStatementToAddTA.setString(2,courseCode);
+                        callableStatementToAddTA.executeUpdate();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }finally {
+                    callableStatementToAddTA.close();
+                }
+            } while (resultSet.next());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             resultSet.close();
-            if (statement != null) {
+            if (preparedStatement != null) {
                 try {
-                    statement.close();
+                    preparedStatement.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -82,6 +88,6 @@ public class InstructorDAOImpl implements InstructorDAO {
 
         }
 
-        return informationOfTA;
+        return "True";
     }
 }

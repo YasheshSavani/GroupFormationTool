@@ -9,10 +9,10 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
@@ -23,11 +23,33 @@ class CourseControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "admin_test",password = "admin19", authorities = {"ADMIN"})
-    void getCoursesForGuestTest() throws Exception {
+    @WithMockUser(username = "savani", password = "admin19", authorities = {"ROLE_TA"})
+    void getCoursesByUserNameAndRoleTest() throws Exception {
 
-        this.mockMvc.perform(get("/course")).andDo(print()).andExpect(status().isOk())
-                .andExpect(model().attributeExists("details"));
+        this.mockMvc.perform(get("/TAcoursepage")).andDo(print()).andExpect(status().isOk())
+                .andExpect(model().attributeExists("courseTACourses"));
+    }
+
+    @Test
+    @WithMockUser(username = "savani", password = "admin19", authorities = {"ROLE_TA"})
+    public void showOpearationsOnCourse() throws Exception {
+
+        this.mockMvc.perform(get("/operationoncourse").param("courseCode", "csci0010")
+                .param("courseName", "web"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(model().attributeExists("courseCode", "courseName"));
 
     }
+
+    @Test
+    @WithMockUser(username = "savani", password = "admin19", authorities = {"ROLE_TA"})
+    public void getCoursePage() throws Exception {
+
+        this.mockMvc.perform(get("/coursepage").param("courseCode", "CSCI5308")
+                .param("courseName", "Adv Topics in Software Development"))
+                .andDo(print()).andExpect(status().isOk())
+                .andExpect(model().attributeExists("courseCode", "courseName"));
+
+    }
+
 }

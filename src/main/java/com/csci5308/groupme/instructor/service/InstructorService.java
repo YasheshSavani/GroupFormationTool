@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface InstructorService {
 
-    List<TeachingAssistant> findByTAEmailId(String emailId) throws Exception;
+    String findByTAEmailId(String emailId, String courseCode) throws Exception;
 }

@@ -15,6 +15,8 @@ public class UserQuery {
     public static final String FIND_BY_NAME = "SELECT * FROM user where firstName = ? and lastName = ?";
 
     public static final String FIND_ALL = "SELECT * FROM user";
+
+    public static final String FIND_USERNAME_BY_EMAIL = "SELECT userName FROM user WHERE email=?";
 }
 
 

@@ -3,8 +3,6 @@ package com.csci5308.datasource;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.Properties;
 
 public class DatabaseProperties {
@@ -16,11 +14,11 @@ public class DatabaseProperties {
     public DatabaseProperties() {
         try {
             Properties databaseProperties = new Properties();
-            Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/application.properties"));
+            Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/database.properties"));
             databaseProperties.load(propertiesReader);
-            dbURL = databaseProperties.getProperty("spring.datasource.url");
-            dbUserName = databaseProperties.getProperty("spring.datasource.username");
-            dbPassword = databaseProperties.getProperty("spring.datasource.password");
+            dbURL = databaseProperties.getProperty("development.url");
+            dbUserName = databaseProperties.getProperty("development.username");
+            dbPassword = databaseProperties.getProperty("development.password");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -30,11 +28,23 @@ public class DatabaseProperties {
         return dbURL;
     }
 
+    public void setDbURL(String dbURL) {
+        this.dbURL = dbURL;
+    }
+
     public String getDbUserName() {
         return dbUserName;
     }
 
+    public void setDbUserName(String dbUserName) {
+        this.dbUserName = dbUserName;
+    }
+
     public String getDbPassword() {
         return dbPassword;
+    }
+
+    public void setDbPassword(String dbPassword) {
+        this.dbPassword = dbPassword;
     }
 }

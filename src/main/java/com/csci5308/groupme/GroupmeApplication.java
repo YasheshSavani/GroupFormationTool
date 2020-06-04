@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 public class GroupmeApplication {
 
 
-	public static void main(String[] args) {
-		SpringApplication.run(GroupmeApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GroupmeApplication.class, args);
+    }
 
 }
