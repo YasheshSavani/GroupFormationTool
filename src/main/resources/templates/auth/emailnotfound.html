@@ -19,15 +19,15 @@
 <body>
 	<ul>
 		<li class="logo"><a href="/"> GroupMe</a></li>
-		<li style="float: right"><a href="signUp">Sign Up</a></li>
-		<li style="float: right"><a href="#logIn">Login</a></li>
+		<li style="float: right"><a href="signup">Sign Up</a></li>
+		<li style="float: right"><a href="logIn">Login</a></li>
 		<!-- Redirect to login page! -->
 	</ul>
 	<h2 style="text-align: center">Forgot Password?</h2>
 	<h3 style="text-align: center">Enter the registered email id to receive a mail for password reset</h3>
 	<div style="margin-left: 27%; padding: 1px;">
 	<form name="forgetPasswordForm" onSubmit="return (validate());"
-			th:action="@{/forgetPassword}" method="post">
+			th:action="@{/forgotPassword}" method="post">
 
 			<table style = "margin-left:auto;margin-right:auto;">
 				<tr>
@@ -42,6 +42,7 @@
 					<td><input type="submit" value="Submit" /></td>
 				</tr>
 			</table>
+			<p style="text-align: center">Email doesn't exist!</p>
 	</form>
 	</div>
 </body>

@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 @PropertySource("classpath:database.properties")
 public class UserDaoImpl implements UserDao {
-
+	
 	Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
 	@Value("${development.driver}")
@@ -265,7 +265,6 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		List<User> users = new ArrayList<User>();
 		try {
-			// connection = dataSource.openConnection();
 			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -346,4 +345,50 @@ public class UserDaoImpl implements UserDao {
 		return addedUserCount;
 	}
 
+	@Override
+	public int update(User user) {
+		int updatedRowCount = 0;
+		try {
+			Class.forName(JDBC_DRIVER);
+			logger.info("Connecting to the selected database...");
+			connection = DriverManager.getConnection(DB_URL, USER, PASS);
+			connection.setAutoCommit(false);
+			preparedStatement = connection.prepareStatement(UserQuery.UPDATE_USER);
+			preparedStatement.setString(1, user.getFirstName());
+			preparedStatement.setString(2, user.getLastName());
+			preparedStatement.setString(3, user.getEmail());
+			preparedStatement.setString(4, user.getPassword());
+			preparedStatement.setString(5, user.getUserName());
+			updatedRowCount = preparedStatement.executeUpdate();
+			connection.commit();
+		} catch (SQLException se) {
+			try {
+				connection.rollback();
+				logger.info(se.getMessage());
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			se.printStackTrace();
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} catch (SQLException se) {
+			}
+
+			if (connection != null)
+				try {
+					connection.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+		}
+		return updatedRowCount;
+		
+	}
+
+	
 }

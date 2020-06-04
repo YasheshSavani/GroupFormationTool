@@ -1,5 +1,4 @@
 package com.csci5308.groupme.user.service;
-
 import com.csci5308.groupme.user.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -18,9 +17,12 @@ public interface UserService extends UserDetailsService {
     public int register(User user);
 
     public boolean updateRole(User user, String oldRole, String newRole);
-
+    
     public boolean delete(User user);
 
-    boolean sendCredentials(User user);
+    public boolean sendCredentials(User user);
+
+	public int updatePassword(String email, String newPassword);
 
 }
+

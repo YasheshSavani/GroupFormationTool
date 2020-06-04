@@ -31,7 +31,6 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	@Override
 	protected void handle(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
 			throws IOException, ServletException {
-
 		landingUrl = decideUrl(authentication);
 		if (response.isCommitted())
 			return;

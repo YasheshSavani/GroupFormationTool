@@ -24,7 +24,7 @@ public class HomeControllerTest {
 	@Test
 	void getApplicationPageTest() throws Exception {
 		this.mockMvc.perform(get("/").secure(true)).andDo(print()).andExpect(status().isOk())
-				.andExpect(view().name("index"));
+				.andExpect(view().name("auth/index"));
 	}
 	
 	@Test
@@ -56,53 +56,55 @@ public class HomeControllerTest {
 				.andExpect(view().name("guest/home_guest"));
 	}
 	
-//	@Test
-//	@WithMockUser(username = "student_test", password = "testpassword", authorities = { "ROLE_STUDENT"})
-//	void studentHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isStudent=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+
+//@Test
+//@WithMockUser(username = "student_test", password = "testpassword", authorities = { "ROLE_STUDENT"})
+//void studentHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isStudent=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
 //
-//	@Test
-//	@WithMockUser(username = "ta_test", password = "testpassword", authorities = { "ROLE_TA"})
-//	void taHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isTA=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+//@Test
+//@WithMockUser(username = "ta_test", password = "testpassword", authorities = { "ROLE_TA"})
+//void taHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isTA=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
 //
-//	@Test
-//	@WithMockUser(username = "instructor_test", password = "testpassword", authorities = { "ROLE_INSTRUCTOR"})
-//	void instructorHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+//@Test
+//@WithMockUser(username = "instructor_test", password = "testpassword", authorities = { "ROLE_INSTRUCTOR"})
+//void instructorHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
 //
-//	@Test
-//	@WithMockUser(username = "stdent_and_ta_test", password = "testpassword", authorities = { "ROLE_STUDENT", "ROLE_TA"})
-//	void studentTAHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isStudent=true&isTA=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+//@Test
+//@WithMockUser(username = "stdent_and_ta_test", password = "testpassword", authorities = { "ROLE_STUDENT", "ROLE_TA"})
+//void studentTAHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isStudent=true&isTA=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
 //
-//	@Test
-//	@WithMockUser(username = "stdent_and_inst_test", password = "testpassword", authorities = { "ROLE_STUDENT", "ROLE_INSTRUCTOR"})
-//	void studentInstructorHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isStudent=true&isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+//@Test
+//@WithMockUser(username = "stdent_and_inst_test", password = "testpassword", authorities = { "ROLE_STUDENT", "ROLE_INSTRUCTOR"})
+//void studentInstructorHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isStudent=true&isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
 //
-//	@Test
-//	@WithMockUser(username = "ta_and_inst_test", password = "testpassword", authorities = { "ROLE_TA", "ROLE_INSTRUCTOR"})
-//	void taInstructorHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isTA=true&isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+//@Test
+//@WithMockUser(username = "ta_and_inst_test", password = "testpassword", authorities = { "ROLE_TA", "ROLE_INSTRUCTOR"})
+//void taInstructorHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isTA=true&isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
 //
-//	@Test
-//	@WithMockUser(username = "student_ta_inst_test", password = "testpassword", authorities = {"ROLE_STUDENT", "ROLE_TA", "ROLE_INSTRUCTOR"})
-//	void studentTAInstructorHomePageTest() throws Exception {
-//		this.mockMvc.perform(get("/home?isStudent=true&isTA=true&isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
-//				.andExpect(view().name("home"));
-//	}
+//@Test
+//@WithMockUser(username = "student_ta_inst_test", password = "testpassword", authorities = {"ROLE_STUDENT", "ROLE_TA", "ROLE_INSTRUCTOR"})
+//void studentTAInstructorHomePageTest() throws Exception {
+//	this.mockMvc.perform(get("/home?isStudent=true&isTA=true&isInstructor=true").secure(true)).andDo(print()).andExpect(status().isOk())
+//			.andExpect(view().name("home"));
+//}
+
 		
 }

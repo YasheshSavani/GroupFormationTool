@@ -19,44 +19,34 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @Autowired
-    UserService userService;
+	Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @Autowired
-    CourseService courseService;
+	@Autowired
+	UserService userService;
 
-    @GetMapping("/")
-    public String applicationPage(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "index";
-    }
+	@GetMapping("/")
+	public String applicationPage(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "auth/index";
+	}
 
-    @GetMapping("/admin")
-    public ModelAndView adminHomePage(Principal principal) {
-        ModelAndView mView = new ModelAndView("admin/home_admin");
-        mView.addObject("userName", principal.getName());
-        return mView;
-    }
+	@GetMapping("/admin")
+	public ModelAndView adminHomePage(Principal principal) {
+		ModelAndView mView = new ModelAndView("admin/home_admin");
+		mView.addObject("userName", principal.getName());
+		return mView;
+	}
 
-    @GetMapping("/guest")
-    public ModelAndView guestUserHomePage(Principal principal) throws Exception {
-        ModelAndView mView = new ModelAndView("guest/home_guest");
-        List<Course> guestCourses = courseService.findAllCourses();
-        if (!guestCourses.isEmpty()) {
+	@GetMapping("/guest")
+	public ModelAndView guestUserHomePage(Principal principal) {
+		ModelAndView mView = new ModelAndView("guest/home_guest");
+		mView.addObject("userName", principal.getName());
+		return mView;
+	}
 
-            mView.addObject("details", guestCourses);
-        } else {
-            mView.addObject("details", null);
-        }
-
-        mView.addObject("userName", principal.getName());
-        return mView;
-    }
-
-    @GetMapping("/home")
+	@GetMapping("/home")
     public String toolUserHomePage(@RequestParam(value = "isStudent", required = false, defaultValue = "false") boolean isStudent,
                                    @RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
                                    @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor, Principal principal) {
@@ -79,6 +69,7 @@ public class HomeController {
         }
         return null;
     }
+
 
 }
 

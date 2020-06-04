@@ -41,6 +41,10 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .antMatchers(HttpMethod.GET, "/signup").permitAll()
 		    .antMatchers(HttpMethod.POST, "/signup").permitAll()
 		    .antMatchers("/").permitAll()
+		    .antMatchers("/forgotPassword").permitAll()
+		    .antMatchers(HttpMethod.POST, "/forgotPassword").permitAll()
+		    .antMatchers("/resetPassword").permitAll()
+		    .antMatchers(HttpMethod.POST, "/resetPassword").permitAll()
 		    .antMatchers("/login").permitAll()
      	    .antMatchers("/admin/**").hasRole("ADMIN")
      	    .antMatchers("/guest/**").hasAnyRole("GUEST", "ADMIN")
@@ -53,6 +57,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		    .and()
 		    .csrf().disable()
 		    .formLogin()
+		    .loginPage("/login")
 		    .successHandler(loginSuccessHandler)
 		    .and()
 		    .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
@@ -66,5 +71,4 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter{
 		return daoAuthenticationProvider;
 	}
 	
-
 }

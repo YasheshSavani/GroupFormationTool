@@ -42,7 +42,7 @@ public class InstructorDAOImpl implements InstructorDAO {
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to the database successfully...");
 
-            preparedStatement = connection.prepareStatement(UserQuery.FIND_USERNAME_BY_EMAIL);
+            preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
             preparedStatement.setString(1, emailId);
             resultSet = preparedStatement.executeQuery();
 

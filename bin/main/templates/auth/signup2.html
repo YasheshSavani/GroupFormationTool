@@ -3,7 +3,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Sign Up</title>
-<link rel="stylesheet" th:href="@{/css/main.css}" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+<link
+	href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"
+	rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/theme.css}" />
 <script type="text/javascript">
 	function validate() {
 
@@ -12,6 +20,7 @@
 			document.signUpForm.userName.focus();
 			return false;
 		}
+
 		if (document.signUpForm.firstName.value == "") {
 			alert("Please provide your first name!");
 			document.signUpForm.firstName.focus();
@@ -37,17 +46,16 @@
 			document.signUpForm.confirmPassword.focus();
 			return false;
 		}
-		if (!(/^[a-zA-Z0-9._]+$/
-				.test(document.signUpForm.userName.value))){
+		if (!(/^[a-zA-Z0-9._]+$/.test(document.signUpForm.userName.value))) {
 			alert("Username should consist only of letters, digits, _ or .!");
 			document.signUpForm.userName.focus();
 			return false;
 		}
 		if (!(/^(\w+\.)*\w+@(\w+\.)+[A-Za-z]+$/
-				.test(document.signUpForm.email.value))){
-				alert("Enter email in the right format!");
-				document.signUpForm.email.focus();
-				return false;
+				.test(document.signUpForm.email.value))) {
+			alert("Enter email in the right format!");
+			document.signUpForm.email.focus();
+			return false;
 		}
 		if (!(/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
 				.test(document.signUpForm.password.value))) {
@@ -60,30 +68,26 @@
 			document.signUpForm.confirmPassword.focus();
 			return false;
 		}
-			
+
 		return (true);
 	}
 </script>
 </head>
 <body>
-	<ul>
-		<li class="logo"><a href="/"> GroupMe</a></li>
-		<li style="float: right"><a class="active" href="#signUp">Sign
-				Up</a></li>
-		<li style="float: right"><a href="#logIn">Login</a></li>
-		<!-- Redirect to login page! -->
-	</ul>
+	<div class="topnav">
+		<a class="active" href="/">GroupMe</a> <a style="float: right"
+			href="/signup">Sign Up</a> <a style="float: right" href="/login">Login</a>
+	</div>
 
 	<div class="container">
 
 		<h2 style="text-align: center">Sign Up Form</h2>
-
 		<form name="signUpForm" onSubmit="return (validate());"
-			th:action="@{/signUp}" method="post" th:object="${User}">
+			th:action="@{/signup}" method="post" th:object="${user}">
 
 			<table>
 				<tr>
-					<td align="right">User Name</td>
+					<td align="right">Username</td>
 					<td><input type="text" name="userName" th:field="*{userName}" /></td>
 				</tr>
 				<tr>
@@ -110,16 +114,19 @@
 				</tr>
 				<tr>
 					<td align="right"></td>
-					<td><input type="submit" value="Submit" /></td>
+					<td><button class="btn btn-lg btn-primary btn-block btn-submit"
+				type="submit">Sign up</button></td>
 				</tr>
 				<tr>
 					<td align="right"></td>
-					<td><input type="reset" value="Reset" /></td>
+					<td><button class="btn btn-lg btn-primary btn-block btn-submit"
+				type="reset">Reset</button></td>
 				</tr>
 			</table>
 
 		</form>
-
+		<p1 style="text-align: center" th:text="${message}">
+		</h1>
 	</div>
 </body>
 </html>
