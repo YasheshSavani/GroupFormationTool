@@ -15,18 +15,6 @@ public interface CourseDAO {
 
 	List<Course> findCoursesByInstructorAndTA(String studentUserName) throws Exception;
 
-	public String insertCourse();
-
-	public List<Course> findByCourseCode();
-
-	public List<Course> findByCourseName();
-
-	public List<Course> findByCourseCrn();
-
-	public String deleteCourse();
-
-	public String updateCourse();
-
-
+	Course findCourseByCourseCode(String courseCode) throws Exception;
 
 }
