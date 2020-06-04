@@ -15,7 +15,7 @@ public class EmailServiceTest {
 	EmailService emailService;
 	
 	@Test
-	public void findByUserNameTest() {
+	public void sendEmail() {
 		boolean status = emailService.sendPasswordRecovery(AuthConstants.TEST_EMAIL);
 		assertTrue(status);
 	}
