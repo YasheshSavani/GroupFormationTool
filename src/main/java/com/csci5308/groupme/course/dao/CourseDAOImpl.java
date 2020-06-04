@@ -224,7 +224,7 @@ public class CourseDAOImpl implements CourseDAO {
 
     public Course findCourseByCourseCode(String courseCode) throws Exception {
         ResultSet courseResultSet = null;
-        Connection connection;
+        Connection connection = null;
         PreparedStatement getCourseStatement = null;
         Course course = new Course();
         try {
@@ -254,6 +254,14 @@ public class CourseDAOImpl implements CourseDAO {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+            if (connection != null) {
+            	try {
+            		connection.close();
+            	}
+            	catch(Exception e) {
+            		e.printStackTrace();
+            	}
             }
         }
         return course;

@@ -24,17 +24,17 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a>
     to improve your experience.</p>
 <![endif]-->
-<div class="topnav" style="float: top">
-		<a class="active" href="/">GroupMe</a> <a style="float: right"
-			href="/logout">Logout</a>
-</div>
 
-
+<div class="topnav">
+		<a href="/" class="active" >GroupMe</a> 
+		<a style="float: right" href="logout">Logout</a>
+		<a style="float: right" class="active" href="#account">Account</a> 
+	</div>
 
 <div style="text-align: center; margin: 0 auto;">
-    <p>Welcome! <span th:text="${userName}"></span></p>
+    <h2>Welcome! <span th:text="${userName}"></span></h2>
     <h1>Details of Course</h1>
-    <table>
+    <table class = "padding-table-columns" style = "margin-left: auto;margin-right: auto;" >
         <thead>
         <tr>
             <th>Course Code</th>
@@ -44,7 +44,7 @@
         </thead>
         <tbody>
         <tr>
-            <td>
+            <td colspan="3">
                 <th:block th:if="${details==null}">
                     No Information available for Courses.
                 </th:block>
