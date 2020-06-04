@@ -17,9 +17,19 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public List<Course> findAllCourses() throws Exception {
 
-		List<Course> getCourseDatafromDAO = courseDAO.findAllCourses();
-
-		return getCourseDatafromDAO;
+		return courseDAO.findAllCourses();
 	}
+
+	@Override
+	public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
+
+		return courseDAO.getCoursesByUserNameAndRole(userName, roleName);
+	}
+
+	@Override
+	public List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception {
+		return courseDAO.findCoursesByStudentUserName(studentUserName);
+	}
+
 
 }
