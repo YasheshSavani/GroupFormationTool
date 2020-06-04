@@ -52,7 +52,6 @@ public class InstructorController {
     }
 
 
-
     @RequestMapping(value = "/InstructorTAStudent", method = RequestMethod.GET)
 //    @GetMapping("")
     public String instructorTAStudentHomePage(Principal principal, Model model) {
@@ -107,6 +106,20 @@ public class InstructorController {
         CourseDAO courseDAO = new CourseDAOImpl();
         try {
             List<Course> coursesList = courseDAO.findCoursesByInstructorAndTA(principal.getName());
+            model.addAttribute("courses", coursesList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "CourseAdmin";
+    }
+
+
+    @RequestMapping(value = "/InstructorTAStudent/Instructor", method = RequestMethod.GET)
+//    @GetMapping("/Instructor")
+    public String instructorHomePage(Principal principal, Model model) {
+        CourseDAO courseDAO = new CourseDAOImpl();
+        try {
+            List<Course> coursesList = courseDAO.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
         } catch (Exception e) {
             e.printStackTrace();

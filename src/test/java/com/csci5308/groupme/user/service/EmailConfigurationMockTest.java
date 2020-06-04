@@ -4,12 +4,12 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
-public class EmailConfigurationMock {
+public class EmailConfigurationMockTest {
 
     JavaMailSenderImpl mailSender;
     Properties properties;
 
-    public EmailConfigurationMock() {
+    public EmailConfigurationMockTest() {
         mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);

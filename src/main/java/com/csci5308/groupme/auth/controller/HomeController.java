@@ -62,13 +62,13 @@ public class HomeController {
                                    @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor, Principal principal) {
 
 
-        if (isStudent && !isTA && !isInstructor) {
+        if (isStudent && !isTA && !isInstructor) { // yashesh
             return "redirect:/studenthomepage?isStudent=true";
         } else if (!isStudent && isTA && !isInstructor) {
             return "redirect:/studenthomepage?isTA=true";
         } else if (!isStudent && !isTA && isInstructor) {
             return "redirect:/studenthomepage/isInstructor=true";
-        } else if (isStudent && isTA && !isInstructor) {
+        } else if (isStudent && isTA && !isInstructor) { // yashesh
             return "redirect:/studenthomepage?isStudent=true&isTA=true";
         } else if (isStudent && !isTA && isInstructor) {
             return "redirect:/studenthomepage?isStudent=true&isInstructor=true";
