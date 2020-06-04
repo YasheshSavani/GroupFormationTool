@@ -222,6 +222,76 @@ public class CourseDAOImpl implements CourseDAO {
         return retrievedCourseList;
     }
 
+    @Override
+    public List<Course> findCoursesByInstructorAndTA(String userName) throws Exception {
+        List<Course> courseList = new ArrayList<>();
+        ResultSet courseResultSet;
+        Connection connection = null;
+        PreparedStatement getCourseStatement;
+        try {
+            String DB_URL = databaseProperties.getDbURL();
+            String USER = databaseProperties.getDbUserName();
+            String PASSWORD = databaseProperties.getDbPassword();
+
+            connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_USERNAME_INSTRUCTOR_TA);
+            getCourseStatement.setString(1, userName);
+            getCourseStatement.setString(2, userName);
+            courseResultSet = getCourseStatement.executeQuery();
+            while (courseResultSet.next()) {
+                Course course = new Course();
+                course.setCourseName(courseResultSet.getString("courseName"));
+                course.setCourseCode(courseResultSet.getString("courseCode"));
+                course.setCourseCrn(courseResultSet.getInt("crn"));
+                courseList.add(course);
+            }
+            if (getCourseStatement != null) {
+                getCourseStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return courseList;
+    }
+
+    @Override
+    public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception {
+        List<Course> courseList = new ArrayList<>();
+        ResultSet courseResultSet;
+        Connection connection = null;
+        PreparedStatement getCourseStatement;
+        try {
+            String DB_URL = databaseProperties.getDbURL();
+            String USER = databaseProperties.getDbUserName();
+            String PASSWORD = databaseProperties.getDbPassword();
+
+            connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_USERNAME_INSTRUCTOR);
+            getCourseStatement.setString(1, instructorUserName);
+            courseResultSet = getCourseStatement.executeQuery();
+            while (courseResultSet.next()) {
+                Course course = new Course();
+                course.setCourseName(courseResultSet.getString("courseName"));
+                course.setCourseCode(courseResultSet.getString("courseCode"));
+                course.setCourseCrn(courseResultSet.getInt("crn"));
+                courseList.add(course);
+            }
+            if (getCourseStatement != null) {
+                getCourseStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return courseList;
+    }
+
+    @Override
     public Course findCourseByCourseCode(String courseCode) throws Exception {
         ResultSet courseResultSet = null;
         Connection connection = null;
@@ -256,12 +326,11 @@ public class CourseDAOImpl implements CourseDAO {
                 }
             }
             if (connection != null) {
-            	try {
-            		connection.close();
-            	}
-            	catch(Exception e) {
-            		e.printStackTrace();
-            	}
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
         return course;
