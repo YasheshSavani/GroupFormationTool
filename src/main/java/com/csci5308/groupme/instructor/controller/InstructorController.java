@@ -47,7 +47,7 @@ public class InstructorController {
         } else {
             mView.addObject("status", "TA assignment Error");
         }
-        mView.setViewName("operationoncourse");
+        mView.setViewName("coursedetails");
         return mView;
     }
 
@@ -127,7 +127,7 @@ public class InstructorController {
         return "CourseAdmin";
     }
 
-    @RequestMapping(value = "/InstructorTAStudent/uploadfile", method = RequestMethod.GET)
+    @RequestMapping(value = "/InstructorTAStudent/uploadfile", method = RequestMethod.POST)
 //    @PostMapping("/uploadfile")
     public String uploadCSV(@RequestParam("file") MultipartFile file,
                             @RequestParam("courseCode") String courseCode, Principal principal) {

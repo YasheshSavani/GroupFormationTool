@@ -25,6 +25,8 @@
         </td>
     </tr>
 </table>
-<p th:text="'Status: ' + ${status}"></p>
+<span th:if="${status != null}">
+    <p th:text="'Status: ' + ${status}"></p>
+</span>
 </body>
 </html>
