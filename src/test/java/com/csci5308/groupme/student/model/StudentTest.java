@@ -14,18 +14,19 @@ class StudentTest {
     }
 
     @Test
-    public void setUserNameTest() {
-        assertEquals("kharechaB00", student.getUserName());
-    }
-
-
-    @Test
     public void getBannerIDTest() {
         assertEquals("B00xxxxxx", student.getBannerID());
     }
 
     @Test
+    public void setUserNameTest() {
+        student.setUserName("karanB00");
+        assertEquals("karanB00", student.getUserName());
+    }
+
+    @Test
     public void setBannerIDTest() {
-        assertEquals("B00xxxxxx", student.getBannerID());
+        student.setBannerID("Bxx000000");
+        assertEquals("Bxx000000", student.getBannerID());
     }
 }

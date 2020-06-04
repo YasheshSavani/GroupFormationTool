@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SendEmailConfigurationImplTest {
 
-    EmailConfigurationMock emailConfigurationMock = new EmailConfigurationMock();
+    EmailConfigurationMockTest emailConfigurationMock = new EmailConfigurationMockTest();
 
     @Test
     public void initiateEmailSenderTest() {

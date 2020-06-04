@@ -12,4 +12,11 @@ public interface CourseDAO {
 	List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception;
 
 	List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception;
+
+	List<Course> findCoursesByInstructorAndTA(String userName) throws Exception;
+
+	List<Course> findCoursesByInstructor(String instructorUserName) throws Exception;
+
+	Course findCourseByCourseCode(String courseCode) throws Exception;
+
 }
