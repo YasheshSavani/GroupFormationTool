@@ -42,7 +42,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 	public String decideUrl(Authentication authentication) {
         String url = "";
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-		List<String> roles = new ArrayList<String>();
+		List<String> roles = new ArrayList<>();
 		authorities.forEach(authority -> roles.add(authority.getAuthority()));
 		if(roles.size() > 1) {
 			roles.removeIf(role -> role.equals("ROLE_GUEST"));
