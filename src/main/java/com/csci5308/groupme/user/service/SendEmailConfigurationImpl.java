@@ -1,14 +1,15 @@
 package com.csci5308.groupme.user.service;
 
+import java.util.Properties;
+
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import java.util.Properties;
 
 public class SendEmailConfigurationImpl implements SendEmailConfiguration {
 
     public JavaMailSender initiateEmailSender() {
-        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+    	JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
         mailSender.setUsername("groupmecsci5308@gmail.com");
@@ -16,7 +17,6 @@ public class SendEmailConfigurationImpl implements SendEmailConfiguration {
         Properties properties = mailSender.getJavaMailProperties();
         properties.put("mail.transport.protocol", "smtp");
         properties.put("mail.smtp.starttls.enable", "true");
-
         return mailSender;
     }
 

@@ -2,9 +2,13 @@ package com.csci5308.groupme.user.service;
 
 import java.util.List;
 
+import javax.mail.internet.MimeMessage;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -86,14 +90,35 @@ public class UserServiceImpl implements UserService {
 		else {
 		user.setPassword(passwordEncoder.encode(newPassword));
 		updateStatus = userDao.update(user);
+		if(updateStatus == 1)
+			logger.info("Password updated.....");
 		}
 		return updateStatus;
 	}
 
 	@Override
 	public boolean sendCredentials(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+            SendEmailConfiguration emailConfiguration = new SendEmailConfigurationImpl();
+            JavaMailSender emailSender = emailConfiguration.initiateEmailSender();
+            String subject = "Enrolment Email";
+            String content = "If you have received this email, then you are successfully enrolled as a student.\n" +
+                    "Your login credentials are:\n" +
+                    "Username: " + user.getUserName() + "\n" +
+                    "Password: " + user.getPassword();
+
+            MimeMessage emailContent = emailSender.createMimeMessage();
+            MimeMessageHelper messageHelper = new MimeMessageHelper(emailContent, false);
+            messageHelper.setTo(user.getEmail());
+            messageHelper.setSubject(subject);
+            messageHelper.setText(content);
+
+            emailSender.send(emailContent);
+            return true;
+
+        } catch (Exception e) {
+            return false;
+        }
 	}
 
 	@Override
