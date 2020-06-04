@@ -26,7 +26,6 @@ public class StudentController {
 			@RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor,
 			Principal principal) throws Exception {
 		String studentUserName = principal.getName();
-		System.out.println(studentUserName);
 		List<Course> coursesStudentEnrolledIn = courseService.findCoursesByStudentUserName(studentUserName);
 		ModelAndView mView = new ModelAndView();
 		mView.setViewName("studenthomepage");		
