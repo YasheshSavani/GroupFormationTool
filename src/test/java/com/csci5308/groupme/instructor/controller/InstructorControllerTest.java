@@ -29,4 +29,28 @@ public class InstructorControllerTest {
         this.mockMvc.perform(get("/courseoperation").param("courseCode", "CSCI5308")).andDo(print()).andExpect(status().isOk())
                 .andExpect(model().attributeExists("courseCode"));
     }
+
+    @Test
+    @WithMockUser(username = "test3", password = "Test000", authorities = {"ROLE_INSTRUCTOR", "ROLE_TA"})
+    void instructorTAHomePageTest() throws Exception {
+        this.mockMvc.perform(get("/InstructorTAStudent/InstructorTA")).andDo(print()).andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(username = "testuser2", password = "admin19", authorities = {"ROLE_INSTRUCTOR", "ROLE_TA", "ROLE_STUDENT"})
+    void InstructorTAStudentTest() throws Exception {
+        this.mockMvc.perform(get("/InstructorTAStudent")).andDo(print()).andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(username = "testuser1", password = "admin19", authorities = {"ROLE_INSTRUCTOR", "ROLE_STUDENT"})
+    void instructorStudentHomePageTest() throws Exception {
+        this.mockMvc.perform(get("/InstructorTAStudent/InstructorStudent")).andDo(print()).andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(username = "testuser1", password = "admin19", authorities = {"ROLE_INSTRUCTOR"})
+    void instructorHomePageTest() throws Exception {
+        this.mockMvc.perform(get("/InstructorTAStudent/Instructor")).andDo(print()).andExpect(status().isOk());
+    }
 }

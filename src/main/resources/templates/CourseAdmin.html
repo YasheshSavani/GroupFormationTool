@@ -2,9 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Course Operation</title>
+    <title>Course Admin Page</title>
 </head>
 <body>
-<p th:text="'Status: ' + ${status}"></p>
+<table>
+    <tr>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Course CRN</th>
+    </tr>
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.courseName}"></td>
+        <td th:text="${course.courseCode}"></td>
+        <td th:text="${course.courseCrn}"></td>
+        <td th:if="${course.courseCode != null}" th:hidden="false">
+            <form method="get" action="/InstructorTAStudent/CourseAdmin/Course">
+                <input type="hidden" name="courseCode" th:value="${course.courseCode}">
+                <input type="hidden" name="courseName" th:value="${course.courseName}">
+                <input type="hidden" name="courseCrn" th:value="${course.courseCrn}">
+                <button type="submit">Go To Course</button>
+            </form>
+        </td>
+    </tr>
+</table>
+<span th:if="${status != null}">
+    <p th:text="'Status: ' + ${status}"></p>
+</span>
 </body>
 </html>
