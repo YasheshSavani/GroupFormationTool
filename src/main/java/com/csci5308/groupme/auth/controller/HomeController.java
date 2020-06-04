@@ -44,9 +44,9 @@ public class HomeController {
     @GetMapping("/guest")
     public ModelAndView guestUserHomePage(Principal principal) throws Exception {
         ModelAndView mView = new ModelAndView("guest/home_guest");
-        List<Course> guestCourses = courseService.findAllCourses();
-        if (!guestCourses.isEmpty()) {
 
+        List<Course> guestCourses = courseService.findAllCourses();
+        if (guestCourses != null) {
             mView.addObject("details", guestCourses);
         } else {
             mView.addObject("details", null);

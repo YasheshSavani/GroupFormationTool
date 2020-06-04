@@ -50,7 +50,7 @@ public class HomeControllerTest {
 	}
 	
 	@Test
-	@WithMockUser(username = "guest_test", password = "testpassword", authorities = { "ROLE_GUEST" })
+	@WithMockUser(username = "guestuser", password = "password", authorities = { "ROLE_GUEST" })
 	void guestHomePageTest() throws Exception {
 		this.mockMvc.perform(get("/guest").secure(true)).andDo(print()).andExpect(status().isOk())
 				.andExpect(view().name("guest/home_guest"));
