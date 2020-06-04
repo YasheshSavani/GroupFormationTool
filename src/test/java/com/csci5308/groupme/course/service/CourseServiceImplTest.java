@@ -83,14 +83,14 @@ public class CourseServiceImplTest {
 	@Test
 	public void deleteCourseTest() throws Exception {
 		Course course = new Course("CSCI 5308", "Adv Software Development", 12345);
-		when(courseDAO.save(course)).thenReturn(1);
+		when(courseDAO.remove(course.getCourseCode())).thenReturn(1);
 		assertEquals(1, courseServiceImpl.delete(course.getCourseCode()));
 	}
 	
 	@Test
 	public void noCourseToDeleteTest() throws Exception {
 		Course course = new Course("CSCI 5308", "Adv Software Development", 12345);
-		when(courseDAO.save(course)).thenReturn(EditCodes.COURSE_DOES_NOT_EXIST);
+		when(courseDAO.remove(course.getCourseCode())).thenReturn(EditCodes.COURSE_DOES_NOT_EXIST);
 		assertEquals(EditCodes.COURSE_DOES_NOT_EXIST, courseServiceImpl.delete(course.getCourseCode()));
 	}
 
