@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csci5308.groupme.auth.AuthConstants;
+import com.csci5308.groupme.auth.service.EmailService;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
@@ -26,6 +27,9 @@ public class UserController {
 
 	@Autowired
 	UserService userService;
+
+	@Autowired
+	EmailService emailService;
 
 	@GetMapping("/signup")
 	public String showSignUpPage(Model model) {
@@ -43,8 +47,7 @@ public class UserController {
 			message = "Email already exists!";
 		} else if (signupStatus == EditCodes.USERNAME_EXISTS) {
 			message = "Username already exists! Try another one";
-		}
-		else {
+		} else {
 			message = "Signed up successfuly!";
 		}
 		logger.info(user.getEmail());
@@ -72,7 +75,11 @@ public class UserController {
 		if (null == user)
 			mView = new ModelAndView("auth/emailnotfound");
 		else {
-			mView = new ModelAndView("auth/emailsent");
+			boolean isSent = emailService.sendPasswordRecovery(email);
+			if (isSent)
+				mView = new ModelAndView("auth/emailsent");
+			else
+				mView = new ModelAndView("auth/filurePage");
 		}
 		return mView;
 	}
