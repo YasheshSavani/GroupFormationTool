@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ysavani" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ysavani" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:us20" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ysavani" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:ysavani" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:us20" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="734696bf-3f9c-4642-996b-cd5a7a83ddcf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/datasource/DatabaseProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/datasource/DatabaseProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/auth/AuthConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/auth/AuthConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/dao/UserDaoImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1chwYlFx5TvXzH5GLVEzwa7SfnL" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\DAL\group19\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.GroupmeApplication">
+    <configuration name="HomeControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.auth.controller.HomeControllerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="InstructorServiceImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.instructor.service.InstructorServiceImplTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="LoginSuccessHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.auth.LoginSuccessHandlerTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TeachingAssistantTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'groupme'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests *" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="GroupmeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="groupme.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.csci5308.groupme.GroupmeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Tests in 'groupme'" />
+        <item itemvalue="Gradle.HomeControllerTest" />
+        <item itemvalue="Gradle.LoginSuccessHandlerTest" />
+        <item itemvalue="Gradle.TeachingAssistantTest" />
+        <item itemvalue="Gradle.InstructorServiceImplTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="734696bf-3f9c-4642-996b-cd5a7a83ddcf" name="Default Changelist" comment="" />
+      <created>1590994182957</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590994182957</updated>
+      <workItem from="1590994187591" duration="2715000" />
+      <workItem from="1590997439246" duration="13970000" />
+      <workItem from="1591068042955" duration="923000" />
+      <workItem from="1591074315668" duration="9836000" />
+      <workItem from="1591155615388" duration="897000" />
+      <workItem from="1591145856326" duration="1714000" />
+      <workItem from="1591148174122" duration="68667000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="502" y="0" key="#Auto_Import" timestamp="1591124249300">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="502" y="0" key="#Auto_Import/0.0.1470.864@0.0.1470.864" timestamp="1591124249300" />
+    <state x="216" y="7" key="#Project_Structure" timestamp="1591284914301">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="216" y="7" key="#Project_Structure/0.0.1470.864@0.0.1470.864" timestamp="1591284914301" />
+    <state x="174" y="274" key="#SQL_Dialects" timestamp="1591057351929">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="174" y="274" key="#SQL_Dialects/0.0.1472.864@0.0.1472.864" timestamp="1591057351929" />
+    <state x="224" y="288" key="#SQL_Resolution_Scopes" timestamp="1591059074476">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="224" y="288" key="#SQL_Resolution_Scopes/0.0.1472.864@0.0.1472.864" timestamp="1591059074476" />
+    <state x="329" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591125150769">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="329" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1470.864@0.0.1470.864" timestamp="1591125150769" />
+    <state x="329" y="91" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1472.864@0.0.1472.864" timestamp="1591059031220" />
+    <state x="93" y="93" width="1285" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1591145765925">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="93" y="93" width="1285" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1470.864@0.0.1470.864" timestamp="1591145765925" />
+    <state x="93" y="93" width="1286" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1472.864@0.0.1472.864" timestamp="1591060220238" />
+    <state x="541" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1591234803368">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="541" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1470.864@0.0.1470.864" timestamp="1591234803368" />
+    <state x="542" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1472.864@0.0.1472.864" timestamp="1591076923243" />
+    <state x="396" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591242172920">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="396" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1470.864@0.0.1470.864" timestamp="1591242172920" />
+    <state x="572" y="114" width="586" height="498" key="EnvironmentVariablesDialog" timestamp="1590997868469">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="572" y="114" width="586" height="498" key="EnvironmentVariablesDialog/0.0.1472.864@0.0.1472.864" timestamp="1590997868469" />
+    <state x="516" y="173" key="FileChooserDialogImpl" timestamp="1591057274995">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="516" y="173" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1591057274995" />
+    <state width="1428" height="319" key="GridCell.Tab.0.bottom" timestamp="1591317768055">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
+    <state width="1429" height="416" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
+    <state width="1428" height="319" key="GridCell.Tab.0.center" timestamp="1591317768055">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
+    <state width="1429" height="416" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
+    <state width="1428" height="319" key="GridCell.Tab.0.left" timestamp="1591317768055">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
+    <state width="1429" height="416" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
+    <state width="1428" height="319" key="GridCell.Tab.0.right" timestamp="1591317768055">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
+    <state width="1429" height="416" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
+    <state width="1428" height="319" key="GridCell.Tab.1.bottom" timestamp="1591316712753">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="1429" height="416" key="GridCell.Tab.1.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
+    <state width="1428" height="319" key="GridCell.Tab.1.center" timestamp="1591316712753">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="1429" height="416" key="GridCell.Tab.1.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
+    <state width="1428" height="319" key="GridCell.Tab.1.left" timestamp="1591316712753">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="1429" height="416" key="GridCell.Tab.1.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
+    <state width="1428" height="319" key="GridCell.Tab.1.right" timestamp="1591316712753">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="319" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="1429" height="416" key="GridCell.Tab.1.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
+    <state width="1428" height="277" key="GridCell.Tab.2.bottom" timestamp="1591239536723">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="277" key="GridCell.Tab.2.bottom/0.0.1470.864@0.0.1470.864" timestamp="1591239536723" />
+    <state width="1429" height="277" key="GridCell.Tab.2.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591067955444" />
+    <state width="1428" height="277" key="GridCell.Tab.2.center" timestamp="1591239536723">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="277" key="GridCell.Tab.2.center/0.0.1470.864@0.0.1470.864" timestamp="1591239536723" />
+    <state width="1429" height="277" key="GridCell.Tab.2.center/0.0.1472.864@0.0.1472.864" timestamp="1591067955443" />
+    <state width="1428" height="277" key="GridCell.Tab.2.left" timestamp="1591239536723">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="277" key="GridCell.Tab.2.left/0.0.1470.864@0.0.1470.864" timestamp="1591239536723" />
+    <state width="1429" height="277" key="GridCell.Tab.2.left/0.0.1472.864@0.0.1472.864" timestamp="1591067955443" />
+    <state width="1428" height="277" key="GridCell.Tab.2.right" timestamp="1591239536723">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state width="1428" height="277" key="GridCell.Tab.2.right/0.0.1470.864@0.0.1470.864" timestamp="1591239536723" />
+    <state width="1429" height="277" key="GridCell.Tab.2.right/0.0.1472.864@0.0.1472.864" timestamp="1591067955444" />
+    <state x="214" y="98" width="638" height="466" key="MultipleFileMergeDialog" timestamp="1591316702598">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="214" y="98" width="638" height="466" key="MultipleFileMergeDialog/0.0.1470.864@0.0.1470.864" timestamp="1591316702598" />
+    <state x="245" y="77" key="SettingsEditor" timestamp="1591318305102">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="245" y="77" key="SettingsEditor/0.0.1470.864@0.0.1470.864" timestamp="1591318305102" />
+    <state x="245" y="77" key="SettingsEditor/0.0.1472.864@0.0.1472.864" timestamp="1590998016216" />
+    <state width="200" height="441" key="SqlResolveConfigurable" timestamp="1591059067356">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state width="200" height="441" key="SqlResolveConfigurable/0.0.1472.864@0.0.1472.864" timestamp="1591059067356" />
+    <state x="328" y="165" key="Vcs.Push.Dialog.v2" timestamp="1591318203443">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="328" y="165" key="Vcs.Push.Dialog.v2/0.0.1470.864@0.0.1470.864" timestamp="1591318203443" />
+    <state x="466" y="193" key="extract.method.dialog" timestamp="1591227008141">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="466" y="193" key="extract.method.dialog/0.0.1470.864@0.0.1470.864" timestamp="1591227008141" />
+    <state x="446" y="31" width="578" height="801" key="find.popup" timestamp="1591250840256">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="446" y="31" width="578" height="801" key="find.popup/0.0.1470.864@0.0.1470.864" timestamp="1591250840256" />
+    <state x="447" y="31" width="578" height="801" key="find.popup/0.0.1472.864@0.0.1472.864" timestamp="1590996240118" />
+    <state x="536" y="221" key="git4idea.merge.GitMergeDialog" timestamp="1591318231595">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="536" y="221" key="git4idea.merge.GitMergeDialog/0.0.1470.864@0.0.1470.864" timestamp="1591318231595" />
+    <state x="408" y="221" key="git4idea.merge.GitPullDialog" timestamp="1591316618341">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="408" y="221" key="git4idea.merge.GitPullDialog/0.0.1470.864@0.0.1470.864" timestamp="1591316618341" />
+    <state x="393" y="197" key="run.anything.popup" timestamp="1591240703833">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="393" y="197" key="run.anything.popup/0.0.1470.864@0.0.1470.864" timestamp="1591240703833" />
+    <state x="398" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1591318302302">
+      <screen x="0" y="0" width="1470" height="864" />
+    </state>
+    <state x="398" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1470.864@0.0.1470.864" timestamp="1591318302302" />
+    <state x="399" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1472.864@0.0.1472.864" timestamp="1591076055547" />
+    <state x="459" y="344" width="553" height="175" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1590996232811">
+      <screen x="0" y="0" width="1472" height="864" />
+    </state>
+    <state x="459" y="344" width="553" height="175" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1472.864@0.0.1472.864" timestamp="1590996232811" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/groupme$CourseControllerTest_getCoursePage.ic" NAME="CourseControllerTest.getCoursePage Coverage Results" MODIFIED="1591249563295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$CourseControllerTest_showOpearationsOnCourse.ic" NAME="CourseControllerTest.showOpearationsOnCourse Coverage Results" MODIFIED="1591249718777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$InstructorServiceImplTest.ic" NAME="InstructorServiceImplTest Coverage Results" MODIFIED="1591250061722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$LoginSuccessHandlerTest.ic" NAME="LoginSuccessHandlerTest Coverage Results" MODIFIED="1591250217119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$CourseControllerTest_getCoursesByUserNameAndRole.ic" NAME="CourseControllerTest.getCoursesByUserNameAndRole Coverage Results" MODIFIED="1591249042155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$HomeControllerTest.ic" NAME="HomeControllerTest Coverage Results" MODIFIED="1591250563189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$TeachingAssistantTest.ic" NAME="TeachingAssistantTest Coverage Results" MODIFIED="1591250113935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$InstructorControllerTest.ic" NAME="InstructorControllerTest Coverage Results" MODIFIED="1591249754902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$Tests_in__groupme_.ic" NAME="Tests in 'groupme' Coverage Results" MODIFIED="1591292338673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$GroupmeApplication.ic" NAME="GroupmeApplication Coverage Results" MODIFIED="1591032252374" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$StudentControllerTest_showStudentHomePageTest.ic" NAME="StudentControllerTest.showStudentHomePageTest Coverage Results" MODIFIED="1591248903182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/groupme$CourseControllerTest.ic" NAME="CourseControllerTest Coverage Results" MODIFIED="1591249596879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

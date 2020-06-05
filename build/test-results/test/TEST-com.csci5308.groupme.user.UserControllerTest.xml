@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.csci5308.groupme.user.UserControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-05T00:42:25" hostname="YASHESH" time="0.036">
+  <properties/>
+  <testcase name="getResetPasswordPageTest()" classname="com.csci5308.groupme.user.UserControllerTest" time="0.017"/>
+  <testcase name="getResetPasswordPageNoAccessTest()" classname="com.csci5308.groupme.user.UserControllerTest" time="0.016"/>
+  <system-out><![CDATA[2020-06-04 21:42:25.539  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.user.UserControllerTest], using SpringBootContextLoader
+2020-06-04 21:42:25.540  INFO 25544 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.user.UserControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-06-04 21:42:25.540  INFO 25544 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.user.UserControllerTest]: UserControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-06-04 21:42:25.548  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.csci5308.groupme.GroupmeApplication for test class com.csci5308.groupme.user.UserControllerTest
+2020-06-04 21:42:25.551  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-06-04 21:42:25.553  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@424bc4, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@af10a2b, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4ac004f7, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4f53cd20, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5dddb365, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5f7f5aa7, org.springframework.test.context.event.EventPublishingTestExecutionListener@15521a03, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@44b9ef44, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@74cf2a2d, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5140fc71, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@54476658, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5f8f605b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@529cb7c5, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@4e97a93]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /resetPassword
+       Parameters = {secretCode=[21wyp882e81dgw5], email=[abhinav.mandava78@gmail.com]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.csci5308.groupme.user.controller.UserController
+           Method = com.csci5308.groupme.user.controller.UserController#resetPassword(String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = auth/resetPassword
+             View = null
+        Attribute = email
+            value = abhinav.mandava78@gmail.com
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", Strict-Transport-Security:"max-age=31536000 ; includeSubDomains", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/css/main.css" />
+<title>Forget Password</title>
+<script type="text/javascript">
+	function validate() {
+
+		if (document.resetPasswordForm.password.value == "") {
+			alert("Please provide your password!");
+			document.resetPasswordForm.password.focus();
+			return false;
+		}
+		if (document.resetPasswordForm.confirmPassword.value == "") {
+			alert("Please confirm your password!");
+			document.resetPasswordForm.confirmPassword.focus();
+			return false;
+		}
+		if (!(/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
+				.test(document.resetPasswordForm.password.value))) {
+			alert("Your password can include letters, digits and special characters, having a minimum length of 4!");
+			document.resetPasswordForm.password.focus();
+			return false;
+		}
+		if (document.resetPasswordForm.password.value != document.resetPasswordForm.confirmPassword.value) {
+			alert("Passwords do not match!");
+			document.resetPasswordForm.confirmPassword.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+	<ul>
+		<li class="reset"><a href="#resetPassword"
+			style="text-align: center"> GroupMe </a></li>
+
+	</ul>
+	<h2 style="text-align: center">Reset Password</h2>
+	<form name="resetPasswordForm" onSubmit="return (validate());"
+		action="/resetPassword" method="post">
+
+		<table style="margin-left: auto; margin-right: auto;">
+			<tr>
+				<td colspan="2"><h3 style="text-align: center">Enter new
+						password</h3></td>
+			</tr>
+			<tr>
+				<td align="right">Email</td>
+				<td><input type="email" name="email" value="abhinav.mandava78@gmail.com"/></td>
+			</tr>
+			<tr>
+				<td align="right">Password</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td align="right">Confirm Password</td>
+				<td><input type="password" name="confirmPassword" /></td>
+			</tr>
+			<tr>
+				<td align="right"></td>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /resetPassword
+       Parameters = {secretCode=[22333], email=[abhinav.mandava78@gmail.com]}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.csci5308.groupme.user.controller.UserController
+           Method = com.csci5308.groupme.user.controller.UserController#resetPassword(String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = auth/unauthorized
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", Strict-Transport-Security:"max-age=31536000 ; includeSubDomains", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>You are not authorized to access this resource</h1>
+</body>
+</html>
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

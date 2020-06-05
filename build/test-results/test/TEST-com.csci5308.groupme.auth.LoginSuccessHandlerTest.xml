@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.csci5308.groupme.auth.LoginSuccessHandlerTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2020-06-05T00:42:19" hostname="YASHESH" time="0.778">
+  <properties/>
+  <testcase name="landingUrlTestForInstructor()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.735"/>
+  <testcase name="landingUrlTestForTAInstructor()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.004"/>
+  <testcase name="landingUrlTestForAdmin()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.005"/>
+  <testcase name="landingUrlTestForGuest()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.003"/>
+  <testcase name="landingUrlTestForTA()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.003"/>
+  <testcase name="landingUrlTestForStudentTAInstructor()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.004"/>
+  <testcase name="landingUrlTestForStudentInstructor()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.011"/>
+  <testcase name="landingUrlTestForStudent()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.003"/>
+  <testcase name="landingUrlTestForStudentTA()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.004"/>
+  <testcase name="landingUrlTestForGuestOverride()" classname="com.csci5308.groupme.auth.LoginSuccessHandlerTest" time="0.002"/>
+  <system-out><![CDATA[2020-06-04 21:42:19.823  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_INSTRUCTOR
+2020-06-04 21:42:19.837  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_INSTRUCTOR
+2020-06-04 21:42:19.838  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_TA
+2020-06-04 21:42:19.842  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_ADMIN
+2020-06-04 21:42:19.847  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_GUEST
+2020-06-04 21:42:19.851  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_TA
+2020-06-04 21:42:19.854  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_STUDENT
+2020-06-04 21:42:19.855  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_INSTRUCTOR
+2020-06-04 21:42:19.855  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_TA
+2020-06-04 21:42:19.858  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_STUDENT
+2020-06-04 21:42:19.866  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_INSTRUCTOR
+2020-06-04 21:42:19.868  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_STUDENT
+2020-06-04 21:42:19.871  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_STUDENT
+2020-06-04 21:42:19.872  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_TA
+2020-06-04 21:42:19.876  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_STUDENT
+2020-06-04 21:42:19.877  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_INSTRUCTOR
+2020-06-04 21:42:19.877  INFO 25544 --- [    Test worker] c.c.g.auth.config.LoginSuccessHandler    : ROLE_TA
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

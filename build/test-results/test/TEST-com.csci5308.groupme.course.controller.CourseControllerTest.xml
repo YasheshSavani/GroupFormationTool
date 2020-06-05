@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.csci5308.groupme.course.controller.CourseControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-06-05T00:42:19" hostname="YASHESH" time="0.507">
+  <properties/>
+  <testcase name="getCoursePage()" classname="com.csci5308.groupme.course.controller.CourseControllerTest" time="0.018"/>
+  <testcase name="getCoursesByUserNameAndRoleTest()" classname="com.csci5308.groupme.course.controller.CourseControllerTest" time="0.458"/>
+  <testcase name="showOpearationsOnCourse()" classname="com.csci5308.groupme.course.controller.CourseControllerTest" time="0.027"/>
+  <system-out><![CDATA[2020-06-04 21:42:19.879  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.course.controller.CourseControllerTest], using SpringBootContextLoader
+2020-06-04 21:42:19.880  INFO 25544 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.course.controller.CourseControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-06-04 21:42:19.880  INFO 25544 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.course.controller.CourseControllerTest]: CourseControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-06-04 21:42:19.893  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.csci5308.groupme.GroupmeApplication for test class com.csci5308.groupme.course.controller.CourseControllerTest
+2020-06-04 21:42:19.895  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-06-04 21:42:19.897  INFO 25544 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11132d5a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@28945628, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3034f566, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@327dd727, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3a0c45cf, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@302361b0, org.springframework.test.context.event.EventPublishingTestExecutionListener@272b2d17, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@7bb3023a, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@234912be, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@8ccc986, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@76f11e1d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@15b0602b, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7e874cc1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@10693a6e]
+2020-06-04 21:42:19.909  INFO 25544 --- [    Test worker] c.c.g.c.controller.CourseController      : CSCI5308
+2020-06-04 21:42:19.909  INFO 25544 --- [    Test worker] c.c.g.c.controller.CourseController      : Adv Topics in Software Development
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /coursepage
+       Parameters = {courseCode=[CSCI5308], courseName=[Adv Topics in Software Development]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=org.springframework.security.core.context.SecurityContextImpl@f6fb4051: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@f6fb4051: Principal: org.springframework.security.core.userdetails.User@c9cb54f4: Username: savani; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_TA; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_TA}
+
+Handler:
+             Type = com.csci5308.groupme.course.controller.CourseController
+           Method = com.csci5308.groupme.course.controller.CourseController#getCoursePage(String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = coursepage
+             View = null
+        Attribute = courseCode
+            value = CSCI5308
+        Attribute = courseName
+            value = Adv Topics in Software Development
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Course Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/theme.css" />
+</head>
+<body>
+	<div class="topnav">
+		<a href="/">GroupMe</a> 
+		<a style="float: right" href="logout">Logout</a>
+		<a style="float: right" class="active" href="#account">Account</a> 
+	</div>
+	<div class = "containermid">
+	<div class = "centermid" style = "padding-top: 125px;">
+	    <h1 style = "text-align:center">Adv Topics in Software Development</h1>
+	    <h2 style = "text-align:center">CSCI5308</h2>
+    </div>
+    </div>
+
+
+</body>
+</html>
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2020-06-04 21:42:19.944  INFO 25544 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connecting to the selected database...
+2020-06-04 21:42:20.076  INFO 25544 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connected to the database successfully...
+2020-06-04 21:42:20.274  INFO 25544 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+2020-06-04 21:42:20.362  INFO 25544 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+2020-06-04 21:42:20.363  INFO 25544 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /TAcoursepage
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=org.springframework.security.core.context.SecurityContextImpl@f6fb4051: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@f6fb4051: Principal: org.springframework.security.core.userdetails.User@c9cb54f4: Username: savani; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_TA; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_TA}
+
+Handler:
+             Type = com.csci5308.groupme.course.controller.CourseController
+           Method = com.csci5308.groupme.course.controller.CourseController#getCoursesByUserNameAndRole(Principal)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = tahomepage
+             View = null
+        Attribute = courseTACourses
+            value = [com.csci5308.groupme.course.model.Course@56d14fa, com.csci5308.groupme.course.model.Course@35a78ed1]
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TA Home Page</title>
+
+</head>
+<body>
+
+<div class="topnav">
+    <a class="active" href="#home-loggedin">GroupMe</a>
+    <form class="pull-right" id="home-loggedin" method="post" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+<div style="text-align: center; margin: 0 auto;">
+    <h1>Details of Course</h1>
+
+    <form name="form" method="GET">
+
+        <table>
+            <thead>
+            <tr>
+                <th>Course Code</th>
+                <th>Course Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>web</td>
+                <td>csci0010</td>
+                <td>
+                    <a href="/operationoncourse?courseCode=csci0010&amp;courseName=web">
+                        Go To Course
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>industry</td>
+                <td>csci9890</td>
+                <td>
+                    <a href="/operationoncourse?courseCode=csci9890&amp;courseName=industry">
+                        Go To Course
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        
+    </form>
+</div>
+</body>
+</html>
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /operationoncourse
+       Parameters = {courseCode=[csci0010], courseName=[web]}
+          Headers = []
+             Body = null
+    Session Attrs = {SPRING_SECURITY_CONTEXT=org.springframework.security.core.context.SecurityContextImpl@f6fb4051: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@f6fb4051: Principal: org.springframework.security.core.userdetails.User@c9cb54f4: Username: savani; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: ROLE_TA; Credentials: [PROTECTED]; Authenticated: true; Details: null; Granted Authorities: ROLE_TA}
+
+Handler:
+             Type = com.csci5308.groupme.course.controller.CourseController
+           Method = com.csci5308.groupme.course.controller.CourseController#showOpearationsOnCourse(String, String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = operationoncourse
+             View = null
+        Attribute = courseCode
+            value = csci0010
+        Attribute = courseName
+            value = web
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Language:"en", Content-Type:"text/html;charset=UTF-8", X-Content-Type-Options:"nosniff", X-XSS-Protection:"1; mode=block", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = text/html;charset=UTF-8
+             Body = <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Admin Page</title>
+
+    <script type="text/javascript">
+
+        function showCsvImportDiv() {
+            document.getElementById('div_get_data').style.display = 'none';
+            if (document.getElementById('import_csv_form').style.display == 'none') {
+                document.getElementById('import_csv_form').style.display = 'block';
+            }
+        }
+
+        function showAddTADiv() {
+            document.getElementById('import_csv_form').style.display = 'none';
+            if (document.getElementById('div_get_data').style.display == 'none') {
+                document.getElementById('div_get_data').style.display = 'block';
+            }
+
+        }
+    </script>
+
+    <style>
+        .form {
+            text-align: center;
+            border: black;
+            border-radius: 3px;
+            padding: 50px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .text-box {
+            width: 300px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="buttons" style="text-align: center; display: block; ">
+    <table>
+        <tr>
+            <td>
+                <button name="importcsv" onclick="showCsvImportDiv()">Import CSV</button>
+            </td>
+            <td>
+                <button name="addta" onclick="showAddTADiv()">Add TA</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="import_csv_form" style="display: none; margin: auto 0; text-align: center">
+    <form action="/uploadfile" method="post" enctype="multipart/form-data">
+        <input type="file" id="file" name="file"/>
+        <br>
+        <input type="submit"/>
+    </form>
+</div>
+
+<div id="div_get_data" style="text-align: center; display: none;">
+    <h3>Select TA from Existing User for Course</h3>
+    <form name="form_get_data" class="form" action="/courseoperation?courseCode=csci0010" method="POST"
+          style="text-align: center;">
+        <table>
+            <tr>
+                <th colspan="2" style="text-align: center">
+                    Assign TA to the Course
+                </th>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td>
+                    <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                </td>
+            </tr>
+            <!--            <tr>-->
+            <!--                <td><label for="courseCode">Course Code</label></td>-->
+            <!--                <td>-->
+            <!--                    <input type="text" th:name="courseCode" id="courseCode" placeholder="Enter Course Code" required>-->
+            <!--                </td>-->
+            <!--            </tr>-->
+            <tr>
+                <td>
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+
+</body>
+</html>
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
