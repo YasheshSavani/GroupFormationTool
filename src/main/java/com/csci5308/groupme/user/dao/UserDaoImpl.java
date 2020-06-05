@@ -1,5 +1,6 @@
 package com.csci5308.groupme.user.dao;
 
+import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.user.model.User;
 import errors.EditCodes;
 import errors.SqlErrors;
@@ -20,17 +21,22 @@ public class UserDaoImpl implements UserDao {
 	
 	Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
-	@Value("${development.driver}")
-	private String JDBC_DRIVER;
+	DatabaseProperties databaseProperties = new DatabaseProperties();
+	String DB_URL = databaseProperties.getDbURL();
+	String USER = databaseProperties.getDbUserName();
+	String PASS = databaseProperties.getDbPassword();
 
-	@Value("${development.url}")
-	private String DB_URL;
-
-	@Value("${development.username}")
-	private String USER;
-
-	@Value("${development.password}")
-	private String PASS;
+//	@Value("${development.driver}")
+//	private String JDBC_DRIVER;
+//
+//	@Value("${development.url}")
+//	private String DB_URL;
+//
+//	@Value("${development.username}")
+//	private String USER;
+//
+//	@Value("${development.password}")
+//	private String PASS;
 
 	private Connection connection = null;
 
@@ -44,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		try {
 
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_USERNAME);
@@ -99,7 +105,7 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		try {
 			// connection = dataSource.openConnection();
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
@@ -154,7 +160,7 @@ public class UserDaoImpl implements UserDao {
 		List<User> users = new ArrayList<User>();
 		try {
 			// connection = dataSource.openConnection();
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_NAME);
@@ -198,7 +204,7 @@ public class UserDaoImpl implements UserDao {
 	public int save(User user) {
 		int addedUserCount = 0;
 		try {
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
@@ -265,7 +271,7 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		List<User> users = new ArrayList<User>();
 		try {
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_ALL);
@@ -307,7 +313,7 @@ public class UserDaoImpl implements UserDao {
 	public int addRole(String userName, String roleName) {
 		int addedUserCount = 0;
 		try {
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
@@ -349,7 +355,7 @@ public class UserDaoImpl implements UserDao {
 	public int update(User user) {
 		int updatedRowCount = 0;
 		try {
-			Class.forName(JDBC_DRIVER);
+//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
