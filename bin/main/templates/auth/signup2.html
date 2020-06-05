@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sign Up</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+<link
+	href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"
+	rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/theme.css}" />
+<script type="text/javascript">
+	function validate() {
+
+		if (document.signUpForm.userName.value == "") {
+			alert("Please provide your user name!");
+			document.signUpForm.userName.focus();
+			return false;
+		}
+
+		if (document.signUpForm.firstName.value == "") {
+			alert("Please provide your first name!");
+			document.signUpForm.firstName.focus();
+			return false;
+		}
+		if (document.signUpForm.lastName.value == "") {
+			alert("Please provide your last name!");
+			document.signUpForm.lastName.focus();
+			return false;
+		}
+		if (document.signUpForm.email.value == "") {
+			alert("Please provide your email id!");
+			document.signUpForm.email.focus();
+			return false;
+		}
+		if (document.signUpForm.password.value == "") {
+			alert("Please provide your password!");
+			document.signUpForm.password.focus();
+			return false;
+		}
+		if (document.signUpForm.confirmPassword.value == "") {
+			alert("Please confirm your password!");
+			document.signUpForm.confirmPassword.focus();
+			return false;
+		}
+		if (!(/^[a-zA-Z0-9._]+$/.test(document.signUpForm.userName.value))) {
+			alert("Username should consist only of letters, digits, _ or .!");
+			document.signUpForm.userName.focus();
+			return false;
+		}
+		if (!(/^(\w+\.)*\w+@(\w+\.)+[A-Za-z]+$/
+				.test(document.signUpForm.email.value))) {
+			alert("Enter email in the right format!");
+			document.signUpForm.email.focus();
+			return false;
+		}
+		if (!(/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
+				.test(document.signUpForm.password.value))) {
+			alert("Password should start with a letter and can include digits and underscore, with a minimum length of 4 characters!");
+			document.signUpForm.password.focus();
+			return false;
+		}
+		if (document.signUpForm.password.value != document.signUpForm.confirmPassword.value) {
+			alert("Passwords do not match!");
+			document.signUpForm.confirmPassword.focus();
+			return false;
+		}
+
+		return (true);
+	}
+</script>
+</head>
+<body>
+	<div class="topnav">
+		<a class="active" href="/">GroupMe</a> <a style="float: right"
+			href="/signup">Sign Up</a> <a style="float: right" href="/login">Login</a>
+	</div>
+
+	<div class="container">
+
+		<h2 style="text-align: center">Sign Up Form</h2>
+		<form name="signUpForm" onSubmit="return (validate());"
+			th:action="@{/signup}" method="post" th:object="${user}">
+
+			<table>
+				<tr>
+					<td align="right">Username</td>
+					<td><input type="text" name="userName" th:field="*{userName}" /></td>
+				</tr>
+				<tr>
+					<td align="right">First Name</td>
+					<td><input type="text" name="firstName"
+						th:field="*{firstName}" /></td>
+				</tr>
+				<tr>
+					<td align="right">Last Name</td>
+					<td><input type="text" name="lastName" th:field="*{lastName}" /></td>
+				</tr>
+				<tr>
+					<td align="right">Email</td>
+					<td><input type="text" name="email" th:field="*{email}" /></td>
+				</tr>
+				<tr>
+					<td align="right">Password</td>
+					<td><input type="password" name="password"
+						th:field="*{password}" /></td>
+				</tr>
+				<tr>
+					<td align="right">Confirm Password</td>
+					<td><input type="password" name="confirmPassword" /></td>
+				</tr>
+				<tr>
+					<td align="right"></td>
+					<td><button class="btn btn-lg btn-primary btn-block btn-submit"
+				type="submit">Sign up</button></td>
+				</tr>
+				<tr>
+					<td align="right"></td>
+					<td><button class="btn btn-lg btn-primary btn-block btn-submit"
+				type="reset">Reset</button></td>
+				</tr>
+			</table>
+
+		</form>
+		<p1 style="text-align: center" th:text="${message}">
+		</h1>
+	</div>
+</body>
+</html>
