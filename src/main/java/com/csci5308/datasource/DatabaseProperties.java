@@ -7,6 +7,7 @@ import java.util.Properties;
 
 public class DatabaseProperties {
 
+	private String dbDriver;
     private String dbURL;
     private String dbUserName;
     private String dbPassword;
@@ -16,12 +17,13 @@ public class DatabaseProperties {
             Properties databaseProperties = new Properties();
             Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/database.properties"));
             databaseProperties.load(propertiesReader);
-//            dbURL = databaseProperties.getProperty("development.url");
-//            dbUserName = databaseProperties.getProperty("development.username");
-//            dbPassword = databaseProperties.getProperty("development.password");
-            dbURL = System.getenv("DB_URL");
-            dbUserName = System.getenv("USERNAME");
-            dbPassword = System.getenv("PASSWORD");
+            dbDriver = databaseProperties.getProperty("development.driver");
+            dbURL = databaseProperties.getProperty("development.url");
+            dbUserName = databaseProperties.getProperty("development.username");
+            dbPassword = databaseProperties.getProperty("development.password");
+//            dbURL = System.getenv("DB_URL");
+//            dbUserName = System.getenv("USERNAME");
+//            dbPassword = System.getenv("PASSWORD");
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -51,4 +53,10 @@ public class DatabaseProperties {
     public void setDbPassword(String dbPassword) {
         this.dbPassword = dbPassword;
     }
+    
+    public String getDriver() {
+        return dbDriver;
+    }
+
+    
 }

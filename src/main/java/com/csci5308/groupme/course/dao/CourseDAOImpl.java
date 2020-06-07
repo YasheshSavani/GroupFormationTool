@@ -13,11 +13,13 @@ import org.springframework.stereotype.Repository;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.instructor.model.Instructor;
 
 import ch.qos.logback.classic.Logger;
 import errors.EditCodes;
 import errors.SqlErrors;
 import sql.CourseQuery;
+import sql.InstructorQuery;
 
 @Repository
 public class CourseDAOImpl implements CourseDAO {
@@ -419,5 +421,7 @@ public class CourseDAOImpl implements CourseDAO {
 	    }
 	    return courseList;
 	}
+	
+	
 
 }

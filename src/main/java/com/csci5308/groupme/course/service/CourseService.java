@@ -6,6 +6,8 @@ import com.csci5308.groupme.course.model.Course;
 public interface CourseService {
 
 	public List<Course> findAllCourses() throws Exception;
+	
+	public Course getByCourseCode(String courseCode) throws Exception;
 
 	public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception;
 

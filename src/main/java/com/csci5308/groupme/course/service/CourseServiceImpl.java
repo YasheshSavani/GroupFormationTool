@@ -24,8 +24,13 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
-
 		return courseDAO.getCoursesByUserNameAndRole(userName, roleName);
+	}
+
+	@Override
+	public Course getByCourseCode(String courseCode) throws Exception {
+		Course course = courseDAO.findCourseByCourseCode(courseCode);
+		return course;
 	}
 
 	@Override
