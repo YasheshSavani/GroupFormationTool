@@ -15,8 +15,11 @@ import com.csci5308.groupme.course.service.CourseService;
 import com.csci5308.groupme.instructor.model.Instructor;
 import com.csci5308.groupme.instructor.service.InstructorService;
 
+import errors.EditCodes;
+
 @ExtendWith(SpringExtension.class)
 public class AdminServiceTest {
+	
 	
 	@Mock
 	private AdminDao adminDao;
@@ -67,6 +70,26 @@ public class AdminServiceTest {
 		when(adminDao.createClass(instructor.getUserName(), courseCode)).thenReturn(1);
 		String message = (adminServiceImpl.assignInstructorToCourse(email, courseCode));
 		assertEquals("Instructor email not found! Please check again!", message);
+
+	}
+	
+	@Test
+	public void recordExistsTest() throws Exception {
+		String email = "instructor_test@gmail.com";
+		String courseCode = "CSCI0000";
+		Instructor instructor = new Instructor();
+		instructor.setUserName("testinst");
+		instructor.setFirstName("Test");
+		instructor.setLastName("Instructor");
+		instructor.setEmail(email);
+		Course course = new Course();
+		course.setCourseCode(courseCode);
+		course.setCourseName("Test Course");		
+		when(instructorService.getByEmail(email)).thenReturn(instructor);
+		when(courseService.getByCourseCode(courseCode)).thenReturn(course);
+		when(adminDao.createClass(instructor.getUserName(), courseCode)).thenReturn(EditCodes.CLASS_ALREADY_CREATED);
+		String message = (adminServiceImpl.assignInstructorToCourse(email, courseCode));
+		assertEquals("Record already exists!", message);
 
 	}
 	

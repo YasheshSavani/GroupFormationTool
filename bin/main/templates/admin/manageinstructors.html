@@ -23,36 +23,34 @@
 <link rel="stylesheet" th:href="@{/css/theme.css}">
 </head>
 <body>
-	<body>
+<body>
 	<div class="topnav" style="float: top">
 		<a class="active" href="/admin">GroupMe</a> <a style="float: right"
 			href="/logout">Logout</a>
 	</div>
 
+	<ul class="vNavbar">
+		<li><a class="active" href="#admin">Dashboard</a></li>
+		<li><a href="/admin/manageCourses">Manage Courses</a></li>
+		<li><a href="/admin/manageInstructors">Manage Instructors</a></li>
+	</ul>
+
 	<div class="container">
-		<form class="custom-form-control" method="post" action="/admin/addCourse">
-			<h2 class="form-signin-heading text-center" style="color: #2DA9B7" >Add Course</h2>
-			<p>
-				 <input
-					type="text" id="courseCode" name="courseCode" class="form-control"
-					placeholder="Course Code" required="true" autofocus="">
-			</p>
-			<p>
-				 <input
-					type="text" id="courseName" name="courseName" class="form-control"
-					placeholder="Course Name" required="true">
-			</p>
-			<p>
-				 <input
-					type="text" id="crn" name="courseCrn" class="form-control"
-					placeholder="CRN" required="true">
-			</p>
-			<button class="btn btn-lg btn-primary btn-block btn-submit"
-				type="submit">Add Course</button>
+		<form class="custom-form-control" method="get"
+			action="/admin/createClass">
+
+			<button
+				class="btn btn-lg btn-primary btn-block btn-submit w-25 mt-20 mb-10"
+				type="submit">Create Class</button>
 		</form>
 
-		<p th:text="${message}"></p>
-	
+		<form class="custom-form-control" method="get"
+			action="#">
+			<button class="btn btn-lg btn-primary btn-block btn-submit w-25"
+				type="submit">Delete Class</button>
+		</form>
+
+
 	</div>
 
 

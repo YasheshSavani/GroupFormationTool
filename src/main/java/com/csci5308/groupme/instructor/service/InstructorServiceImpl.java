@@ -6,11 +6,13 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.csci5308.groupme.instructor.dao.InstructorDAO;
+import com.csci5308.groupme.instructor.dao.InstructorDAOImpl;
 import com.csci5308.groupme.instructor.model.Instructor;
 import com.csci5308.groupme.student.dao.StudentDAO;
 import com.csci5308.groupme.student.dao.StudentDAOImpl;
@@ -20,9 +22,13 @@ import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
 import com.opencsv.CSVReader;
 
+import ch.qos.logback.classic.Logger;
+
 @Service
 public class InstructorServiceImpl implements InstructorService {
 
+	private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorServiceImpl.class);
+	
 	@Autowired
 	private InstructorDAO instructorDAO;
 
@@ -102,7 +108,12 @@ public class InstructorServiceImpl implements InstructorService {
 
 	@Override
 	public Instructor getByEmail(String email) throws Exception {
+		
 		User user = userService.getByEmail(email);
+		if(user == null) {
+			logger.info(email + " not found");
+			return null;
+		}
 		Instructor instructor = instructorDAO.findByUserName(user.getUserName());
 		if (null != instructor) {
 			instructor.setFirstName(user.getFirstName());

@@ -30,8 +30,8 @@
 	</div>
 
 	<div class="container">
-		<form class="custom-form-control" method="post" action="/admin/addCourse">
-			<h2 class="form-signin-heading text-center" style="color: #2DA9B7" >Add Course</h2>
+		<form class="custom-form-control" method="post" action="/admin/createClass">
+			<h2 class="form-signin-heading text-center" style="color: #2DA9B7" >Create Class</h2>
 			<p>
 				 <input
 					type="text" id="courseCode" name="courseCode" class="form-control"
@@ -39,16 +39,12 @@
 			</p>
 			<p>
 				 <input
-					type="text" id="courseName" name="courseName" class="form-control"
-					placeholder="Course Name" required="true">
+					type="text" id="email" name="email" class="form-control"
+					placeholder="Instructor Email" required="true">
 			</p>
-			<p>
-				 <input
-					type="text" id="crn" name="courseCrn" class="form-control"
-					placeholder="CRN" required="true">
-			</p>
+			
 			<button class="btn btn-lg btn-primary btn-block btn-submit"
-				type="submit">Add Course</button>
+				type="submit">Create Class</button>
 		</form>
 
 		<p th:text="${message}"></p>

@@ -209,10 +209,10 @@ public class UserDaoImpl implements UserDao {
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(UserQuery.ADD_USER);
-			preparedStatement.setString(1, user.getUserName());
-			preparedStatement.setString(2, user.getFirstName());
-			preparedStatement.setString(3, user.getLastName());
-			preparedStatement.setString(4, user.getEmail());
+			preparedStatement.setString(1, user.getUserName().strip());
+			preparedStatement.setString(2, user.getFirstName().strip());
+			preparedStatement.setString(3, user.getLastName().strip());
+			preparedStatement.setString(4, user.getEmail().strip());
 			preparedStatement.setString(5, user.getPassword());
 			addedUserCount = preparedStatement.executeUpdate();
 			preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);

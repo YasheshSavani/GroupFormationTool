@@ -80,20 +80,25 @@ public class AdminController {
 	    
 	}
 	
-	@PostMapping(value = "/admin/addinstuctortocourse")
-	public ModelAndView addInstucToCourse(@RequestParam("emailId") String emailId,
-			@RequestParam("courseCode") String courseCode) throws Exception {
-		String statusInstructor = adminService.assignInstructorToCourse(emailId, courseCode);
-		ModelAndView mView = new ModelAndView();
-		if (statusInstructor == "True") {
-			mView.addObject("status", "Instructor assigned");
-		} else {
-			mView.addObject("status", "Instructor assingment error");
-		}
-		mView.setViewName("addinstuctortocourse");
+	@GetMapping("/admin/manageInstructors")
+	public ModelAndView getManageInstructorsPage() {
+		ModelAndView mView = new ModelAndView("admin/manageinstructors");
 		return mView;
 	}
 	
+	@GetMapping("/admin/createClass")
+	public ModelAndView getAddInstucToCoursePage() {
+		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
+		return mView;
+	}
 	
-	
+	@PostMapping("/admin/createClass")
+	public ModelAndView addInstucToCourse(@RequestParam("email") String emailId,
+			@RequestParam("courseCode") String courseCode) throws Exception {
+		String message = adminService.assignInstructorToCourse(emailId, courseCode);
+		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
+		mView.addObject("message", message);
+		return mView;
+	}
+		
 }
