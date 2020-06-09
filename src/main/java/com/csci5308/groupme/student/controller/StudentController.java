@@ -27,13 +27,14 @@ public class StudentController {
 		String studentUserName = principal.getName();
 		List<Course> coursesStudentEnrolledIn = courseService.findCoursesByStudentUserName(studentUserName);
 		ModelAndView mView = new ModelAndView();
-		mView.setViewName("studenthomepage");		
+		mView.setViewName("student/studenthomepage");		
 		if (null != coursesStudentEnrolledIn) {
 			mView.addObject("studentCourseDetails", coursesStudentEnrolledIn);
 		} else {
 			mView.addObject("studentCourseDetails", null);
 		}
 		mView.addObject("isTA", isTA);
+		mView.addObject("isInstructor", isInstructor);
 		return mView;
 	}
 }

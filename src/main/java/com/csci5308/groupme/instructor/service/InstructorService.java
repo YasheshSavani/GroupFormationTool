@@ -1,14 +1,22 @@
 package com.csci5308.groupme.instructor.service;
 
-import com.csci5308.groupme.teaching_assistant.model.TeachingAssistant;
-import org.springframework.stereotype.Service;
+import java.io.Reader;
+import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
+import com.csci5308.groupme.instructor.model.Instructor;
 
 public interface InstructorService {
 
-    String findByTAEmailId(String emailId, String courseCode) throws Exception;
-    public boolean upload(MultipartFile file, String instructorID, String courseCode);
+	public Instructor getByUserName(String userName) throws Exception;
+
+	public String findByTAEmailId(String emailId, String courseCode) throws Exception;
+
+	public boolean upload(MultipartFile file, String instructorID, String courseCode);
+
+	public List<String[]> readAll(Reader reader);
+	
+	public Instructor getByEmail(String email) throws Exception; 
 
 }

@@ -63,19 +63,19 @@ public class HomeController {
 
 
         if (isStudent && !isTA && !isInstructor) {
-            return "redirect:/studenthomepage?isStudent=true";
-        } else if (!isStudent && isTA && !isInstructor) {
-            return "redirect:/studenthomepage?isTA=true";
-        } else if (!isStudent && !isTA && isInstructor) {
-            return "redirect:/Instructor";
+            return "redirect:/studenthomepage";
         } else if (isStudent && isTA && !isInstructor) {
-            return "redirect:/studenthomepage?isStudent=true&isTA=true";
+            return "redirect:/studenthomepage?isTA=true";               
         } else if (isStudent && !isTA && isInstructor) {
-            return "redirect:/InstructorTAStudent/InstructorStudent";
+            return "redirect:/studenthomepage?isInstructor=true";
+        } else if (!isStudent && isTA && !isInstructor) {
+            return "redirect:/tahomepage";
+        } else if (!isStudent && !isTA && isInstructor) {
+            return "redirect:/instructorhomepage";       
         } else if (!isStudent && isTA && isInstructor) {
-            return "redirect:/InstructorTAStudent/InstructorTA";
+            return "redirect:/instructorhomepage?isTA=true";
         } else if (isStudent && isTA && isInstructor) {
-            return "redirect:/InstructorTAStudent";
+            return "redirect:/studenthomepage?isTA=true&isInstructor=true";
         }
         return null;
     }

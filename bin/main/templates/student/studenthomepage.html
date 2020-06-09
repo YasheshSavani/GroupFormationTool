@@ -9,13 +9,13 @@
 	<link rel="stylesheet" th:href="@{/css/theme.css}" />
     <script th:inline="javascript">
         var isTA = "[[${isTA}]]";
+        var isInstructor = "[[${isInstructor}]]";
 
         function showCourseAdminButton() {
-            if (isTA === "true") {
+            if (isTA === "true" || isInstructor === "true") {
                 document.getElementById('courseAdminButton').style.display = "block";
             }
         }
-
 
     </script>
 </head>
@@ -64,6 +64,7 @@
             </tbody>
         </table>
         <span th:if="${studentCourseDetails == null}">You are not Enrolled in any Courses.</span>
+        <h1>This is the change for the Marker.</h1>
     </form>
 </div>
 </body>

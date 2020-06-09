@@ -14,4 +14,6 @@ public class EditCodes {
 	
 	public static final int COURSE_DOES_NOT_EXIST = -7;
 	
+	public static final int CLASS_ALREADY_CREATED = -8;
+	
 }

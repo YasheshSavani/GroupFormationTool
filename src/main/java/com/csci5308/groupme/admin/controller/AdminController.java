@@ -8,10 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.csci5308.groupme.admin.service.AdminService;
 import com.csci5308.groupme.course.model.Course;
 import com.csci5308.groupme.course.service.CourseService;
+import com.csci5308.groupme.instructor.service.InstructorService;
 import com.csci5308.groupme.user.model.User;
 
 import errors.EditCodes;
@@ -22,6 +25,9 @@ public class AdminController {
 	@Autowired
 	CourseService courseService;
 		
+	@Autowired
+	AdminService adminService;
+	
 	@GetMapping("/admin/manageCourses")
 	public ModelAndView adminLandingPage(Principal principal) {
 		ModelAndView mView = new ModelAndView("admin/managecourses");
@@ -74,6 +80,25 @@ public class AdminController {
 	    
 	}
 	
+	@GetMapping("/admin/manageInstructors")
+	public ModelAndView getManageInstructorsPage() {
+		ModelAndView mView = new ModelAndView("admin/manageinstructors");
+		return mView;
+	}
 	
+	@GetMapping("/admin/createClass")
+	public ModelAndView getAddInstucToCoursePage() {
+		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
+		return mView;
+	}
 	
+	@PostMapping("/admin/createClass")
+	public ModelAndView addInstucToCourse(@RequestParam("email") String emailId,
+			@RequestParam("courseCode") String courseCode) throws Exception {
+		String message = adminService.assignInstructorToCourse(emailId, courseCode);
+		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
+		mView.addObject("message", message);
+		return mView;
+	}
+		
 }
