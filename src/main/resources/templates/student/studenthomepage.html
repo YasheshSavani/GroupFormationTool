@@ -9,13 +9,13 @@
 	<link rel="stylesheet" th:href="@{/css/theme.css}" />
     <script th:inline="javascript">
         var isTA = "[[${isTA}]]";
+        var isInstructor = "[[${isInstructor}]]";
 
         function showCourseAdminButton() {
-            if (isTA === "true") {
+            if (isTA === "true" || isInstructor === "true") {
                 document.getElementById('courseAdminButton').style.display = "block";
             }
         }
-
 
     </script>
 </head>

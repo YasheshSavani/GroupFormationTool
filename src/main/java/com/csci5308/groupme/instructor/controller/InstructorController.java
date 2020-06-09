@@ -114,18 +114,18 @@ public class InstructorController {
     }
 
 
-    @RequestMapping(value = "/InstructorTAStudent/Instructor", method = RequestMethod.GET)
-//    @GetMapping("/Instructor")
-    public String instructorHomePage(Principal principal, Model model) {
-        CourseDAO courseDAO = new CourseDAOImpl();
-        try {
-            List<Course> coursesList = courseDAO.findCoursesByInstructor(principal.getName());
-            model.addAttribute("courses", coursesList);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "CourseAdmin";
-    }
+//    @RequestMapping(value = "/InstructorTAStudent/Instructor", method = RequestMethod.GET)
+////    @GetMapping("/Instructor")
+//    public String instructorHomePage(Principal principal, Model model) {
+//        CourseDAO courseDAO = new CourseDAOImpl();
+//        try {
+//            List<Course> coursesList = courseDAO.findCoursesByInstructor(principal.getName());
+//            model.addAttribute("courses", coursesList);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return "CourseAdmin";
+//    }
 
     @RequestMapping(value = "/InstructorTAStudent/uploadfile", method = RequestMethod.POST)
 //    @PostMapping("/uploadfile")
@@ -136,6 +136,17 @@ public class InstructorController {
         return "redirect:/InstructorTAStudent/CourseAdmin";
     }
     
-    
+    @RequestMapping(value = "/instructorhomepage", method = RequestMethod.GET)
+//  @GetMapping("/Instructor")
+  public String instructorHomePage(Principal principal, Model model) {
+      CourseDAO courseDAO = new CourseDAOImpl();
+      try {
+          List<Course> coursesList = courseDAO.findCoursesByInstructor(principal.getName());
+          model.addAttribute("courses", coursesList);
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
+      return "CourseAdmin";
+  }   
 
 }

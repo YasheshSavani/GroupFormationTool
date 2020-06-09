@@ -22,23 +22,7 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @RequestMapping(value = "/TAcoursepage", method = RequestMethod.GET)
-    public ModelAndView getCoursesByUserNameAndRole(Principal p) throws Exception {
-        String userName = p.getName();
-        String roleName = "ROLE_TA";
-
-        List<Course> courseTACourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
-
-        ModelAndView mView = new ModelAndView();
-        if (!courseTACourses.isEmpty()) {
-            mView.addObject("courseTACourses", courseTACourses);
-        } else {
-            mView.addObject("courseTACourses", null);
-        }
-        mView.setViewName("tahomepage");
-        return mView;
-    }
-
+   
     @RequestMapping(value = "/operationoncourse", method = RequestMethod.GET)
     public ModelAndView showOpearationsOnCourse(@RequestParam("courseCode") String courseCode,
                                                 @RequestParam("courseName") String courseName) {
