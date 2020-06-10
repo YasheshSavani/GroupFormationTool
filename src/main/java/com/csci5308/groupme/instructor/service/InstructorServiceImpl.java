@@ -36,20 +36,6 @@ public class InstructorServiceImpl implements InstructorService {
 	private UserService userService;
 
 	@Override
-	public String findByTAEmailId(String emailId, String courseCode) throws Exception {
-
-		String assignmentConfirmation = null;
-
-		try {
-			assignmentConfirmation = instructorDAO.findByTAEmailId(emailId, courseCode);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return assignmentConfirmation;
-	}
-
-	@Override
 	public boolean upload(MultipartFile file, String instructorID, String courseCode) {
 		try {
 			Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8));

@@ -11,8 +11,6 @@ public interface InstructorService {
 
 	public Instructor getByUserName(String userName) throws Exception;
 
-	public String findByTAEmailId(String emailId, String courseCode) throws Exception;
-
 	public boolean upload(MultipartFile file, String instructorID, String courseCode);
 
 	public List<String[]> readAll(Reader reader);

@@ -18,8 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
-
-
 public class InstructorServiceImplTest {
 
     @Mock
@@ -27,18 +25,6 @@ public class InstructorServiceImplTest {
 
     @InjectMocks
     InstructorServiceImpl instructorService;
-
-    @Test
-    void findByTAEmailId() throws Exception {
-        String userNameTest = "savani";
-        String roleNameTest = "ROLE_TA";
-
-        when(instructorDAO.findByTAEmailId(userNameTest, roleNameTest)).thenReturn("TA Assigned");
-
-        String assignmentConfirmation = instructorService.findByTAEmailId(userNameTest, roleNameTest);
-        assertEquals("TA Assigned", assignmentConfirmation);
-    }
-
 
     private Reader reader;
 
