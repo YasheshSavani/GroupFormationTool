@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.SystemConfig;
 import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
@@ -18,6 +20,8 @@ import sql.UserQuery;
 public class TeachingAssistantDaoImpl implements TeachingAssistantDao{
 
 	private final Logger logger = (Logger) LoggerFactory.getLogger(TeachingAssistantDaoImpl.class);
+
+
 	
 	@Override
 	public String findByTAEmailId(String emailId, String courseCode) throws Exception {
@@ -26,15 +30,11 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao{
 		PreparedStatement preparedStatement = null;
 
 		try {
-			String databasePropertiesFilePath = "src/main/resources/database.properties";
-			Reader dbPropertiesReader = new BufferedReader(new FileReader(databasePropertiesFilePath));
-			Properties properties = new Properties();
-			properties.load(dbPropertiesReader);
-
-			String JDBC_DRIVER = properties.getProperty("development.driver");
-			String DB_URL = properties.getProperty("development.url");
-			String USER = properties.getProperty("development.username");
-			String PASSWORD = properties.getProperty("development.password");
+			DatabaseProperties databaseProperties = SystemConfig.instance().getDatabaseProperties();
+			String JDBC_DRIVER = databaseProperties.getDriver();
+			String DB_URL = databaseProperties.getDbURL();
+			String USER = databaseProperties.getDbUserName();
+			String PASSWORD = databaseProperties.getDbPassword();
 			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
