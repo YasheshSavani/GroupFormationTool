@@ -27,7 +27,7 @@ public class CourseController {
     public ModelAndView showOpearationsOnCourse(@RequestParam("courseCode") String courseCode,
                                                 @RequestParam("courseName") String courseName) {
         ModelAndView mView = new ModelAndView();
-        mView.setViewName("operationoncourse");
+        mView.setViewName("coursedetails");
         mView.addObject("courseCode", courseCode);
         mView.addObject("courseName", courseName);
         return mView;

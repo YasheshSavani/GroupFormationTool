@@ -47,11 +47,11 @@ public class TeachingAssistantController {
 
 	        ModelAndView mView = new ModelAndView();
 	        if (null != courseTACourses) {
-	            mView.addObject("courseTACourses", courseTACourses);
+	            mView.addObject("courses", courseTACourses);
 	        } else {
-	            mView.addObject("courseTACourses", null);
+	            mView.addObject("courses", null);
 	        }
-	        mView.setViewName("tacoursespage");
+	        mView.setViewName("CourseAdmin");
 	        return mView;
 	    }
 
