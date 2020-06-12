@@ -65,12 +65,13 @@ public class UserServiceImpl implements UserService {
 	public int register(User user) {
 		int insertStatus = 0;
 		String rawPassword = user.getPassword();
-		if (userDao.findByEmail(user.getEmail()) != null)
+		if (null != userDao.findByEmail(user.getEmail()) ) {
 			insertStatus = EditCodes.EMAIL_EXISTS;
+		}
 		else {
-		logger.info("Encoding the password for {}", user.getUserName());
-		user.setPassword(passwordEncoder.encode(rawPassword));
-		insertStatus = userDao.save(user);
+			logger.info("Encoding the password for {}", user.getUserName());
+			user.setPassword(passwordEncoder.encode(rawPassword));
+			insertStatus = userDao.save(user);
 		}
 		return insertStatus;
 	}
@@ -88,10 +89,10 @@ public class UserServiceImpl implements UserService {
 		if (null == user)
 			updateStatus = EditCodes.EMAIL_DOES_NOT_EXIST;
 		else {
-		user.setPassword(passwordEncoder.encode(newPassword));
-		updateStatus = userDao.update(user);
-		if(updateStatus == 1)
-			logger.info("Password updated.....");
+			user.setPassword(passwordEncoder.encode(newPassword));
+			updateStatus = userDao.update(user);
+			if (updateStatus == 1)
+				logger.info("Password updated.....");
 		}
 		return updateStatus;
 	}
@@ -99,26 +100,25 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean sendCredentials(User user) {
 		try {
-            SendEmailConfiguration emailConfiguration = new SendEmailConfigurationImpl();
-            JavaMailSender emailSender = emailConfiguration.initiateEmailSender();
-            String subject = "Enrolment Email";
-            String content = "If you have received this email, then you are successfully enrolled as a student.\n" +
-                    "Your login credentials are:\n" +
-                    "Username: " + user.getUserName() + "\n" +
-                    "Password: " + user.getPassword();
+			SendEmailConfiguration emailConfiguration = new SendEmailConfigurationImpl();
+			JavaMailSender emailSender = emailConfiguration.initiateEmailSender();
+			String subject = "Enrolment Email";
+			String content = "If you have received this email, then you are successfully enrolled as a student.\n"
+					+ "Your login credentials are:\n" + "Username: " + user.getUserName() + "\n" + "Password: "
+					+ user.getPassword();
 
-            MimeMessage emailContent = emailSender.createMimeMessage();
-            MimeMessageHelper messageHelper = new MimeMessageHelper(emailContent, false);
-            messageHelper.setTo(user.getEmail());
-            messageHelper.setSubject(subject);
-            messageHelper.setText(content);
+			MimeMessage emailContent = emailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(emailContent, false);
+			messageHelper.setTo(user.getEmail());
+			messageHelper.setSubject(subject);
+			messageHelper.setText(content);
 
-            emailSender.send(emailContent);
-            return true;
+			emailSender.send(emailContent);
+			return true;
 
-        } catch (Exception e) {
-            return false;
-        }
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override

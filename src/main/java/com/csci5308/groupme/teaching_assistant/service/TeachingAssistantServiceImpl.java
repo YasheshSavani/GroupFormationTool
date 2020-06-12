@@ -5,10 +5,11 @@ import com.csci5308.groupme.teaching_assistant.dao.TeachingAssistantDao;
 
 public class TeachingAssistantServiceImpl implements TeachingAssistantService{
 	
+private TeachingAssistantDao teachingAssistantDao;
 
 	@Override
 	public String findByTAEmailId(String emailId, String courseCode) throws Exception {
-
+		teachingAssistantDao = SystemConfig.instance().getTeachingAssistantDao();
 		String assignmentConfirmation = null;
 
 		try {
