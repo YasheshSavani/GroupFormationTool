@@ -37,7 +37,7 @@
 <div style="text-align: center; margin: 0 auto; padding-top:10px">
     <h2>Details of Course</h2>
     <div id="courseAdminButton" style="text-align: center; display: none;">
-        <form th:action="@{/TAcoursepage}">
+        <form th:action="@{/TAcoursepage}" method="post">
             <button style = "background-color: gray;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"type="submit">Course Admin Page</button>
         </form>
     </div>
@@ -64,7 +64,6 @@
             </tbody>
         </table>
         <span th:if="${studentCourseDetails == null}">You are not Enrolled in any Courses.</span>
-        <h1>This is the change for the Marker.</h1>
     </form>
 </div>
 </body>

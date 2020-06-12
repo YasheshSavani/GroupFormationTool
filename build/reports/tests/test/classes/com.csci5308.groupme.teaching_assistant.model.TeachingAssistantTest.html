@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.027s</div>
+<div class="counter">0.052s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,42 +79,42 @@
 </thead>
 <tr>
 <td class="success">constructorWithValuesTest()</td>
-<td class="success">0.003s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">defaultConstructorTest()</td>
-<td class="success">0.003s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">getFirstNameTest()</td>
 <td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">defaultConstructorTest()</td>
+<td class="success">0.017s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getFirstNameTest()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">getLastNameTest()</td>
-<td class="success">0.002s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getUserNameTest()</td>
-<td class="success">0.003s</td>
+<td class="success">0.009s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setFirstNameTest()</td>
-<td class="success">0.002s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setLastNameTest()</td>
-<td class="success">0.003s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">setUserNameTest()</td>
-<td class="success">0.007s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -122,11 +122,11 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2020-06-04 21:42:25.341  INFO 25544 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest], using DelegatingSmartContextLoader
-2020-06-04 21:42:25.341  INFO 25544 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest]: no resource found for suffixes {-context.xml}.
-2020-06-04 21:42:25.341  INFO 25544 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest]: TeachingAssistantTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-04 21:42:25.342  INFO 25544 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-06-04 21:42:25.344  INFO 25544 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2b7e6ede, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@75db8ce2, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5cc754f0, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@10823536, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4852b166, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@61c79812, org.springframework.test.context.event.EventPublishingTestExecutionListener@741200e, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@6eb9e55, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5befc66f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6b5d208, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@87ad380, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5239fdec, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7740957a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5f4d3c08]
+<pre>2020-06-09 16:39:53.061  INFO 3376 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest], using DelegatingSmartContextLoader
+2020-06-09 16:39:53.066  INFO 3376 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest]: no resource found for suffixes {-context.xml}.
+2020-06-09 16:39:53.066  INFO 3376 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.teaching_assistant.model.TeachingAssistantTest]: TeachingAssistantTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-06-09 16:39:53.067  INFO 3376 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-06-09 16:39:53.069  INFO 3376 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@275e4abb, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ef6df1, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@77cd1a4f, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@1de71fe, org.springframework.test.context.support.DirtiesContextTestExecutionListener@5480e8ec, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@2bff8768, org.springframework.test.context.event.EventPublishingTestExecutionListener@347fef3a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@46dc39ca, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@15486e75, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@42db7f73, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@9165e2d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2e2324ac, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@78cedcdb, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@61f70456]
 </pre>
 </span>
 </div>
@@ -138,7 +138,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at Jun 4, 2020 9:42:25 PM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at Jun 9, 2020 4:39:54 PM</p>
 </div>
 </div>
 </body>

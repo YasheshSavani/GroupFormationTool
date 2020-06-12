@@ -1,5 +1,7 @@
 package com.csci5308.datasource;
 
+import com.csci5308.groupme.SystemConfig;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
@@ -21,6 +23,7 @@ public class DatabaseProperties {
             dbURL = databaseProperties.getProperty("development.url");
             dbUserName = databaseProperties.getProperty("development.username");
             dbPassword = databaseProperties.getProperty("development.password");
+//            dbDriver = System.getenv("DB_DRIVER");
 //            dbURL = System.getenv("DB_URL");
 //            dbUserName = System.getenv("USERNAME");
 //            dbPassword = System.getenv("PASSWORD");

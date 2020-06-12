@@ -60,7 +60,10 @@
     </table>
 </div>
 <div id="import_csv_form" style="display: none; margin: auto 0; text-align: center">
-    <form action="/uploadfile" method="post" enctype="multipart/form-data">
+    <form th:action="@{/InstructorTAStudent/uploadfile}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="courseCode" th:value="${courseCode}">
+        <input type="hidden" name="courseName" th:value="${courseName}">
+        <!--        <input type="hidden" name="courseCrn" th:value="${courseCrn}">-->
         <input type="file" id="file" name="file"/>
         <br>
         <input type="submit"/>
