@@ -5,7 +5,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.LoggerFactory;
 
-import com.csci5308.groupme.integrationtest.AdminServiceSpec;
+import com.csci5308.groupme.SystemConfig;
 
 import ch.qos.logback.classic.Logger;
 
@@ -16,10 +16,8 @@ public class PasswordPropertiesTest {
 	
 	@Test
 	public void loadPasswordPropertiesTest() {
-		PasswordProperties passwordProperties = new PasswordProperties();
-		logger.info("Min length: {}", passwordProperties.getInvalidChars());
-		System.out.println(passwordProperties.getInvalidChars());
-		
+		PasswordProperties passwordProperties = SystemConfig.instance().getPasswordProperties();
+		logger.info("Invalid chars: {}", passwordProperties.getInvalidChars());				
 	}
 	
 }
