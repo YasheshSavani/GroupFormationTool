@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.auth.AuthConstants;
+import com.csci5308.groupme.auth.config.PasswordProperties;
 import com.csci5308.groupme.auth.service.EmailService;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
@@ -30,17 +32,23 @@ public class UserController {
 
 	@Autowired
 	EmailService emailService;
+	
+	PasswordProperties passwordProperties;
 
 	@GetMapping("/signup")
 	public String showSignUpPage(Model model) {
 		User user = new User();
+		passwordProperties = SystemConfig.instance().getPasswordProperties();
 		model.addAttribute("user", user);
+		model.addAttribute(passwordProperties);
 		return "auth/signup";
 	}
 
 	@PostMapping("/signup")
 	public ModelAndView signUpUser(@ModelAttribute("user") User user) {
 		ModelAndView mView = new ModelAndView("auth/signup");
+		passwordProperties = SystemConfig.instance().getPasswordProperties();
+		mView.addObject(passwordProperties);
 		String message;
 		int signupStatus = userService.register(user);
 		if (signupStatus == EditCodes.EMAIL_EXISTS) {
@@ -72,14 +80,15 @@ public class UserController {
 		String message = "";
 		User user = userService.getByEmail(email);
 		ModelAndView mView;
-		if (null == user)
+		if (null == user) {
 			mView = new ModelAndView("auth/emailnotfound");
-		else {
+		} else {
 			boolean isSent = emailService.sendPasswordRecovery(email);
-			if (isSent)
+			if (isSent) {
 				mView = new ModelAndView("auth/emailsent");
-			else
+			} else {
 				mView = new ModelAndView("auth/filurePage");
+			}
 		}
 		return mView;
 	}

@@ -1,6 +1,7 @@
 package com.csci5308.groupme;
 
 import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.auth.config.PasswordProperties;
 import com.csci5308.groupme.instructor.dao.QuestionsDAO;
 import com.csci5308.groupme.instructor.dao.QuestionsDAOImpl;
 import com.csci5308.groupme.instructor.service.QuestionManagerService;
@@ -18,19 +19,19 @@ public class SystemConfig {
 	private TeachingAssistantDao teachingAssistantDao;
 	private TeachingAssistantService teachingAssistantService;
 	private DatabaseProperties databaseProperties;
-		
+	private PasswordProperties passwordProperties;	
 	// This private constructor ensures that no class other than System can allocate
 	// the System object. The compiler would prevent it.
 	private SystemConfig()
 	{		
 		questionManagerService = new QuestionManagerServiceImpl();
 		questionsDAO = new QuestionsDAOImpl();
-		databaseProperties = new DatabaseProperties();
 		teachingAssistantDao = new TeachingAssistantDaoImpl();
 		teachingAssistantService = new TeachingAssistantServiceImpl();
-	}
-	
-	// This is the way the rest of the application gets access to the System object.
+		passwordProperties = new PasswordProperties();
+		databaseProperties = new DatabaseProperties();
+	}	
+		// This is the way the rest of the application gets access to the System object.
 		public static SystemConfig instance()
 		{
 			// Using lazy initialization, this is the one and only place that the System
@@ -57,8 +58,6 @@ public class SystemConfig {
 		this.teachingAssistantService = teachingAssistantService;
 	}
 
-	
-
 	public QuestionManagerService getQuestionManagerService() {
 		return questionManagerService;
 	}
@@ -81,6 +80,14 @@ public class SystemConfig {
 
 	public void setDatabaseProperties(DatabaseProperties databaseProperties) {
 		this.databaseProperties = databaseProperties;
+	}
+	
+	public PasswordProperties getPasswordProperties() {
+		return passwordProperties;
+	}
+
+	public void setPasswordProperties(PasswordProperties passwordProperties) {
+		this.passwordProperties = passwordProperties;
 	}
 	
 	
