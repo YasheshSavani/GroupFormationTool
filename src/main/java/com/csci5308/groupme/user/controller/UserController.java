@@ -28,10 +28,10 @@ public class UserController {
 	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@Autowired
-	EmailService emailService;
+	private EmailService emailService;
 	
 	PasswordProperties passwordProperties;
 
