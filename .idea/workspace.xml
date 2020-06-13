@@ -45,7 +45,14 @@
   <component name="ChangeListManager">
     <list default="true" id="734696bf-3f9c-4642-996b-cd5a7a83ddcf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/auth/AuthConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/auth/AuthConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/dao/InstructorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/dao/InstructorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/dao/InstructorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/dao/InstructorDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/dao/QuestionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/dao/QuestionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/model/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/model/Instructor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/model/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/model/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/instructor/model/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/service/CourseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/service/CourseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/teaching_assistant/service/TeachingAssistantServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/teaching_assistant/service/TeachingAssistantServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +78,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -110,7 +117,7 @@
       <recent name="E:\DAL\group19\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroupmeApplication">
+  <component name="RunManager" selected="Gradle.Tests in 'groupme'">
     <configuration name="HomeControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -250,6 +257,8 @@
       <workItem from="1591807944262" duration="135000" />
       <workItem from="1591808225846" duration="9599000" />
       <workItem from="1591840610271" duration="56000" />
+      <workItem from="1592018193417" duration="619000" />
+      <workItem from="1592020290263" duration="5988000" />
     </task>
     <servers />
   </component>
@@ -295,11 +304,16 @@
     </state>
     <state x="93" y="93" width="1285" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1470.864@0.0.1470.864" timestamp="1591145765925" />
     <state x="93" y="93" width="1286" height="678" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1472.864@0.0.1472.864" timestamp="1591060220238" />
-    <state x="541" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1591234803368">
-      <screen x="0" y="0" width="1470" height="864" />
+    <state x="540" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1592025554226">
+      <screen x="0" y="0" width="1467" height="864" />
     </state>
+    <state x="540" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1467.864@0.0.1467.864" timestamp="1592025554226" />
     <state x="541" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1470.864@0.0.1470.864" timestamp="1591234803368" />
     <state x="542" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1472.864@0.0.1472.864" timestamp="1591076923243" />
+    <state x="465" y="323" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1592025043516">
+      <screen x="0" y="0" width="1467" height="864" />
+    </state>
+    <state x="465" y="323" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1467.864@0.0.1467.864" timestamp="1592025043516" />
     <state x="396" y="357" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591242172920">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
@@ -312,31 +326,31 @@
       <screen x="0" y="0" width="1472" height="864" />
     </state>
     <state x="516" y="173" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1591057274995" />
-    <state width="1425" height="319" key="GridCell.Tab.0.bottom" timestamp="1591840494871">
+    <state width="1425" height="319" key="GridCell.Tab.0.bottom" timestamp="1592026276085">
       <screen x="0" y="0" width="1467" height="864" />
     </state>
-    <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1467.864@0.0.1467.864" timestamp="1591840494871" />
+    <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592026276085" />
     <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
     <state width="1428" height="319" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
     <state width="1429" height="416" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
-    <state width="1425" height="319" key="GridCell.Tab.0.center" timestamp="1591840494870">
+    <state width="1425" height="319" key="GridCell.Tab.0.center" timestamp="1592026276085">
       <screen x="0" y="0" width="1467" height="864" />
     </state>
-    <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1467.864@0.0.1467.864" timestamp="1591840494870" />
+    <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1467.864@0.0.1467.864" timestamp="1592026276085" />
     <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
     <state width="1428" height="319" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
     <state width="1429" height="416" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
-    <state width="1425" height="319" key="GridCell.Tab.0.left" timestamp="1591840494870">
+    <state width="1425" height="319" key="GridCell.Tab.0.left" timestamp="1592026276085">
       <screen x="0" y="0" width="1467" height="864" />
     </state>
-    <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1467.864@0.0.1467.864" timestamp="1591840494870" />
+    <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1467.864@0.0.1467.864" timestamp="1592026276085" />
     <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
     <state width="1428" height="319" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
     <state width="1429" height="416" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
-    <state width="1425" height="319" key="GridCell.Tab.0.right" timestamp="1591840494871">
+    <state width="1425" height="319" key="GridCell.Tab.0.right" timestamp="1592026276085">
       <screen x="0" y="0" width="1467" height="864" />
     </state>
-    <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1467.864@0.0.1467.864" timestamp="1591840494871" />
+    <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1467.864@0.0.1467.864" timestamp="1592026276085" />
     <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
     <state width="1428" height="319" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1591317768055" />
     <state width="1429" height="416" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
@@ -401,6 +415,10 @@
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state x="328" y="165" key="Vcs.Push.Dialog.v2/0.0.1470.864@0.0.1470.864" timestamp="1591387093662" />
+    <state x="485" y="261" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592025045102">
+      <screen x="0" y="0" width="1467" height="864" />
+    </state>
+    <state x="485" y="261" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1467.864@0.0.1467.864" timestamp="1592025045102" />
     <state x="466" y="193" key="extract.method.dialog" timestamp="1591227008141">
       <screen x="0" y="0" width="1470" height="864" />
     </state>

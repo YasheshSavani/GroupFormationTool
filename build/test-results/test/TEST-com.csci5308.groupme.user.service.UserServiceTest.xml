@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.csci5308.groupme.user.service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-06-09T19:39:54" hostname="YASHESH" time="0.061">
+<testsuite name="com.csci5308.groupme.user.service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-06-13T05:31:10" hostname="YASHESH" time="0.057">
   <properties/>
-  <testcase name="registerUserTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.047"/>
+  <testcase name="registerUserTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.037"/>
   <testcase name="updatePasswordTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.003"/>
-  <testcase name="updatePasswordNoEmailTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.002"/>
-  <testcase name="emailAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.002"/>
-  <testcase name="userNameAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.007"/>
-  <system-out><![CDATA[2020-06-09 16:39:54.485  INFO 3376 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
-2020-06-09 16:39:54.488  INFO 3376 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Password updated.....
-2020-06-09 16:39:54.499  INFO 3376 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
+  <testcase name="updatePasswordNoEmailTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.003"/>
+  <testcase name="emailAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.003"/>
+  <testcase name="userNameAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.004"/>
+  <system-out><![CDATA[2020-06-13 02:31:10.691  INFO 6120 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
+2020-06-13 02:31:10.697  INFO 6120 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Password updated.....
+2020-06-13 02:31:10.711  INFO 6120 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
