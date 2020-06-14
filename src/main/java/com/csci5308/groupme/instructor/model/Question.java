@@ -8,7 +8,6 @@ public class Question {
     private String title;
     private String question;
     private String type;
-    //    private List<Option> options;
     private LocalDate createdDate;
 
     public Integer getQuestionId() {
@@ -42,15 +41,7 @@ public class Question {
     public void setType(String type) {
         this.type = type;
     }
-
-//    public List<Option> getOptions() {
-//        return options;
-//    }
-//
-//    public void setOptions(List<Option> options) {
-//        this.options = options;
-//    }
-
+    
     public LocalDate getCreatedDate() {
         return createdDate;
     }

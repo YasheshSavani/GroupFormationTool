@@ -16,4 +16,8 @@ public interface CourseService {
 	public int createCourse(Course course) throws Exception;
 	
 	public int delete(String courseCode) throws Exception;
+
+	public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception;
+
+	List<Course> findCoursesByInstructorAndTA(String userName) throws Exception;
 }

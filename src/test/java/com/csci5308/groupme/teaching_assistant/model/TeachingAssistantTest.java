@@ -25,51 +25,51 @@ public class TeachingAssistantTest {
     @Test
     public void constructorWithValuesTest() {
         TeachingAssistant TA = new TeachingAssistant(userNameTest, firstNameTest, lastNameTest);
-        assertEquals(TA.getUserName(), userNameTest);
-        assertEquals(TA.getFirstName(), firstNameTest);
-        assertEquals(TA.getLastName(), lastNameTest);
+        assertEquals(userNameTest, TA.getUserName());
+        assertEquals(firstNameTest, TA.getFirstName());
+        assertEquals(lastNameTest, TA.getLastName());
     }
 
     @Test
     public void getFirstNameTest() {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setFirstName(firstNameTest);
-        assertEquals(TA.getFirstName(), firstNameTest);
+        assertEquals(firstNameTest, TA.getFirstName());
     }
 
     @Test
     public void getLastNameTest() {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setLastName(lastNameTest);
-        assertEquals(TA.getLastName(), lastNameTest);
+        assertEquals(lastNameTest, TA.getLastName());
     }
 
     @Test
     public void setFirstNameTest() {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setFirstName(firstNameTest);
-        assertEquals(TA.getFirstName(), firstNameTest);
+        assertEquals(firstNameTest, TA.getFirstName());
     }
 
     @Test
     public void setLastNameTest() {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setLastName(lastNameTest);
-        assertEquals(TA.getLastName(), lastNameTest);
+        assertEquals(lastNameTest, TA.getLastName());
     }
 
     @Test
     public void getUserNameTest() {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setUserName(userNameTest);
-        assertEquals(TA.getUserName(), userNameTest);
+        assertEquals(userNameTest, TA.getUserName());
     }
 
     @Test
     public void setUserNameTest() {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setUserName(userNameTest);
-        assertEquals(TA.getUserName(), userNameTest);
+        assertEquals(userNameTest, TA.getUserName());
 
     }
 }

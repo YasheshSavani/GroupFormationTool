@@ -1,10 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Create Question</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/theme.css}"/>
+
+    <script type="text/javascript">
+        let counter = 0;
+        let position = 0;
+
+        function createTextBoxes() {
+            counter++;
+            position++;
+
+            let table = document.getElementById("optionTable");
+            let row = table.insertRow(position)
+            let firstCell = row.insertCell(0);
+            let secondCell = row.insertCell(1);
+            let thirdCell = row.insertCell(2);
+            let fourthCell = row.insertCell(3);
+            let fifthCell = row.insertCell(4);
+            firstCell.innerHTML = "<label for=\"display_text_" + counter + "\" class=\"label\">Display Text:</label>";
+
+            secondCell.innerHTML = "<input type=\"text\" name=\"display_text\" id=\"display_text_"
+                + counter + "\" th:field=\"*{optionList[" + counter + "].optionText}\" class =\"inputbox\">";
+
+            thirdCell.innerHTML = "<label for=\"stored_as_" + counter + "\" class=\"label\">Stored as:</label>";
+
+            fourthCell.innerHTML = "<input type=\"text\" name=\"stored_as\" id=\"stored_as_"
+                + counter + "\" th:field=\"*{optionList[" + counter + "].optionId}\" value=\"" + counter + "\" class=\"inputbox\" autocomplete=\"off\">";
+
+            fifthCell.innerHTML = "<input type=\"hidden\" name=\"display_order\" th:field=\"*{optionList[" + counter + "].displayOrder}\""
+                + " value=\"" + counter + "\"  class=\"inputbox\" autocomplete=\"off\">";
+
+        }
+
+        // function createListOfOptions() {
+        //     let optionsTextList = [];
+        //     let displayTextTags = document.getElementsByName("display_text");
+        //     let storedAsTags = document.getElementsByName("stored_as");
+        //
+        //     for (let i = 0; i < displayTextTags.length; i++) {
+        //
+        //         if (displayTextTags[i].value) {
+        //             let obj = {}
+        //             obj[storedAsTags[i].value.toString()] = displayTextTags[i].value;
+        //             optionsTextList.push(obj);
+        //         }
+        //     }
+        //     console.log(optionsTextList);
+        //
+        //     let arrOptions = JSON.stringify(optionsTextList);
+        //     console.log(window.location.href)
+        //     return true;
+        // }
+
+    </script>
+
+    <style type="text/css">
+        .label {
+            margin-top: 10px;
+            margin-left: 50px;
+        }
+
+        .inputbox {
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+        .button {
+            margin-top: 20px;
+            float: right;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
 
+<div class="topnav">
+    <a href="#groupme">GroupMe</a>
+    <a style="float: right" href="logout">Logout</a>
+    <a style="float: right" class="active" href="#account">Account</a>
+</div>
+
+<div style="text-align: center;">
+    <h3> Add Options for Question Here</h3>
+    <br><br>
+    <form name="form" method="POST" style="display: inline-block;" th:object="${options}"
+          th:action="@{/instructor/createOptions/addOption}">
+        <table id="optionTable">
+            <tbody>
+            <tr th:each="option, state : *{optionList}">
+                <td><label for="display_text" class="label">Display Text:</label></td>
+                <td><input type="text" name="display_text" id="display_text"
+                           th:field="*{optionList[__${state.index}__].optionText}" class="inputbox"/></td>
+                <td><label for="stored_as" class="label">Stored as:</label></td>
+                <td><input type="text" name="stored_as" id="stored_as"
+                           th:field="*{optionList[__${state.index}__].optionId}" class="inputbox"/></td>
+                <td><input type="hidden" name="display_order"
+                           th:field="*{optionList[__${state.index}__].displayOrder}" class="inputbox"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button type="submit" id="more_answers"
+                            class="button">More Answers
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button type="submit" id="submit" class="button" th:formaction="@{/instructor/saveOptions}">Save
+                    </button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+        <input type="hidden" name="question" th:value="${questionDetails.question}">
+        <input type="hidden" name="title" th:value="${questionDetails.title}">
+        <input type="hidden" name="type" th:value="${questionDetails.type}">
+    </form>
+
+
+</div>
 </body>
 </html>
