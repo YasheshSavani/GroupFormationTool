@@ -41,7 +41,7 @@ public class CourseServiceImplTest {
 	}
 
 	@Test
-	public void getCoursesByUserNameAndRole() throws Exception {
+	public void getCoursesByUserNameAndRoleTest() throws Exception {
 
 		String userName = "ysavani";
 		String roleName = "ROLE_TA";
@@ -55,7 +55,7 @@ public class CourseServiceImplTest {
 	}
 
 	@Test
-	public void findCoursesByStudentUserName() throws Exception {
+	public void findCoursesByStudentUserNameTest() throws Exception {
 
 		String studentUserName = "ysavani";
 		List<Course> defaultCourseList = new ArrayList<>();

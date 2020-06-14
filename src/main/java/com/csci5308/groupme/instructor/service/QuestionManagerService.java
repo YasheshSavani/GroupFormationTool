@@ -2,11 +2,12 @@ package com.csci5308.groupme.instructor.service;
 
 import java.util.List;
 
+import com.csci5308.groupme.instructor.model.Option;
 import com.csci5308.groupme.instructor.model.Question;
 
 public interface QuestionManagerService {
 
-	public int createQuestion(Question question);
+	public String createQuestion(Question question, List<Option> optionList);
 	
 	public List<Question> getAllQuestions(String instructorUserName);
 	

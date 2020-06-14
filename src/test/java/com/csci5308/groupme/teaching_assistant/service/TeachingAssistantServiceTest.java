@@ -18,7 +18,7 @@ public class TeachingAssistantServiceTest {
 	}
 
 	@Test
-	void findByTAEmailId() throws Exception {
+	void findByTAEmailIdTest() throws Exception {
 		String email = "testta@gmail.com";
 		String courseCode = "TSCI0000";
 		String assignmentConfirmation = taService.findByTAEmailId(email, courseCode);

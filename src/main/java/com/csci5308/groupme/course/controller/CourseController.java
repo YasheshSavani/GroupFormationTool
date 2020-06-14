@@ -36,8 +36,7 @@ public class CourseController {
     @RequestMapping(value = "/coursepage", method = RequestMethod.GET)
     public ModelAndView getCoursePage(@RequestParam("courseName") String courseName,
                                       @RequestParam("courseCode") String courseCode) throws Exception {
-        logger.info(courseCode);
-        logger.info(courseName);
+
         ModelAndView mView = new ModelAndView();
         mView.setViewName("coursepage");
         mView.addObject("courseCode", courseCode);
