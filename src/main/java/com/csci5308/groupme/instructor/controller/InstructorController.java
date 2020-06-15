@@ -4,8 +4,12 @@ import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.dao.CourseDAO;
 import com.csci5308.groupme.course.dao.CourseDAOImpl;
 import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.instructor.dao.QuestionsDAO;
+import com.csci5308.groupme.instructor.dao.QuestionsDAOImpl;
+import com.csci5308.groupme.instructor.model.Question;
 import com.csci5308.groupme.instructor.service.InstructorService;
 import com.csci5308.groupme.instructor.service.InstructorServiceImpl;
+import com.csci5308.groupme.instructor.service.QuestionManagerService;
 import com.csci5308.groupme.teaching_assistant.service.TeachingAssistantService;
 
 import org.slf4j.Logger;
@@ -21,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -29,6 +34,7 @@ public class InstructorController {
 	@Autowired
 	InstructorService instructorService;
 	
+	QuestionManagerService questionManagerService;
 	
 	
 	Logger logger = LoggerFactory.getLogger(InstructorController.class);
@@ -185,16 +191,39 @@ public class InstructorController {
 		return "instructor/deletequestion";
 	}
 	
+//	@RequestMapping(value = "/instructor/listAllQuestions", method = RequestMethod.GET)
+//	public String listAllQuestionsPage(Principal principal, Model model) {
+//		QuestionsDAO questionDAO = new QuestionsDAOImpl();
+//		try {
+//			List<Course> coursesList = courseDAO.findCoursesByInstructor(principal.getName());
+//			model.addAttribute("courses", coursesList);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return "instructor/listallquestions";
+//	}
+	
 	@RequestMapping(value = "/instructor/listAllQuestions", method = RequestMethod.GET)
-	public String listAllQuestionsPage(Principal principal, Model model) {
-		CourseDAO courseDAO = new CourseDAOImpl();
-		try {
-			List<Course> coursesList = courseDAO.findCoursesByInstructor(principal.getName());
-			model.addAttribute("courses", coursesList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "instructor/listallquestions";
+	public ModelAndView listAllQuestionsPage(Principal principal) throws Exception 
+	{
+		Question question = null;
+		ModelAndView mView = new ModelAndView("instructor/listallquestions");
+		logger.info("Logged in user is "+principal.getName());
+		List<String> questionTitles = new ArrayList<>();
+		//questionManagerService.test("test");
+		questionManagerService.createQuestion(question);
+		
+		//logger.info("Sample value "+questionManagerService.getAllQuestions(principal.getName()));
+		//questionTitles = questionManagerService.getAllQuestions(principal.getName());
+        if (questionTitles != null) 
+        {
+            mView.addObject("titles", questionTitles);
+        } 
+        else 
+        {
+            mView.addObject("titles", null);
+        }
+        return mView;
 	}
 		
 }

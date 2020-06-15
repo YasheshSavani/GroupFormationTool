@@ -8,7 +8,7 @@ public interface QuestionManagerService {
 
 	public int createQuestion(Question question);
 	
-	public List<Question> getAllQuestions(String instructorUserName);
+	public List<String> getAllQuestions(String instructorUserName) throws Exception;
 	
 	public int deleteQuestion(String instructorUserName, Question question);
 	

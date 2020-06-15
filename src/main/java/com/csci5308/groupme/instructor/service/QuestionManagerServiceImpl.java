@@ -2,9 +2,12 @@ package com.csci5308.groupme.instructor.service;
 
 import java.util.List;
 
+import com.csci5308.groupme.instructor.dao.QuestionsDAO;
 import com.csci5308.groupme.instructor.model.Question;
 
 public class QuestionManagerServiceImpl implements QuestionManagerService{
+	
+	QuestionsDAO questionsDAO;
 
 	@Override
 	public int createQuestion(Question question) {
@@ -13,9 +16,8 @@ public class QuestionManagerServiceImpl implements QuestionManagerService{
 	}
 
 	@Override
-	public List<Question> getAllQuestions(String instructorUserName) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<String> getAllQuestions(String instructorUserName) throws Exception{
+		return questionsDAO.findAllQuestions(instructorUserName);
 	}
 
 	@Override
@@ -30,5 +32,4 @@ public class QuestionManagerServiceImpl implements QuestionManagerService{
 		return 0;
 	}
 	
-
 }

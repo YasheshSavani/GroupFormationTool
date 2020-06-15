@@ -17,8 +17,8 @@ public class CourseServiceImpl implements CourseService {
 	private CourseDAO courseDAO;;
 
 	@Override
-	public List<Course> findAllCourses() throws Exception {
-
+	public List<Course> findAllCourses() throws Exception 
+	{
 		return courseDAO.findAllCourses();
 	}
 

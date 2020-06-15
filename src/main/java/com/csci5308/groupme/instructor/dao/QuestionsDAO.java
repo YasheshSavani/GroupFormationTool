@@ -8,7 +8,7 @@ public interface QuestionsDAO {
 
 	public int saveQuestion(Question question);
 
-	public List<Question> findAllQuestions(String instructorUserName);
+	public List<String> findAllQuestions(String instructorUserName) throws Exception;
 
 	public int removeQuestion(String instructorUserName, Question question);
 
