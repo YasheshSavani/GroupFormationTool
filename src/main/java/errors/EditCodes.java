@@ -16,4 +16,6 @@ public class EditCodes {
 	
 	public static final int CLASS_ALREADY_CREATED = -8;
 	
+	public static final int USERROLE_EXISTS = -9;
+	
 }

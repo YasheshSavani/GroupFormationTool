@@ -10,6 +10,8 @@ import com.csci5308.groupme.course.service.CourseService;
 import com.csci5308.groupme.instructor.model.Instructor;
 import com.csci5308.groupme.instructor.service.InstructorService;
 import com.csci5308.groupme.instructor.service.InstructorServiceImpl;
+import com.csci5308.groupme.user.model.User;
+import com.csci5308.groupme.user.service.UserService;
 
 import ch.qos.logback.classic.Logger;
 import errors.EditCodes;
@@ -19,7 +21,7 @@ import errors.SqlErrors;
 public class AdminServiceImpl implements AdminService {
 
 	private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorServiceImpl.class);
-	
+
 	@Autowired
 	private AdminDao adminDao;
 
@@ -29,6 +31,9 @@ public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private CourseService courseService;
 
+	@Autowired
+	private UserService userService;
+
 	@Override
 	public String assignInstructorToCourse(String emailId, String courseCode) throws Exception {
 		String message = "";
@@ -37,11 +42,18 @@ public class AdminServiceImpl implements AdminService {
 		if (null == course)
 			message = "Course not found!";
 		else if (null == instructor) {
-			message = "Instructor email not found! Please check again!";
+			int status = makeUserAsInstructor(emailId);
+			if (status == EditCodes.USERNAME_DOES_NOT_EXIST) {
+				message = "Instructor not found! Please check again!";
+			} else if (status == 1) {
+				message = this.assignInstructorToCourse(emailId, courseCode);
+			} else {
+				message = "Something went wrong! Could not create class for the given instructor and course";
+			}
 		} else {
 			int status = adminDao.createClass(instructor.getUserName(), course.getCourseCode());
 			logger.info("Status {}", status);
-			if(status == EditCodes.CLASS_ALREADY_CREATED)
+			if (status == EditCodes.CLASS_ALREADY_CREATED)
 				message = "Record already exists!";
 			else if (status == 1)
 				message = "Instructor assigned to the course!";
@@ -51,4 +63,21 @@ public class AdminServiceImpl implements AdminService {
 		return message;
 	}
 
+	@Override
+	public int makeUserAsInstructor(String emailId) throws Exception {
+		User user = userService.getByEmail(emailId);
+		Instructor instructor = new Instructor();
+		int status = 0;
+		if (null == user) {
+			status = EditCodes.USERNAME_DOES_NOT_EXIST;
+		} else {
+			logger.info(user.getUserName());
+			status = userService.addRole(user.getUserName(), "ROLE_INSTRUCTOR");
+			if (status == 1) {
+				instructor.setUserName(user.getUserName());
+				status = instructorService.createInstructor(instructor);
+			}
+		}
+		return status;
+	}
 }

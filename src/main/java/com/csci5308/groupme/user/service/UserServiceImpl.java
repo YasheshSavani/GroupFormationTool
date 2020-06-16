@@ -1,7 +1,5 @@
 package com.csci5308.groupme.user.service;
 
-import java.util.List;
-
 import javax.mail.internet.MimeMessage;
 
 import org.slf4j.Logger;
@@ -23,6 +21,7 @@ import errors.EditCodes;
 @Service
 public class UserServiceImpl implements UserService {
 
+	
 	Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Autowired
@@ -38,12 +37,6 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public User getByUserName(String userName) {
 		User user = userDao.findByUserName(userName);
 		return user;
@@ -53,12 +46,6 @@ public class UserServiceImpl implements UserService {
 	public User getByEmail(String email) {
 		User user = userDao.findByEmail(email);
 		return user;
-	}
-
-	@Override
-	public List<User> getByName(String firstName, String lastName) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -77,9 +64,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean updateRole(User user, String oldRole, String newRole) {
-		// TODO Auto-generated method stub
-		return false;
+	public int addRole(String userName, String roleName) {
+		int status = userDao.addRole(userName, roleName);
+		return status;
 	}
 
 	@Override
@@ -106,7 +93,6 @@ public class UserServiceImpl implements UserService {
 			String content = "If you have received this email, then you are successfully enrolled as a student.\n"
 					+ "Your login credentials are:\n" + "Username: " + user.getUserName() + "\n" + "Password: "
 					+ user.getPassword();
-
 			MimeMessage emailContent = emailSender.createMimeMessage();
 			MimeMessageHelper messageHelper = new MimeMessageHelper(emailContent, false);
 			messageHelper.setTo(user.getEmail());

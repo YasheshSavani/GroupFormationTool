@@ -16,5 +16,7 @@ public interface InstructorService {
 	public List<String[]> readAll(Reader reader);
 	
 	public Instructor getByEmail(String email) throws Exception; 
+	
+	public int createInstructor(Instructor instructor) throws Exception;
 
 }
