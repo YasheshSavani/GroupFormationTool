@@ -2,6 +2,8 @@ package com.csci5308.groupme.auth.service;
 
 import javax.mail.internet.MimeMessage;
 
+import com.csci5308.groupme.user.service.SendEmailConfiguration;
+import com.csci5308.groupme.user.service.SendEmailConfigurationImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -15,11 +17,28 @@ public class EmailServiceImpl implements EmailService{
 
 	@Autowired
 	private JavaMailSender javaMailsender;
-		
+
 	@Override
 	public boolean sendCredentials(User user) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			SendEmailConfiguration emailConfiguration = new SendEmailConfigurationImpl();
+			JavaMailSender emailSender = emailConfiguration.initiateEmailSender();
+			String subject = "Enrolment Email";
+			String content = "If you have received this email, then you are successfully enrolled as a student.\n"
+					+ "Your login credentials are:\n" + "Username: " + user.getUserName() + "\n" + "Password: "
+					+ user.getPassword();
+			MimeMessage emailContent = emailSender.createMimeMessage();
+			MimeMessageHelper messageHelper = new MimeMessageHelper(emailContent, false);
+			messageHelper.setTo(user.getEmail());
+			messageHelper.setSubject(subject);
+			messageHelper.setText(content);
+
+			emailSender.send(emailContent);
+			return true;
+
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override

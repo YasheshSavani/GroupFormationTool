@@ -77,7 +77,7 @@ public class UserController {
 
 	@PostMapping("/forgotPassword")
 	public ModelAndView userEmail(@RequestParam("email") String email) {
-		String message = "";
+
 		User user = userService.getByEmail(email);
 		ModelAndView mView;
 		if (null == user) {
@@ -87,7 +87,7 @@ public class UserController {
 			if (isSent) {
 				mView = new ModelAndView("auth/emailsent");
 			} else {
-				mView = new ModelAndView("auth/filurePage");
+				mView = new ModelAndView("auth/failurePage");
 			}
 		}
 		return mView;

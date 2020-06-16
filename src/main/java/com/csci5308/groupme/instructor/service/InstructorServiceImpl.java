@@ -1,16 +1,7 @@
 package com.csci5308.groupme.instructor.service;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
+import ch.qos.logback.classic.Logger;
+import com.csci5308.groupme.auth.service.EmailService;
 import com.csci5308.groupme.instructor.dao.InstructorDAO;
 import com.csci5308.groupme.instructor.model.Instructor;
 import com.csci5308.groupme.student.dao.StudentDAO;
@@ -19,22 +10,34 @@ import com.csci5308.groupme.student.model.Student;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import com.opencsv.CSVReader;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
-import ch.qos.logback.classic.Logger;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @Service
 public class InstructorServiceImpl implements InstructorService {
 
-	private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorServiceImpl.class);
+    private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorServiceImpl.class);
 
     @Autowired
     private InstructorDAO instructorDAO;
 
     @Autowired
     private UserService userService;
-    
+
+    @Autowired
+    private EmailService emailService;
+
     @Override
     public boolean upload(MultipartFile file, String instructorID, String courseCode) {
+
         try {
             Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8));
             List<String[]> records = readAll(reader);
@@ -50,7 +53,7 @@ public class InstructorServiceImpl implements InstructorService {
                         user.setEmail(record[3]);
                         user.setPassword(record[0]);
                         if (studentDAO.enrol(user, instructorID, courseCode)) {
-                            userService.sendCredentials(user);
+                            emailService.sendCredentials(user);
                         }
                     }
                 }
@@ -103,10 +106,10 @@ public class InstructorServiceImpl implements InstructorService {
         }
         return instructor;
     }
-    
+
     @Override
-   	public int createInstructor(Instructor instructor) throws Exception {
-   		int status = instructorDAO.save(instructor);
-   		return status;
-   	}
+    public int createInstructor(Instructor instructor) throws Exception {
+        int status = instructorDAO.save(instructor);
+        return status;
+    }
 }
