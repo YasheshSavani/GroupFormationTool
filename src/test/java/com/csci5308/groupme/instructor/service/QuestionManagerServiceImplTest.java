@@ -18,28 +18,28 @@ import static org.mockito.Mockito.when;
 @ExtendWith(SpringExtension.class)
 public class QuestionManagerServiceImplTest {
 
-    @Mock
-    QuestionsDAOImpl questionsDAO;
-
-    @InjectMocks
-    QuestionManagerServiceImpl questionManagerService;
-
-    @Test
-    public void createQuestion() {
-        List<Option> optionList = new ArrayList<>();
-        Question question = new Question();
-        question.setQuestion("How good is your Python?");
-        question.setType("Multiple choice - choose one");
-        question.setTitle("Python");
-
-        optionList.add(new Option("Beginner", 1, 1));
-        optionList.add(new Option("Intermediate", 2, 2));
-        optionList.add(new Option("Expert", 3, 3));
-
-        when(questionsDAO.saveQuestion(question, optionList)).thenReturn("Done");
-
-        String message = questionManagerService.createQuestion(question, optionList);
-
-        assertEquals("Done", message);
-    }
+//    @Mock
+//    QuestionsDAOImpl questionsDAO;
+//
+//    @InjectMocks
+//    QuestionManagerServiceImpl questionManagerService;
+//
+//    @Test
+//    public void createQuestion() {
+//        List<Option> optionList = new ArrayList<>();
+//        Question question = new Question();
+//        question.setQuestion("How good is your Python?");
+//        question.setType("Multiple choice - choose one");
+//        question.setTitle("Python");
+//
+//        optionList.add(new Option("Beginner", 1, 1));
+//        optionList.add(new Option("Intermediate", 2, 2));
+//        optionList.add(new Option("Expert", 3, 3));
+//
+//        when(questionsDAO.saveQuestion(question, optionList)).thenReturn("Done");
+//
+//        String message = questionManagerService.createQuestion(question, optionList);
+//
+//        assertEquals("Done", message);
+//    }
 }

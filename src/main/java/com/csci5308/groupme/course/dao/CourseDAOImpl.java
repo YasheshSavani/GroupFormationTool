@@ -37,7 +37,6 @@ public class CourseDAOImpl implements CourseDAO {
 
 		try {
 			retrievedCourseList = new ArrayList<>();
-
 			String DB_URL = databaseProperties.getDbURL();
 			String USER = databaseProperties.getDbUserName();
 			String PASSWORD = databaseProperties.getDbPassword();

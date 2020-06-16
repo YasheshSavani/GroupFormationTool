@@ -1,6 +1,7 @@
 package com.csci5308.groupme.instructor.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 public class Question {
 
@@ -8,7 +9,7 @@ public class Question {
     private String title;
     private String question;
     private String type;
-    private LocalDate createdDate;
+    private Date createdDate;
 
     public Integer getQuestionId() {
         return questionId;
@@ -42,11 +43,11 @@ public class Question {
         this.type = type;
     }
     
-    public LocalDate getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

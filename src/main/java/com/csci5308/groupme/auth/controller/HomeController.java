@@ -19,67 +19,65 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    Logger logger = LoggerFactory.getLogger(HomeController.class);
+	Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    @Autowired
-    UserService userService;
+	@Autowired
+	UserService userService;
 
-    @Autowired
-    CourseService courseService;
+	@Autowired
+	CourseService courseService;
 
-    @GetMapping("/")
-    public String applicationPage(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "auth/index";
-    }
+	@GetMapping("/")
+	public String applicationPage(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		return "auth/index";
+	}
 
-    @GetMapping("/admin")
-    public ModelAndView adminHomePage(Principal principal) {
-        ModelAndView mView = new ModelAndView("admin/home_admin");
-        mView.addObject("userName", principal.getName());
-        return mView;
-    }
+	@GetMapping("/admin")
+	public ModelAndView adminHomePage(Principal principal) {
+		ModelAndView mView = new ModelAndView("admin/home_admin");
+		mView.addObject("userName", principal.getName());
+		return mView;
+	}
 
-    @GetMapping("/guest")
-    public ModelAndView guestUserHomePage(Principal principal) throws Exception {
-        ModelAndView mView = new ModelAndView("guest/home_guest");
+	@GetMapping("/guest")
+	public ModelAndView guestUserHomePage(Principal principal) throws Exception {
+		ModelAndView mView = new ModelAndView("guest/home_guest");
+		List<Course> guestCourses = courseService.findAllCourses();
+		if (guestCourses != null) {
+			mView.addObject("details", guestCourses);
+		} else {
+			mView.addObject("details", null);
+		}
 
-        List<Course> guestCourses = courseService.findAllCourses();
-        if (guestCourses != null) {
-            mView.addObject("details", guestCourses);
-        } else {
-            mView.addObject("details", null);
-        }
+		mView.addObject("userName", principal.getName());
+		return mView;
+	}
 
-        mView.addObject("userName", principal.getName());
-        return mView;
-    }
+	@GetMapping("/home")
+	public String toolUserHomePage(
+			@RequestParam(value = "isStudent", required = false, defaultValue = "false") boolean isStudent,
+			@RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
+			@RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor,
+			Principal principal) {
 
-    @GetMapping("/home")
-    public String toolUserHomePage(@RequestParam(value = "isStudent", required = false, defaultValue = "false") boolean isStudent,
-                                   @RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
-                                   @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor, Principal principal) {
-
-
-        if (isStudent && !isTA && !isInstructor) {
-            return "redirect:/studenthomepage";
-        } else if (isStudent && isTA && !isInstructor) {
-            return "redirect:/studenthomepage?isTA=true";               
-        } else if (isStudent && !isTA && isInstructor) {
-            return "redirect:/studenthomepage?isInstructor=true";
-        } else if (!isStudent && isTA && !isInstructor) {
-            return "redirect:/tahomepage";
-        } else if (!isStudent && !isTA && isInstructor) {
-            return "redirect:/instructorhomepage";       
-        } else if (!isStudent && isTA && isInstructor) {
-            return "redirect:/instructorhomepage?isTA=true";
-        } else if (isStudent && isTA && isInstructor) {
-            return "redirect:/studenthomepage?isTA=true&isInstructor=true";
-        }
-        return null;
-    }
+		if (isStudent && !isTA && !isInstructor) {
+			return "redirect:/studenthomepage";
+		} else if (isStudent && isTA && !isInstructor) {
+			return "redirect:/studenthomepage?isTA=true";
+		} else if (isStudent && !isTA && isInstructor) {
+			return "redirect:/studenthomepage?isInstructor=true";
+		} else if (!isStudent && isTA && !isInstructor) {
+			return "redirect:/tahomepage";
+		} else if (!isStudent && !isTA && isInstructor) {
+			return "redirect:/instructorhomepage";
+		} else if (!isStudent && isTA && isInstructor) {
+			return "redirect:/instructorhomepage?isTA=true";
+		} else if (isStudent && isTA && isInstructor) {
+			return "redirect:/studenthomepage?isTA=true&isInstructor=true";
+		}
+		return null;
+	}
 
 }
-
-
