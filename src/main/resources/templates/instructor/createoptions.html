@@ -8,57 +8,6 @@
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/theme.css}"/>
 
-    <script type="text/javascript">
-        let counter = 0;
-        let position = 0;
-
-        function createTextBoxes() {
-            counter++;
-            position++;
-
-            let table = document.getElementById("optionTable");
-            let row = table.insertRow(position)
-            let firstCell = row.insertCell(0);
-            let secondCell = row.insertCell(1);
-            let thirdCell = row.insertCell(2);
-            let fourthCell = row.insertCell(3);
-            let fifthCell = row.insertCell(4);
-            firstCell.innerHTML = "<label for=\"display_text_" + counter + "\" class=\"label\">Display Text:</label>";
-
-            secondCell.innerHTML = "<input type=\"text\" name=\"display_text\" id=\"display_text_"
-                + counter + "\" th:field=\"*{optionList[" + counter + "].optionText}\" class =\"inputbox\">";
-
-            thirdCell.innerHTML = "<label for=\"stored_as_" + counter + "\" class=\"label\">Stored as:</label>";
-
-            fourthCell.innerHTML = "<input type=\"text\" name=\"stored_as\" id=\"stored_as_"
-                + counter + "\" th:field=\"*{optionList[" + counter + "].optionId}\" value=\"" + counter + "\" class=\"inputbox\" autocomplete=\"off\">";
-
-            fifthCell.innerHTML = "<input type=\"hidden\" name=\"display_order\" th:field=\"*{optionList[" + counter + "].displayOrder}\""
-                + " value=\"" + counter + "\"  class=\"inputbox\" autocomplete=\"off\">";
-
-        }
-
-        // function createListOfOptions() {
-        //     let optionsTextList = [];
-        //     let displayTextTags = document.getElementsByName("display_text");
-        //     let storedAsTags = document.getElementsByName("stored_as");
-        //
-        //     for (let i = 0; i < displayTextTags.length; i++) {
-        //
-        //         if (displayTextTags[i].value) {
-        //             let obj = {}
-        //             obj[storedAsTags[i].value.toString()] = displayTextTags[i].value;
-        //             optionsTextList.push(obj);
-        //         }
-        //     }
-        //     console.log(optionsTextList);
-        //
-        //     let arrOptions = JSON.stringify(optionsTextList);
-        //     console.log(window.location.href)
-        //     return true;
-        // }
-
-    </script>
 
     <style type="text/css">
         .label {
@@ -81,16 +30,26 @@
 <body>
 
 <div class="topnav">
-    <a href="#groupme">GroupMe</a>
-    <a style="float: right" href="logout">Logout</a>
+    <a href="/instructorhomepage">GroupMe</a>
+    <a style="float: right" href="/logout">Logout</a>
     <a style="float: right" class="active" href="#account">Account</a>
+</div>
+
+<div>
+    <ul class="vNavbar">
+        <li><a th:href="@{/instructor/createQuestion}">Create Question</a></li>
+        <li><a th:href="@{/instructor/listAllQuestions}">View Questions</a></li>
+        <li><a th:href="@{/instructor/deleteQuestion}">Delete Question</a></li>
+    </ul>
+    <br/>
+    <span th:text="${message}"></span>
 </div>
 
 <div style="text-align: center;">
     <h3> Add Options for Question Here</h3>
     <br><br>
     <form name="form" method="POST" style="display: inline-block;" th:object="${options}"
-          th:action="@{/instructor/createOptions/addOption}">
+          th:action="@{/instructor/createOptions/newOption}">
         <table id="optionTable">
             <tbody>
             <tr th:each="option, state : *{optionList}">
@@ -113,7 +72,7 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <button type="submit" id="submit" class="button" th:formaction="@{/instructor/saveOptions}">Save
+                    <button type="submit" id="submit" class="button" th:formaction="@{/instructor/saveQuestion}">Save
                     </button>
                 </td>
             </tr>

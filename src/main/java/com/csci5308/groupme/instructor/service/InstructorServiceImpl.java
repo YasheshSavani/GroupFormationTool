@@ -12,6 +12,7 @@ import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
 import com.opencsv.CSVReader;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,17 +27,17 @@ public class InstructorServiceImpl implements InstructorService {
 
     private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorServiceImpl.class);
 
+    @Autowired
+    private InstructorDAO instructorDAO;
 
-    InstructorDAO instructorDAO = SystemConfig.instance().getInstructorDAO();
-
-    UserService userService = SystemConfig.instance().getUserService();
-
+    @Autowired
+    private UserService userService;
+    
     @Override
     public boolean upload(MultipartFile file, String instructorID, String courseCode) {
         try {
             Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8));
             List<String[]> records = readAll(reader);
-
             if (records != null) {
                 for (String[] record : records.subList(1, records.size())) {
                     Student student = new Student(record[0] + record[1], record[0]);
@@ -49,7 +50,6 @@ public class InstructorServiceImpl implements InstructorService {
                         user.setEmail(record[3]);
                         user.setPassword(record[0]);
                         if (studentDAO.enrol(user, instructorID, courseCode)) {
-                            UserService userService = new UserServiceImpl();
                             userService.sendCredentials(user);
                         }
                     }
@@ -90,7 +90,6 @@ public class InstructorServiceImpl implements InstructorService {
 
     @Override
     public Instructor getByEmail(String email) throws Exception {
-
         User user = userService.getByEmail(email);
         if (user == null) {
             logger.info(email + " not found");

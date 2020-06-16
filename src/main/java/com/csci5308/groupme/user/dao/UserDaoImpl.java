@@ -18,46 +18,30 @@ import java.util.List;
 @Repository
 @PropertySource("classpath:database.properties")
 public class UserDaoImpl implements UserDao {
-	
-	Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
+	Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 	DatabaseProperties databaseProperties = new DatabaseProperties();
 	String DB_URL = databaseProperties.getDbURL();
 	String USER = databaseProperties.getDbUserName();
 	String PASS = databaseProperties.getDbPassword();
-
-//	@Value("${development.driver}")
-//	private String JDBC_DRIVER;
-//
-//	@Value("${development.url}")
-//	private String DB_URL;
-//
-//	@Value("${development.username}")
-//	private String USER;
-//
-//	@Value("${development.password}")
-//	private String PASS;
-
+	String JDBC_DRIVER = databaseProperties.getDriver();
 	private Connection connection = null;
-
 	private PreparedStatement preparedStatement = null;
-
 	private ResultSet resultSet;
 
 	@Override
 	public User findByUserName(String userName) {
-
 		User user = new User();
 		try {
-
-//			Class.forName(JDBC_DRIVER);
+			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_USERNAME);
 			preparedStatement.setString(1, userName);
 			ResultSet resultSet = preparedStatement.executeQuery();
-			if (!resultSet.next())
+			if (!resultSet.next()) {
 				return null;
+			}
 			do {
 				user.setUserName(resultSet.getString("userName"));
 				user.setFirstName(resultSet.getString("firstName"));
@@ -66,18 +50,15 @@ public class UserDaoImpl implements UserDao {
 				user.setPassword(resultSet.getString("password"));
 			} while (resultSet.next());
 			resultSet.close();
-
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_ROLES_BY_USERNAME);
 			preparedStatement.setString(1, userName);
 			resultSet = preparedStatement.executeQuery();
 			List<String> roles = new ArrayList<String>();
-
 			while (resultSet.next()) {
 				roles.add(resultSet.getString("roleName"));
 			}
 			resultSet.close();
 			user.setRoles(roles);
-
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
@@ -91,7 +72,6 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					// dataSource.closeConnection();
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -104,8 +84,7 @@ public class UserDaoImpl implements UserDao {
 	public User findByEmail(String email) {
 		User user = new User();
 		try {
-			// connection = dataSource.openConnection();
-//			Class.forName(JDBC_DRIVER);
+			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
@@ -145,7 +124,6 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					// dataSource.closeConnection();
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -159,8 +137,7 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		List<User> users = new ArrayList<User>();
 		try {
-			// connection = dataSource.openConnection();
-//			Class.forName(JDBC_DRIVER);
+			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_NAME);
@@ -191,7 +168,6 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					// dataSource.closeConnection();
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -204,7 +180,6 @@ public class UserDaoImpl implements UserDao {
 	public int save(User user) {
 		int addedUserCount = 0;
 		try {
-//			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
@@ -220,7 +195,6 @@ public class UserDaoImpl implements UserDao {
 			preparedStatement.setString(2, "ROLE_GUEST");
 			addedUserCount = preparedStatement.executeUpdate();
 			connection.commit();
-
 		} catch (SQLException se) {
 			try {
 				connection.rollback();
@@ -245,7 +219,6 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					// dataSource.closeConnection();
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -256,13 +229,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean updateRole(User user, String oldRole, String newRole) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean remove(User user) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -271,7 +242,7 @@ public class UserDaoImpl implements UserDao {
 		User user = new User();
 		List<User> users = new ArrayList<User>();
 		try {
-//			Class.forName(JDBC_DRIVER);
+			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_ALL);
@@ -300,7 +271,6 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					// dataSource.closeConnection();
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -313,7 +283,7 @@ public class UserDaoImpl implements UserDao {
 	public int addRole(String userName, String roleName) {
 		int addedUserCount = 0;
 		try {
-//			Class.forName(JDBC_DRIVER);
+			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
@@ -322,7 +292,6 @@ public class UserDaoImpl implements UserDao {
 			preparedStatement.setString(2, "ROLE_GUEST");
 			addedUserCount = preparedStatement.executeUpdate();
 			connection.commit();
-
 		} catch (SQLException se) {
 			try {
 				connection.rollback();
@@ -342,7 +311,6 @@ public class UserDaoImpl implements UserDao {
 
 			if (connection != null)
 				try {
-					// dataSource.closeConnection();
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -355,7 +323,7 @@ public class UserDaoImpl implements UserDao {
 	public int update(User user) {
 		int updatedRowCount = 0;
 		try {
-//			Class.forName(JDBC_DRIVER);
+			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			connection.setAutoCommit(false);
@@ -393,8 +361,7 @@ public class UserDaoImpl implements UserDao {
 				}
 		}
 		return updatedRowCount;
-		
+
 	}
 
-	
 }

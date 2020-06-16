@@ -14,6 +14,7 @@
             let option = document.getElementById("type").value;
             if (option === "Numeric" || option === "Free text") {
                 document.getElementById("submit").innerText = "Save";
+               // document.getElementByName("form").
             } else {
                 document.getElementById("submit").innerText = "Next";
             }
@@ -23,15 +24,25 @@
 <body>
 
 <div class="topnav">
-    <a href="#groupme">GroupMe</a>
-    <a style="float: right" href="logout">Logout</a>
+    <a href="/instructorhomepage">GroupMe</a>
+    <a style="float: right" href="/logout">Logout</a>
     <a style="float: right" class="active" href="#account">Account</a>
+</div>
+
+<div>
+    <ul class="vNavbar">
+        <li><a th:href="@{/instructor/createQuestion}">Create Question</a></li>
+        <li><a th:href="@{/instructor/listAllQuestions}">View Questions</a></li>
+        <li><a th:href="@{/instructor/deleteQuestion}">Delete Question</a></li>
+    </ul>
+    <br/>
+    <span th:text="${message}"></span>
 </div>
 
 <div style="text-align: center;">
     <h3> Create Question Here</h3>
     <br><br>
-    <form style="display: inline-block" name="form" method="post" th:action="@{/instructor/createOptions}">
+    <form style="display: inline-block" name="form" method="post" th:action="@{/instructor/createQuestion}">
         <table>
             <tbody>
             <tr>

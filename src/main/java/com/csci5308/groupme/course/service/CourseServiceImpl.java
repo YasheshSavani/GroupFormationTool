@@ -3,6 +3,8 @@ package com.csci5308.groupme.course.service;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.dao.CourseDAO;
 import com.csci5308.groupme.course.model.Course;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,16 +12,17 @@ import java.util.List;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-    CourseDAO courseDAO = SystemConfig.instance().getCourseDAO();
+	@Autowired
+    CourseDAO courseDAO;
 
     @Override
     public List<Course> findAllCourses() throws Exception {
-        return courseDAO.findAllCourses();
+    	return courseDAO.findAllCourses();
     }
 
     @Override
     public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
-        return courseDAO.getCoursesByUserNameAndRole(userName, roleName);
+    	return courseDAO.getCoursesByUserNameAndRole(userName, roleName);
     }
 
     @Override
