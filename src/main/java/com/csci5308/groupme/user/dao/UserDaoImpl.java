@@ -65,17 +65,19 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
 
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
 		return user;
 	}
@@ -90,8 +92,9 @@ public class UserDaoImpl implements UserDao {
 			preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
 			preparedStatement.setString(1, email);
 			resultSet = preparedStatement.executeQuery();
-			if (resultSet.next() == false)
+			if (resultSet.next() == false) {
 				return null;
+			}
 			do {
 				user.setUserName(resultSet.getString("userName"));
 				user.setFirstName(resultSet.getString("firstName"));
@@ -117,17 +120,19 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
 
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
 		return user;
 	}
@@ -161,17 +166,18 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
-
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
 		return users;
 	}
@@ -201,8 +207,9 @@ public class UserDaoImpl implements UserDao {
 				logger.info(se.getMessage());
 				String duplicateKey = se.getMessage().split(" ")[5];
 				logger.info(duplicateKey);
-				if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY && duplicateKey.equalsIgnoreCase("'PRIMARY'"))
+				if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY && duplicateKey.equalsIgnoreCase("'PRIMARY'")) {
 					return EditCodes.USERNAME_EXISTS;
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -212,17 +219,18 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
-
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
 		return addedUserCount;
 	}
@@ -264,24 +272,26 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
 
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
 		return users;
 	}
 
 	@Override
 	public int addRole(String userName, String roleName) {
-		int addedUserCount = 0;
+		int status = 0;
 		try {
 			Class.forName(JDBC_DRIVER);
 			logger.info("Connecting to the selected database...");
@@ -289,12 +299,15 @@ public class UserDaoImpl implements UserDao {
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);
 			preparedStatement.setString(1, userName);
-			preparedStatement.setString(2, "ROLE_GUEST");
-			addedUserCount = preparedStatement.executeUpdate();
+			preparedStatement.setString(2, roleName);
+			status = preparedStatement.executeUpdate();
 			connection.commit();
 		} catch (SQLException se) {
 			try {
 				connection.rollback();
+				if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY) {
+					return EditCodes.USERROLE_EXISTS;
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -304,19 +317,21 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
 
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
-		return addedUserCount;
+		return status;
 	}
 
 	@Override
@@ -348,17 +363,19 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (preparedStatement != null)
+				if (preparedStatement != null) {
 					preparedStatement.close();
+				}
 			} catch (SQLException se) {
 			}
 
-			if (connection != null)
+			if (connection != null) {
 				try {
 					connection.close();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
 		}
 		return updatedRowCount;
 

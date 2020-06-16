@@ -1,6 +1,7 @@
 package com.csci5308.groupme.instructor.service;
 
 import com.csci5308.groupme.instructor.dao.InstructorDAOImpl;
+import com.csci5308.groupme.instructor.model.Instructor;
 import com.opencsv.CSVReader;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,6 +29,17 @@ public class InstructorServiceImplTest {
 
     private Reader reader;
 
+    @Test
+    public void createInstructorTest() throws Exception {
+    	Instructor instructor = new Instructor();
+    	instructor.setUserName("inst_test");
+    	instructor.setAbout("PhD");
+    	when(instructorDAO.save(instructor)).thenReturn(1);
+    	int status = instructorService.createInstructor(instructor);
+    	assertEquals(1, status);
+    }
+    
+    
     @Test
     public void readAllTest() {
         try {
