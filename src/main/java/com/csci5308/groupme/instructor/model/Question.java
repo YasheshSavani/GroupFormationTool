@@ -2,7 +2,6 @@ package com.csci5308.groupme.instructor.model;
 
 import java.sql.Date;
 
-
 public class Question {
 
     private Integer questionId;
@@ -42,8 +41,11 @@ public class Question {
     public void setType(String type) {
         this.type = type;
     }
-    
+
     public Date getCreatedDate() {
+
+        long millis = System.currentTimeMillis();
+        createdDate = new Date(millis);
         return createdDate;
     }
 

@@ -1,12 +1,12 @@
 package com.csci5308.groupme.instructor.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.instructor.dao.QuestionsDAO;
 import com.csci5308.groupme.instructor.model.Options;
 import com.csci5308.groupme.instructor.model.Question;
+import com.csci5308.groupme.instructor.model.Option;
 
 public class QuestionManagerServiceImpl implements QuestionManagerService {
 
@@ -30,11 +30,10 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
 				rowCount = questionsDAO.saveNonMCQ(instructorUserName, question);
 			}
 			else {				
-				//Write MCQ related call here : 
-				//rowCount = questionsDAO.saveMCQ(instructorUserName, question, options);
-				rowCount = 0;
+				List<Option> optionList = options.getOptionList();
+				rowCount = questionsDAO.saveMultipleChoiceQuestion(question, optionList, instructorUserName);
 			}
-			if (rowCount == 1) {
+			if (rowCount >= 1) {
 				message = "Question created!";
 			} else {
 				message = "Something went wrong! Question was not inserted into the database";
