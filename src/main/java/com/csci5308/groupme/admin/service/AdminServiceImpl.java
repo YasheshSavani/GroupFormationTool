@@ -45,8 +45,8 @@ public class AdminServiceImpl implements AdminService {
 			int status = makeUserAsInstructor(emailId);
 			if (status == EditCodes.USERNAME_DOES_NOT_EXIST) {
 				message = "Instructor not found! Please check again!";
-			} else if (status == 1) {				
-		         message = this.assignInstructorToCourse(emailId, courseCode);
+			} else if (status == 1) {
+				message = this.assignInstructorToCourse(emailId, courseCode);
 			} else {
 				message = "Something went wrong! Could not create class for the given instructor and course";
 			}
@@ -72,8 +72,11 @@ public class AdminServiceImpl implements AdminService {
 			status = EditCodes.USERNAME_DOES_NOT_EXIST;
 		} else {
 			logger.info(user.getUserName());
-			instructor.setUserName(user.getUserName());
-			status = instructorService.createInstructor(instructor);
+			status = userService.addRole(user.getUserName(), "ROLE_INSTRUCTOR");
+			if (status == 1) {
+				instructor.setUserName(user.getUserName());
+				status = instructorService.createInstructor(instructor);
+			}
 		}
 		return status;
 	}
