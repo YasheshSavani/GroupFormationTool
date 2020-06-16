@@ -57,7 +57,8 @@ public class QuestionController {
 			mView.addObject("questionDetails", questionObject);
 		} else if (questionType.equals("Numeric") || questionType.equals("Free text")) {
 			questionManagerService = SystemConfig.instance().getQuestionManagerService();
-			String message = questionManagerService.createQuestion(principal.getName(), questionObject, null);
+			Options options = null;
+			String message = questionManagerService.createQuestion(principal.getName(), questionObject, options);
 			mView.setViewName("instructor/questionmanager");
 			mView.addObject("message", message);
 		}
@@ -79,12 +80,11 @@ public class QuestionController {
 		return "instructor/createoptions";
 	}
 
-	@RequestMapping(value = "/instructor/saveOptions", method = RequestMethod.POST)
+	@RequestMapping(value = "/instructor/saveMultipleChoiceQuestion", method = RequestMethod.POST)
 	public ModelAndView saveQuestion(@ModelAttribute Options options, @RequestParam("title") String questionTitle,
 			@RequestParam("question") String question, @RequestParam("type") String questionType, Principal principal) {
 		questionManagerService = SystemConfig.instance().getQuestionManagerService();
 		ModelAndView mView = new ModelAndView();
-		// List<Option> optionList = options.getOptionList();
 		Question questionObject = new Question();
 		questionObject.setTitle(questionTitle);
 		questionObject.setQuestion(question);

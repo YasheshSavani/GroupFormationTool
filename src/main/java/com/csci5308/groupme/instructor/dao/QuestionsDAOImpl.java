@@ -14,12 +14,8 @@ import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.instructor.model.Options;
 import com.csci5308.groupme.instructor.model.Question;
-import com.csci5308.groupme.user.dao.UserDaoImpl;
 
-import errors.EditCodes;
-import errors.SqlErrors;
 import sql.QuestionsQuery;
-import sql.UserQuery;
 
 public class QuestionsDAOImpl implements QuestionsDAO {
 
@@ -30,7 +26,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 	private ResultSet resultSet = null;
 
 	@Override
-	public int saveQuestion(String instructorUserName, Question question, Options options) {
+	public int saveNonMCQ(String instructorUserName, Question question) {
 		int rowCount = 0;
 		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		String DB_URL = databaseProperties.getDbURL();
@@ -40,7 +36,6 @@ public class QuestionsDAOImpl implements QuestionsDAO {
 			logger.info("Connecting to the selected database...");
 			connection = DriverManager.getConnection(DB_URL, USER, PASS);
 			preparedStatement = connection.prepareStatement(QuestionsQuery.SAVE_QUESTION);
-			//preparedStatement.setInt(1, question.getQuestionId());
 			preparedStatement.setString(1, instructorUserName);
 			preparedStatement.setString(2, question.getTitle());
 			preparedStatement.setString(3, question.getType());

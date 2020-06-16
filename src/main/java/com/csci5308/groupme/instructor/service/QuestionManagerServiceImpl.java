@@ -1,5 +1,6 @@
 package com.csci5308.groupme.instructor.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.csci5308.groupme.SystemConfig;
@@ -9,13 +10,30 @@ import com.csci5308.groupme.instructor.model.Question;
 
 public class QuestionManagerServiceImpl implements QuestionManagerService {
 
+	private QuestionsDAO questionsDAO;
+
+	public QuestionManagerServiceImpl() {
+		super();
+	}
+
+	public QuestionManagerServiceImpl(QuestionsDAO questionsDAO) {
+		this.questionsDAO = questionsDAO;
+	}
+
 	@Override
 	public String createQuestion(String instructorUserName, Question question, Options options) {
-		QuestionsDAO questionsDAO = SystemConfig.instance().getQuestionsDAO();
+		questionsDAO = SystemConfig.instance().getQuestionsDAO();
 		String message = null;
 		int rowCount;
 		try {
-			rowCount = questionsDAO.saveQuestion(instructorUserName, question, options);
+			if (question.getType().equals("Numeric") || question.getType().equals("Free text")) {
+				rowCount = questionsDAO.saveNonMCQ(instructorUserName, question);
+			}
+			else {				
+				//Write MCQ related call here : 
+				//rowCount = questionsDAO.saveMCQ(instructorUserName, question, options);
+				rowCount = 0;
+			}
 			if (rowCount == 1) {
 				message = "Question created!";
 			} else {
