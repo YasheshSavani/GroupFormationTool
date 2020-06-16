@@ -1,31 +1,35 @@
 package com.csci5308.groupme.instructor.dao;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.csci5308.groupme.instructor.model.Option;
 import com.csci5308.groupme.instructor.model.Question;
 
-public class QuestionsDaoMock implements QuestionsDAO{
+import java.util.ArrayList;
+import java.util.List;
 
-	@Override
-	public int saveNonMCQ(String instructorUserName, Question question) {
-		List<Question> questions = new ArrayList<Question>();
-		questions.add(question);
-		return questions.size();
-	}
+public class QuestionsDaoMock implements QuestionsDAO {
 
-	@Override
-	public List<Question> findAllQuestions(String instructorUserName) {
-		return null;
-	}
+    @Override
+    public int saveNonMCQ(String instructorUserName, Question question) {
+        List<Question> questions = new ArrayList<>();
+        questions.add(question);
+        return questions.size();
+    }
 
-	@Override
-	public int removeQuestion(String instructorUserName, Question question) {
-		return 0;
-	}
+    @Override
+    public int saveMultipleChoiceQuestion(Question question, List<Option> optionList, String instructorUserName) {
+        List<Question> questions = new ArrayList<>();
+        questions.add(question);
+        return questions.size() + optionList.size();
+    }
 
-	@Override
-	public int updateQuestion(String instructorUserName, Question question) {
-		return 0;
-	}
+    @Override
+    public List<Question> findAllQuestions(String instructorUserName) {
+        return null;
+    }
+
+    @Override
+    public int removeQuestion(String instructorUserName, Question question) {
+        return 0;
+    }
 
 }

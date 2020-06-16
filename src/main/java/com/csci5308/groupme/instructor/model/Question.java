@@ -44,8 +44,6 @@ public class Question {
 
     public Date getCreatedDate() {
 
-        long millis = System.currentTimeMillis();
-        createdDate = new Date(millis);
         return createdDate;
     }
 
