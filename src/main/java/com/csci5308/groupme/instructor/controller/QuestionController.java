@@ -81,7 +81,7 @@ public class QuestionController {
 	}
 
 	@RequestMapping(value = "/instructor/saveMultipleChoiceQuestion", method = RequestMethod.POST)
-	public ModelAndView saveQuestion(@ModelAttribute Options options, @RequestParam("title") String questionTitle,
+	public ModelAndView saveMultipleChoiceQuestion(@ModelAttribute Options options, @RequestParam("title") String questionTitle,
 			@RequestParam("question") String question, @RequestParam("type") String questionType, Principal principal) {
 		questionManagerService = SystemConfig.instance().getQuestionManagerService();
 		ModelAndView mView = new ModelAndView();

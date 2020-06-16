@@ -1,9 +1,7 @@
 package com.csci5308.groupme.course.service;
 
-import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.dao.CourseDAO;
 import com.csci5308.groupme.course.model.Course;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +10,7 @@ import java.util.List;
 @Service
 public class CourseServiceImpl implements CourseService {
 
-	@Autowired
+    @Autowired
     CourseDAO courseDAO;
 
     @Override
@@ -51,14 +49,13 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception {
         List<Course> coursesList = courseDAO.findCoursesByInstructor(instructorUserName);
-
         return coursesList;
     }
 
     @Override
     public List<Course> findCoursesByInstructorAndTA(String userName) throws Exception {
         List<Course> coursesList = courseDAO.findCoursesByInstructorAndTA(userName);
-        return null;
+        return coursesList;
     }
 
 

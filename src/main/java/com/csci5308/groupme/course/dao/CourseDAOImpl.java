@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.csci5308.groupme.SystemConfig;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
@@ -25,11 +26,12 @@ import sql.InstructorQuery;
 public class CourseDAOImpl implements CourseDAO {
 
 	private final Logger logger = (Logger) LoggerFactory.getLogger(CourseDAOImpl.class);
-	DatabaseProperties databaseProperties = new DatabaseProperties();
+	DatabaseProperties databaseProperties;
 
 	@Override
 	public List<Course> findAllCourses() throws Exception {
 
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		List<Course> retrievedCourseList = null;
 		ResultSet resultSet = null;
 		Connection connection = null;
@@ -87,7 +89,7 @@ public class CourseDAOImpl implements CourseDAO {
 
 	@Override
 	public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
-
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		List<Course> courseAdminCoursesList = null;
 		ResultSet resultSet = null;
 		Connection connection = null;
@@ -174,7 +176,7 @@ public class CourseDAOImpl implements CourseDAO {
 
 	@Override
 	public List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception {
-
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		List<Course> retrievedCourseList = null;
 		ResultSet resultSet = null;
 		Connection connection = null;
@@ -232,6 +234,7 @@ public class CourseDAOImpl implements CourseDAO {
 		Connection connection = null;
 		PreparedStatement getCourseStatement = null;
 		Course course = new Course();
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		try {
 
 			String DB_URL = databaseProperties.getDbURL();
@@ -277,6 +280,7 @@ public class CourseDAOImpl implements CourseDAO {
 		int rowCount = 0;
 		Connection connection = null;
 		PreparedStatement saveCourseStatement = null;
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		try {
 			String DB_URL = databaseProperties.getDbURL();
 			String USER = databaseProperties.getDbUserName();
@@ -319,6 +323,7 @@ public class CourseDAOImpl implements CourseDAO {
 	public int remove(String courseCode) throws Exception {
 		Connection connection = null;
 		PreparedStatement deleteCourseStatement = null;
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		int rowCount = 0;
 		try {
 			String DB_URL = databaseProperties.getDbURL();
@@ -360,6 +365,7 @@ public class CourseDAOImpl implements CourseDAO {
 	    ResultSet courseResultSet;
 	    Connection connection = null;
 	    PreparedStatement getCourseStatement;
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 	    try {
 	        String DB_URL = databaseProperties.getDbURL();
 	        String USER = databaseProperties.getDbUserName();
@@ -393,6 +399,7 @@ public class CourseDAOImpl implements CourseDAO {
 	    ResultSet courseResultSet;
 	    Connection connection = null;
 	    PreparedStatement getCourseStatement;
+		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 	    try {
 	        String DB_URL = databaseProperties.getDbURL();
 	        String USER = databaseProperties.getDbUserName();

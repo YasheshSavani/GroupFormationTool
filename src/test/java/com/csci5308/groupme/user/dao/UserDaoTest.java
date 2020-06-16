@@ -100,17 +100,21 @@ public class UserDaoTest {
 		assertEquals(EditCodes.USERNAME_EXISTS, status);
 	}
 	
-//	@Test
-//	public void addRoleTest() {
-//		User user = new User();
-//		String randomString = RandomUtil.alphaNumeric(5);
-//		user.setUserName("testuser_" + randomString);
-//		user.setFirstName("Test");
-//		user.setLastName("User" + randomString);
-//		user.setEmail("test_" + randomString + "@gmail.com");
-//		user.setPassword(passwordEncoder.encode("testpassword"));
-//		int rowCount = userDao.save(user);
-//		assertEquals(1, rowCount);
-//	}
+	@Test
+	public void addRoleTest() {
+		User user = new User();
+		String randomString = RandomUtil.alphaNumeric(5);
+		String userName = "instuser_" + randomString;
+		String roleName = "ROLE_INSTRUCTOR";
+		user.setUserName(userName);
+		user.setFirstName("Test");
+		user.setLastName("User" + randomString);
+		user.setEmail("test_" + randomString + "@gmail.com");
+		user.setPassword(passwordEncoder.encode("testpassword"));
+		int saveStatus = userDao.save(user);
+		int addRoleStatus = userDao.addRole(userName, roleName);
+		assertEquals(1, saveStatus);
+		assertEquals(1, addRoleStatus);
+	}
 	
 }

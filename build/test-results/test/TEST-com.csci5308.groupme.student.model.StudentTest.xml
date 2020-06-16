@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.csci5308.groupme.student.model.StudentTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-06-14T21:36:30" hostname="YASHESH" time="0.006">
+<testsuite name="com.csci5308.groupme.student.model.StudentTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-06-16T21:35:40" hostname="YASHESH" time="0.004">
   <properties/>
-  <testcase name="getUserNameTest()" classname="com.csci5308.groupme.student.model.StudentTest" time="0.001"/>
+  <testcase name="getUserNameTest()" classname="com.csci5308.groupme.student.model.StudentTest" time="0.0"/>
   <testcase name="setBannerIDTest()" classname="com.csci5308.groupme.student.model.StudentTest" time="0.001"/>
   <testcase name="setUserNameTest()" classname="com.csci5308.groupme.student.model.StudentTest" time="0.001"/>
   <testcase name="getBannerIDTest()" classname="com.csci5308.groupme.student.model.StudentTest" time="0.001"/>
