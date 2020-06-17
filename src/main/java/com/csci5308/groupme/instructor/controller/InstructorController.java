@@ -49,17 +49,6 @@ public class InstructorController {
 		return mView;
 	}
 
-	@RequestMapping(value = "/InstructorTAStudent", method = RequestMethod.GET)
-	public String instructorTAStudentHomePage(Principal principal, Model model) {
-		try {
-			List<Course> coursesList = courseService.findCoursesByStudentUserName(principal.getName());
-			model.addAttribute("courses", coursesList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "InstructorTAStudent";
-	}
-
 	@RequestMapping(value = "/InstructorTAStudent/CourseAdmin", method = RequestMethod.GET)
 	public String courseAdmin(Model model, Principal principal) {
 		try {
