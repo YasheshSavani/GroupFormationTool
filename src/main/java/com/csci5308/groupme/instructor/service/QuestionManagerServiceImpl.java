@@ -49,21 +49,46 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
     }
 
     @Override
-    public List<Question> getAllQuestions(String instructorUserName) {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Question> getAllTitles(String instructorUserName) {
+    	return questionsDAO.findAllTitles(instructorUserName);
     }
 
     @Override
-    public int deleteQuestion(String instructorUserName, Question question) {
-        // TODO Auto-generated method stub
-        return 0;
+    public String deleteQuestion(String instructorUserName, Question question) {
+        String message = null;
+        int rowCount;
+        try 
+        {
+            rowCount = questionsDAO.removeQuestion(instructorUserName, question);
+            if (rowCount >= 1) 
+            {
+                message = "Question deleted!";
+            } 
+            else 
+            {
+                message = "Something went wrong! Question was not deleted from the database";
+            }
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+        return message;
     }
 
     @Override
-    public int updateQuestion(String instructorUserName, Question question) {
-        // TODO Auto-generated method stub
-        return 0;
+    public List<Question> getAllSortedTitlesByTitles(String instructorUserName){
+    	return questionsDAO.findAllSortedTitlesByTitles(instructorUserName);
+    }
+
+    @Override
+    public List<Question> getAllSortedTitlesByDates(String instructorUserName){
+    	return questionsDAO.findAllSortedTitlesByDates(instructorUserName);
+    }
+
+    @Override
+    public List<Question> getAllQuestions(String instructorUserName){
+    	return questionsDAO.findAllQuestions(instructorUserName);
     }
 
 }
