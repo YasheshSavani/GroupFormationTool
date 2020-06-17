@@ -101,12 +101,72 @@ public class QuestionController {
 
 	@RequestMapping(value = "/instructor/deleteQuestion", method = RequestMethod.GET)
 	public String deleteQuestionPage(Principal principal, Model model) {
+		questionManagerService = SystemConfig.instance().getQuestionManagerService();
+		Question question = new Question();
+		List<Question> listOfQuestions = questionManagerService.getAllQuestions(principal.getName());
+		model.addAttribute("details",listOfQuestions);
+		model.addAttribute("question", question);
 		return "instructor/deletequestion";
 	}
 
-	@RequestMapping(value = "/instructor/listAllQuestions", method = RequestMethod.GET)
-	public String listAllQuestionsPage(Principal principal, Model model) {
-		return "instructor/listallquestions";
+	@RequestMapping(value = "/instructor/deleteQuestion", method = RequestMethod.POST)
+	public ModelAndView deleteQuestionPageSubmit(@ModelAttribute("question") Question question, Principal principal, Model model) {
+		questionManagerService = SystemConfig.instance().getQuestionManagerService();
+		ModelAndView mView = new ModelAndView();
+		logger.info("question selected is"+ question.getQuestionId());
+		String message = questionManagerService.deleteQuestion(principal.getName(), question);
+		mView.setViewName("instructor/questionManager");
+		mView.addObject("message", message);
+		return mView;
+	}
+
+	@RequestMapping(value = "/instructor/listAllTitles", method = RequestMethod.GET)
+	public ModelAndView listAllQuestionsPage(Principal principal) {
+		questionManagerService = SystemConfig.instance().getQuestionManagerService();
+		List<Question> listQuestionDetails = questionManagerService.getAllTitles(principal.getName());
+		ModelAndView mView = new ModelAndView("instructor/listalltitles");
+		if(listQuestionDetails != null)
+		{
+			mView.addObject("titles", listQuestionDetails);
+		}
+		else 
+		{
+			mView.addObject("titles", null);
+		}
+		return mView;
+	}
+
+	@RequestMapping(value = "/instructor/sortTitlesByTitles", method = RequestMethod.GET)
+	public ModelAndView listSortedTitlesByTitles(Principal principal) {
+		questionManagerService = SystemConfig.instance().getQuestionManagerService();
+		List<Question> listSortedTitlesByTitles = questionManagerService.getAllSortedTitlesByTitles(principal.getName());
+		ModelAndView mView = new ModelAndView("instructor/sortedtitles");
+		if(listSortedTitlesByTitles != null)
+		{
+			mView.addObject("sortedTitles", listSortedTitlesByTitles);
+		}
+		else 
+		{
+			mView.addObject("sortedTitles", null);
+		}
+		return mView;
+	}
+
+	
+	@RequestMapping(value = "/instructor/sortTitlesByDates", method = RequestMethod.GET)
+	public ModelAndView listSortedTitlesByDates(Principal principal) {
+		questionManagerService = SystemConfig.instance().getQuestionManagerService();
+		List<Question> listSortedTitlesByDates = questionManagerService.getAllSortedTitlesByDates(principal.getName());
+		ModelAndView mView = new ModelAndView("instructor/sortedtitlesDates");
+		if(listSortedTitlesByDates != null)
+		{
+			mView.addObject("sortedTitles", listSortedTitlesByDates);
+		}
+		else 
+		{
+			mView.addObject("sortedTitles", null);
+		}
+		return mView;
 	}
 
 }

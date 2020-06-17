@@ -32,4 +32,22 @@ public class QuestionsDaoMock implements QuestionsDAO {
         return 0;
     }
 
+    @Override
+    public List<Question> findAllTitles(String instructorUserName) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Question> findAllSortedTitlesByTitles(String instructorUserName) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public List<Question> findAllSortedTitlesByDates(String instructorUserName) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
 }
