@@ -70,6 +70,5 @@ public class TeachingAssistantTest {
         TeachingAssistant TA = new TeachingAssistant();
         TA.setUserName(userNameTest);
         assertEquals(userNameTest, TA.getUserName());
-
     }
 }

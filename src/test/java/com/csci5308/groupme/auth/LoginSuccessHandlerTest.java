@@ -1,16 +1,6 @@
 package com.csci5308.groupme.auth;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.doReturn;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.csci5308.groupme.auth.config.LoginSuccessHandler;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,181 +10,181 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import com.csci5308.groupme.auth.config.LoginSuccessHandler;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doReturn;
 
 @ExtendWith(MockitoExtension.class)
 public class LoginSuccessHandlerTest {
-	
-	@Mock
-	Authentication authentication;
-	
-	@Mock
-	HttpServletRequest request;
-	
-	@Mock
-	HttpServletResponse response;
 
-	@InjectMocks
-	LoginSuccessHandler loginSuccessHandler;
+    @Mock
+    Authentication authentication;
 
-	@Test
-	public void landingUrlTestForAdmin() {
-		String adminLandingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_ADMIN");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		adminLandingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.ADMIN, adminLandingUrl);
-	}
-	
-	@Test
-	public void landingUrlTestForGuest() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_GUEST");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.GUEST, landingUrl);
-	}
-	
-	@Test
-	public void landingUrlTestForStudent() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_STUDENT");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.STUDENT, landingUrl);
-	}
-	
-	@Test
-	public void landingUrlTestForTA() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_TA");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.TA, landingUrl);
-	}
-	
-	@Test
-	public void landingUrlTestForInstructor() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_INSTRUCTOR");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.INSTRUCTOR, landingUrl);
-	}
+    @InjectMocks
+    LoginSuccessHandler loginSuccessHandler;
 
-	@Test
-	public void landingUrlTestForStudentTA() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_STUDENT");
-		roles.add("ROLE_TA");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.STU_TA, landingUrl);
-	}
+    @Test
+    public void landingUrlTestForAdmin() {
+        String adminLandingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_ADMIN");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        adminLandingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.ADMIN, adminLandingUrl);
+    }
 
-	@Test
-	public void landingUrlTestForStudentInstructor() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_STUDENT");
-		roles.add("ROLE_INSTRUCTOR");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.STU_INST, landingUrl);
-	}
-	
+    @Test
+    public void landingUrlTestForGuest() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_GUEST");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.GUEST, landingUrl);
+    }
 
-	@Test
-	public void landingUrlTestForTAInstructor() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_TA");
-		roles.add("ROLE_INSTRUCTOR");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.TA_INST, landingUrl);
-	}
-	
-	@Test
-	public void landingUrlTestForStudentTAInstructor() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_TA");
-		roles.add("ROLE_INSTRUCTOR");
-		roles.add("ROLE_STUDENT");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.STU_TA_INST, landingUrl);
-	}
-	
-	@Test
-	public void landingUrlTestForGuestOverride() {
-		String landingUrl = "";
-		List<String> roles = new ArrayList<String>();
-		roles.add("ROLE_TA");
-		roles.add("ROLE_INSTRUCTOR");
-		roles.add("ROLE_STUDENT");
-		roles.add("ROLE_GUEST");
-		Set<GrantedAuthority> authorities =  new HashSet<>();
-		roles.forEach(role -> {
-			GrantedAuthority authority = new SimpleGrantedAuthority(role);
-			authorities.add(authority);
-		});
-		doReturn(authorities).when(authentication).getAuthorities();
-		landingUrl = loginSuccessHandler.decideUrl(authentication);
-		assertEquals(LandingUri.STU_TA_INST, landingUrl);
-	}
+    @Test
+    public void landingUrlTestForStudent() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_STUDENT");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.STUDENT, landingUrl);
+    }
+
+    @Test
+    public void landingUrlTestForTA() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_TA");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.TA, landingUrl);
+    }
+
+    @Test
+    public void landingUrlTestForInstructor() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_INSTRUCTOR");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.INSTRUCTOR, landingUrl);
+    }
+
+    @Test
+    public void landingUrlTestForStudentTA() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_STUDENT");
+        roles.add("ROLE_TA");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.STU_TA, landingUrl);
+    }
+
+    @Test
+    public void landingUrlTestForStudentInstructor() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_STUDENT");
+        roles.add("ROLE_INSTRUCTOR");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.STU_INST, landingUrl);
+    }
+
+
+    @Test
+    public void landingUrlTestForTAInstructor() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_TA");
+        roles.add("ROLE_INSTRUCTOR");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.TA_INST, landingUrl);
+    }
+
+    @Test
+    public void landingUrlTestForStudentTAInstructor() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_TA");
+        roles.add("ROLE_INSTRUCTOR");
+        roles.add("ROLE_STUDENT");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.STU_TA_INST, landingUrl);
+    }
+
+    @Test
+    public void landingUrlTestForGuestOverride() {
+        String landingUrl = "";
+        List<String> roles = new ArrayList<String>();
+        roles.add("ROLE_TA");
+        roles.add("ROLE_INSTRUCTOR");
+        roles.add("ROLE_STUDENT");
+        roles.add("ROLE_GUEST");
+        Set<GrantedAuthority> authorities = new HashSet<>();
+        roles.forEach(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role);
+            authorities.add(authority);
+        });
+        doReturn(authorities).when(authentication).getAuthorities();
+        landingUrl = loginSuccessHandler.decideUrl(authentication);
+        assertEquals(LandingUri.STU_TA_INST, landingUrl);
+    }
 
 
 }

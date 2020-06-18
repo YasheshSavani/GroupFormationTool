@@ -11,7 +11,6 @@ class UserTest {
 
     User user = new UserMock().getUser();
 
-
     @Test
     public void getUserNameTest() {
         assertEquals("kharechaB00", user.getUserName());
@@ -39,21 +38,17 @@ class UserTest {
 
     @Test
     public void getRolesTest() {
-
         List<String> roles = new ArrayList<>();
         roles.add("ROLE_STUDENT");
         user.setRoles(roles);
-
         assertEquals(roles, user.getRoles());
     }
 
     @Test
     public void getPermissionsTest() {
-
         List<String> permissions = new ArrayList<>();
         permissions.add("permitted");
         user.setPermissions(permissions);
-
         assertEquals(permissions, user.getPermissions());
     }
 
@@ -100,11 +95,9 @@ class UserTest {
         List<String> userRoles = new ArrayList<>();
         userRoles.add("ROLE_STUDENT");
         user.setRoles(userRoles);
-
         List<String> roles = new ArrayList<>();
         roles.add("ROLE_STUDENT");
         user.setRoles(roles);
-
         assertEquals(roles, user.getRoles());
     }
 
@@ -114,11 +107,9 @@ class UserTest {
         List<String> userPermissions = new ArrayList<>();
         userPermissions.add("permitted");
         user.setPermissions(userPermissions);
-
         List<String> permissions = new ArrayList<>();
         permissions.add("permitted");
         user.setPermissions(permissions);
-
         assertEquals(permissions, user.getPermissions());
     }
 

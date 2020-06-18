@@ -1,26 +1,26 @@
 package com.csci5308.groupme.instructor.service;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.multipart.MultipartFile;
 import com.csci5308.groupme.auth.service.EmailService;
 import com.csci5308.groupme.student.dao.StudentDAO;
 import com.csci5308.groupme.student.dao.StudentDAOImpl;
 import com.csci5308.groupme.student.model.Student;
 import com.csci5308.groupme.user.model.User;
 import com.opencsv.CSVReader;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.multipart.MultipartFile;
 
-public class EnrollmentServiceImpl implements EnrollmentService{
-	
-	@Autowired
-    private EmailService emailService; 
-	
-	@Override
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
+public class EnrollmentServiceImpl implements EnrollmentService {
+
+    @Autowired
+    private EmailService emailService;
+
+    @Override
     public boolean upload(MultipartFile file, String instructorID, String courseCode) {
         try {
             Reader reader = new BufferedReader(new InputStreamReader(file.getInputStream(), StandardCharsets.UTF_8));
@@ -48,8 +48,8 @@ public class EnrollmentServiceImpl implements EnrollmentService{
         }
         return false;
     }
-	
-	@Override
+
+    @Override
     public List<String[]> readAll(Reader reader) {
         CSVReader csvReader = new CSVReader(reader);
         try {

@@ -26,15 +26,15 @@
 <![endif]-->
 
 <div class="topnav">
-		<a href="/" class="active" >GroupMe</a> 
-		<a style="float: right" href="logout">Logout</a>
-		<a style="float: right" class="active" href="#account">Account</a> 
-	</div>
+    <a href="/" class="active">GroupMe</a>
+    <a style="float: right" href="logout">Logout</a>
+    <a style="float: right" class="active" href="#account">Account</a>
+</div>
 
 <div style="text-align: center; margin: 0 auto;">
     <h2>Welcome! <span th:text="${userName}"></span></h2>
     <h1>Details of Course</h1>
-    <table class = "padding-table-columns" style = "margin-left: auto;margin-right: auto;" >
+    <table class="padding-table-columns" style="margin-left: auto;margin-right: auto;">
         <thead>
         <tr>
             <th>Course Code</th>
@@ -43,7 +43,7 @@
         </tr>
         </thead>
         <tbody>
-                <span th:if="${details!=null}">
+        <span th:if="${details!=null}">
                 <tr th:each="details : ${details}">
     
                 <td th:text="${details.courseName}"></td>
@@ -51,7 +51,7 @@
                 <td th:text="${details.courseCrn}"></td>
                 </tr>
             </span>
-            <span th:if="${details==null}">
+        <span th:if="${details==null}">
             <tr>
                 <td>
                     No Information available for Courses.

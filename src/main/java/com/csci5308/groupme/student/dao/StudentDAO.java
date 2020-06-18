@@ -9,5 +9,4 @@ public interface StudentDAO {
     boolean isNotEnrolled() throws SQLException;
 
     boolean enrol(User user, String instructorID, String courseID) throws SQLException;
-
 }

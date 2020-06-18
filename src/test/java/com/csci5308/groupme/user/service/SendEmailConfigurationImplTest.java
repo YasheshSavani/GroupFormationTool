@@ -15,15 +15,12 @@ public class SendEmailConfigurationImplTest {
     public void initiateEmailSenderTest() {
         JavaMailSenderImpl mailSender = emailConfigurationMock.getMailSender();
         Properties properties = emailConfigurationMock.getProperties();
-
         assertEquals("smtp.gmail.com", mailSender.getHost());
         assertEquals(587, mailSender.getPort());
         assertEquals("groupmecsci5308@gmail.com", mailSender.getUsername());
         assertEquals("groupme@CSCI5308", mailSender.getPassword());
-
         assertEquals("smtp", properties.getProperty("mail.transport.protocal"));
         assertEquals("true", properties.getProperty("mail.smtp.starttls.enable"));
-
     }
 
 }
