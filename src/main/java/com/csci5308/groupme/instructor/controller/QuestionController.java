@@ -115,7 +115,7 @@ public class QuestionController {
         ModelAndView mView = new ModelAndView();
         logger.info("question selected is" + question.getQuestionId());
         String message = questionManagerService.deleteQuestion(principal.getName(), question);
-        mView.setViewName("instructor/questionManager");
+        mView.setViewName("instructor/questionmanager");
         mView.addObject("message", message);
         return mView;
     }
@@ -150,7 +150,7 @@ public class QuestionController {
     public ModelAndView listSortedTitlesByDates(Principal principal) {
         questionManagerService = SystemConfig.instance().getQuestionManagerService();
         List<Question> listSortedTitlesByDates = questionManagerService.getAllSortedTitlesByDates(principal.getName());
-        ModelAndView mView = new ModelAndView("instructor/sortedtitlesDates");
+        ModelAndView mView = new ModelAndView("instructor/sortedtitlesdates");
         if (listSortedTitlesByDates != null) {
             mView.addObject("sortedTitles", listSortedTitlesByDates);
         } else {
