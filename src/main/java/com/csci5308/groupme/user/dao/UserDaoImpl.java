@@ -1,19 +1,24 @@
 package com.csci5308.groupme.user.dao;
 
-import com.csci5308.datasource.DatabaseProperties;
-import com.csci5308.groupme.user.model.User;
-import errors.EditCodes;
-import errors.SqlErrors;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Repository;
-import sql.UserQuery;
-
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Repository;
+
+import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.user.model.User;
+
+import errors.EditCodes;
+import errors.SqlErrors;
+import sql.UserQuery;
 
 @Repository
 @PropertySource("classpath:database.properties")
@@ -112,7 +117,6 @@ public class UserDaoImpl implements UserDao {
 			}
 			resultSet.close();
 			user.setRoles(roles);
-
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
@@ -158,7 +162,6 @@ public class UserDaoImpl implements UserDao {
 				users.add(user);
 			}
 			resultSet.close();
-
 		} catch (SQLException se) {
 			se.printStackTrace();
 		} catch (Exception e) {
@@ -208,6 +211,7 @@ public class UserDaoImpl implements UserDao {
 				String duplicateKey = se.getMessage().split(" ")[5];
 				logger.info(duplicateKey);
 				if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY && duplicateKey.equalsIgnoreCase("'PRIMARY'")) {
+					connection.close();
 					return EditCodes.USERNAME_EXISTS;
 				}
 			} catch (SQLException e) {
@@ -306,6 +310,7 @@ public class UserDaoImpl implements UserDao {
 			try {
 				connection.rollback();
 				if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY) {
+					connection.close();
 					return EditCodes.USERROLE_EXISTS;
 				}
 			} catch (SQLException e) {
@@ -368,7 +373,6 @@ public class UserDaoImpl implements UserDao {
 				}
 			} catch (SQLException se) {
 			}
-
 			if (connection != null) {
 				try {
 					connection.close();

@@ -23,8 +23,8 @@ import java.util.List;
 public class QuestionController {
 
 	Logger logger = (Logger) LoggerFactory.getLogger(QuestionController.class);
-
 	QuestionManagerService questionManagerService;
+	
 	@RequestMapping(value = "/instructor/questionManagerPage", method = RequestMethod.GET)
 	public String questionManagerPage(Principal principal, Model model) {
 		return "instructor/questionmanager";

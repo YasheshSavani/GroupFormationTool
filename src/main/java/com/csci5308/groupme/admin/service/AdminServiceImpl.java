@@ -15,7 +15,6 @@ import com.csci5308.groupme.user.service.UserService;
 
 import ch.qos.logback.classic.Logger;
 import errors.EditCodes;
-import errors.SqlErrors;
 
 @Service
 public class AdminServiceImpl implements AdminService {

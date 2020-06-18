@@ -23,7 +23,6 @@ public class AdminDaoImpl implements AdminDao {
 
 	@Override
 	public int createClass(String instructorUserName, String courseCode) throws Exception {
-
 		int insertStatus = 0;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -41,7 +40,6 @@ public class AdminDaoImpl implements AdminDao {
 			preparedStatement.setString(1, instructorUserName);
 			preparedStatement.setString(2, courseCode);
 			insertStatus = preparedStatement.executeUpdate();
-
 		} catch (SQLException se) {
 			logger.info(se.getMessage());
 			if (se.getErrorCode() == SqlErrors.DUPLICATE_ENTRY)

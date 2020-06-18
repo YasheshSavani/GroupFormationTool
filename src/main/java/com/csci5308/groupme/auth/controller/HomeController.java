@@ -61,7 +61,6 @@ public class HomeController {
 			@RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
 			@RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor,
 			Principal principal) {
-
 		if (isStudent && !isTA && !isInstructor) {
 			return "redirect:/studenthomepage";
 		} else if (isStudent && isTA && !isInstructor) {

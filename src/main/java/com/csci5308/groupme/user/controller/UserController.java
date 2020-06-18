@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.csci5308.groupme.SystemConfig;
@@ -76,14 +75,13 @@ public class UserController {
 	}
 
 	@PostMapping("/forgotPassword")
-	public ModelAndView userEmail(@RequestParam("email") String email) {
-
-		User user = userService.getByEmail(email);
+	public ModelAndView userEmail(@RequestParam("email") String emailId) {
+		User user = userService.getByEmail(emailId);
 		ModelAndView mView;
 		if (null == user) {
 			mView = new ModelAndView("auth/emailnotfound");
 		} else {
-			boolean isSent = emailService.sendPasswordRecovery(email);
+			boolean isSent = emailService.sendPasswordRecovery(emailId);
 			if (isSent) {
 				mView = new ModelAndView("auth/emailsent");
 			} else {
@@ -98,9 +96,11 @@ public class UserController {
 			@RequestParam(value = "secretCode", required = true, defaultValue = "none") String secretCode,
 			@RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
 		ModelAndView mView;
+		passwordProperties = SystemConfig.instance().getPasswordProperties();		
 		if (secretCode.equals(AuthConstants.SECRET_CODE)) {
 			mView = new ModelAndView("auth/resetPassword");
 			mView.addObject("email", email);
+			mView.addObject(passwordProperties);
 		} else {
 			mView = new ModelAndView("auth/unauthorized");
 		}

@@ -1,18 +1,22 @@
 package com.csci5308.groupme.instructor.dao;
 
-import ch.qos.logback.classic.Logger;
-import errors.EditCodes;
-import errors.SqlErrors;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.instructor.model.Instructor;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Repository;
-import sql.InstructorQuery;
-import sql.UserQuery;
 
-import java.sql.*;
+import ch.qos.logback.classic.Logger;
+import errors.EditCodes;
+import errors.SqlErrors;
+import sql.InstructorQuery;
 
 @Repository
 public class InstructorDAOImpl implements InstructorDAO {

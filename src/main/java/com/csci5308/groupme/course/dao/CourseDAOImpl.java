@@ -8,19 +8,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.csci5308.groupme.SystemConfig;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.instructor.model.Instructor;
 
 import ch.qos.logback.classic.Logger;
 import errors.EditCodes;
 import errors.SqlErrors;
 import sql.CourseQuery;
-import sql.InstructorQuery;
 
 @Repository
 public class CourseDAOImpl implements CourseDAO {
@@ -30,28 +28,21 @@ public class CourseDAOImpl implements CourseDAO {
 
 	@Override
 	public List<Course> findAllCourses() throws Exception {
-
 		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		List<Course> retrievedCourseList = null;
 		ResultSet resultSet = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 		try {
 			retrievedCourseList = new ArrayList<>();
 			String DB_URL = databaseProperties.getDbURL();
 			String USER = databaseProperties.getDbUserName();
 			String PASSWORD = databaseProperties.getDbPassword();
-
 			logger.info("Connecting to the selected database...");
-
 			connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			logger.info("Connected to the database successfully...");
-
 			preparedStatement = connection.prepareStatement(CourseQuery.SELECT_ALL_COURSE);
-
 			resultSet = preparedStatement.executeQuery();
-
 			if (!resultSet.next()) {
 				return null;
 			}
@@ -62,7 +53,6 @@ public class CourseDAOImpl implements CourseDAO {
 				retrievedCourseList.add(new Course(courseCode, courseName, courseCrn));
 
 			} while (resultSet.next());
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -83,7 +73,6 @@ public class CourseDAOImpl implements CourseDAO {
 				}
 			}
 		}
-
 		return retrievedCourseList;
 	}
 
@@ -94,19 +83,15 @@ public class CourseDAOImpl implements CourseDAO {
 		ResultSet resultSet = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 		try {
 			courseAdminCoursesList = new ArrayList<>();
 
 			String DB_URL = databaseProperties.getDbURL();
 			String USER = databaseProperties.getDbUserName();
 			String PASSWORD = databaseProperties.getDbPassword();
-
 			logger.info("Connecting to the selected database...");
-
 			connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			logger.info("Connected to the database successfully...");
-
 			if (roleName.equals("ROLE_TA")) {
 				preparedStatement = connection.prepareStatement(CourseQuery.SELECT_COURSES_BY_USERNAME_TA);
 				preparedStatement.setString(1, userName);
@@ -127,7 +112,6 @@ public class CourseDAOImpl implements CourseDAO {
 					getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_BY_COURSE_CODE);
 					getCourseStatement.setString(1, retrievedCourseCode);
 					courseResultSet = getCourseStatement.executeQuery();
-
 					if (!courseResultSet.next()) {
 						return null;
 					}
@@ -135,7 +119,6 @@ public class CourseDAOImpl implements CourseDAO {
 						String courseCode = resultSet.getString("courseCode");
 						Course course = findCourseByCourseCode(courseCode);
 						courseAdminCoursesList.add(course);
-
 					} while (courseResultSet.next());
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -181,23 +164,18 @@ public class CourseDAOImpl implements CourseDAO {
 		ResultSet resultSet = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
 		try {
 			retrievedCourseList = new ArrayList<>();
 
 			String DB_URL = databaseProperties.getDbURL();
 			String USER = databaseProperties.getDbUserName();
 			String PASSWORD = databaseProperties.getDbPassword();
-
 			logger.info("Connecting to the selected database...");
-
 			connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
 			logger.info("Connected to the database successfully...");
-
 			preparedStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_STUDENT_ENROLLED_IN_BY_USERNAME_STUDENT);
 			preparedStatement.setString(1, studentUserName);
 			resultSet = preparedStatement.executeQuery();
-
 			if (!resultSet.next()) {
 				return null;
 			}
@@ -236,7 +214,6 @@ public class CourseDAOImpl implements CourseDAO {
 		Course course = new Course();
 		databaseProperties = SystemConfig.instance().getDatabaseProperties();
 		try {
-
 			String DB_URL = databaseProperties.getDbURL();
 			String USER = databaseProperties.getDbUserName();
 			String PASSWORD = databaseProperties.getDbPassword();
@@ -244,7 +221,6 @@ public class CourseDAOImpl implements CourseDAO {
 			getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_BY_COURSE_CODE);
 			getCourseStatement.setString(1, courseCode);
 			courseResultSet = getCourseStatement.executeQuery();
-
 			if (!courseResultSet.next()) {
 				return null;
 			}
@@ -299,7 +275,6 @@ public class CourseDAOImpl implements CourseDAO {
 				return EditCodes.COURSE_EXISTS;
 			se.printStackTrace();
 		} finally {
-
 			if (saveCourseStatement != null) {
 				try {
 					saveCourseStatement.close();
@@ -427,7 +402,4 @@ public class CourseDAOImpl implements CourseDAO {
 	    }
 	    return courseList;
 	}
-	
-	
-
 }

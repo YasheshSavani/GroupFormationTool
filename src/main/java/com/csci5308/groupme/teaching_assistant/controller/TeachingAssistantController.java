@@ -16,6 +16,7 @@ import com.csci5308.groupme.course.service.CourseService;
 
 @Controller
 public class TeachingAssistantController {
+
 	@Autowired
 	CourseService courseService;
 
@@ -28,7 +29,7 @@ public class TeachingAssistantController {
 		String userName = principal.getName();
 		List<Course> managedCourses = courseService.getCoursesByUserNameAndRole(userName, "ROLE_TA");
 		ModelAndView mView = new ModelAndView();
-		mView.setViewName("ta/tahomepage");		
+		mView.setViewName("ta/tahomepage");
 		if (null != managedCourses) {
 			mView.addObject("managedCourses", managedCourses);
 		} else {
@@ -37,22 +38,19 @@ public class TeachingAssistantController {
 		mView.addObject("isTA", true);
 		return mView;
 	}
-	
-	 @RequestMapping(value = "/TAcoursepage", method = RequestMethod.POST)
-	    public ModelAndView getCoursesByUserNameAndRole(Principal p) throws Exception {
-	        String userName = p.getName();
-	        String roleName = "ROLE_TA";
 
-	        List<Course> courseTACourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
-
-	        ModelAndView mView = new ModelAndView();
-	        if (null != courseTACourses) {
-	            mView.addObject("courses", courseTACourses);
-	        } else {
-	            mView.addObject("courses", null);
-	        }
-	        mView.setViewName("CourseAdmin");
-	        return mView;
-	    }
-
+	@RequestMapping(value = "/TAcoursepage", method = RequestMethod.POST)
+	public ModelAndView getCoursesByUserNameAndRole(Principal p) throws Exception {
+		String userName = p.getName();
+		String roleName = "ROLE_TA";
+		List<Course> courseTACourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
+		ModelAndView mView = new ModelAndView();
+		if (null != courseTACourses) {
+			mView.addObject("courses", courseTACourses);
+		} else {
+			mView.addObject("courses", null);
+		}
+		mView.setViewName("CourseAdmin");
+		return mView;
+	}
 }
