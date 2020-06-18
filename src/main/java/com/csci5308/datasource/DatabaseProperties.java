@@ -1,7 +1,5 @@
 package com.csci5308.datasource;
 
-import com.csci5308.groupme.SystemConfig;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;

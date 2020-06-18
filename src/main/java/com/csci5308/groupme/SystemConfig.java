@@ -2,26 +2,16 @@ package com.csci5308.groupme;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.auth.config.PasswordProperties;
-import com.csci5308.groupme.course.dao.CourseDAO;
-import com.csci5308.groupme.course.dao.CourseDAOImpl;
-import com.csci5308.groupme.course.service.CourseService;
-import com.csci5308.groupme.course.service.CourseServiceImpl;
-import com.csci5308.groupme.instructor.dao.InstructorDAO;
-import com.csci5308.groupme.instructor.dao.InstructorDAOImpl;
 import com.csci5308.groupme.instructor.dao.QuestionsDAO;
 import com.csci5308.groupme.instructor.dao.QuestionsDAOImpl;
-import com.csci5308.groupme.instructor.service.InstructorService;
-import com.csci5308.groupme.instructor.service.InstructorServiceImpl;
+import com.csci5308.groupme.instructor.service.EnrollmentService;
+import com.csci5308.groupme.instructor.service.EnrollmentServiceImpl;
 import com.csci5308.groupme.instructor.service.QuestionManagerService;
 import com.csci5308.groupme.instructor.service.QuestionManagerServiceImpl;
 import com.csci5308.groupme.teaching_assistant.dao.TeachingAssistantDao;
 import com.csci5308.groupme.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.teaching_assistant.service.TeachingAssistantService;
 import com.csci5308.groupme.teaching_assistant.service.TeachingAssistantServiceImpl;
-import com.csci5308.groupme.user.dao.UserDao;
-import com.csci5308.groupme.user.dao.UserDaoImpl;
-import com.csci5308.groupme.user.service.UserService;
-import com.csci5308.groupme.user.service.UserServiceImpl;
 
 public class SystemConfig {
 
@@ -32,26 +22,19 @@ public class SystemConfig {
     private TeachingAssistantService teachingAssistantService;
     private DatabaseProperties databaseProperties;
     private PasswordProperties passwordProperties;
-    private CourseService courseService;
-    private CourseDAO courseDAO;
-    private InstructorService instructorService;
-    private InstructorDAO instructorDAO;
-    private UserService userService;
-    private UserDao userDao;
+    private EnrollmentService enrollmentService;
 
-    // This private constructor ensures that no class other than System can allocate
-    // the System object. The compiler would prevent it.
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
-        teachingAssistantService = new TeachingAssistantServiceImpl();
+        teachingAssistantService = new TeachingAssistantServiceImpl();       
+        questionsDAO = new QuestionsDAOImpl();
+        questionManagerService = new QuestionManagerServiceImpl(questionsDAO);
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
+        enrollmentService = new EnrollmentServiceImpl();
     }
 
-    // This is the way the rest of the application gets access to the System object.
     public static SystemConfig instance() {
-        // Using lazy initialization, this is the one and only place that the System
-        // object will be instantiated.
         if (null == uniqueInstance) {
             uniqueInstance = new SystemConfig();
         }
@@ -75,7 +58,7 @@ public class SystemConfig {
     }
 
     public QuestionManagerService getQuestionManagerService() {
-        return new QuestionManagerServiceImpl();
+        return questionManagerService;
     }
 
     public void setQuestionManagerService(QuestionManagerService questionManagerService) {
@@ -83,7 +66,7 @@ public class SystemConfig {
     }
 
     public QuestionsDAO getQuestionsDAO() {
-        return new QuestionsDAOImpl();
+        return questionsDAO;
     }
 
     public void setQuestionsDAO(QuestionsDAO questionsDAO) {
@@ -105,53 +88,14 @@ public class SystemConfig {
     public void setPasswordProperties(PasswordProperties passwordProperties) {
         this.passwordProperties = passwordProperties;
     }
+   
+    public EnrollmentService getEnrollmentService() {
+		return enrollmentService;
+	}
 
-    public CourseService getCourseService() {
-        return new CourseServiceImpl();
-    }
+	public void setEnrollmentService(EnrollmentService enrollmentService) {
+		this.enrollmentService = enrollmentService;
+	}
 
-    public void setCourseService(CourseService courseService) {
-        this.courseService = courseService;
-    }
-
-    public CourseDAO getCourseDAO() {
-        return new CourseDAOImpl();
-    }
-
-    public void setCourseDAO(CourseDAO courseDAO) {
-        this.courseDAO = courseDAO;
-    }
-
-    public InstructorService getInstructorService() {
-        return new InstructorServiceImpl();
-    }
-
-    public void setInstructorService(InstructorService instructorService) {
-        this.instructorService = instructorService;
-    }
-
-    public InstructorDAO getInstructorDAO() {
-        return new InstructorDAOImpl();
-    }
-
-    public void setInstructorDAO(InstructorDAO instructorDAO) {
-        this.instructorDAO = instructorDAO;
-    }
-
-    public UserService getUserService() {
-        return new UserServiceImpl();
-    }
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
-    public UserDao getUserDao() {
-        return new UserDaoImpl();
-    }
-
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
 }
 

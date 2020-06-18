@@ -19,7 +19,6 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import com.csci5308.groupme.auth.LandingUri;
-import com.csci5308.groupme.auth.controller.HomeController;
 
 @Configuration
 public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {

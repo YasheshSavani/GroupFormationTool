@@ -3,9 +3,7 @@ package com.csci5308.groupme.auth.config;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.Reader;
-import java.util.List;
 import java.util.Properties;
-import java.util.Set;
 
 public class PasswordProperties {
 	private int minLength;

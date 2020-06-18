@@ -53,10 +53,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<Course> findCoursesByInstructorAndTA(String userName) throws Exception {
+    public List<Course> findCoursesByInstructorOrTA(String userName) throws Exception {
         List<Course> coursesList = courseDAO.findCoursesByInstructorAndTA(userName);
         return coursesList;
     }
-
 
 }

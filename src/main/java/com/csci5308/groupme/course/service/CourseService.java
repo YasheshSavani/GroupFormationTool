@@ -19,5 +19,5 @@ public interface CourseService {
 
 	public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception;
 
-	List<Course> findCoursesByInstructorAndTA(String userName) throws Exception;
+	List<Course> findCoursesByInstructorOrTA(String userName) throws Exception;
 }

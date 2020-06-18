@@ -12,7 +12,7 @@
 
 <div class="topnav">
 		<a href="/instructorhomepage">GroupMe</a> 
-		<a style="float: right" href="logout">Logout</a>
+		<a style="float: right" href="/logout">Logout</a>
 		<a style="float: right" class="active" href="#account">Account</a> 
 	</div>
 	
@@ -27,7 +27,7 @@
         <td th:text="${course.courseCode}"></td>
         <td th:text="${course.courseCrn}"></td>
         <td th:if="${course.courseCode != null}" th:hidden="false">
-            <form method="get" th:action="@{/InstructorTAStudent/CourseAdmin/Course}">
+            <form method="get" th:action="@{/courseAdmin/course}">
                 <input type="hidden" name="courseCode" th:value="${course.courseCode}">
                 <input type="hidden" name="courseName" th:value="${course.courseName}">
                 <input type="hidden" name="courseCrn" th:value="${course.courseCrn}">
