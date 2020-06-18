@@ -14,13 +14,6 @@ public class DatabaseProperties {
 
     public DatabaseProperties() {
         try {
-            Properties databaseProperties = new Properties();
-            Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/database.properties"));
-            databaseProperties.load(propertiesReader);
-//            dbDriver = databaseProperties.getProperty("development.driver");
-//            dbURL = databaseProperties.getProperty("development.url");
-//            dbUserName = databaseProperties.getProperty("development.username");
-//            dbPassword = databaseProperties.getProperty("development.password");
             dbDriver = System.getenv("DB_DRIVER");
             dbURL = System.getenv("DB_URL");
             dbUserName = System.getenv("USERNAME");

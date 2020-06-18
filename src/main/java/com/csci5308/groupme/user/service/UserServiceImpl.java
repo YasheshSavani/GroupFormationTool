@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import sun.security.x509.EDIPartyName;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService {
         else {
             user.setPassword(passwordEncoder.encode(newPassword));
             updateStatus = userDao.update(user);
-            if (updateStatus == 1)
+            if (updateStatus == EditCodes.STATUS)
                 logger.info("Password updated.....");
         }
         return updateStatus;
