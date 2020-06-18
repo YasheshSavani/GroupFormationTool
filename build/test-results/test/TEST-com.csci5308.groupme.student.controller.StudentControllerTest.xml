@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.csci5308.groupme.student.controller.StudentControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-16T21:35:40" hostname="YASHESH" time="0.613">
+<testsuite name="com.csci5308.groupme.student.controller.StudentControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-06-18T05:52:21" hostname="YASHESH" time="0.642">
   <properties/>
-  <testcase name="showStudentHomePageTest()" classname="com.csci5308.groupme.student.controller.StudentControllerTest" time="0.613"/>
-  <system-out><![CDATA[2020-06-16 18:35:39.999  INFO 20368 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.student.controller.StudentControllerTest], using SpringBootContextLoader
-2020-06-16 18:35:40.000  INFO 20368 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.student.controller.StudentControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2020-06-16 18:35:40.001  INFO 20368 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.student.controller.StudentControllerTest]: StudentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-06-16 18:35:40.010  INFO 20368 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.csci5308.groupme.GroupmeApplication for test class com.csci5308.groupme.student.controller.StudentControllerTest
-2020-06-16 18:35:40.012  INFO 20368 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-06-16 18:35:40.014  INFO 20368 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@19e99dc1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@229bfe66, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5a607bd5, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@75fe46dd, org.springframework.test.context.support.DirtiesContextTestExecutionListener@20acda36, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5db9788b, org.springframework.test.context.event.EventPublishingTestExecutionListener@4de1e3a, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@39168d2, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@45aa7ffc, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@53412ae2, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@271ad17e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2f45eab7, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3906253c, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@63ca0ec4]
-2020-06-16 18:35:40.041  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connecting to the selected database...
-2020-06-16 18:35:40.160  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connected to the database successfully...
-2020-06-16 18:35:40.258  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
-2020-06-16 18:35:40.347  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
-2020-06-16 18:35:40.475  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
-2020-06-16 18:35:40.564  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
-2020-06-16 18:35:40.565  INFO 20368 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+  <testcase name="showStudentHomePageTest()" classname="com.csci5308.groupme.student.controller.StudentControllerTest" time="0.642"/>
+  <system-out><![CDATA[2020-06-18 02:52:21.340  INFO 17904 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.student.controller.StudentControllerTest], using SpringBootContextLoader
+2020-06-18 02:52:21.341  INFO 17904 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.student.controller.StudentControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-06-18 02:52:21.341  INFO 17904 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.student.controller.StudentControllerTest]: StudentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-06-18 02:52:21.350  INFO 17904 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.csci5308.groupme.GroupmeApplication for test class com.csci5308.groupme.student.controller.StudentControllerTest
+2020-06-18 02:52:21.352  INFO 17904 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-06-18 02:52:21.354  INFO 17904 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@15a57cc1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@526fb06f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@372bce75, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5ae88cf0, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6495b018, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@4b56982d, org.springframework.test.context.event.EventPublishingTestExecutionListener@2267af54, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@3cf628e4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@752a4a12, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@a42336a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@15402079, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@187c9b3d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3fa128fa, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@24639507]
+2020-06-18 02:52:21.367  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connecting to the selected database...
+2020-06-18 02:52:21.451  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connected to the database successfully...
+2020-06-18 02:52:21.571  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+2020-06-18 02:52:21.650  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+2020-06-18 02:52:21.728  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+2020-06-18 02:52:21.817  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
+2020-06-18 02:52:21.818  INFO 17904 --- [    Test worker] c.c.groupme.course.dao.CourseDAOImpl     : Connection to database Closed...
 
 MockHttpServletRequest:
       HTTP Method = GET
@@ -39,7 +39,7 @@ ModelAndView:
         View name = student/studenthomepage
              View = null
         Attribute = studentCourseDetails
-            value = [com.csci5308.groupme.course.model.Course@6f499b3c, com.csci5308.groupme.course.model.Course@4e532ec0, com.csci5308.groupme.course.model.Course@5c3a1739, com.csci5308.groupme.course.model.Course@73a1c2c]
+            value = [com.csci5308.groupme.course.model.Course@c24ec5d, com.csci5308.groupme.course.model.Course@59bd0b74, com.csci5308.groupme.course.model.Course@70ee0b53, com.csci5308.groupme.course.model.Course@3540c640]
         Attribute = isTA
             value = false
         Attribute = isInstructor
@@ -59,9 +59,9 @@ MockHttpServletResponse:
     <meta charset="UTF-8">
     <title>Student Home Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/theme.css" />
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/theme.css"/>
     <script>
         var isTA = "false";
         var isInstructor = "false";
@@ -76,29 +76,24 @@ MockHttpServletResponse:
 </head>
 <body onload="showCourseAdminButton()">
 
-<!--  <div class="topnav">
-    <a class="active" href="#home-loggedin">GroupMe</a>
-    <form class="pull-right" id="home-loggedin" method="post" th:action="@{/logout}">
-        <button type="submit">Logout</button>
-    </form>
-</div> -->
-
-	<div class="topnav">
-		<a href="/">GroupMe</a> 
-		<a style="float: right" href="logout">Logout</a>
-		<a style="float: right" class="active" href="#account">Account</a> 
-	</div>
+<div class="topnav">
+    <a href="/">GroupMe</a>
+    <a style="float: right" href="logout">Logout</a>
+    <a style="float: right" class="active" href="#account">Account</a>
+</div>
 
 <div style="text-align: center; margin: 0 auto; padding-top:10px">
     <h2>Details of Course</h2>
     <div id="courseAdminButton" style="text-align: center; display: none;">
         <form action="/TAcoursepage" method="post">
-            <button style = "background-color: gray;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"type="submit">Course Admin Page</button>
+            <button style="background-color: gray;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+                    type="submit">Course Admin Page
+            </button>
         </form>
     </div>
     <form name="form" method="GET">
 
-        <table class = "center" border = "1">
+        <table class="center" border="1">
             <thead>
             <tr>
                 <th>Course Code</th>
@@ -109,7 +104,7 @@ MockHttpServletResponse:
             <tbody>
             <tr>
                 <td>csci0014</td>
-                <td colspan ="2">cloud</td>
+                <td colspan="2">cloud</td>
                 <td>
                     <a href="/coursepage?courseCode=csci0014&amp;courseName=cloud">
                         Go To Course
@@ -118,7 +113,7 @@ MockHttpServletResponse:
             </tr>
             <tr>
                 <td>csci0002</td>
-                <td colspan ="2">mobile computing</td>
+                <td colspan="2">mobile computing</td>
                 <td>
                     <a href="/coursepage?courseCode=csci0002&amp;courseName=mobile%20computing">
                         Go To Course
@@ -127,7 +122,7 @@ MockHttpServletResponse:
             </tr>
             <tr>
                 <td>csci0003</td>
-                <td colspan ="2">data management</td>
+                <td colspan="2">data management</td>
                 <td>
                     <a href="/coursepage?courseCode=csci0003&amp;courseName=data%20management">
                         Go To Course
@@ -136,7 +131,7 @@ MockHttpServletResponse:
             </tr>
             <tr>
                 <td>csci0010</td>
-                <td colspan ="2">web</td>
+                <td colspan="2">web</td>
                 <td>
                     <a href="/coursepage?courseCode=csci0010&amp;courseName=web">
                         Go To Course

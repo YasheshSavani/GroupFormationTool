@@ -15,12 +15,12 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> findAllCourses() throws Exception {
-    	return courseDAO.findAllCourses();
+        return courseDAO.findAllCourses();
     }
 
     @Override
     public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
-    	return courseDAO.getCoursesByUserNameAndRole(userName, roleName);
+        return courseDAO.getCoursesByUserNameAndRole(userName, roleName);
     }
 
     @Override
@@ -51,11 +51,4 @@ public class CourseServiceImpl implements CourseService {
         List<Course> coursesList = courseDAO.findCoursesByInstructor(instructorUserName);
         return coursesList;
     }
-
-    @Override
-    public List<Course> findCoursesByInstructorOrTA(String userName) throws Exception {
-        List<Course> coursesList = courseDAO.findCoursesByInstructorAndTA(userName);
-        return coursesList;
-    }
-
 }

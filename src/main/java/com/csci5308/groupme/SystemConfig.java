@@ -26,7 +26,7 @@ public class SystemConfig {
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
-        teachingAssistantService = new TeachingAssistantServiceImpl();       
+        teachingAssistantService = new TeachingAssistantServiceImpl();
         questionsDAO = new QuestionsDAOImpl();
         questionManagerService = new QuestionManagerServiceImpl(questionsDAO);
         passwordProperties = new PasswordProperties();
@@ -88,14 +88,14 @@ public class SystemConfig {
     public void setPasswordProperties(PasswordProperties passwordProperties) {
         this.passwordProperties = passwordProperties;
     }
-   
-    public EnrollmentService getEnrollmentService() {
-		return enrollmentService;
-	}
 
-	public void setEnrollmentService(EnrollmentService enrollmentService) {
-		this.enrollmentService = enrollmentService;
-	}
+    public EnrollmentService getEnrollmentService() {
+        return enrollmentService;
+    }
+
+    public void setEnrollmentService(EnrollmentService enrollmentService) {
+        this.enrollmentService = enrollmentService;
+    }
 
 }
 

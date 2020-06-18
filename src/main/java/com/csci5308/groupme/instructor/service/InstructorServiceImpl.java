@@ -1,15 +1,13 @@
 package com.csci5308.groupme.instructor.service;
 
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import ch.qos.logback.classic.Logger;
 import com.csci5308.groupme.instructor.dao.InstructorDAO;
 import com.csci5308.groupme.instructor.model.Instructor;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
-
-import ch.qos.logback.classic.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class InstructorServiceImpl implements InstructorService {

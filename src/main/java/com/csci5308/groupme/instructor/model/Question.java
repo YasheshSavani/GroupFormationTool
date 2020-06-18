@@ -2,9 +2,6 @@ package com.csci5308.groupme.instructor.model;
 
 import java.sql.Date;
 
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
-
 public class Question {
 
     private Integer questionId;
@@ -14,28 +11,32 @@ public class Question {
     private Date createdDate;
 
     public Question() {
-	}
+        this.questionId = 0;
+        this.title = null;
+        this.question = null;
+        this.type = null;
+        this.createdDate = null;
+    }
 
     public Question(String questionTitle) {
         this.title = questionTitle;
     }
-    
+
     public Question(String questionTitle, Integer questionId, Date questionDate) {
         this.title = questionTitle;
         this.questionId = questionId;
         this.createdDate = questionDate;
-	}
+    }
 
-	public Question(String questionTitle, Integer questionId, Date questionDate, String question, String questionType) {
+    public Question(String questionTitle, Integer questionId, Date questionDate, String question, String questionType) {
         this.title = questionTitle;
         this.questionId = questionId;
         this.createdDate = questionDate;
         this.question = question;
         this.type = questionType;
-        //logger.info("type is "+type);
-	}
+    }
 
-	public Integer getQuestionId() {
+    public Integer getQuestionId() {
         return questionId;
     }
 
@@ -68,13 +69,10 @@ public class Question {
     }
 
     public Date getCreatedDate() {
-
         return createdDate;
     }
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
-
-
 }

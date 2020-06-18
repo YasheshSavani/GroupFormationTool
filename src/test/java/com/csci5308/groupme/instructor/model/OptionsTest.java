@@ -30,5 +30,4 @@ public class OptionsTest {
         assertEquals(optionListTest.size(), options.getOptionList().size());
     }
 
-
 }

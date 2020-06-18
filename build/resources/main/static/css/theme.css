@@ -1,56 +1,57 @@
-body{
-	padding-top:0px;
+body {
+    padding-top: 0px;
 }
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #2DA9B7;
     overflow: hidden;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav a {
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-  }
-  
-  /* Change the color of links on hover */
-  .topnav a:hover {
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
     background-color: #ddd;
     color: black;
-  }
-  
-  /* Add a color to the active/current link */
-  .topnav a.active {
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
     background-color: #4CAF50;
     color: white;
-  }
-  
-  .pull-right {
-  float:right;
-  }
-  
-  
- .top-nav-button {
-  float:right;
-  padding: 14px 16px;
-  background: #4CAF50;
-  color: #fff;
-  border-style: none;
-  font-size: 17px;
-  
-  }
-  
-  .center {
-  margin: 0;
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+}
+
+.pull-right {
+    float: right;
+}
+
+
+.top-nav-button {
+    float: right;
+    padding: 14px 16px;
+    background: #4CAF50;
+    color: #fff;
+    border-style: none;
+    font-size: 17px;
+
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .btn-submit {
@@ -59,10 +60,10 @@ body{
     width: 10%;
     display: block;
     margin: auto;
- 
+
 }
 
-.custom-form-control input{
+.custom-form-control input {
     display: block;
     margin: auto;
     padding: .5rem .75rem;
@@ -70,48 +71,51 @@ body{
     line-height: 1.25;
     color: #495057;
     width: 25%;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}   
-
-.custom-form-control p{
-	text-align: center;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
-.custom-form-control button{
-	width: auto;
-
-}
-.w-25{width:25%;}
-
-.mt-20{
-	margin-top:20%;
+.custom-form-control p {
+    text-align: center;
 }
 
-.mb-10{
-	margin-bottom: 10px;
+.custom-form-control button {
+    width: auto;
+
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.mt-20 {
+    margin-top: 20%;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
 }
 
 .containermid {
-  height: 400px;
-  position: relative;
+    height: 400px;
+    position: relative;
 }
 
 .centermid {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 table.center {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
-.padding-table-columns td
-{
-    padding:0 5px 0 0; 
+
+.padding-table-columns td {
+    padding: 0 5px 0 0;
 }
     
   

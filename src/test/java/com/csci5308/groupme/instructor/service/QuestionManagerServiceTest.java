@@ -52,4 +52,42 @@ public class QuestionManagerServiceTest {
         String message = questionManagerService.createQuestion(instructorUserName, question, options);
         assertEquals("Question created!", message);
     }
+
+    @Test
+    public void getAllTitlesTest() {
+        String instructorUserName = "iuser";
+        List<Question> questions = questionManagerService.getAllTitles(instructorUserName);
+        assertEquals(1, questions.size());
+    }
+
+    @Test
+    public void deleteQuestionTest() {
+        String instructorUserName = "iuser";
+        Question question = new Question();
+        question.setQuestionId(1);
+        String message = questionManagerService.deleteQuestion(instructorUserName, question);
+        assertEquals("Question deleted!", message);
+    }
+
+    @Test
+    public void getAllSortedTitlesByTitlesTest() {
+        String instructorUserName = "iuser";
+        List<Question> questions = questionManagerService.getAllSortedTitlesByTitles(instructorUserName);
+        assertEquals(questions.size(), 2);
+    }
+
+    @Test
+    public void getAllSortedTitlesByDatesTest() {
+        String instructorUserName = "iuser";
+        List<Question> questions = questionManagerService.getAllSortedTitlesByDates(instructorUserName);
+        assertEquals(questions.size(), 2);
+    }
+
+    @Test
+    public void getAllQuestionsTest() {
+        String instructorUserName = "iuser";
+        List<Question> questions = questionManagerService.getAllQuestions(instructorUserName);
+        assertEquals(questions.size(), 1);
+
+    }
 }

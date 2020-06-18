@@ -22,12 +22,11 @@ public class StudentControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-
     @Test
     @WithMockUser(username = "testuser2", password = "admin19", authorities = {"ROLE_STUDENT"})
     void showStudentHomePageTest() throws Exception {
 
         this.mockMvc.perform(get("/studenthomepage")).andDo(print()).andExpect(status().isOk())
-                .andExpect(model().attributeExists("studentCourseDetails","isTA"));
+                .andExpect(model().attributeExists("studentCourseDetails", "isTA"));
     }
 }

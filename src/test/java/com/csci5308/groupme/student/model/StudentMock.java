@@ -1,7 +1,5 @@
 package com.csci5308.groupme.student.model;
 
-import com.csci5308.groupme.student.model.Student;
-
 public class StudentMock {
 
     Student student;
