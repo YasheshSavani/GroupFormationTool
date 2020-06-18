@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import sun.security.x509.EDIPartyName;
 
 import java.security.Principal;
 
@@ -40,7 +41,7 @@ public class AdminController {
         int status = courseService.createCourse(course);
         String message = "";
         ModelAndView mView = new ModelAndView("admin/addcourse");
-        if (status == 1) {
+        if (status == EditCodes.STATUS) {
             message = "Course added!";
         } else if (status == EditCodes.COURSE_EXISTS) {
             message = "Course already exists";
@@ -62,7 +63,7 @@ public class AdminController {
         int status = courseService.delete(course.getCourseCode());
         String message = "";
         ModelAndView mView = new ModelAndView("admin/deletecourse");
-        if (status >= 1) {
+        if (status >= EditCodes.STATUS) {
             message = "Course deleted!";
         } else if (status == EditCodes.COURSE_DOES_NOT_EXIST) {
             message = "Course does not exist!";

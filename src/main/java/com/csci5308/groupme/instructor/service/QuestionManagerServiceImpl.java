@@ -1,10 +1,12 @@
 package com.csci5308.groupme.instructor.service;
 
 import ch.qos.logback.classic.Logger;
+import com.csci5308.groupme.instructor.QuestionTypeConstants;
 import com.csci5308.groupme.instructor.dao.QuestionsDAO;
 import com.csci5308.groupme.instructor.model.Option;
 import com.csci5308.groupme.instructor.model.Options;
 import com.csci5308.groupme.instructor.model.Question;
+import errors.EditCodes;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Date;
@@ -27,7 +29,7 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
         long millis = System.currentTimeMillis();
         Date createdDate = new Date(millis);
         try {
-            if (question.getType().equals("Numeric") || question.getType().equals("Free text")) {
+            if (question.getType().equals(QuestionTypeConstants.numericType) || question.getType().equals(QuestionTypeConstants.freeTextType)) {
                 question.setCreatedDate(createdDate);
                 rowCount = questionsDAO.saveNonMCQ(instructorUserName, question);
             } else {
@@ -35,7 +37,7 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
                 question.setCreatedDate(createdDate);
                 rowCount = questionsDAO.saveMultipleChoiceQuestion(question, optionList, instructorUserName);
             }
-            if (rowCount >= 1) {
+            if (rowCount >= EditCodes.INITIAL_ROWCOUNT) {
                 message = "Question created!";
             } else {
                 message = "Something went wrong! Question was not inserted into the database";
@@ -57,7 +59,7 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
         int rowCount;
         try {
             rowCount = questionsDAO.removeQuestion(instructorUserName, question);
-            if (rowCount >= 1) {
+            if (rowCount >= EditCodes.INITIAL_ROWCOUNT) {
                 message = "Question deleted!";
             } else {
                 message = "Something went wrong! Question was not deleted from the database";
