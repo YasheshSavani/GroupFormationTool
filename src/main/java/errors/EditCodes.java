@@ -18,4 +18,8 @@ public class EditCodes {
 
     public static final int USERROLE_EXISTS = -9;
 
+    public static final int STATUS = 1;
+
+    public static final int INITIAL_ROWCOUNT = 1;
+
 }
