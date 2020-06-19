@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Student Home Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
-	<link rel="stylesheet" th:href="@{/css/theme.css}" />
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/theme.css}"/>
     <script th:inline="javascript">
         var isTA = "[[${isTA}]]";
         var isInstructor = "[[${isInstructor}]]";
@@ -21,29 +21,24 @@
 </head>
 <body onload="showCourseAdminButton()">
 
-<!--  <div class="topnav">
-    <a class="active" href="#home-loggedin">GroupMe</a>
-    <form class="pull-right" id="home-loggedin" method="post" th:action="@{/logout}">
-        <button type="submit">Logout</button>
-    </form>
-</div> -->
-
-	<div class="topnav">
-		<a href="/">GroupMe</a> 
-		<a style="float: right" href="logout">Logout</a>
-		<a style="float: right" class="active" href="#account">Account</a> 
-	</div>
+<div class="topnav">
+    <a href="/">GroupMe</a>
+    <a style="float: right" href="logout">Logout</a>
+    <a style="float: right" class="active" href="#account">Account</a>
+</div>
 
 <div style="text-align: center; margin: 0 auto; padding-top:10px">
     <h2>Details of Course</h2>
     <div id="courseAdminButton" style="text-align: center; display: none;">
         <form th:action="@{/TAcoursepage}" method="post">
-            <button style = "background-color: gray;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"type="submit">Course Admin Page</button>
+            <button style="background-color: gray;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
+                    type="submit">Course Admin Page
+            </button>
         </form>
     </div>
     <form name="form" method="GET">
 
-        <table class = "center" border = "1" th:if="${studentCourseDetails != null}">
+        <table class="center" border="1" th:if="${studentCourseDetails != null}">
             <thead>
             <tr>
                 <th>Course Code</th>
@@ -54,7 +49,7 @@
             <tbody>
             <tr th:each="details : ${studentCourseDetails}">
                 <td th:text="${details.courseCode}"></td>
-                <td colspan ="2" th:text="${details.courseName}"></td>
+                <td colspan="2" th:text="${details.courseName}"></td>
                 <td>
                     <a th:href="@{/coursepage(courseCode=${details.courseCode},courseName=${details.courseName})}">
                         Go To Course
