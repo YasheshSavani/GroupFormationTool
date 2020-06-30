@@ -4,17 +4,6 @@
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <title>Forget Password</title>
-    <script type="text/javascript">
-        function validate() {
-            if (!(/^(\w+\.)*\w+@(\w+\.)+[A-Za-z]+$/
-                .test(document.forgetPasswordForm.email.value))) {
-                alert("Enter email in the right format!");
-                document.forgetPasswordForm.email.focus();
-                return false;
-            }
-            return true;
-        }
-    </script>
 </head>
 <body>
 <ul>
@@ -26,7 +15,7 @@
 <h2 style="text-align: center">Forgot Password?</h2>
 <h3 style="text-align: center">Enter the registered email id to receive a mail for password reset</h3>
 <div style="margin-left: 27%; padding: 1px;">
-    <form name="forgetPasswordForm" onSubmit="return (validate());"
+    <form name="forgetPasswordForm"
           th:action="@{/forgotPassword}" method="post">
 
         <table style="margin-left:auto;margin-right:auto;">
@@ -35,7 +24,7 @@
             </tr>
             <tr>
                 <td align="right">Email</td>
-                <td><input type="text" name="email"/></td>
+                <td><input type="email" name="email"/></td>
             </tr>
             <tr>
                 <td align="right"></td>

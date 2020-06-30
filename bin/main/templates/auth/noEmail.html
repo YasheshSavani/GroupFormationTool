@@ -17,8 +17,8 @@
                 document.resetPasswordForm.confirmPassword.focus();
                 return false;
             }
-            if (!(/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
-                .test(document.resetPasswordForm.password.value))) {
+            if ((/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
+                .test(document.resetPasswordForm.password.value)) === false) {
                 alert("Your password can include letters, digits and special characters, having a minimum length of 4!");
                 document.resetPasswordForm.password.focus();
                 return false;

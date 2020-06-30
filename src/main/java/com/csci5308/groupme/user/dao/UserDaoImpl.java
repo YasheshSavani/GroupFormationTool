@@ -46,7 +46,13 @@ public class UserDaoImpl implements UserDao {
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
             } while (resultSet.next());
-            resultSet.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             preparedStatement = connection.prepareStatement(UserQuery.FIND_ROLES_BY_USERNAME);
             preparedStatement.setString(1, userName);
             resultSet = preparedStatement.executeQuery();
@@ -54,21 +60,27 @@ public class UserDaoImpl implements UserDao {
             while (resultSet.next()) {
                 roles.add(resultSet.getString("roleName"));
             }
-            resultSet.close();
             user.setRoles(roles);
         } catch (SQLException se) {
             se.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
             }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
 
+                } catch (SQLException se) {
+                    se.printStackTrace();
+                }
+            }
             if (connection != null) {
                 try {
                     connection.close();
@@ -100,7 +112,13 @@ public class UserDaoImpl implements UserDao {
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
             } while (resultSet.next());
-            resultSet.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             preparedStatement = connection.prepareStatement(UserQuery.FIND_ROLES_BY_USERNAME);
             preparedStatement.setString(1, user.getUserName());
             resultSet = preparedStatement.executeQuery();
@@ -108,19 +126,27 @@ public class UserDaoImpl implements UserDao {
             while (resultSet.next()) {
                 roles.add(resultSet.getString("roleName"));
             }
-            resultSet.close();
+
             user.setRoles(roles);
         } catch (SQLException se) {
             se.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+
+                } catch (SQLException se) {
+                    se.printStackTrace();
+                }
             }
             if (connection != null) {
                 try {
@@ -153,18 +179,25 @@ public class UserDaoImpl implements UserDao {
                 user.setPassword(resultSet.getString("password"));
                 users.add(user);
             }
-            resultSet.close();
         } catch (SQLException se) {
             se.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
+            }
+            if (preparedStatement != null) {
+                try {
+                    preparedStatement.close();
+
+                } catch (SQLException se) {
+                    se.printStackTrace();
+                }
             }
             if (connection != null) {
                 try {
@@ -213,12 +246,13 @@ public class UserDaoImpl implements UserDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (preparedStatement != null) {
+            if (preparedStatement != null) {
+                try {
                     preparedStatement.close();
+
+                } catch (SQLException se) {
+                    se.printStackTrace();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
             }
             if (connection != null) {
                 try {
@@ -259,12 +293,13 @@ public class UserDaoImpl implements UserDao {
 
             e.printStackTrace();
         } finally {
-            try {
-                if (preparedStatement != null) {
+            if (preparedStatement != null) {
+                try {
                     preparedStatement.close();
+
+                } catch (SQLException se) {
+                    se.printStackTrace();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
             }
             if (connection != null) {
                 try {
@@ -305,12 +340,13 @@ public class UserDaoImpl implements UserDao {
 
             e.printStackTrace();
         } finally {
-            try {
-                if (preparedStatement != null) {
+            if (preparedStatement != null) {
+                try {
                     preparedStatement.close();
+
+                } catch (SQLException se) {
+                    se.printStackTrace();
                 }
-            } catch (SQLException se) {
-                se.printStackTrace();
             }
             if (connection != null) {
                 try {

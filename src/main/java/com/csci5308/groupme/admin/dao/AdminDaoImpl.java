@@ -47,12 +47,13 @@ public class AdminDaoImpl implements AdminDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {
-				if (preparedStatement != null) {
+			if (preparedStatement != null) {
+				try {
 					preparedStatement.close();
+
+				} catch (SQLException se) {
+					se.printStackTrace();
 				}
-			} catch (SQLException se) {
-				se.printStackTrace();
 			}
 			if (connection != null)
 				try {

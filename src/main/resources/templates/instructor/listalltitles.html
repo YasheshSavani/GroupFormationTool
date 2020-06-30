@@ -45,21 +45,21 @@
         </tr>
         </thead>
         <tbody>
-        <span th:if="${titles!=null}">
+        <span th:if="${titles != null}">
 					<tr th:each="eachTitle : ${titles}">
 						<td th:text="${eachTitle.questionId}"></td>
 						<td th:text="${eachTitle.title}"></td>
 						<td th:text="${eachTitle.createdDate}"></td>
 					</tr>
 				</span>
-        <span th:if="${titles==null}">
+        <span th:if="${titles == null}">
 					<tr>
 						<td colspan=3>
 							No questions available.
 						</td>
 					</tr>
 				</span>
-        <span th:if="${titles!=null}">
+        <span th:if="${titles != null}">
 					<form class="custom-form-control" method="get" th:action="@{/instructor/sortTitlesByTitles}">
 
 						<button class="btn-submit" type="submit">Sort Question Titles By Title</button>

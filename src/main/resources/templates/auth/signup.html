@@ -35,25 +35,25 @@
             }
 
 
-            if (!minUpperCaseChecker.test(document.signUpForm.password.value)) {
+            if (minUpperCaseChecker.test(document.signUpForm.password.value) === false) {
                 alert(`Password should have atleast ${minUpperCase} uppercase characters`);
                 document.signUpForm.password.focus();
                 return false;
             }
 
-            if (!minLowerCaseChecker.test(document.signUpForm.password.value)) {
+            if (minLowerCaseChecker.test(document.signUpForm.password.value) === false) {
                 alert(`Password should have atleast ${minLowerCase} lowercase characters`);
                 document.signUpForm.password.focus();
                 return false;
             }
 
-            if (!invalidCharsChecker.test(document.signUpForm.password.value)) {
+            if (invalidCharsChecker.test(document.signUpForm.password.value) === false) {
                 alert(`Password cannot contain the characters: ${invalidChars}`);
                 document.signUpForm.password.focus();
                 return false;
             }
 
-            if (!minSpecialCharsChecker.test(document.signUpForm.password.value)) {
+            if (minSpecialCharsChecker.test(document.signUpForm.password.value) === false) {
                 alert(`Password should have atleast ${minSpecialChars} special characters`);
                 document.signUpForm.password.focus();
                 return false;
@@ -91,30 +91,23 @@
                 document.signUpForm.confirmPassword.focus();
                 return false;
             }
-            if (!(/^[a-zA-Z0-9._]+$/.test(document.signUpForm.userName.value))) {
+            if ((/^[a-zA-Z0-9._]+$/.test(document.signUpForm.userName.value)) === false) {
                 alert("Username should consist only of letters, digits, _ or .!");
                 document.signUpForm.userName.focus();
                 return false;
             }
-            if (!(/^(\w+\.)*\w+@(\w+\.)+[A-Za-z]+$/
-                .test(document.signUpForm.email.value))) {
+            if ((/^(\w+\.)*\w+@(\w+\.)+[A-Za-z]+$/
+                .test(document.signUpForm.email.value)) === false) {
                 alert("Enter email in the right format!");
                 document.signUpForm.email.focus();
                 return false;
             }
-            /* if (!(/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
-                .test(document.signUpForm.password.value))) {
-                alert("Password should start with a letter and can include digits and underscore, with a minimum length of 4 characters!");
-                document.signUpForm.password.focus();
-                return false;
-            } */
+
             if (document.signUpForm.password.value != document.signUpForm.confirmPassword.value) {
                 alert("Passwords do not match!");
                 document.signUpForm.confirmPassword.focus();
                 return false;
-
             }
-
             return true;
         }
     </script>

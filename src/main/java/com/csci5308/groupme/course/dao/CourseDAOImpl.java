@@ -1,11 +1,10 @@
 package com.csci5308.groupme.course.dao;
 
 import ch.qos.logback.classic.Logger;
-import constants.Roles;
-
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.model.Course;
+import constants.Roles;
 import errors.EditCodes;
 import errors.SqlErrors;
 import org.slf4j.LoggerFactory;
@@ -52,7 +51,13 @@ public class CourseDAOImpl implements CourseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            resultSet.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
@@ -107,7 +112,7 @@ public class CourseDAOImpl implements CourseDAO {
                     getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_BY_COURSE_CODE);
                     getCourseStatement.setString(1, retrievedCourseCode);
                     courseResultSet = getCourseStatement.executeQuery();
-                    if (!courseResultSet.next()) {
+                    if (courseResultSet.next() == false) {
                         return null;
                     }
                     do {
@@ -118,7 +123,13 @@ public class CourseDAOImpl implements CourseDAO {
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    courseResultSet.close();
+                    if (courseResultSet != null) {
+                        try {
+                            courseResultSet.close();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                     if (getCourseStatement != null) {
                         try {
                             getCourseStatement.close();
@@ -132,7 +143,13 @@ public class CourseDAOImpl implements CourseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            resultSet.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
@@ -181,7 +198,13 @@ public class CourseDAOImpl implements CourseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            resultSet.close();
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
@@ -224,7 +247,13 @@ public class CourseDAOImpl implements CourseDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            courseResultSet.close();
+            if (courseResultSet != null) {
+                try {
+                    courseResultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
             if (getCourseStatement != null) {
                 try {
                     getCourseStatement.close();
@@ -330,9 +359,9 @@ public class CourseDAOImpl implements CourseDAO {
     @Override
     public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception {
         List<Course> courseList = new ArrayList<>();
-        ResultSet courseResultSet;
+        ResultSet courseResultSet = null;
         Connection connection = null;
-        PreparedStatement getCourseStatement;
+        PreparedStatement getCourseStatement = null;
         databaseProperties = SystemConfig.instance().getDatabaseProperties();
         try {
             String DB_URL = databaseProperties.getDbURL();
@@ -349,24 +378,42 @@ public class CourseDAOImpl implements CourseDAO {
                 course.setCourseCrn(courseResultSet.getInt("crn"));
                 courseList.add(course);
             }
-            if (getCourseStatement != null) {
-                getCourseStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (courseResultSet != null) {
+                try {
+                    courseResultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (getCourseStatement != null) {
+                try {
+                    getCourseStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                    logger.info("Connection to database Closed...");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return courseList;
         }
-        return courseList;
     }
 
     @Override
     public List<Course> findCoursesByInstructorAndTA(String userName) throws Exception {
         List<Course> courseList = new ArrayList<>();
-        ResultSet courseResultSet;
+        ResultSet courseResultSet = null;
         Connection connection = null;
-        PreparedStatement getCourseStatement;
+        PreparedStatement getCourseStatement = null;
         databaseProperties = SystemConfig.instance().getDatabaseProperties();
         try {
             String DB_URL = databaseProperties.getDbURL();
@@ -384,15 +431,32 @@ public class CourseDAOImpl implements CourseDAO {
                 course.setCourseCrn(courseResultSet.getInt("crn"));
                 courseList.add(course);
             }
-            if (getCourseStatement != null) {
-                getCourseStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (courseResultSet != null) {
+                try {
+                    courseResultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (getCourseStatement != null) {
+                try {
+                    getCourseStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                    logger.info("Connection to database Closed...");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return courseList;
         }
-        return courseList;
     }
 }
