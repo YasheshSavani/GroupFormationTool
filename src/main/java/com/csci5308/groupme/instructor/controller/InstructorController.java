@@ -7,6 +7,7 @@ import com.csci5308.groupme.instructor.service.EnrollmentService;
 import com.csci5308.groupme.instructor.service.InstructorService;
 import com.csci5308.groupme.teaching_assistant.service.TeachingAssistantService;
 
+import constants.Messages;
 import errors.EditCodes;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,10 +71,10 @@ public class InstructorController {
         if (assignmentConfirmation == EditCodes.SUCCESS) {
             mView.addObject("status", "TA Assigned to the Course");
         } else if(assignmentConfirmation == EditCodes.EMAIL_DOES_NOT_EXIST) {
-            mView.addObject("status", "TA email does not exist!");
+            mView.addObject("status", Messages.EMAIL_DOES_NOT_EXIST);
         }
         else {
-            mView.addObject("status", "Something went wrong! TA assignment Error");
+            mView.addObject("status", Messages.TA_ASSIGNED);
         }
         mView.setViewName("coursedetails");
         return mView;

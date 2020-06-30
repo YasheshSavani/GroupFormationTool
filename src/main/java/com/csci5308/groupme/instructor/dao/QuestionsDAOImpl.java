@@ -174,7 +174,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
             if (connection != null) {
                 try {
                     connection.close();
-                    logger.info("Connection to database Closed...");
+                    logger.info("Connection to database closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

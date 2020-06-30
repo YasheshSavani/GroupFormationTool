@@ -1,6 +1,8 @@
 package com.csci5308.groupme.course.dao;
 
 import ch.qos.logback.classic.Logger;
+import constants.Roles;
+
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.model.Course;
@@ -85,11 +87,11 @@ public class CourseDAOImpl implements CourseDAO {
             logger.info("Connecting to the selected database...");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to the database successfully...");
-            if (roleName.equals("ROLE_TA")) {
+            if (roleName.equals(Roles.TA)) {
                 preparedStatement = connection.prepareStatement(CourseQuery.SELECT_COURSES_BY_USERNAME_TA);
                 preparedStatement.setString(1, userName);
                 resultSet = preparedStatement.executeQuery();
-            } else if (roleName.equals("ROLE_INSTRUCTOR")) {
+            } else if (roleName.equals(Roles.INSTRUCTOR)) {
                 preparedStatement = connection.prepareStatement(CourseQuery.SELECT_COURSES_BY_USERNAME_INSTRUCTOR);
                 preparedStatement.setString(1, userName);
                 resultSet = preparedStatement.executeQuery();

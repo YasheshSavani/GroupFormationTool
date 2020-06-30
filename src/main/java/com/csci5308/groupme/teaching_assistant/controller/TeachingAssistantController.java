@@ -2,6 +2,9 @@ package com.csci5308.groupme.teaching_assistant.controller;
 
 import com.csci5308.groupme.course.model.Course;
 import com.csci5308.groupme.course.service.CourseService;
+
+import constants.Roles;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +29,8 @@ public class TeachingAssistantController {
             @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor,
             Principal principal) throws Exception {
         String userName = principal.getName();
-        List<Course> managedCourses = courseService.getCoursesByUserNameAndRole(userName, "ROLE_TA");
+        String roleName = Roles.TA;
+        List<Course> managedCourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
         ModelAndView mView = new ModelAndView();
         mView.setViewName("ta/tahomepage");
         if (null != managedCourses) {
@@ -41,7 +45,7 @@ public class TeachingAssistantController {
     @RequestMapping(value = "/TAcoursepage", method = RequestMethod.POST)
     public ModelAndView getCoursesByUserNameAndRole(Principal p) throws Exception {
         String userName = p.getName();
-        String roleName = "ROLE_TA";
+        String roleName = Roles.TA;
         List<Course> courseTACourses = courseService.getCoursesByUserNameAndRole(userName, roleName);
         ModelAndView mView = new ModelAndView();
         if (null != courseTACourses) {

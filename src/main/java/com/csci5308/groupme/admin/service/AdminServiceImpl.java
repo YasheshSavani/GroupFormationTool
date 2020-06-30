@@ -1,6 +1,8 @@
 package com.csci5308.groupme.admin.service;
 
 import ch.qos.logback.classic.Logger;
+import constants.Roles;
+
 import com.csci5308.groupme.admin.dao.AdminDao;
 import com.csci5308.groupme.course.model.Course;
 import com.csci5308.groupme.course.service.CourseService;
@@ -70,7 +72,7 @@ public class AdminServiceImpl implements AdminService {
             status = EditCodes.USERNAME_DOES_NOT_EXIST;
         } else {
             logger.info(user.getUserName());
-            status = userService.addRole(user.getUserName(), "ROLE_INSTRUCTOR");
+            status = userService.addRole(user.getUserName(), Roles.INSTRUCTOR);
             if (status == EditCodes.SUCCESS) {
                 instructor.setUserName(user.getUserName());
                 status = instructorService.createInstructor(instructor);

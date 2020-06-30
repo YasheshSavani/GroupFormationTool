@@ -13,6 +13,7 @@ import com.csci5308.groupme.admin.service.AdminService;
 import com.csci5308.groupme.course.model.Course;
 import com.csci5308.groupme.course.service.CourseService;
 
+import constants.Messages;
 import errors.EditCodes;
 
 @Controller
@@ -42,11 +43,11 @@ public class AdminController {
 		String message = "";
 		ModelAndView mView = new ModelAndView("admin/addcourse");
 		if (status == EditCodes.SUCCESS) {
-			message = "Course added!";
+			message = Messages.COURSE_CREATED;
 		} else if (status == EditCodes.COURSE_EXISTS) {
-			message = "Course already exists";
+			message = Messages.COURSE_EXISTS;
 		} else {
-			message = "Something went wrong. Server couldn't insert the course into the database!";
+			message = Messages.FAILURE;
 		}
 		mView.addObject("message", message);
 		return mView;
@@ -64,11 +65,11 @@ public class AdminController {
 		String message = "";
 		ModelAndView mView = new ModelAndView("admin/deletecourse");
 		if (status >= EditCodes.SUCCESS) {
-			message = "Course deleted!";
+			message = Messages.COURSE_DELETED;
 		} else if (status == EditCodes.COURSE_DOES_NOT_EXIST) {
-			message = "Course does not exist!";
+			message = Messages.COURSE_DOES_NOT_EXIST;
 		} else {
-			message = "Something went wrong. Server couldn't delete the course!";
+			message = Messages.FAILURE;
 		}
 		mView.addObject("message", message);
 		return mView;
@@ -92,17 +93,17 @@ public class AdminController {
 		String message;
 		int status = adminService.assignInstructorToCourse(emailId, courseCode);
 		if (status == EditCodes.CLASS_ALREADY_CREATED) {
-			message = "Record already exists!";
+			message = Messages.CLASS_ALREADY_CREATED;
 		} else if (status == EditCodes.COURSE_DOES_NOT_EXIST) {
-			message = "Course does not exist!";
+			message = Messages.COURSE_DOES_NOT_EXIST;
 		} else if (status == EditCodes.SUCCESS) {
-			message = "Instructor assigned to the course!";
+			message = Messages.INSTRUCTOR_ASSIGNED;
 		} else if (status == EditCodes.INSTRUCTOR_NOT_CREATED) {
-			message = "Something went wrong! Instructor could not be created";
+			message = Messages.INSTRUCTOR_NOT_CREATED;
 		} else if (status == EditCodes.USERNAME_DOES_NOT_EXIST) {
-			message = "Instructor not found! Please check again!";
+			message = Messages.USERNAME_DOES_NOT_EXIST;
 		} else {
-			message = "Something went wrong! The server could not insert the record into the database!";
+			message = Messages.FAILURE;
 		}
 		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
 		mView.addObject("message", message);

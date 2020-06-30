@@ -1,6 +1,7 @@
 package com.csci5308.groupme.instructor.controller;
 
 import ch.qos.logback.classic.Logger;
+import constants.Messages;
 import errors.EditCodes;
 
 import com.csci5308.groupme.SystemConfig;
@@ -65,9 +66,9 @@ public class QuestionController {
             Options options = null;
             int status = questionManagerService.createQuestion(principal.getName(), questionObject, options);
             if (status == EditCodes.SUCCESS) {
-                message = "Question created!";
+                message = Messages.QUESTION_CREATED;
             } else {
-                message = "Something went wrong! Question was not inserted into the database";
+                message = Messages.FAILURE;
             }    
             mView.setViewName("instructor/questionmanager");
             mView.addObject("message", message);
@@ -103,9 +104,9 @@ public class QuestionController {
         try {
             int status = questionManagerService.createQuestion(principal.getName(), questionObject, options);
             if (status == EditCodes.SUCCESS) {
-                message = "Question created!";
+                message = Messages.QUESTION_CREATED;
             } else {
-                message = "Something went wrong! Question was not inserted into the database";
+                message = Messages.FAILURE;
             }
             mView.setViewName("instructor/questionmanager");
             mView.addObject("message", message);
@@ -133,9 +134,9 @@ public class QuestionController {
         logger.info("question selected is" + question.getQuestionId());
         int status = questionManagerService.deleteQuestion(principal.getName(), question);
         if (status == EditCodes.SUCCESS) {
-            message = "Question deleted!";
+            message = Messages.QUESTION_DELETED;
         } else {
-            message = "Something went wrong! Question was not deleted from the database";
+            message = Messages.FAILURE;
         }
         mView.setViewName("instructor/questionmanager");
         mView.addObject("message", message);

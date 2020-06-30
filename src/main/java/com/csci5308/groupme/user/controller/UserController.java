@@ -7,7 +7,10 @@ import com.csci5308.groupme.auth.service.EmailService;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
+
+import constants.Messages;
 import errors.EditCodes;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,9 +49,9 @@ public class UserController {
         String message;
         int signupStatus = userService.register(user);
         if (signupStatus == EditCodes.EMAIL_EXISTS) {
-            message = "Email already exists!";
+            message = Messages.SIGNUP_SUCCESS;
         } else if (signupStatus == EditCodes.USERNAME_EXISTS) {
-            message = "Username already exists! Try another one";
+            message = Messages.USERNAME_EXISTS;
         } else {
             message = "Signed up successfuly!";
         }

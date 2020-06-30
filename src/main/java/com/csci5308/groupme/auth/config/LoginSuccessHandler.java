@@ -1,6 +1,9 @@
 package com.csci5308.groupme.auth.config;
 
 import com.csci5308.groupme.auth.LandingUri;
+
+import constants.Roles;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
@@ -42,25 +45,25 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         List<String> roles = new ArrayList<>();
         authorities.forEach(authority -> roles.add(authority.getAuthority()));
         if (roles.size() > 1) {
-            roles.removeIf(role -> role.equals("ROLE_GUEST"));
+            roles.removeIf(role -> role.equals(Roles.GUEST));
         }
-        if (roles.contains("ROLE_ADMIN")) {
+        if (roles.contains(Roles.ADMIN)) {
             url = LandingUri.ADMIN;
-        } else if (roles.size() == 1 && roles.contains("ROLE_GUEST")) {
+        } else if (roles.size() == 1 && roles.contains(Roles.GUEST)) {
             url = LandingUri.GUEST;
-        } else if (roles.size() == 1 && roles.get(0).equals("ROLE_STUDENT")) {
+        } else if (roles.size() == 1 && roles.get(0).equals(Roles.STUDENT)) {
             url = LandingUri.STUDENT;
-        } else if (roles.size() == 1 && roles.get(0).equals("ROLE_TA")) {
+        } else if (roles.size() == 1 && roles.get(0).equals(Roles.TA)) {
             url = LandingUri.TA;
-        } else if (roles.size() == 1 && roles.get(0).equals("ROLE_INSTRUCTOR")) {
+        } else if (roles.size() == 1 && roles.get(0).equals(Roles.INSTRUCTOR)) {
             url = LandingUri.INSTRUCTOR;
-        } else if (roles.size() == 2 && roles.contains("ROLE_STUDENT") && roles.contains("ROLE_TA")) {
+        } else if (roles.size() == 2 && roles.contains(Roles.STUDENT) && roles.contains(Roles.TA)) {
             url = LandingUri.STU_TA;
-        } else if (roles.size() == 2 && roles.contains("ROLE_STUDENT") && roles.contains("ROLE_INSTRUCTOR")) {
+        } else if (roles.size() == 2 && roles.contains(Roles.STUDENT) && roles.contains(Roles.INSTRUCTOR)) {
             url = LandingUri.STU_INST;
-        } else if (roles.size() == 2 && roles.contains("ROLE_TA") && roles.contains("ROLE_INSTRUCTOR")) {
+        } else if (roles.size() == 2 && roles.contains(Roles.TA) && roles.contains(Roles.INSTRUCTOR)) {
             url = LandingUri.TA_INST;
-        } else if (roles.contains("ROLE_STUDENT") && roles.contains("ROLE_TA") && roles.contains("ROLE_INSTRUCTOR")) {
+        } else if (roles.contains(Roles.STUDENT) && roles.contains(Roles.TA) && roles.contains(Roles.INSTRUCTOR)) {
             url = LandingUri.STU_TA_INST;
         }
         roles.forEach(role -> logger.info(role));

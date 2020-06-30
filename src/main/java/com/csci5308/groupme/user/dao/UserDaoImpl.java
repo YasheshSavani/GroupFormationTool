@@ -211,7 +211,6 @@ public class UserDaoImpl implements UserDao {
             }
             se.printStackTrace();
         } catch (Exception e) {
-
             e.printStackTrace();
         } finally {
             try {
