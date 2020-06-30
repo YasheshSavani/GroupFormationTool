@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface QuestionManagerService {
 
-    public String createQuestion(String instructorUserName, Question question, Options options);
+    public int createQuestion(String instructorUserName, Question question, Options options);
 
     public List<Question> getAllTitles(String instructorUserName);
 
-    public String deleteQuestion(String instructorUserName, Question question);
+    public int deleteQuestion(String instructorUserName, Question question);
 
     public List<Question> getAllSortedTitlesByTitles(String instructorUserName);
 

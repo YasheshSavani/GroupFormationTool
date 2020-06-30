@@ -1,5 +1,6 @@
 package com.csci5308.groupme.auth.service;
 
+import com.csci5308.constants.FilePathConstants;
 import com.csci5308.groupme.auth.AuthConstants;
 import com.csci5308.groupme.user.model.User;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class EmailServiceImpl implements EmailService {
         try {
             Properties emailProperties = new Properties();
             Reader propertiesReader = new BufferedReader(
-                    new FileReader("src/main/resources/enrollmentemail.properties"));
+                    new FileReader(FilePathConstants.ENROLLMENT_EMAIL_FILE));
             emailProperties.load(propertiesReader);
             String subject = emailProperties.getProperty("subject");
             String content = emailProperties.getProperty("content") + "Username: " + user.getUserName() + "\n"
@@ -50,7 +51,7 @@ public class EmailServiceImpl implements EmailService {
         try {
             Properties emailProperties = new Properties();
             Reader propertiesReader = new BufferedReader(
-                    new FileReader("src/main/resources/passwordrecoverymail.properties"));
+                    new FileReader(FilePathConstants.RECOVERY_EMAIL_FILE));
             emailProperties.load(propertiesReader);
             String changePasswordLink = AuthConstants.BASE_URL + "/resetPassword?secretCode="
                     + AuthConstants.SECRET_CODE + "&email=" + email;

@@ -1,6 +1,8 @@
 package com.csci5308.groupme.instructor.controller;
 
 import ch.qos.logback.classic.Logger;
+import errors.EditCodes;
+
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.instructor.QuestionTypeConstants;
 import com.csci5308.groupme.instructor.model.Option;
@@ -42,6 +44,7 @@ public class QuestionController {
     public ModelAndView createQuestion(@RequestParam("title") String questionTitle,
                                        @RequestParam("question") String question, @RequestParam("type") String questionType, Principal principal) {
         Integer count = 1;
+        String message;
         Question questionObject = new Question();
         questionObject.setTitle(questionTitle);
         questionObject.setQuestion(question);
@@ -60,7 +63,12 @@ public class QuestionController {
                 || questionType.equals(QuestionTypeConstants.freeTextType)) {
             questionManagerService = SystemConfig.instance().getQuestionManagerService();
             Options options = null;
-            String message = questionManagerService.createQuestion(principal.getName(), questionObject, options);
+            int status = questionManagerService.createQuestion(principal.getName(), questionObject, options);
+            if (status == EditCodes.SUCCESS) {
+                message = "Question created!";
+            } else {
+                message = "Something went wrong! Question was not inserted into the database";
+            }    
             mView.setViewName("instructor/questionmanager");
             mView.addObject("message", message);
         }
@@ -85,14 +93,20 @@ public class QuestionController {
     @RequestMapping(value = "/instructor/saveMultipleChoiceQuestion", method = RequestMethod.POST)
     public ModelAndView saveMultipleChoiceQuestion(@ModelAttribute Options options, @RequestParam("title") String questionTitle,
                                                    @RequestParam("question") String question, @RequestParam("type") String questionType, Principal principal) {
-        questionManagerService = SystemConfig.instance().getQuestionManagerService();
+    	String message;
+    	questionManagerService = SystemConfig.instance().getQuestionManagerService();
         ModelAndView mView = new ModelAndView();
         Question questionObject = new Question();
         questionObject.setTitle(questionTitle);
         questionObject.setQuestion(question);
         questionObject.setType(questionType);
         try {
-            String message = questionManagerService.createQuestion(principal.getName(), questionObject, options);
+            int status = questionManagerService.createQuestion(principal.getName(), questionObject, options);
+            if (status == EditCodes.SUCCESS) {
+                message = "Question created!";
+            } else {
+                message = "Something went wrong! Question was not inserted into the database";
+            }
             mView.setViewName("instructor/questionmanager");
             mView.addObject("message", message);
         } catch (Exception e) {
@@ -113,10 +127,16 @@ public class QuestionController {
 
     @RequestMapping(value = "/instructor/deleteQuestion", method = RequestMethod.POST)
     public ModelAndView deleteQuestionPageSubmit(@ModelAttribute("question") Question question, Principal principal, Model model) {
-        questionManagerService = SystemConfig.instance().getQuestionManagerService();
+        String message;
+    	questionManagerService = SystemConfig.instance().getQuestionManagerService();
         ModelAndView mView = new ModelAndView();
         logger.info("question selected is" + question.getQuestionId());
-        String message = questionManagerService.deleteQuestion(principal.getName(), question);
+        int status = questionManagerService.deleteQuestion(principal.getName(), question);
+        if (status == EditCodes.SUCCESS) {
+            message = "Question deleted!";
+        } else {
+            message = "Something went wrong! Question was not deleted from the database";
+        }
         mView.setViewName("instructor/questionmanager");
         mView.addObject("message", message);
         return mView;

@@ -25,7 +25,6 @@ public class InstructorDAOImpl implements InstructorDAO {
     public Instructor findByUserName(String userName) throws Exception {
         Instructor instructor = new Instructor();
         databaseProperties = SystemConfig.instance().getDatabaseProperties();
-
         try {
             String DRIVER = databaseProperties.getDriver();
             String DB_URL = databaseProperties.getDbURL();
@@ -38,7 +37,7 @@ public class InstructorDAOImpl implements InstructorDAO {
             preparedStatement = connection.prepareStatement(InstructorQuery.GET_INSTRUCTOR_BY_USERNAME);
             preparedStatement.setString(1, userName);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {

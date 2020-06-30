@@ -32,33 +32,33 @@ public class AdminServiceImpl implements AdminService {
     private UserService userService;
 
     @Override
-    public String assignInstructorToCourse(String emailId, String courseCode) throws Exception {
-        String message = "";
+    public int assignInstructorToCourse(String emailId, String courseCode) throws Exception {
+        int status = 0;
         Instructor instructor = instructorService.getByEmail(emailId);
         Course course = courseService.getByCourseCode(courseCode);
         if (null == course)
-            message = "Course not found!";
+            status = EditCodes.COURSE_DOES_NOT_EXIST;
         else if (null == instructor) {
-            int status = makeUserAsInstructor(emailId);
+            status = makeUserAsInstructor(emailId);
             if (status == EditCodes.USERNAME_DOES_NOT_EXIST) {
-                message = "Instructor not found! Please check again!";
-            } else if (status == EditCodes.STATUS) {
-                message = this.assignInstructorToCourse(emailId, courseCode);
+                status = EditCodes.USERNAME_DOES_NOT_EXIST;
+            } else if (status == EditCodes.SUCCESS) {
+                status = this.assignInstructorToCourse(emailId, courseCode);
             } else {
-                message = "Something went wrong! Could not create class for the given instructor and course";
+             status = EditCodes.INSTRUCTOR_NOT_CREATED;
             }
         } else {
-            int status = adminDao.createClass(instructor.getUserName(), course.getCourseCode());
+            status = adminDao.createClass(instructor.getUserName(), course.getCourseCode());
             logger.info("Status {}", status);
             if (status == EditCodes.CLASS_ALREADY_CREATED) {
-                message = "Record already exists!";
-            } else if (status == EditCodes.STATUS) {
-                message = "Instructor assigned to the course!";
+                status = EditCodes.CLASS_ALREADY_CREATED;
+            } else if (status == EditCodes.SUCCESS) {
+            	status = EditCodes.SUCCESS;
             } else {
-                message = "Something went wrong! The server could not insert the record into the database!";
+            	status = EditCodes.CLASS_NOT_CREATED;
             }
         }
-        return message;
+        return status;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class AdminServiceImpl implements AdminService {
         } else {
             logger.info(user.getUserName());
             status = userService.addRole(user.getUserName(), "ROLE_INSTRUCTOR");
-            if (status == EditCodes.STATUS) {
+            if (status == EditCodes.SUCCESS) {
                 instructor.setUserName(user.getUserName());
                 status = instructorService.createInstructor(instructor);
             }

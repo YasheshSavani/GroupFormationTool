@@ -1,6 +1,8 @@
 package com.csci5308.groupme.teaching_assistant.dao;
 
 import ch.qos.logback.classic.Logger;
+import errors.EditCodes;
+
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import org.slf4j.LoggerFactory;
@@ -13,8 +15,9 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
     private final Logger logger = (Logger) LoggerFactory.getLogger(TeachingAssistantDaoImpl.class);
 
     @Override
-    public String findByTAEmailId(String emailId, String courseCode) throws Exception {
-        ResultSet resultSet = null;
+    public int createTAForCourse(String emailId, String courseCode) throws Exception {
+        int status = 0;
+    	ResultSet resultSet = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try {
@@ -31,8 +34,8 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
             preparedStatement.setString(1, emailId);
             resultSet = preparedStatement.executeQuery();
             logger.info("Execution of Course Select Query is Completed...");
-            if (!resultSet.next()) {
-                return "No User account available";
+            if (resultSet.next() == false) {
+                return EditCodes.EMAIL_DOES_NOT_EXIST;
             }
             do {
                 String taUserName = resultSet.getString("userName");
@@ -69,7 +72,7 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
                 }
             }
         }
-        return "True";
+        return status;
     }
 
 }

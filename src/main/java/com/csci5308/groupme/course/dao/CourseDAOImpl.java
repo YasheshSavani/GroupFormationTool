@@ -37,7 +37,7 @@ public class CourseDAOImpl implements CourseDAO {
             logger.info("Connected to the database successfully...");
             preparedStatement = connection.prepareStatement(CourseQuery.SELECT_ALL_COURSE);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -79,7 +79,6 @@ public class CourseDAOImpl implements CourseDAO {
         PreparedStatement preparedStatement = null;
         try {
             courseAdminCoursesList = new ArrayList<>();
-
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
@@ -95,7 +94,7 @@ public class CourseDAOImpl implements CourseDAO {
                 preparedStatement.setString(1, userName);
                 resultSet = preparedStatement.executeQuery();
             }
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -169,7 +168,7 @@ public class CourseDAOImpl implements CourseDAO {
             preparedStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_STUDENT_ENROLLED_IN_BY_USERNAME_STUDENT);
             preparedStatement.setString(1, studentUserName);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -214,7 +213,7 @@ public class CourseDAOImpl implements CourseDAO {
             getCourseStatement = connection.prepareStatement(CourseQuery.SELECT_COURSE_BY_COURSE_CODE);
             getCourseStatement.setString(1, courseCode);
             courseResultSet = getCourseStatement.executeQuery();
-            if (!courseResultSet.next()) {
+            if (courseResultSet.next() == false) {
                 return null;
             }
             String courseName = courseResultSet.getString("courseName");

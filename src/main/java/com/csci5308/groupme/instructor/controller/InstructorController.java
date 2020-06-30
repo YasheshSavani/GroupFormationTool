@@ -6,6 +6,9 @@ import com.csci5308.groupme.course.service.CourseService;
 import com.csci5308.groupme.instructor.service.EnrollmentService;
 import com.csci5308.groupme.instructor.service.InstructorService;
 import com.csci5308.groupme.teaching_assistant.service.TeachingAssistantService;
+
+import errors.EditCodes;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,12 +65,15 @@ public class InstructorController {
     public ModelAndView insertByTAEmailId(@RequestParam(value = "email") String emailTA,
                                           @RequestParam(value = "courseCode") String courseCode, Principal p) throws Exception {
         teachingAssistantService = SystemConfig.instance().getTeachingAssistantService();
-        String assignmentConfirmation = teachingAssistantService.findByTAEmailId(emailTA, courseCode);
+        int assignmentConfirmation = teachingAssistantService.assignTAToCourse(emailTA, courseCode);
         ModelAndView mView = new ModelAndView();
-        if (assignmentConfirmation.equals("True")) {
+        if (assignmentConfirmation == EditCodes.SUCCESS) {
             mView.addObject("status", "TA Assigned to the Course");
-        } else {
-            mView.addObject("status", "TA assignment Error");
+        } else if(assignmentConfirmation == EditCodes.EMAIL_DOES_NOT_EXIST) {
+            mView.addObject("status", "TA email does not exist!");
+        }
+        else {
+            mView.addObject("status", "Something went wrong! TA assignment Error");
         }
         mView.setViewName("coursedetails");
         return mView;

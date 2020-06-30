@@ -146,7 +146,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_QUESTION_TITLE);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -246,7 +246,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_SORTED_TITLE);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -300,7 +300,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_TITLES_SORTED_BY_DATE);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -356,7 +356,7 @@ public class QuestionsDAOImpl implements QuestionsDAO {
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_ALL_QUESTIONS);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {

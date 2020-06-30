@@ -107,7 +107,7 @@ public class UserController {
                                        @RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
         ModelAndView mView;
         int status = userService.updatePassword(email, newPassword);
-        if (status == EditCodes.STATUS) {
+        if (status == EditCodes.SUCCESS) {
             mView = new ModelAndView("auth/resetPasswordSuccess");
         } else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
             mView = new ModelAndView("auth/noEmail");

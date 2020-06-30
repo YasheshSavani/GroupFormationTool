@@ -36,7 +36,7 @@ public class UserDaoImpl implements UserDao {
             preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_USERNAME);
             preparedStatement.setString(1, userName);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {
@@ -90,7 +90,7 @@ public class UserDaoImpl implements UserDao {
             preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
             preparedStatement.setString(1, email);
             resultSet = preparedStatement.executeQuery();
-            if (!resultSet.next()) {
+            if (resultSet.next() == false) {
                 return null;
             }
             do {

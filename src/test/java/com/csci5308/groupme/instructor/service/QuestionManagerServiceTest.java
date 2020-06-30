@@ -5,6 +5,9 @@ import com.csci5308.groupme.instructor.dao.QuestionsDaoMock;
 import com.csci5308.groupme.instructor.model.Option;
 import com.csci5308.groupme.instructor.model.Options;
 import com.csci5308.groupme.instructor.model.Question;
+
+import errors.EditCodes;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -32,8 +35,8 @@ public class QuestionManagerServiceTest {
         question.setQuestion("Which programming language is your best suit?");
         question.setType("Free text");
         question.setTitle("Programming Language Preference");
-        String message = questionManagerService.createQuestion(instructorUserName, question, options);
-        assertEquals("Question created!", message);
+        int status = questionManagerService.createQuestion(instructorUserName, question, options);
+        assertEquals(EditCodes.SUCCESS, status);
     }
 
     @Test
@@ -49,8 +52,8 @@ public class QuestionManagerServiceTest {
         optionList.add(new Option("Intermediate", 2, 2));
         optionList.add(new Option("Expert", 3, 3));
         options.setOptionList(optionList);
-        String message = questionManagerService.createQuestion(instructorUserName, question, options);
-        assertEquals("Question created!", message);
+        int status = questionManagerService.createQuestion(instructorUserName, question, options);
+        assertEquals(EditCodes.SUCCESS, status);
     }
 
     @Test
@@ -65,8 +68,8 @@ public class QuestionManagerServiceTest {
         String instructorUserName = "iuser";
         Question question = new Question();
         question.setQuestionId(1);
-        String message = questionManagerService.deleteQuestion(instructorUserName, question);
-        assertEquals("Question deleted!", message);
+        int status = questionManagerService.deleteQuestion(instructorUserName, question);
+        assertEquals(EditCodes.SUCCESS, status);
     }
 
     @Test

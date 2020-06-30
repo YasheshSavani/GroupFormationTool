@@ -55,19 +55,19 @@ public class HomeController {
             @RequestParam(value = "isStudent", required = false, defaultValue = "false") boolean isStudent,
             @RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
             @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor) {
-        if (isStudent && !isTA && !isInstructor) {
+        if (isStudent == true && isTA == false && isInstructor == false) {
             return "redirect:/studenthomepage";
-        } else if (isStudent && isTA && !isInstructor) {
+        } else if (isStudent == true && isTA == true && isInstructor == false) {
             return "redirect:/studenthomepage?isTA=true";
-        } else if (isStudent && !isTA && isInstructor) {
+        } else if (isStudent == true && isTA == false && isInstructor == true) {
             return "redirect:/studenthomepage?isInstructor=true";
-        } else if (!isStudent && isTA && !isInstructor) {
+        } else if (isStudent == false && isTA == true && isInstructor == false) {
             return "redirect:/tahomepage";
-        } else if (!isStudent && !isTA && isInstructor) {
+        } else if (isStudent == false && isTA == false && isInstructor == true) {
             return "redirect:/instructorhomepage";
-        } else if (!isStudent && isTA && isInstructor) {
+        } else if (isStudent == false && isTA == true && isInstructor == true) {
             return "redirect:/instructorhomepage?isTA=true";
-        } else if (isStudent && isTA && isInstructor) {
+        } else if (isStudent == true && isTA == true && isInstructor == true) {
             return "redirect:/studenthomepage?isTA=true&isInstructor=true";
         }
         return null;
