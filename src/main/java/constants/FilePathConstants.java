@@ -1,4 +1,4 @@
-package com.csci5308.constants;
+package constants;
 
 public class FilePathConstants {
 	public static final String ENROLLMENT_EMAIL_FILE = "src/main/resources/enrollmentemail.properties";

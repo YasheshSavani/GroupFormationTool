@@ -1,8 +1,10 @@
 package com.csci5308.groupme.auth.service;
 
-import com.csci5308.constants.FilePathConstants;
 import com.csci5308.groupme.auth.AuthConstants;
 import com.csci5308.groupme.user.model.User;
+
+import constants.FilePathConstants;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
