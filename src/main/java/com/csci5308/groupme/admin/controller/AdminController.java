@@ -100,8 +100,8 @@ public class AdminController {
 			message = Messages.INSTRUCTOR_ASSIGNED;
 		} else if (status == EditCodes.INSTRUCTOR_NOT_CREATED) {
 			message = Messages.INSTRUCTOR_NOT_CREATED;
-		} else if (status == EditCodes.USERNAME_DOES_NOT_EXIST) {
-			message = Messages.USERNAME_DOES_NOT_EXIST;
+		} else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
+			message = Messages.EMAIL_DOES_NOT_EXIST;
 		} else {
 			message = Messages.FAILURE;
 		}

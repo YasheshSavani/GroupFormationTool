@@ -2,6 +2,8 @@ package errors;
 
 public class EditCodes {
 
+	public static final int FAILURE = -1;
+	
     public static final int USERNAME_EXISTS = -2;
 
     public static final int USERNAME_DOES_NOT_EXIST = -3;
