@@ -2,16 +2,16 @@ package com.csci5308.groupme;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.auth.config.PasswordProperties;
-import com.csci5308.groupme.courseAdmin.instructor.dao.QuestionsDAO;
-import com.csci5308.groupme.courseAdmin.instructor.dao.QuestionsDAOImpl;
-import com.csci5308.groupme.courseAdmin.instructor.service.EnrollmentService;
-import com.csci5308.groupme.courseAdmin.instructor.service.EnrollmentServiceImpl;
-import com.csci5308.groupme.courseAdmin.instructor.service.QuestionManagerService;
-import com.csci5308.groupme.courseAdmin.instructor.service.QuestionManagerServiceImpl;
-import com.csci5308.groupme.courseAdmin.teaching_assistant.dao.TeachingAssistantDao;
-import com.csci5308.groupme.courseAdmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
-import com.csci5308.groupme.courseAdmin.teaching_assistant.service.TeachingAssistantService;
-import com.csci5308.groupme.courseAdmin.teaching_assistant.service.TeachingAssistantServiceImpl;
+import com.csci5308.groupme.courseadmin.instructor.dao.QuestionsDAO;
+import com.csci5308.groupme.courseadmin.instructor.dao.QuestionsDAOImpl;
+import com.csci5308.groupme.courseadmin.instructor.service.EnrollmentService;
+import com.csci5308.groupme.courseadmin.instructor.service.EnrollmentServiceImpl;
+import com.csci5308.groupme.courseadmin.instructor.service.QuestionManagerService;
+import com.csci5308.groupme.courseadmin.instructor.service.QuestionManagerServiceImpl;
+import com.csci5308.groupme.courseadmin.teaching_assistant.dao.TeachingAssistantDao;
+import com.csci5308.groupme.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
+import com.csci5308.groupme.courseadmin.teaching_assistant.service.TeachingAssistantService;
+import com.csci5308.groupme.courseadmin.teaching_assistant.service.TeachingAssistantServiceImpl;
 
 public class SystemConfig {
 
