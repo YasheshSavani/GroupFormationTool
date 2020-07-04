@@ -12,8 +12,8 @@ import java.sql.DriverManager;
 public class StudentDAOImpl implements StudentDAO {
 
     Student student;
-    Connection connection;
-    CallableStatement statement;
+    Connection connection = null;
+    CallableStatement statement = null;
     DatabaseProperties databaseProperties;
     BCryptPasswordEncoder passwordEncoder;
 
@@ -34,14 +34,25 @@ public class StudentDAOImpl implements StudentDAO {
                 if (statement.execute()) {
                     status = !statement.getResultSet().next();
                 }
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
             }
             return status;
         } catch (Exception e) {
             return false;
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -62,14 +73,25 @@ public class StudentDAOImpl implements StudentDAO {
                 statement.setString("procinstructorid", instructorID);
                 statement.setString("proccoursecode", courseID);
                 statement.executeUpdate();
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
             }
             return true;
         } catch (Exception e) {
             return false;
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

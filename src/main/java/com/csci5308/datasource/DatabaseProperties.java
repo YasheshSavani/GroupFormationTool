@@ -1,10 +1,5 @@
 package com.csci5308.datasource;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.Reader;
-import java.util.Properties;
-
 public class DatabaseProperties {
 
     private String dbDriver;

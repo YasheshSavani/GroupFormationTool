@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.Reader;
 import java.util.Properties;
 
+import constants.FilePathConstants;
+
 public class PasswordProperties {
     private int minLength;
     private int maxLength;
@@ -17,7 +19,7 @@ public class PasswordProperties {
     public PasswordProperties() {
         try {
             Properties passwordProperties = new Properties();
-            Reader propertiesReader = new BufferedReader(new FileReader("src/main/resources/password.properties"));
+            Reader propertiesReader = new BufferedReader(new FileReader(FilePathConstants.PASSWORD_PARAMS_FILE));
             passwordProperties.load(propertiesReader);
             minLength = Integer.parseInt(passwordProperties.getProperty("minLength"));
             maxLength = Integer.parseInt(passwordProperties.getProperty("maxLength"));

@@ -1,9 +1,8 @@
 package com.csci5308.groupme.auth.controller;
 
-import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.CourseService;
-import com.csci5308.groupme.user.model.User;
-import com.csci5308.groupme.user.service.UserService;
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
-import java.util.List;
+import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.course.service.CourseDetailsService;
+import com.csci5308.groupme.user.model.User;
+import com.csci5308.groupme.user.service.UserService;
 
 @Controller
 public class HomeController {
@@ -21,7 +22,7 @@ public class HomeController {
     UserService userService;
 
     @Autowired
-    CourseService courseService;
+    CourseDetailsService courseDetailsService;
 
     @GetMapping("/")
     public String applicationPage(Model model) {
@@ -40,7 +41,7 @@ public class HomeController {
     @GetMapping("/guest")
     public ModelAndView guestUserHomePage(Principal principal) throws Exception {
         ModelAndView mView = new ModelAndView("guest/home_guest");
-        List<Course> guestCourses = courseService.findAllCourses();
+        List<Course> guestCourses = courseDetailsService.findAllCourses();
         if (guestCourses != null) {
             mView.addObject("details", guestCourses);
         } else {
@@ -55,19 +56,19 @@ public class HomeController {
             @RequestParam(value = "isStudent", required = false, defaultValue = "false") boolean isStudent,
             @RequestParam(value = "isTA", required = false, defaultValue = "false") boolean isTA,
             @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor) {
-        if (isStudent && !isTA && !isInstructor) {
+        if (isStudent == true && isTA == false && isInstructor == false) {
             return "redirect:/studenthomepage";
-        } else if (isStudent && isTA && !isInstructor) {
+        } else if (isStudent == true && isTA == true && isInstructor == false) {
             return "redirect:/studenthomepage?isTA=true";
-        } else if (isStudent && !isTA && isInstructor) {
+        } else if (isStudent == true && isTA == false && isInstructor == true) {
             return "redirect:/studenthomepage?isInstructor=true";
-        } else if (!isStudent && isTA && !isInstructor) {
+        } else if (isStudent == false && isTA == true && isInstructor == false) {
             return "redirect:/tahomepage";
-        } else if (!isStudent && !isTA && isInstructor) {
+        } else if (isStudent == false && isTA == false && isInstructor == true) {
             return "redirect:/instructorhomepage";
-        } else if (!isStudent && isTA && isInstructor) {
+        } else if (isStudent == false && isTA == true && isInstructor == true) {
             return "redirect:/instructorhomepage?isTA=true";
-        } else if (isStudent && isTA && isInstructor) {
+        } else if (isStudent == true && isTA == true && isInstructor == true) {
             return "redirect:/studenthomepage?isTA=true&isInstructor=true";
         }
         return null;

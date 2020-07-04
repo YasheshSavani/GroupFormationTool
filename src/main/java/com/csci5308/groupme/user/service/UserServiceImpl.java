@@ -1,9 +1,5 @@
 package com.csci5308.groupme.user.service;
 
-import com.csci5308.groupme.user.dao.UserDao;
-import com.csci5308.groupme.user.model.User;
-import com.csci5308.groupme.user.model.UserAuthDetails;
-import errors.EditCodes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +7,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import sun.security.x509.EDIPartyName;
+
+import com.csci5308.groupme.user.dao.UserDao;
+import com.csci5308.groupme.user.model.User;
+import com.csci5308.groupme.user.model.UserAuthDetails;
+
+import errors.EditCodes;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -71,7 +72,7 @@ public class UserServiceImpl implements UserService {
         else {
             user.setPassword(passwordEncoder.encode(newPassword));
             updateStatus = userDao.update(user);
-            if (updateStatus == EditCodes.STATUS)
+            if (updateStatus == EditCodes.SUCCESS)
                 logger.info("Password updated.....");
         }
         return updateStatus;
