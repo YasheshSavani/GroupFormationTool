@@ -26,7 +26,7 @@ public class SystemConfig {
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
-        teachingAssistantService = new TeachingAssistantServiceImpl();
+        teachingAssistantService = new TeachingAssistantServiceImpl(teachingAssistantDao);
         questionsDAO = new QuestionsDAOImpl();
         questionManagerService = new QuestionManagerServiceImpl(questionsDAO);
         passwordProperties = new PasswordProperties();
