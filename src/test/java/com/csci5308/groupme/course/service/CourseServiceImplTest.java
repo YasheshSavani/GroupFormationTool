@@ -1,19 +1,18 @@
 package com.csci5308.groupme.course.service;
 
-import com.csci5308.groupme.course.dao.CourseDAOImpl;
-import com.csci5308.groupme.course.model.Course;
-import errors.EditCodes;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.csci5308.groupme.course.dao.CourseDAOImpl;
+import com.csci5308.groupme.course.model.Course;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import errors.EditCodes;
 
 @ExtendWith(SpringExtension.class)
 public class CourseServiceImplTest {
