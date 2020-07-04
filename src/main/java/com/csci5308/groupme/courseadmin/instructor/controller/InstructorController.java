@@ -1,14 +1,7 @@
 package com.csci5308.groupme.courseadmin.instructor.controller;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.CourseService;
-import com.csci5308.groupme.courseadmin.instructor.service.EnrollmentService;
-import com.csci5308.groupme.courseadmin.instructor.service.InstructorService;
-import com.csci5308.groupme.courseadmin.teaching_assistant.service.TeachingAssistantService;
-
-import constants.Messages;
-import errors.EditCodes;
+import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +13,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
-import java.util.List;
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.course.service.CourseDetailsService;
+import com.csci5308.groupme.courseadmin.instructor.service.EnrollmentService;
+import com.csci5308.groupme.courseadmin.instructor.service.InstructorService;
+import com.csci5308.groupme.courseadmin.teaching_assistant.service.TeachingAssistantService;
+
+import constants.Messages;
+import errors.EditCodes;
 
 @Controller
 public class InstructorController {
@@ -30,7 +30,7 @@ public class InstructorController {
     InstructorService instructorService;
 
     @Autowired
-    CourseService courseService;
+    CourseDetailsService courseDetailsService;
 
     EnrollmentService enrollmentService;
 
@@ -42,7 +42,7 @@ public class InstructorController {
         mView.setViewName("instructor/instructorhomepage");
         mView.addObject("isInstructor", true);
         try {
-            List<Course> coursesList = courseService.findCoursesByInstructor(principal.getName());
+            List<Course> coursesList = courseDetailsService.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class InstructorController {
     @RequestMapping(value = "/instructor/courseAdminPage", method = RequestMethod.GET)
     public String courseAdminPage(Principal principal, Model model) {
         try {
-            List<Course> coursesList = courseService.findCoursesByInstructor(principal.getName());
+            List<Course> coursesList = courseDetailsService.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
         } catch (Exception e) {
             e.printStackTrace();
@@ -69,7 +69,7 @@ public class InstructorController {
         int assignmentConfirmation = teachingAssistantService.assignTAToCourse(emailTA, courseCode);
         ModelAndView mView = new ModelAndView();
         if (assignmentConfirmation == EditCodes.SUCCESS) {
-            mView.addObject("status", "TA Assigned to the Course");
+            mView.addObject("status", Messages.TA_ASSIGNED);
         } else if(assignmentConfirmation == EditCodes.EMAIL_DOES_NOT_EXIST) {
             mView.addObject("status", Messages.EMAIL_DOES_NOT_EXIST);
         }

@@ -1,9 +1,8 @@
 package com.csci5308.groupme.auth.controller;
 
-import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.CourseService;
-import com.csci5308.groupme.user.model.User;
-import com.csci5308.groupme.user.service.UserService;
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
-import java.util.List;
+import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.course.service.CourseDetailsService;
+import com.csci5308.groupme.user.model.User;
+import com.csci5308.groupme.user.service.UserService;
 
 @Controller
 public class HomeController {
@@ -21,7 +22,7 @@ public class HomeController {
     UserService userService;
 
     @Autowired
-    CourseService courseService;
+    CourseDetailsService courseDetailsService;
 
     @GetMapping("/")
     public String applicationPage(Model model) {
@@ -40,7 +41,7 @@ public class HomeController {
     @GetMapping("/guest")
     public ModelAndView guestUserHomePage(Principal principal) throws Exception {
         ModelAndView mView = new ModelAndView("guest/home_guest");
-        List<Course> guestCourses = courseService.findAllCourses();
+        List<Course> guestCourses = courseDetailsService.findAllCourses();
         if (guestCourses != null) {
             mView.addObject("details", guestCourses);
         } else {

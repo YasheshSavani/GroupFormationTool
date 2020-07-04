@@ -4,7 +4,6 @@
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <title>Forget Password</title>
-
 </head>
 <body>
 <ul>
@@ -16,7 +15,8 @@
 <h2 style="text-align: center">Forgot Password?</h2>
 <h3 style="text-align: center">Enter the registered email id to receive a mail for password reset</h3>
 <div style="margin-left: 27%; padding: 1px;">
-    <form name="forgetPasswordForm" th:action="@{/forgotPassword}" method="post">
+    <form name="forgetPasswordForm"
+          th:action="@{/forgotPassword}" method="post">
 
         <table style="margin-left:auto;margin-right:auto;">
             <tr>

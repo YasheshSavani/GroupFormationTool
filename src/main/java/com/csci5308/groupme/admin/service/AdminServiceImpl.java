@@ -1,20 +1,21 @@
 package com.csci5308.groupme.admin.service;
 
-import ch.qos.logback.classic.Logger;
-import constants.Roles;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.csci5308.groupme.admin.dao.AdminDao;
 import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.CourseService;
+import com.csci5308.groupme.course.service.CourseDetailsService;
 import com.csci5308.groupme.courseadmin.instructor.model.Instructor;
 import com.csci5308.groupme.courseadmin.instructor.service.InstructorService;
 import com.csci5308.groupme.courseadmin.instructor.service.InstructorServiceImpl;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
+
+import ch.qos.logback.classic.Logger;
+import constants.Roles;
 import errors.EditCodes;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -28,7 +29,7 @@ public class AdminServiceImpl implements AdminService {
 	private InstructorService instructorService;
 
 	@Autowired
-	private CourseService courseService;
+	private CourseDetailsService courseDetailsService;
 
 	@Autowired
 	private UserService userService;
@@ -37,7 +38,7 @@ public class AdminServiceImpl implements AdminService {
 	public int assignInstructorToCourse(String emailId, String courseCode) throws Exception {
 		int status = 0;
 		Instructor instructor = instructorService.getByEmail(emailId);
-		Course course = courseService.getByCourseCode(courseCode);
+		Course course = courseDetailsService.getByCourseCode(courseCode);
 		if (null == course) {
 			status = EditCodes.COURSE_DOES_NOT_EXIST;
 		} else if (null == instructor) {

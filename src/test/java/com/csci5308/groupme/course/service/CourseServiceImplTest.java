@@ -24,42 +24,7 @@ public class CourseServiceImplTest {
     @InjectMocks
     private CourseServiceImpl courseServiceImpl;
 
-    @Test
-    public void findAllCoursesTest() throws Exception {
-
-        List<Course> defaultCourseList = new ArrayList<>();
-        Course courseOne = new Course("CSCI5308", "Adv Software Development", 12345);
-        defaultCourseList.add(courseOne);
-        when(courseDAO.findAllCourses()).thenReturn(defaultCourseList);
-        List<Course> checkCourseList = courseServiceImpl.findAllCourses();
-        assertEquals(1, checkCourseList.size());
-    }
-
-    @Test
-    public void getCoursesByUserNameAndRoleTest() throws Exception {
-
-        String userName = "ysavani";
-        String roleName = "ROLE_TA";
-        List<Course> defaultCourseList = new ArrayList<>();
-        Course courseOne = new Course("CSCI5308", "Adv Software Development", 12345);
-        defaultCourseList.add(courseOne);
-        when(courseDAO.getCoursesByUserNameAndRole(userName, roleName)).thenReturn(defaultCourseList);
-        List<Course> checkCourseList = courseServiceImpl.getCoursesByUserNameAndRole(userName, roleName);
-        assertEquals(1, checkCourseList.size());
-    }
-
-    @Test
-    public void findCoursesByStudentUserNameTest() throws Exception {
-
-        String studentUserName = "ysavani";
-        List<Course> defaultCourseList = new ArrayList<>();
-        Course courseOne = new Course("CSCI 5308", "Adv Software Development", 12345);
-        defaultCourseList.add(courseOne);
-        when(courseDAO.findCoursesByStudentUserName(studentUserName)).thenReturn(defaultCourseList);
-        List<Course> checkCourseList = courseServiceImpl.findCoursesByStudentUserName(studentUserName);
-        assertEquals(1, checkCourseList.size());
-    }
-
+    
     @Test
     public void saveCourseTest() throws Exception {
         Course course = new Course("CSCI 5308", "Adv Software Development", 12345);

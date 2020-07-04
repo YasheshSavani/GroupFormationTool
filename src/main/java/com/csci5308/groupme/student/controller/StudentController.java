@@ -1,21 +1,22 @@
 package com.csci5308.groupme.student.controller;
 
-import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.CourseService;
+import java.security.Principal;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
-import java.util.List;
+import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.course.service.CourseDetailsService;
 
 @Controller
 public class StudentController {
 
     @Autowired
-    CourseService courseService;
+    CourseDetailsService courseDetailsService;
 
     @GetMapping("/studenthomepage")
     public ModelAndView showStudentHomePage(
@@ -24,7 +25,7 @@ public class StudentController {
             @RequestParam(value = "isInstructor", required = false, defaultValue = "false") boolean isInstructor,
             Principal principal) throws Exception {
         String studentUserName = principal.getName();
-        List<Course> coursesStudentEnrolledIn = courseService.findCoursesByStudentUserName(studentUserName);
+        List<Course> coursesStudentEnrolledIn = courseDetailsService.findCoursesByStudentUserName(studentUserName);
         ModelAndView mView = new ModelAndView();
         mView.setViewName("student/studenthomepage");
         if (null != coursesStudentEnrolledIn) {

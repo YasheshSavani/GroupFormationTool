@@ -1,16 +1,5 @@
 package com.csci5308.groupme.user.controller;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.auth.AuthConstants;
-import com.csci5308.groupme.auth.config.PasswordProperties;
-import com.csci5308.groupme.auth.service.EmailService;
-import com.csci5308.groupme.user.model.User;
-import com.csci5308.groupme.user.service.UserService;
-import com.csci5308.groupme.user.service.UserServiceImpl;
-
-import constants.Messages;
-import errors.EditCodes;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +8,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.auth.config.PasswordProperties;
+import com.csci5308.groupme.user.model.User;
+import com.csci5308.groupme.user.service.UserService;
+import com.csci5308.groupme.user.service.UserServiceImpl;
+
+import constants.Messages;
+import errors.EditCodes;
 
 @Controller
 public class UserAuthController {
 
     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     PasswordProperties passwordProperties;
+    
     @Autowired
     private UserService userService;
-    @Autowired
-    private EmailService emailService;
-
+    
     @GetMapping("/signup")
     public String showSignUpPage(Model model) {
         User user = new User();
