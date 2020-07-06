@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 import com.csci5308.groupme.admin.dao.AdminDao;
 import com.csci5308.groupme.course.model.Course;
 import com.csci5308.groupme.course.service.CourseDetailsService;
-import com.csci5308.groupme.courseadmin.instructor.model.Instructor;
-import com.csci5308.groupme.courseadmin.instructor.service.InstructorService;
-import com.csci5308.groupme.courseadmin.instructor.service.InstructorServiceImpl;
+import com.csci5308.groupme.course.courseadmin.instructor.model.Instructor;
+import com.csci5308.groupme.course.courseadmin.instructor.service.InstructorService;
+import com.csci5308.groupme.course.courseadmin.instructor.service.InstructorServiceImpl;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 
