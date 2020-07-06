@@ -49,7 +49,7 @@ public class UserAuthController {
         } else if (signupStatus == EditCodes.USERNAME_EXISTS) {
             message = Messages.USERNAME_EXISTS;
         } else {
-            message = "Signed up successfuly!";
+            message = Messages.SIGNUP_SUCCESS;
         }
         logger.info(user.getEmail());
         mView.addObject("message", message);
