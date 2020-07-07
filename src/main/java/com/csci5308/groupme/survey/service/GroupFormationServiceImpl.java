@@ -19,8 +19,7 @@ public class GroupFormationServiceImpl implements GroupFormationService{
 	}
 
 	@Override
-	public List<Group> formGroups(List<SurveyResponse> surveyResponses, Integer groupSize) {
-		
+	public List<Group> formGroups(List<SurveyResponse> surveyResponses, Integer groupSize) {	
 		return null;
 	}
 	
