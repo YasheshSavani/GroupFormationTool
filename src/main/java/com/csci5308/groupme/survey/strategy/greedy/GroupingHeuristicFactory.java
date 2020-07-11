@@ -8,6 +8,9 @@ public class GroupingHeuristicFactory {
 		if(heuristic.equalsIgnoreCase(Heuristics.PAIR_SCORING)) {
 			return new PairScoring();
 		}
+		else if(heuristic.equalsIgnoreCase(Heuristics.MOCK)) {
+			return new PairScoring();
+		}
 		return null;
 	}
 	

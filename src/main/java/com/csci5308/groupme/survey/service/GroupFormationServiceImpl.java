@@ -1,16 +1,14 @@
 package com.csci5308.groupme.survey.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.LoggerFactory;
 
 import com.csci5308.groupme.survey.constants.Algorithms;
 import com.csci5308.groupme.survey.constants.Heuristics;
+import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.Group;
-import com.csci5308.groupme.survey.model.SurveyResponse;
 import com.csci5308.groupme.survey.strategy.GroupingStrategy;
-import com.csci5308.groupme.survey.strategy.greedy.Candidate;
 import com.csci5308.groupme.survey.strategy.greedy.GreedyGroupingWithPairScores;
 import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristic;
 import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristicFactory;
@@ -44,13 +42,14 @@ public class GroupFormationServiceImpl implements GroupFormationService{
 	}
 		
 	@Override
-	public List<Group> formGroups(List<SurveyResponse> surveyResponses, Integer groupSize) {
-		List<Candidate> candidates = new ArrayList<Candidate>();
-		for(SurveyResponse surveyResponse: surveyResponses) {
-			candidates.add(new Candidate(surveyResponse));			
-		}
+	public List<Group> formGroups(List<Candidate> candidates, Integer groupSize) {
+		//List<Candidate> candidates = new ArrayList<Candidate>();
+//		for(SurveyResponse surveyResponse: surveyResponses) {
+//			candidates.add(new Candidate(surveyResponse));			
+//		}
+		List<Group> groups = groupingStrategy.getGroups(candidates, groupSize);
 	    
-		return null;
+		return groups;
 	}
 	
 }
