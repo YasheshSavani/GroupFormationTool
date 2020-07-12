@@ -2,7 +2,7 @@ package com.csci5308.groupme.course.courseadmin.instructor.dao;
 
 import com.csci5308.groupme.course.courseadmin.instructor.model.Instructor;
 
-public interface InstructorDAO {
+public interface InstructorDao {
 
     public Instructor findByUserName(String userName) throws Exception;
     

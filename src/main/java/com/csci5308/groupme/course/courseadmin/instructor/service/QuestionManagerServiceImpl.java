@@ -7,7 +7,7 @@ import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
 import org.slf4j.LoggerFactory;
 
 import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
-import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDAO;
+import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
 
@@ -17,10 +17,10 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
 
     private final Logger logger = (Logger) LoggerFactory.getLogger(QuestionManagerServiceImpl.class);
 
-    private final QuestionsDAO questionsDAO;
+    private final QuestionsDao questionsDao;
 
-    public QuestionManagerServiceImpl(QuestionsDAO questionsDAO) {
-        this.questionsDAO = questionsDAO;
+    public QuestionManagerServiceImpl(QuestionsDao questionsDao) {
+        this.questionsDao = questionsDao;
     }
 
     @Override
@@ -31,11 +31,11 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
         try {
             if (question.getType().equals(QuestionTypeConstants.numericType) || question.getType().equals(QuestionTypeConstants.freeTextType)) {
                 question.setCreatedDate(createdDate);
-                status = questionsDAO.saveNonMCQ(instructorUserName, question);
+                status = questionsDao.saveNonMCQ(instructorUserName, question);
             } else {
                 List<Option> optionList = options.getOptionList();
                 question.setCreatedDate(createdDate);
-                status = questionsDAO.saveMultipleChoiceQuestion(question, optionList, instructorUserName);
+                status = questionsDao.saveMultipleChoiceQuestion(question, optionList, instructorUserName);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,14 +45,14 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
 
     @Override
     public List<Question> getAllTitles(String instructorUserName) {
-        return questionsDAO.findAllTitles(instructorUserName);
+        return questionsDao.findAllTitles(instructorUserName);
     }
 
     @Override
     public int deleteQuestion(String instructorUserName, Question question) {
         int status = 0;
         try {
-        	status = questionsDAO.removeQuestion(instructorUserName, question);
+        	status = questionsDao.removeQuestion(instructorUserName, question);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -61,12 +61,12 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
 
     @Override
     public List<Question> getAllSortedTitlesByTitles(String instructorUserName) {
-        return questionsDAO.findAllSortedTitlesByTitles(instructorUserName);
+        return questionsDao.findAllSortedTitlesByTitles(instructorUserName);
     }
 
     @Override
     public List<Question> getAllSortedTitlesByDates(String instructorUserName) {
-        List<Question> questions = questionsDAO.findAllSortedTitlesByDates(instructorUserName);
+        List<Question> questions = questionsDao.findAllSortedTitlesByDates(instructorUserName);
         for (Question question : questions) {
             logger.info(question.getTitle());
         }
@@ -75,7 +75,7 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
 
     @Override
     public List<Question> getAllQuestions(String instructorUserName) {
-        return questionsDAO.findAllQuestions(instructorUserName);
+        return questionsDao.findAllQuestions(instructorUserName);
     }
 
 }

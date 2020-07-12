@@ -13,9 +13,9 @@ import sql.InstructorQuery;
 import java.sql.*;
 
 @Repository
-public class InstructorDAOImpl implements InstructorDAO {
+public class InstructorDaoImpl implements InstructorDao {
 
-    private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorDAOImpl.class);
+    private final Logger logger = (Logger) LoggerFactory.getLogger(InstructorDaoImpl.class);
     private DatabaseProperties databaseProperties;
     private Connection connection = null;
     private PreparedStatement preparedStatement = null;

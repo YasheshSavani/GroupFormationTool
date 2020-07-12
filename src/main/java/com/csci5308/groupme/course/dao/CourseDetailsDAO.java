@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.csci5308.groupme.course.model.Course;
 
-public interface CourseDetailsDAO {
+public interface CourseDetailsDao {
 
 	List<Course> findAllCourses() throws Exception;
 

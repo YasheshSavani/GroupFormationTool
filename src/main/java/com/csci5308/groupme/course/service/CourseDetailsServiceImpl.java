@@ -5,39 +5,39 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.csci5308.groupme.course.dao.CourseDetailsDAO;
+import com.csci5308.groupme.course.dao.CourseDetailsDao;
 import com.csci5308.groupme.course.model.Course;
 
 @Service
 public class CourseDetailsServiceImpl implements CourseDetailsService {
 
 	@Autowired
-	CourseDetailsDAO courseDetailsDAO;
+	CourseDetailsDao courseDetailsDao;
 
 	@Override
 	public List<Course> findAllCourses() throws Exception {
-		return courseDetailsDAO.findAllCourses();
+		return courseDetailsDao.findAllCourses();
 	}
 	
 	 @Override
 	    public List<Course> getCoursesByUserNameAndRole(String userName, String roleName) throws Exception {
-	        return courseDetailsDAO.getCoursesByUserNameAndRole(userName, roleName);
+	        return courseDetailsDao.getCoursesByUserNameAndRole(userName, roleName);
 	    }
 
 	    @Override
 	    public Course getByCourseCode(String courseCode) throws Exception {
-	        Course course = courseDetailsDAO.findCourseByCourseCode(courseCode);
+	        Course course = courseDetailsDao.findCourseByCourseCode(courseCode);
 	        return course;
 	    }
 
 	    @Override
 	    public List<Course> findCoursesByStudentUserName(String studentUserName) throws Exception {
-	        return courseDetailsDAO.findCoursesByStudentUserName(studentUserName);
+	        return courseDetailsDao.findCoursesByStudentUserName(studentUserName);
 	    }
 	    
 	    @Override
 	    public List<Course> findCoursesByInstructor(String instructorUserName) throws Exception {
-	        List<Course> coursesList = courseDetailsDAO.findCoursesByInstructor(instructorUserName);
+	        List<Course> coursesList = courseDetailsDao.findCoursesByInstructor(instructorUserName);
 	        return coursesList;
 	    }
 

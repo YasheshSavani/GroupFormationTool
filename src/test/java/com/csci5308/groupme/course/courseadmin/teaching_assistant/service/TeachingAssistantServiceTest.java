@@ -14,12 +14,12 @@ import errors.EditCodes;
 @ExtendWith(SpringExtension.class)
 public class TeachingAssistantServiceTest {
 
-    private TeachingAssistantDao taDAO;
+    private TeachingAssistantDao taDao;
     private TeachingAssistantServiceImpl teachingAssistantService;
    
     public TeachingAssistantServiceTest() {
-    	taDAO = new TeachingAssistantDaoMock();
-    	teachingAssistantService = new TeachingAssistantServiceImpl(taDAO);
+    	taDao = new TeachingAssistantDaoMock();
+    	teachingAssistantService = new TeachingAssistantServiceImpl(taDao);
     }
 
     @Test

@@ -12,9 +12,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsDAOImpl implements QuestionsDAO {
+public class QuestionsDaoImpl implements QuestionsDao {
 
-    Logger logger = LoggerFactory.getLogger(QuestionsDAOImpl.class);
+    Logger logger = LoggerFactory.getLogger(QuestionsDaoImpl.class);
     private DatabaseProperties databaseProperties;
     private Connection connection = null;
 

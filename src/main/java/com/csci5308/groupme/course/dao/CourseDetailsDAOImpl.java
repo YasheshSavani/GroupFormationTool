@@ -19,9 +19,9 @@ import constants.Roles;
 import sql.CourseQuery;
 
 @Repository
-public class CourseDetailsDAOImpl implements CourseDetailsDAO {
+public class CourseDetailsDaoImpl implements CourseDetailsDao {
 
-	private final Logger logger = (Logger) LoggerFactory.getLogger(CourseDetailsDAOImpl.class);
+	private final Logger logger = (Logger) LoggerFactory.getLogger(CourseDetailsDaoImpl.class);
 	DatabaseProperties databaseProperties;
 
 	@Override

@@ -5,7 +5,7 @@ import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
 
 import java.util.List;
 
-public interface QuestionsDAO {
+public interface QuestionsDao {
 
     public int saveNonMCQ(String instructorUserName, Question question);
 

@@ -2,12 +2,16 @@ package com.csci5308.groupme;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.auth.config.PasswordProperties;
-import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDAO;
-import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDAOImpl;
+import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
+import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDaoImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentService;
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentServiceImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerServiceImpl;
+import com.csci5308.groupme.course.courseadmin.survey.dao.SurveyOperationDao;
+import com.csci5308.groupme.course.courseadmin.survey.dao.SurveyOperationDaoImpl;
+import com.csci5308.groupme.course.courseadmin.survey.service.SurveyOperationService;
+import com.csci5308.groupme.course.courseadmin.survey.service.SurveyOperationServiceImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDao;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
@@ -17,21 +21,25 @@ public class SystemConfig {
 
     private static SystemConfig uniqueInstance = null;
     private QuestionManagerService questionManagerService;
-    private QuestionsDAO questionsDAO;
+    private QuestionsDao questionsDao;
     private TeachingAssistantDao teachingAssistantDao;
     private TeachingAssistantService teachingAssistantService;
     private DatabaseProperties databaseProperties;
     private PasswordProperties passwordProperties;
     private EnrollmentService enrollmentService;
+    private SurveyOperationService surveyOperationService;
+    private SurveyOperationDao surveyOperationDao;
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
         teachingAssistantService = new TeachingAssistantServiceImpl(teachingAssistantDao);
-        questionsDAO = new QuestionsDAOImpl();
-        questionManagerService = new QuestionManagerServiceImpl(questionsDAO);
+        questionsDao = new QuestionsDaoImpl();
+        questionManagerService = new QuestionManagerServiceImpl(questionsDao);
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
+        surveyOperationService = new SurveyOperationServiceImpl();
+        surveyOperationDao = new SurveyOperationDaoImpl();
     }
 
     public static SystemConfig instance() {
@@ -65,12 +73,12 @@ public class SystemConfig {
         this.questionManagerService = questionManagerService;
     }
 
-    public QuestionsDAO getQuestionsDAO() {
-        return questionsDAO;
+    public QuestionsDao getQuestionsDao() {
+        return questionsDao;
     }
 
-    public void setQuestionsDAO(QuestionsDAO questionsDAO) {
-        this.questionsDAO = questionsDAO;
+    public void setQuestionsDao(QuestionsDao questionsDao) {
+        this.questionsDao = questionsDao;
     }
 
     public DatabaseProperties getDatabaseProperties() {
@@ -97,5 +105,20 @@ public class SystemConfig {
         this.enrollmentService = enrollmentService;
     }
 
+    public SurveyOperationService getSurveyOperationService() {
+        return surveyOperationService;
+    }
+
+    public void setSurveyOperationService(SurveyOperationService surveyOperationService) {
+        this.surveyOperationService = surveyOperationService;
+    }
+
+    public SurveyOperationDao getSurveyOperationDao() {
+        return surveyOperationDao;
+    }
+
+    public void setSurveyOperationDao(SurveyOperationDao surveyOperationDao) {
+        this.surveyOperationDao = surveyOperationDao;
+    }
 }
 

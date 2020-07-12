@@ -4,7 +4,7 @@ import com.csci5308.groupme.user.model.User;
 
 import java.sql.SQLException;
 
-public interface StudentDAO {
+public interface StudentDao {
 
     boolean isNotEnrolled() throws SQLException;
 

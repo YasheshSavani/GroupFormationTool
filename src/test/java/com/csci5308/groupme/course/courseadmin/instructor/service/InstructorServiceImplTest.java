@@ -1,8 +1,7 @@
 package com.csci5308.groupme.course.courseadmin.instructor.service;
 
-import com.csci5308.groupme.course.courseadmin.instructor.dao.InstructorDAOImpl;
+import com.csci5308.groupme.course.courseadmin.instructor.dao.InstructorDaoImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Instructor;
-import com.csci5308.groupme.course.courseadmin.instructor.service.InstructorServiceImpl;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,7 @@ public class InstructorServiceImplTest {
     UserServiceImpl userService;
 
     @Mock
-    InstructorDAOImpl instructorDAO;
+    InstructorDaoImpl instructorDao;
 
     @InjectMocks
     InstructorServiceImpl instructorService;
@@ -31,7 +30,7 @@ public class InstructorServiceImplTest {
         Instructor instructor = new Instructor();
         instructor.setUserName("inst_test");
         instructor.setAbout("PhD");
-        when(instructorDAO.save(instructor)).thenReturn(1);
+        when(instructorDao.save(instructor)).thenReturn(1);
         int status = instructorService.createInstructor(instructor);
         assertEquals(1, status);
     }
@@ -46,7 +45,7 @@ public class InstructorServiceImplTest {
         User user = new User();
         user.setFirstName("karan");
         user.setUserName("inst_test");
-        when(instructorDAO.findByUserName(userName)).thenReturn(instructorTest);
+        when(instructorDao.findByUserName(userName)).thenReturn(instructorTest);
         when(userService.getByUserName(userName)).thenReturn(user);
         Instructor instructor = instructorService.getByUserName(userName);
         assertEquals(instructor.getFirstName(), instructorTest.getFirstName());
@@ -63,7 +62,7 @@ public class InstructorServiceImplTest {
         instructorTest.setUserName("inst_test");
         instructorTest.setAbout("PhD");
         when(userService.getByEmail(email)).thenReturn(user);
-        when(instructorDAO.findByUserName(user.getUserName())).thenReturn(instructorTest);
+        when(instructorDao.findByUserName(user.getUserName())).thenReturn(instructorTest);
         Instructor instructor = instructorService.getByEmail(email);
         assertEquals(instructor.getFirstName(), instructorTest.getFirstName());
     }

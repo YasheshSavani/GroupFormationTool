@@ -18,9 +18,9 @@ import errors.SqlErrors;
 import sql.CourseQuery;
 
 @Repository
-public class CourseDAOImpl implements CourseDAO {
+public class CourseDaoImpl implements CourseDao {
 
-    private final Logger logger = (Logger) LoggerFactory.getLogger(CourseDAOImpl.class);
+    private final Logger logger = (Logger) LoggerFactory.getLogger(CourseDaoImpl.class);
     DatabaseProperties databaseProperties;
 
     @Override

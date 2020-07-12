@@ -9,7 +9,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class StudentDAOImpl implements StudentDAO {
+public class StudentDaoImpl implements StudentDao {
 
     Student student;
     Connection connection = null;
@@ -17,7 +17,7 @@ public class StudentDAOImpl implements StudentDAO {
     DatabaseProperties databaseProperties;
     BCryptPasswordEncoder passwordEncoder;
 
-    public StudentDAOImpl(Student student) {
+    public StudentDaoImpl(Student student) {
         this.student = student;
         this.databaseProperties = new DatabaseProperties();
     }
