@@ -13,7 +13,6 @@
         function showCourseAdminButton() {
             if (isTA === "true") {
                 document.getElementById('courseAdminButton').style.display = "block";
-                document.getElementById('createSurveyButton').style.display = "block";
             }
         }
 
@@ -31,14 +30,6 @@
 
 <div style="text-align: center; margin: 0 auto; padding-top:10px">
     <h2>Details of Course</h2>
-    <div id="createSurveyButton" style="text-align: center; display: none;">
-        <form th:action="@{/createSurvey}" method="get">
-            <button
-                    style="background-color: gray; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
-                    type="submit">Create Survey
-            </button>
-        </form>
-    </div>
 
     <div id="courseAdminButton" style="text-align: center; display: none;">
         <form th:action="@{/TAcoursepage}" method="post">
