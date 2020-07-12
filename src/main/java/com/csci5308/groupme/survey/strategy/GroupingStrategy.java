@@ -11,6 +11,5 @@ public interface GroupingStrategy {
 	public List<Group> getGroups(List<Candidate> candidates, Integer groupSize);
 
 	public void setGroupingHeuristic(GroupingHeuristic groupingHeuristic);
-	
-	
+		
 }

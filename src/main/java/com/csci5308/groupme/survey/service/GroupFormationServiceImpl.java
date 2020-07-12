@@ -29,7 +29,7 @@ public class GroupFormationServiceImpl implements GroupFormationService{
 	@Override
 	public void setGroupingStrategy(String algorithm) {
 		if(algorithm.equalsIgnoreCase(Algorithms.GREEDY_GROUPING_WITH_PAIR_SCORES)) {
-			this.groupingHeuristic = groupingHeuristicFactory.getHeuristic(Heuristics.PAIR_SCORING);
+			this.groupingHeuristic = groupingHeuristicFactory.getHeuristic(Heuristics.PAIR_SCORES);
 			groupingStrategy = new GreedyGroupingWithPairScores();
 			groupingStrategy.setGroupingHeuristic(groupingHeuristic);
 			logger.info("Using algorithm: {}", algorithm);			

@@ -29,7 +29,7 @@ public class QuestionManagerServiceImpl implements QuestionManagerService {
         long millis = System.currentTimeMillis();
         Date createdDate = new Date(millis);
         try {
-            if (question.getType().equals(QuestionTypeConstants.numericType) || question.getType().equals(QuestionTypeConstants.freeTextType)) {
+            if (question.getType().equals(QuestionTypeConstants.NUMERIC) || question.getType().equals(QuestionTypeConstants.FREE_TEXT)) {
                 question.setCreatedDate(createdDate);
                 status = questionsDAO.saveNonMCQ(instructorUserName, question);
             } else {

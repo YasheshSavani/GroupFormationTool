@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.Group;
-import com.csci5308.groupme.survey.model.Responses;
 import com.csci5308.groupme.survey.strategy.GroupingStrategy;
-import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristic;
 
 public interface GroupFormationService {
 

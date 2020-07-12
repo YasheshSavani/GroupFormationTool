@@ -51,7 +51,7 @@ public class QuestionController {
         questionObject.setQuestion(question);
         questionObject.setType(questionType);
         ModelAndView mView = new ModelAndView();
-        if (questionType.equals(QuestionTypeConstants.mcqChooseOne)
+        if (questionType.equals(QuestionTypeConstants.MCQ_CHOOSE_ONE)
                 || questionType.equals(QuestionTypeConstants.mcqChooseMultiple)) {
             ListOfOptions options = new ListOfOptions();
             List<Option> optionList = new ArrayList<>();
@@ -60,8 +60,8 @@ public class QuestionController {
             mView.setViewName("instructor/createoptions");
             mView.addObject("options", options);
             mView.addObject("questionDetails", questionObject);
-        } else if (questionType.equals(QuestionTypeConstants.numericType)
-                || questionType.equals(QuestionTypeConstants.freeTextType)) {
+        } else if (questionType.equals(QuestionTypeConstants.NUMERIC)
+                || questionType.equals(QuestionTypeConstants.FREE_TEXT)) {
             questionManagerService = SystemConfig.instance().getQuestionManagerService();
             ListOfOptions options = null;
             int status = questionManagerService.createQuestion(principal.getName(), questionObject, options);
