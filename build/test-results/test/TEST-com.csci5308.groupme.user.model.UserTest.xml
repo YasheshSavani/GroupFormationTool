@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.csci5308.groupme.user.model.UserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-07-06T19:42:25" hostname="YASHESH" time="0.054">
+<testsuite name="com.csci5308.groupme.user.model.UserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-07-12T04:33:05" hostname="YASHESH" time="0.023">
   <properties/>
-  <testcase name="getPermissionsTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.004"/>
+  <testcase name="getPermissionsTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.003"/>
   <testcase name="getFirstNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.001"/>
-  <testcase name="setLastnameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.002"/>
-  <testcase name="getUserNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.002"/>
-  <testcase name="setPermissions()" classname="com.csci5308.groupme.user.model.UserTest" time="0.001"/>
-  <testcase name="setPasswordTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.011"/>
-  <testcase name="getPassword()" classname="com.csci5308.groupme.user.model.UserTest" time="0.001"/>
+  <testcase name="setLastnameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
+  <testcase name="getUserNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
+  <testcase name="setPermissions()" classname="com.csci5308.groupme.user.model.UserTest" time="0.002"/>
+  <testcase name="setPasswordTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
+  <testcase name="getPassword()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
   <testcase name="setUserNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.001"/>
   <testcase name="setEmailaddressTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
   <testcase name="getRolesTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
   <testcase name="setFirstNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
-  <testcase name="getEmailaddressTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.003"/>
-  <testcase name="getLastNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.001"/>
-  <testcase name="setRolesTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
+  <testcase name="getEmailaddressTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
+  <testcase name="getLastNameTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.0"/>
+  <testcase name="setRolesTest()" classname="com.csci5308.groupme.user.model.UserTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -20,123 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="734696bf-3f9c-4642-996b-cd5a7a83ddcf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1/gc.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/SystemConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/SystemConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/admin/service/AdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/admin/service/AdminServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/auth/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/auth/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/dao/CourseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/dao/CourseDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/dao/CourseDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/dao/CourseDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/service/CourseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/service/CourseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/service/CourseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/course/service/CourseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/student/controller/StudentController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/student/dao/StudentDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/student/dao/StudentDAOImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/student/model/Student.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/admin/service/AdminServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/admin/service/AdminServiceTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/course/service/CourseServiceImplTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/course/service/CourseServiceImplTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/student/controller/StudentControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/student/model/StudentMock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/student/model/StudentTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.GroupmeApplicationTests.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.GroupmeApplicationTests.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.admin.service.AdminServiceTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.admin.service.AdminServiceTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.auth.LoginSuccessHandlerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.auth.LoginSuccessHandlerTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.auth.config.PasswordPropertiesTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.auth.config.PasswordPropertiesTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.course.model.CourseTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.course.model.CourseTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.course.service.CourseServiceImplTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.course.service.CourseServiceImplTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.student.controller.StudentControllerTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.student.model.StudentTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.model.UserAuthDetailsTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.model.UserAuthDetailsTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.model.UserTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.model.UserTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.service.SendEmailConfigurationImplTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.service.SendEmailConfigurationImplTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.service.UserServiceTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.csci5308.groupme.user.service.UserServiceTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.admin.service.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.admin.service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.auth.config.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.auth.config.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.auth.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.auth.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.course.model.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.course.model.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.course.service.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.course.service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.student.controller.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.student.model.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.user.model.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.user.model.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.user.service.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.csci5308.groupme.user.service.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.GroupmeApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.GroupmeApplicationTests.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.admin.service.AdminServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.admin.service.AdminServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.auth.LoginSuccessHandlerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.auth.LoginSuccessHandlerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.auth.config.PasswordPropertiesTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.auth.config.PasswordPropertiesTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.course.model.CourseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.course.model.CourseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.course.service.CourseServiceImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.course.service.CourseServiceImplTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.student.controller.StudentControllerTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.student.model.StudentTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.model.UserAuthDetailsTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.model.UserAuthDetailsTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.model.UserTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.model.UserTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.service.SendEmailConfigurationImplTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.service.SendEmailConfigurationImplTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.service.UserServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.csci5308.groupme.user.service.UserServiceTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/SystemConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/admin/service/AdminServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/admin/service/AdminServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/QuestionTypeConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/QuestionTypeConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/controller/EnrollmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/controller/EnrollmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/controller/InstructorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/controller/InstructorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/dao/InstructorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/dao/InstructorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/dao/InstructorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/dao/InstructorDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/dao/QuestionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/dao/QuestionsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/dao/QuestionsDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/dao/QuestionsDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/model/Instructor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/model/Instructor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/model/ListOfOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/model/ListOfOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/model/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/model/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/service/EnrollmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/service/EnrollmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/service/EnrollmentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/service/EnrollmentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/service/InstructorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/service/InstructorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/service/InstructorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/service/InstructorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/service/QuestionManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/service/QuestionManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/instructor/service/QuestionManagerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/instructor/service/QuestionManagerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/teaching_assistant/controller/TeachingAssistantController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/controller/TeachingAssistantController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/teaching_assistant/dao/TeachingAssistantDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/dao/TeachingAssistantDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/teaching_assistant/dao/TeachingAssistantDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/dao/TeachingAssistantDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/teaching_assistant/model/TeachingAssistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/model/TeachingAssistant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/teaching_assistant/service/TeachingAssistantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/service/TeachingAssistantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/courseadmin/teaching_assistant/service/TeachingAssistantServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/service/TeachingAssistantServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/student/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/student/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/student/dao/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/student/dao/StudentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/student/dao/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/student/dao/StudentDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/student/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/student/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/admin/service/AdminServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/admin/service/AdminServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/auth/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/student/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/dao/QuestionsDaoMock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/model/InstructorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/model/ListOfOptionsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/model/OptionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/model/QuestionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/service/EnrollmentServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/service/InstructorServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/instructor/service/QuestionManagerServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/teaching_assistant/dao/TeachingAssistantDaoMock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/teaching_assistant/model/TeachingAssistantTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/courseadmin/teaching_assistant/service/TeachingAssistantServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/student/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/student/controller/StudentControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/student/model/StudentMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/student/model/StudentMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/student/model/StudentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/student/model/StudentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/datasource/DatabaseProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/datasource/DatabaseProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/datasource/DatabaseProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/datasource/DatabaseProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/student/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,6 +272,9 @@
       <workItem from="1593560960760" duration="911000" />
       <workItem from="1593622445082" duration="137000" />
       <workItem from="1594064034226" duration="520000" />
+      <workItem from="1594501404993" duration="607000" />
+      <workItem from="1594502078432" duration="439000" />
+      <workItem from="1594502540568" duration="2482000" />
     </task>
     <servers />
   </component>
@@ -452,64 +359,64 @@
     </state>
     <state x="515" y="173" key="FileChooserDialogImpl/0.0.1470.864@0.0.1470.864" timestamp="1593549109062" />
     <state x="516" y="173" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1591057274995" />
-    <state width="1427" height="318" key="GridCell.Tab.0.bottom" timestamp="1594064587266">
+    <state width="1427" height="318" key="GridCell.Tab.0.bottom" timestamp="1594528392651">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="318" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594064587266" />
+    <state width="1427" height="318" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594528392651" />
     <state width="1429" height="416" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="318" key="GridCell.Tab.0.center" timestamp="1594064587266">
+    <state width="1427" height="318" key="GridCell.Tab.0.center" timestamp="1594528392650">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="318" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594064587266" />
+    <state width="1427" height="318" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594528392650" />
     <state width="1429" height="416" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="318" key="GridCell.Tab.0.left" timestamp="1594064587266">
+    <state width="1427" height="318" key="GridCell.Tab.0.left" timestamp="1594528392650">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="318" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594064587266" />
+    <state width="1427" height="318" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594528392650" />
     <state width="1429" height="416" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="318" key="GridCell.Tab.0.right" timestamp="1594064587266">
+    <state width="1427" height="318" key="GridCell.Tab.0.right" timestamp="1594528392650">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="318" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594064587266" />
+    <state width="1427" height="318" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594528392650" />
     <state width="1429" height="416" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1431" height="318" key="GridCell.Tab.1.bottom" timestamp="1592464197637">
-      <screen x="0" y="0" width="1474" height="864" />
+    <state width="713" height="318" key="GridCell.Tab.1.bottom" timestamp="1594528344481">
+      <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598210" />
-    <state width="1428" height="319" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="713" height="318" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594528344481" />
     <state width="1429" height="416" key="GridCell.Tab.1.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197637" />
-    <state width="1431" height="318" key="GridCell.Tab.1.center" timestamp="1592464197636">
-      <screen x="0" y="0" width="1474" height="864" />
+    <state width="713" height="318" key="GridCell.Tab.1.center" timestamp="1594528344481">
+      <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
-    <state width="1428" height="319" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="713" height="318" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1594528344481" />
     <state width="1429" height="416" key="GridCell.Tab.1.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1431" height="318" key="GridCell.Tab.1.left" timestamp="1592464197636">
-      <screen x="0" y="0" width="1474" height="864" />
+    <state width="713" height="318" key="GridCell.Tab.1.left" timestamp="1594528344481">
+      <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
-    <state width="1428" height="319" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="713" height="318" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1594528344481" />
     <state width="1429" height="416" key="GridCell.Tab.1.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1431" height="318" key="GridCell.Tab.1.right" timestamp="1592464197637">
-      <screen x="0" y="0" width="1474" height="864" />
+    <state width="713" height="318" key="GridCell.Tab.1.right" timestamp="1594528344481">
+      <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598210" />
-    <state width="1428" height="319" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1591316712753" />
+    <state width="713" height="318" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1594528344481" />
     <state width="1429" height="416" key="GridCell.Tab.1.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197637" />
     <state width="1425" height="277" key="GridCell.Tab.2.bottom" timestamp="1592170598210">
