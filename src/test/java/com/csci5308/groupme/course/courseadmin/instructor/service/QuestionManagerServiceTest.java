@@ -34,7 +34,7 @@ public class QuestionManagerServiceTest {
         Question question = new Question();
         ListOfOptions options = null;
         question.setQuestion("Which programming language is your best suit?");
-        question.setType(QuestionTypeConstants.freeTextType);
+        question.setType(QuestionTypeConstants.FREE_TEXT);
         question.setTitle("Programming Language Preference");
         int status = questionManagerService.createQuestion(instructorUserName, question, options);
         assertEquals(EditCodes.SUCCESS, status);
@@ -45,7 +45,7 @@ public class QuestionManagerServiceTest {
         ListOfOptions options = new ListOfOptions();
         Question question = new Question();
         question.setQuestion("How good is your Python?");
-        question.setType(QuestionTypeConstants.mcqChooseOne);
+        question.setType(QuestionTypeConstants.MCQ_CHOOSE_ONE);
         question.setTitle("Python");
         String instructorUserName = "iuser";
         List<Option> optionList = new ArrayList<>();

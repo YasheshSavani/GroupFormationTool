@@ -1,15 +1,9 @@
 package com.csci5308.groupme.course.courseadmin.instructor.controller;
 
-import ch.qos.logback.classic.Logger;
-import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
-import constants.Messages;
-import errors.EditCodes;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
-import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
-import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
-import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,9 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
+import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
+import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
+
+import ch.qos.logback.classic.Logger;
+import constants.Messages;
+import errors.EditCodes;
 
 @Controller
 public class QuestionController {
@@ -51,8 +52,8 @@ public class QuestionController {
         questionObject.setQuestion(question);
         questionObject.setType(questionType);
         ModelAndView mView = new ModelAndView();
-        if (questionType.equals(QuestionTypeConstants.mcqChooseOne)
-                || questionType.equals(QuestionTypeConstants.mcqChooseMultiple)) {
+        if (questionType.equals(QuestionTypeConstants.MCQ_CHOOSE_ONE)
+                || questionType.equals(QuestionTypeConstants.MCQ_CHOOSE_MULTIPLE)) {
             ListOfOptions options = new ListOfOptions();
             List<Option> optionList = new ArrayList<>();
             optionList.add(new Option("", count, count));
@@ -60,8 +61,8 @@ public class QuestionController {
             mView.setViewName("instructor/createoptions");
             mView.addObject("options", options);
             mView.addObject("questionDetails", questionObject);
-        } else if (questionType.equals(QuestionTypeConstants.numericType)
-                || questionType.equals(QuestionTypeConstants.freeTextType)) {
+        } else if (questionType.equals(QuestionTypeConstants.NUMERIC)
+                || questionType.equals(QuestionTypeConstants.FREE_TEXT)) {
             questionManagerService = SystemConfig.instance().getQuestionManagerService();
             ListOfOptions options = null;
             int status = questionManagerService.createQuestion(principal.getName(), questionObject, options);
