@@ -1,5 +1,7 @@
 package com.csci5308.groupme.survey.model;
 
+import java.util.Map;
+
 public class Candidate {
 	
 	private Integer surveyId;
@@ -8,7 +10,8 @@ public class Candidate {
 	private String firstName;
 	private String lastName;
 	private String responses;
-	private Float fitness;	
+	private Double fitness;	
+	private Map<?,?> questionResponsesMap;	
 	
 	public String getFirstName() {
 		return firstName;
@@ -46,11 +49,18 @@ public class Candidate {
 	public void setResponses(String responses) {
 		this.responses = responses;
 	}
-	public Float getFitness() {
+	public Double getFitness() {
 		return fitness;
 	}
-	public void setFitness(Float fitness) {
+	public void setFitness(Double fitness) {
 		this.fitness = fitness;
 	}		
+	
+	public Map<?, ?> getQuestionResponsesMap() {
+		return questionResponsesMap;
+	}
+	public void setQuestionResponsesMap(Map<?, ?> questionResponsesMap) {
+		this.questionResponsesMap = questionResponsesMap;
+	}
 	
 }

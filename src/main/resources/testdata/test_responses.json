@@ -1,0 +1,1725 @@
+
+  {
+	"c1": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "1"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c2": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "4"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "9"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		}
+	},
+	"c3": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "11"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "4"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "1"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "4"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "8"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "1"
+		}
+	},
+	"c4": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c5": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c6": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c7": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c8": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c9": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c10": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c11": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c12": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c13": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c14": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c15": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c16": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c17": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c18": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c19": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c20": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	},
+	"c21": {
+		"1": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "7"
+		},
+		"2": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "3"
+		},
+		"3": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "7",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "5"
+		},
+		"4": {
+			"type": "Multiple choice - choose one",
+			"criterion": "1",
+			"weight": "1",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "2"
+		},
+		"5": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"6": {
+			"type": "Multiple choice - choose multiple",
+			"criterion": "1",
+			"weight": "3",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"7": {
+			"type": "Free text",
+			"criterion": "1",
+			"weight": "2",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"8": {
+			"type": "Multiple choice - choose one",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"9": {
+			"type": "Numeric",
+			"criterion": "1",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		},
+		"10": {
+			"type": "Numeric",
+			"criterion": "2",
+			"weight": "5",
+			"upperBound": "none",
+			"lowerBound": "none",
+			"answer": "6"
+		}
+	}
+}

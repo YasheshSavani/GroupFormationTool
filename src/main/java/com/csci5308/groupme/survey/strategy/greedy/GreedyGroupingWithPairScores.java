@@ -60,7 +60,7 @@ public class GreedyGroupingWithPairScores implements GroupingStrategy {
 		List<Candidate> groupMateCandidates = (List<Candidate>) groupingHeuristic.compute(allCandidates,
 				pivotCandidate);
 		groupMateCandidates
-				.sort((candidate1, candidate2) -> Math.round(candidate2.getFitness() - candidate1.getFitness()));
+				.sort((candidate1, candidate2) -> Double.compare(candidate2.getFitness(), candidate1.getFitness()));
 		Group group = new Group();
 		group.add(pivotCandidate);
 		for (int i = 0; i < groupSize - 1; i++) {
