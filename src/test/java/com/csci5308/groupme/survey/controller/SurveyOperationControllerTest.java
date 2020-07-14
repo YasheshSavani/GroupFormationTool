@@ -42,14 +42,6 @@ class SurveyOperationControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "iuser", password = "password", authorities = {Roles.INSTRUCTOR})
-    void showCreateSurveyPageTest() throws Exception {
-        this.mockMvc.perform(get("/survey/createSurvey")
-                .param(courseCodeParamString, courseCode)
-                .param(roleNameParamString, instructorRoleName)).andDo(print()).andExpect(status().isOk());
-    }
-
-    @Test
     @WithMockUser(username = "ysavani", password = "admin19", authorities = {Roles.STUDENT, Roles.TA})
     void addQuestionToSurveyTest() throws Exception {
         this.mockMvc.perform(post("/survey/addQuestionToSurvey")
