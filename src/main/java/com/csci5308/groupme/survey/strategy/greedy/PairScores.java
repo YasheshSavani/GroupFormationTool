@@ -1,24 +1,25 @@
 package com.csci5308.groupme.survey.strategy.greedy;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import org.apache.commons.collections4.map.HashedMap;
 import org.slf4j.LoggerFactory;
 
+import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
 import com.csci5308.groupme.survey.constants.Criteria;
 import com.csci5308.groupme.survey.model.Candidate;
 
 import ch.qos.logback.classic.Logger;
 
+@SuppressWarnings("unchecked")
 public class PairScores implements GroupingHeuristic {
 
 	private final Logger logger = (Logger) LoggerFactory.getLogger(PairScores.class);
-	
-	private int PIVOT_INDEX;
+
 	private final int SIMILARITY = 1;
 	private final int DISSIMILARITY = 2;
 	private final int ATLEAST_ONE_WITH_MINIMUM = 3;
@@ -26,7 +27,7 @@ public class PairScores implements GroupingHeuristic {
 	private Map<?, ?> pivotResponses;
 	private Map<?, ?> groupMateCandidateResponses;
 	private final double resolver = 1.25;
-	    
+
 	@Override
 	public List<Candidate> compute(List<Candidate> candidates, Candidate... predicates) {
 		if (candidates != null) {
@@ -50,51 +51,80 @@ public class PairScores implements GroupingHeuristic {
 		List<String> questionIDs = new ArrayList<String>();
 		for (Map.Entry<?, ?> entry : pivotResponses.entrySet()) {
 			questionIDs.add((String) entry.getKey());
-			// System.out.println(entry.getKey() + "=" + entry.getValue());
-			// System.out.println(questionIDs);
 		}
 		for (String questionID : questionIDs) {
-		    score += weight(questionID) * gain(questionID);
-			//System.out.println((gain(questionID)));
+			score += weight(questionID) * gain(questionID);
 		}
-		System.out.println(score);
+		logger.debug("Pair Score {}", score);
 		return score;
 	}
 
 	private double gain(String questionID) {
-		int criterion = Integer.parseInt((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("criterion"));
-		int expectedCriterion = 0;
 		double gain = 0.00;
+		int criterion = Integer.parseInt((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("criterion"));
+		String questionType = (String) ((Map<?, ?>) pivotResponses.get(questionID)).get("type");
+		int expectedCriterion = 0;
 		if (criterion == Criteria.DISSIMILARITY) {
 			expectedCriterion = DISSIMILARITY;
 		} else {
 			expectedCriterion = SIMILARITY;
 		}
-		double pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer"));
-		double candidateAnswer = Double.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionID)).get("answer"));
+		double pivotAnswer;
+		double candidateAnswer;	
+		switch (questionType) {
 		
-		//Numeric
-		if (expectedCriterion == SIMILARITY && (pivotAnswer - candidateAnswer) == 0) {
-			gain = 1;
+		case QuestionTypeConstants.NUMERIC:
+			logger.debug("Numeric type question");
+			pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer"));
+			candidateAnswer = Double
+					.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionID)).get("answer"));
+			if (expectedCriterion == SIMILARITY && (pivotAnswer - candidateAnswer) == 0) {
+				gain = 1;
+			} else {
+				gain = Math.pow(resolver * Math.abs(pivotAnswer - candidateAnswer), Math.pow(-1, expectedCriterion));
+			}
+			break;
+
+		case QuestionTypeConstants.MCQ_CHOOSE_ONE:
+			logger.debug("MCQ- Choose one type question");
+			pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer"));
+			candidateAnswer = Double
+					.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionID)).get("answer"));
+
+			int observed;
+			if ((pivotAnswer - candidateAnswer) == 0) {
+				observed = SIMILARITY;
+			} else {
+				observed = DISSIMILARITY;
+			}
+			gain = (1 - Math.abs(expectedCriterion - observed));
+			break;
+
+		case QuestionTypeConstants.MCQ_CHOOSE_MULTIPLE:
+			logger.debug("MCQ- Choose many type question");
+			List<String> pivotChoicesList = (List<String>) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer");
+			List<String> candidateChoicesList = (List<String>) ((Map<?, ?>) groupMateCandidateResponses.get(questionID))
+					.get("answer");
+			Set<String> union = new HashSet<>(pivotChoicesList);
+			union.addAll(candidateChoicesList);
+			Set<String> intersection = new HashSet<>(pivotChoicesList);
+			intersection.retainAll(candidateChoicesList);
+			if (expectedCriterion == SIMILARITY) {
+				gain = intersection.size();
+			} else {
+				union.removeAll(intersection);
+				gain = union.size();
+			}
+			break;
+		default:
+			gain = 0.00;
 		}
-		else {
-		gain = Math.pow(resolver*Math.abs(pivotAnswer - candidateAnswer), Math.pow(-1, expectedCriterion));
-		}
-		
-		//MCQ Choose one
-		
-		
-		//MCQ Choose many
-		
-		
 		return gain;
 	}
 
 	private int weight(String questionID) {
-		// String weight = (String) ((Map<?, ?>)
-		// pivotResponses.get(questionID)).get("weight");
-		// return Integer.parseInt(weight);
-		return 1;
+		String weight = (String) ((Map<?, ?>) pivotResponses.get(questionID)).get("weight");
+		return Integer.parseInt(weight);
 	}
-
+	
 }

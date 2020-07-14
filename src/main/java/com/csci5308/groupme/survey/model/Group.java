@@ -1,14 +1,24 @@
 package com.csci5308.groupme.survey.model;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
 
 public class Group {
+	
+	private final Logger logger = (Logger) LoggerFactory.getLogger(Group.class);
 
 	private Integer groupNo;
-	private Set<Candidate> candidates;
+	private List<Candidate> candidates;
 	private Candidate pivotCandidate;
-	
-	
+
+	public Group() {
+		candidates = new ArrayList<Candidate>();
+	}
+
 	public Integer getGroupNo() {
 		return groupNo;
 	}
@@ -25,16 +35,21 @@ public class Group {
 		this.pivotCandidate = pivotCandidate;
 	}
 
-	public Set<Candidate> getCandidates() {
+	public List<Candidate> getCandidates() {
 		return candidates;
 	}
 
-	public void setCandidates(Set<Candidate> group) {
+	public void setCandidates(List<Candidate> group) {
 		this.candidates = group;
 	}
 
 	public void add(Candidate candidate) {
 		candidates.add(candidate);
+		logger.debug("Adding single candidate", candidates.size());
+	}		
+
+	public void sortCandidatesByFitness() {
+		candidates.sort((candidate1, candidate2) -> Double.compare(candidate2.getFitness(), candidate1.getFitness()));
 	}
-		
+
 }
