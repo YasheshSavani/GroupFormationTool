@@ -6,7 +6,7 @@ import java.util.List;
 import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
 import org.slf4j.LoggerFactory;
 
-import constants.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;

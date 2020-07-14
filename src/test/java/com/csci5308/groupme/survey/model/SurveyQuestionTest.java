@@ -1,6 +1,6 @@
 package com.csci5308.groupme.survey.model;
 
-import constants.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +9,7 @@ class SurveyQuestionTest {
 
     private String questionIdTest = "1";
     private String questionTitleTest = "Python";
-    private String questionTypeTest = QuestionTypeConstants.numericType;
+    private String questionTypeTest = QuestionTypeConstants.NUMERIC;
     private String questionTest = "Proficiency Level";
     private String criterionTest = "similar";
     private String weightTest = "1";

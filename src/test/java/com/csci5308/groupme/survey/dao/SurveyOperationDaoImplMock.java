@@ -1,7 +1,7 @@
 package com.csci5308.groupme.survey.dao;
 
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
-import constants.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ public class SurveyOperationDaoImplMock implements SurveyOperationDao {
     private final String questionTitleTest = "Python";
     private final Integer questionIdTest = 23;
     private final String questionTest = "What is your proficiency level in Python?";
-    private final String questionTypeTest = QuestionTypeConstants.numericType;;
+    private final String questionTypeTest = QuestionTypeConstants.NUMERIC;;
     private final String jsonStringTest = "{" +
             "\"1\": { " +
             " \"title\": \"default\"," +

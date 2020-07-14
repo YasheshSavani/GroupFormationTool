@@ -9,7 +9,6 @@
     <link rel="stylesheet" th:href="@{/css/theme.css}"/>
 </head>
 <body>
-
 <div class="topnav">
     <a href="#">GroupMe</a>
     <a style="float: right" href="/logout">Logout</a>
@@ -36,11 +35,11 @@
     </thead>
 </table>
 <div th:each="questionData: ${notAddedQuestions}" id="notAddedQuestions"
-     style="width:100%; overflow:scroll; height: 50%;">
-    <form name="form1" method="POST"
+     style="width:100%; height: 50%;">
+    <form name="form1" method="post"
           style="display: inline-block;" th:action="@{/survey/addQuestionToSurvey}">
         <table id="notAddedQuestionsDataTable" style="border: #146A74;">
-            <tbody th:if="${notAddedQuestions != null}">
+            <tbody th:if="${notAddedQuestions.size() != 0}">
             <tr>
                 <td th:text="${questionData.getQuestionId()}"></td>
                 <td th:text="${questionData.getTitle()}"></td>
@@ -66,7 +65,7 @@
                 </td>
             </tr>
             </tbody>
-            <tbody th:if="${notAddedQuestions == null}">
+            <tbody th:if="${notAddedQuestions.size() == 0}">
             <tr colspan="4">
                 <td>No Questions to add</td>
             </tr>
@@ -88,11 +87,11 @@
     </thead>
 </table>
 <div th:each="questionData: ${addedQuestions}" id="addedQuestions"
-     style="width:100%; overflow:scroll; height: 50%;">
-    <form name="form2" method="POST"
+     style="width:100%; height: 50%;">
+    <form name="form2" method="post"
           style="display: inline-block;" th:action="@{/survey/removeQuestionFromSurvey}">
         <table id="addedQuestionsDataTable" style="border: #146A74;">
-            <tbody th:if="${addedQuestions != null}">
+            <tbody th:if="${addedQuestions.size() != 0}">
             <tr>
                 <td th:text="${questionData.getQuestionId()}"></td>
                 <td th:text="${questionData.getTitle()}"></td>
@@ -118,7 +117,7 @@
                 </td>
             </tr>
             </tbody>
-            <tbody th:if="${addedQuestions == null}">
+            <tbody th:if="${addedQuestions.size() == 0}">
             <tr colspan="4">
                 <td>No Questions added to Survey</td>
             </tr>

@@ -1,6 +1,6 @@
 package com.csci5308.groupme.course.courseadmin.instructor.service;
 
-import constants.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDaoMock;
 import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;

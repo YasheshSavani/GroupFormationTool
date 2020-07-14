@@ -1,6 +1,6 @@
 package com.csci5308.groupme.survey.controller;
 
-import constants.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +29,7 @@ class SurveyOperationControllerTest {
     private final String questionTitleParamString = "questionTitle";
     private final String courseCode = "csci0010";
     private final String roleName = Roles.TA;
-    private final String questionType = QuestionTypeConstants.numericType;
+    private final String questionType = QuestionTypeConstants.NUMERIC;
     private final String questionId = "1";
     private final String question = "How?";
     private final String questionTitle = "Python";
