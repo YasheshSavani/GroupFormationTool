@@ -38,5 +38,7 @@ public class Messages {
 	public static final String INSTRUCTOR_NOT_CREATED = "Something went wrong. Could not make the user an instructor!";
 
 	public static final String FAILURE = "Something went wrong! Operation could not be completed.";
+	
+	public static final String SURVEY_ALREADY_PUBLISHED = "Survey is already published. You cannot edit the survey ";
 		
 }

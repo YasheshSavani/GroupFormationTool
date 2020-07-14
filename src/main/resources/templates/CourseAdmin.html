@@ -31,15 +31,16 @@
                 <input type="hidden" name="courseCode" th:value="${course.courseCode}">
                 <input type="hidden" name="courseName" th:value="${course.courseName}">
                 <input type="hidden" name="courseCrn" th:value="${course.courseCrn}">
-                <button name="createSurvey" formaction="#">Create Survey</button>
-                <button name="editSurvey" formaction="#">Edit Survey</button>
-                <button name="customizeSurvey" formaction="#">Customize Survey</button>
-                <button name="publishSurvey" formaction="#">Publish Survey</button>
-                <button type="submit">Go To Course</button>
+                <button formaction="#">Create Survey</button>
+                <button type="submit" id="editSurvey" class="button" formaction="@{/courseAdmin/editSurvey}">Edit Survey</button>
+                <button formaction="#">Customize Survey</button>
+                <button formaction="#">Publish Survey</button>
+                <button>Go To Course</button>
             </form>
         </td>
     </tr>
 </table>
+<span th:text="${message}"></span>
 <span th:if="${status != null}">
     <p th:text="'Status: ' + ${status}"></p>
 </span>

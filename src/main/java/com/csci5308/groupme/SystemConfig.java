@@ -8,8 +8,12 @@ import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentServ
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentServiceImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerServiceImpl;
+import com.csci5308.groupme.course.courseadmin.survey.dao.EditSurveyDao;
+import com.csci5308.groupme.course.courseadmin.survey.dao.EditSurveyDaoImpl;
 import com.csci5308.groupme.course.courseadmin.survey.dao.SurveyOperationDao;
 import com.csci5308.groupme.course.courseadmin.survey.dao.SurveyOperationDaoImpl;
+import com.csci5308.groupme.course.courseadmin.survey.service.EditSurveyService;
+import com.csci5308.groupme.course.courseadmin.survey.service.EditSurveyServiceImpl;
 import com.csci5308.groupme.course.courseadmin.survey.service.SurveyOperationService;
 import com.csci5308.groupme.course.courseadmin.survey.service.SurveyOperationServiceImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDao;
@@ -29,6 +33,8 @@ public class SystemConfig {
     private EnrollmentService enrollmentService;
     private SurveyOperationService surveyOperationService;
     private SurveyOperationDao surveyOperationDao;
+    private EditSurveyService editSurveyService;
+    private EditSurveyDao editSurveyDao;
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
@@ -38,8 +44,10 @@ public class SystemConfig {
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
-        surveyOperationService = new SurveyOperationServiceImpl();
+        surveyOperationService = new SurveyOperationServiceImpl(); 
         surveyOperationDao = new SurveyOperationDaoImpl();
+        editSurveyService = new EditSurveyServiceImpl(editSurveyDao);
+        editSurveyDao = new EditSurveyDaoImpl();
     }
 
     public static SystemConfig instance() {
@@ -119,6 +127,22 @@ public class SystemConfig {
 
     public void setSurveyOperationDao(SurveyOperationDao surveyOperationDao) {
         this.surveyOperationDao = surveyOperationDao;
+    }
+    
+    public EditSurveyService getEditSurveyService() {
+        return editSurveyService;
+    }
+
+    public void setEditSurveyService(EditSurveyService editSurveyService) {
+        this.editSurveyService = editSurveyService;
+    }
+    
+    public EditSurveyDao getEditSurveyDao() {
+        return editSurveyDao;
+    }
+
+    public void setEditSurveyDao(EditSurveyDao editSurveyDao) {
+        this.editSurveyDao = editSurveyDao;
     }
 }
 
