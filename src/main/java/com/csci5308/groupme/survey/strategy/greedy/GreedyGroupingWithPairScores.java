@@ -1,19 +1,20 @@
 package com.csci5308.groupme.survey.strategy.greedy;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
+
+import org.slf4j.LoggerFactory;
 
 import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.Group;
 import com.csci5308.groupme.survey.strategy.GroupingStrategy;
 
+import ch.qos.logback.classic.Logger;
+
 @SuppressWarnings("unchecked")
 public class GreedyGroupingWithPairScores implements GroupingStrategy {
 
+	private final Logger logger = (Logger) LoggerFactory.getLogger(GreedyGroupingWithPairScores.class);
 	private GroupingHeuristic groupingHeuristic;
 	private List<Group> groups;
 	private List<Candidate> pivotCandidates;
@@ -21,11 +22,11 @@ public class GreedyGroupingWithPairScores implements GroupingStrategy {
 	@Override
 	public void setGroupingHeuristic(GroupingHeuristic groupingHeuristic) {
 		this.groupingHeuristic = groupingHeuristic;
+		groups = new ArrayList<Group>();
 	}
 
 	@Override
 	public List<Group> getGroups(List<Candidate> candidates, Integer groupSize) {
-		// Set<Candidate> allCandidates = new LinkedHashSet<Candidate>(candidates);
 		pivotCandidates = selectPivotCandidates(candidates);
 		if (pivotCandidates.isEmpty()) {
 			groups = getGroupsUsingArbitraryPivots(candidates, groupSize);
@@ -35,7 +36,8 @@ public class GreedyGroupingWithPairScores implements GroupingStrategy {
 		return groups;
 	}
 
-	private List<Group> getGroupsUsingArbitraryPivots(List<Candidate> allCandidates, Integer groupSize) {
+	public List<Group> getGroupsUsingArbitraryPivots(List<Candidate> allCandidates, Integer groupSize) {
+		logger.debug("Forming groups with arbitrary pivots...");
 		int totalNumberOfCandidates = allCandidates.size();
 		List<Candidate> pivotCandidates = new ArrayList<Candidate>();
 		int groupNo = 1;
@@ -49,23 +51,35 @@ public class GreedyGroupingWithPairScores implements GroupingStrategy {
 			groups.add(group);
 			allCandidates.removeAll(group.getCandidates());
 		}
+		if (allCandidates.isEmpty() == false) {
+			logger.debug("{} candidates remaining. Forming the remainder candidates group..", allCandidates.size());
+			Group group = new Group();
+			group.setGroupNo(groupNo++);
+			group.setCandidates(allCandidates);			
+			groups.add(group);
+			logger.debug("Last group size: {}", group.getCandidates().size());
+		}
+		logger.debug("Total number of groups formed: {}", groups.size());		
 		return groups;
 	}
 
-	private List<Group> getGroupsUsingObtainedPivots(List<Candidate> allCandidates, Integer groupSize) {
+	public List<Group> getGroupsUsingObtainedPivots(List<Candidate> allCandidates, Integer groupSize) {
 		return null;
 	}
 
-	private Group generateOneGreedyGroup(List<Candidate> allCandidates, Candidate pivotCandidate, Integer groupSize) {
+	public Group generateOneGreedyGroup(List<Candidate> allCandidates, Candidate pivotCandidate, Integer groupSize) {
 		List<Candidate> groupMateCandidates = (List<Candidate>) groupingHeuristic.compute(allCandidates,
 				pivotCandidate);
 		groupMateCandidates
 				.sort((candidate1, candidate2) -> Double.compare(candidate2.getFitness(), candidate1.getFitness()));
 		Group group = new Group();
-		group.add(pivotCandidate);
+		logger.debug("Adding pivot candidate {}", pivotCandidate);
 		for (int i = 0; i < groupSize - 1; i++) {
+			logger.debug("Adding candidate-{} with fitness: {}", i+2, groupMateCandidates.get(i).getFitness());
 			group.add(groupMateCandidates.get(i));
 		}
+		group.sortCandidatesByFitness();
+		group.add(pivotCandidate);
 		return group;
 	}
 

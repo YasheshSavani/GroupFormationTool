@@ -20,16 +20,11 @@ public class GroupFormationServiceImpl implements GroupFormationService{
 	private final Logger logger = (Logger) LoggerFactory.getLogger(GroupFormationServiceImpl.class);
 	private GroupingStrategy groupingStrategy;
 	private GroupingHeuristic groupingHeuristic;
-	private GroupingHeuristicFactory groupingHeuristicFactory;
-		
-	public GroupFormationServiceImpl() {
-		groupingHeuristicFactory = new GroupingHeuristicFactory();
-	}
 	
 	@Override
 	public void setGroupingStrategy(String algorithm) {
 		if(algorithm.equalsIgnoreCase(Algorithms.GREEDY_GROUPING_WITH_PAIR_SCORES)) {
-			this.groupingHeuristic = groupingHeuristicFactory.getHeuristic(Heuristics.PAIR_SCORES);
+			this.groupingHeuristic = GroupingHeuristicFactory.getHeuristic(Heuristics.PAIR_SCORES);
 			groupingStrategy = new GreedyGroupingWithPairScores();
 			groupingStrategy.setGroupingHeuristic(groupingHeuristic);
 			logger.info("Using algorithm: {}", algorithm);			
@@ -43,10 +38,6 @@ public class GroupFormationServiceImpl implements GroupFormationService{
 		
 	@Override
 	public List<Group> formGroups(List<Candidate> candidates, Integer groupSize) {
-		//List<Candidate> candidates = new ArrayList<Candidate>();
-//		for(SurveyResponse surveyResponse: surveyResponses) {
-//			candidates.add(new Candidate(surveyResponse));			
-//		}
 		List<Group> groups = groupingStrategy.getGroups(candidates, groupSize);
 	    
 		return groups;

@@ -47,9 +47,10 @@ public class PairScoresHeuristicTest {
 		pivotCandidate.setQuestionResponsesMap((Map<?, ?>) testResponses.get("c1"));
 		groupMateCandidate.setQuestionResponsesMap((Map<?, ?>) testResponses.get("c2"));
 		Double pairScoreC1C2 = pairScoresHeuristic.calculatePairScore(pivotCandidate, groupMateCandidate);
-		pivotCandidate.setQuestionResponsesMap((Map<?, ?>) testResponses.get("c1"));
 		groupMateCandidate.setQuestionResponsesMap((Map<?, ?>) testResponses.get("c3"));
 		Double pairScoreC1C3 = pairScoresHeuristic.calculatePairScore(pivotCandidate, groupMateCandidate);
+		logger.debug("Pair1 score: {}", pairScoreC1C2);
+		logger.debug("Pair2 score: {}",pairScoreC1C3);
 		assert (pairScoreC1C2 < pairScoreC1C3);
 	}
 	

@@ -4,7 +4,7 @@ import com.csci5308.groupme.survey.constants.Heuristics;
 
 public class GroupingHeuristicFactory {
 
-	public GroupingHeuristic getHeuristic(String heuristic) {
+	public static GroupingHeuristic getHeuristic(String heuristic) {
 		if(heuristic.equalsIgnoreCase(Heuristics.PAIR_SCORES)) {
 			return new PairScores();
 		}
