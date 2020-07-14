@@ -2,8 +2,8 @@ package constants;
 
 public class QuestionTypeConstants {
 
-    public static String numericType = "Numeric";
-    public static String freeTextType = "Free text";
-    public static String mcqChooseOne = "Multiple choice - choose one";
-    public static String mcqChooseMultiple = "Multiple choice - choose multiple";
+    public static String NUMERIC = "Numeric";
+    public static String FREE_TEXT = "Free text";
+    public static String MCQ_CHOOSE_ONE = "Multiple choice - choose one";
+    public static String MCQ_CHOOSE_MULTIPLE = "Multiple choice - choose multiple";
 }
