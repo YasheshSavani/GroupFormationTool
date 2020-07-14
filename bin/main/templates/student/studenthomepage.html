@@ -12,8 +12,14 @@
         var isInstructor = "[[${isInstructor}]]";
 
         function showCourseAdminButton() {
-            if (isTA === "true" || isInstructor === "true") {
+            if (isTA === "true") {
                 document.getElementById('courseAdminButton').style.display = "block";
+                document.getElementById('roleName').value = "ROLE_TA";
+            }
+            if (isInstructor === "true") {
+                document.getElementById('courseAdminButton').style.display = "block";
+                document.getElementById('roleName').value = "ROLE_INSTRUCTOR";
+
             }
         }
 
@@ -31,6 +37,7 @@
     <h2>Details of Course</h2>
     <div id="courseAdminButton" style="text-align: center; display: none;">
         <form th:action="@{/TAcoursepage}" method="get">
+            <input type="hidden" id="roleName" name="roleName">
             <button style="background-color: gray;box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);"
                     type="submit">Course Admin Page
             </button>

@@ -11,11 +11,11 @@
 <body>
 
 <div class="topnav">
-    <a href="/instructorhomepage">GroupMe</a>
+    <a href="#">GroupMe</a>
     <a style="float: right" href="/logout">Logout</a>
     <a style="float: right" class="active" href="#account">Account</a>
 </div>
-
+<form></form>
 <table>
     <tr>
         <th>Course Code</th>
@@ -23,23 +23,25 @@
         <th>Course CRN</th>
     </tr>
     <tr th:each="course : ${courses}">
-        <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseCode}"></td>
+        <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseCrn}"></td>
         <td th:if="${course.courseCode != null}" th:hidden="false">
             <form method="get" th:action="@{/courseAdmin/course}">
                 <input type="hidden" name="courseCode" th:value="${course.courseCode}">
                 <input type="hidden" name="courseName" th:value="${course.courseName}">
                 <input type="hidden" name="courseCrn" th:value="${course.courseCrn}">
-                <button name="createSurvey" formaction="#">Create Survey</button>
-                <button name="editSurvey" formaction="#">Edit Survey</button>
+                <input type="hidden" name="roleName" th:value="${roleName}">
+                <button type="submit">Go To Course</button>
+                <button type="submit" id="createSurvey" class="button"
+                        th:formaction="@{/survey/createSurvey}">Create Survey</button>
                 <button name="customizeSurvey" formaction="#">Customize Survey</button>
                 <button name="publishSurvey" formaction="#">Publish Survey</button>
-                <button type="submit">Go To Course</button>
             </form>
         </td>
     </tr>
 </table>
+<span th:text="${message}"></span>
 <span th:if="${status != null}">
     <p th:text="'Status: ' + ${status}"></p>
 </span>

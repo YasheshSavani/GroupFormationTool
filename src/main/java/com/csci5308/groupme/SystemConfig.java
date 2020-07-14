@@ -40,7 +40,6 @@ public class SystemConfig {
         enrollmentService = new EnrollmentServiceImpl();
         surveyOperationDao = new SurveyOperationDaoImpl();
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
-
     }
 
     public static SystemConfig instance() {
@@ -121,7 +120,6 @@ public class SystemConfig {
     public void setSurveyOperationDao(SurveyOperationDao surveyOperationDao) {
         this.surveyOperationDao = surveyOperationDao;
     }
-
-
+    
 }
 
