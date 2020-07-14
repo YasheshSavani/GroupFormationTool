@@ -9,9 +9,9 @@ public interface SurveyOperationService {
 
     public List<Question> showQuestionsOnCreateSurveyPage(String courseCode, String roleName, String userName);
 
-    public int addQuestionToSurvey(String courseCode, String questionTitle, Integer questionId, String question, String questionType);
+    public int addQuestionToSurvey(String courseCode, String questionTitle, Integer questionId, String question, String questionType) throws Exception;
 
-    public int removeQuestionFromSurvey(String questionId, String courseCode);
+    public int removeQuestionFromSurvey(String questionId, String courseCode) throws Exception;
 
     public Map<String, Integer> checkIfSurveyExist(String courseCode);
 

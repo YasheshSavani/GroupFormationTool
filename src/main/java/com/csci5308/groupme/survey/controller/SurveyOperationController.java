@@ -83,7 +83,7 @@ public class SurveyOperationController {
                                             @RequestParam(value = questionTitleParamString) String questionTitle,
                                             @RequestParam(value = courseCodeParamString) String courseCode,
                                             @RequestParam(value = roleNameParamString) String roleName,
-                                            @RequestParam(value = questionTypeParamString) String questionType) {
+                                            @RequestParam(value = questionTypeParamString) String questionType) throws Exception {
         surveyOperationService = SystemConfig.instance().getSurveyOperationService();
         logger.info(question);
         logger.info(questionTitle);
@@ -102,7 +102,7 @@ public class SurveyOperationController {
                                                  @RequestParam(value = questionTitleParamString) String questionTitle,
                                                  @RequestParam(value = courseCodeParamString) String courseCode,
                                                  @RequestParam(value = roleNameParamString) String roleName,
-                                                 @RequestParam(value = questionTypeParamString) String questionType) {
+                                                 @RequestParam(value = questionTypeParamString) String questionType) throws Exception {
         surveyOperationService = SystemConfig.instance().getSurveyOperationService();
         int rowCount = surveyOperationService.removeQuestionFromSurvey(questionId, courseCode);
         ModelAndView mView = new ModelAndView();

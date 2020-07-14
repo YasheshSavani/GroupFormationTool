@@ -35,7 +35,7 @@ public class SurveyOperationServiceImplTest {
     }
 
     @Test
-    void addQuestionToSurveyTest() {
+    void addQuestionToSurveyTest() throws Exception {
         int rowCount = surveyOperationService.addQuestionToSurvey(courseCodeTest, questionTitleTest, questionIdTest, questionTest, questionTypeTest);
         assertEquals(rowCount, 1);
     }
@@ -54,7 +54,7 @@ public class SurveyOperationServiceImplTest {
     }
 
     @Test
-    void removeQuestionFromSurveyTest() {
+    void removeQuestionFromSurveyTest() throws Exception {
         int rowCount = surveyOperationService.removeQuestionFromSurvey(questionIdTest.toString(), courseCodeTest);
         assertEquals(rowCount, 1);
     }

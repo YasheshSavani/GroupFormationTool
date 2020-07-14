@@ -37,7 +37,7 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
     }
 
     @Override
-    public int addQuestionToSurvey(String courseCode, String questionTitle, Integer questionId, String question, String questionType) {
+    public int addQuestionToSurvey(String courseCode, String questionTitle, Integer questionId, String question, String questionType) throws Exception {
 
         int rowCount = 0;
         String newJson;
@@ -84,10 +84,10 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
     }
 
     @Override
-    public int removeQuestionFromSurvey(String questionId, String courseCode) {
+    public int removeQuestionFromSurvey(String questionId, String courseCode) throws Exception {
         int rowCount = 0;
         Boolean removeQuestion = true;
-        Map<String, String> map;
+        Map<?, ?> map;
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonQuestionResult = surveyOperationDao.getJsonObjectOfQuestions(courseCode);
         try {
