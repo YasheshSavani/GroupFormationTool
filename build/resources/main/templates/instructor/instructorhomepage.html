@@ -32,8 +32,10 @@
 </div>
 
 <div style="text-align: center; margin: 0 auto; padding-top: 10px">
+
     <div id="courseAdminButton" style="text-align: center; display: none;">
         <form th:action="@{/instructor/courseAdminPage}" method="get">
+            <input name="roleName" type="hidden" th:value="${roleName}">
             <button
                     style="background-color: gray; box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"
                     type="submit">Course Admin Page

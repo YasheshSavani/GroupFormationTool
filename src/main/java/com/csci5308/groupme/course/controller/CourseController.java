@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class CourseController {
 
     @RequestMapping(value = "/operationoncourse", method = RequestMethod.GET)
-    public ModelAndView showOpearationsOnCourse(@RequestParam("courseCode") String courseCode,
-                                                @RequestParam("courseName") String courseName) {
+    public ModelAndView showOperationsOnCourse(@RequestParam("courseCode") String courseCode,
+                                               @RequestParam("courseName") String courseName) {
         ModelAndView mView = new ModelAndView();
         mView.setViewName("coursedetails");
         mView.addObject("courseCode", courseCode);

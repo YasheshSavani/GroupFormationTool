@@ -1,9 +1,14 @@
 package com.csci5308.groupme.course.courseadmin.instructor.controller;
 
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.List;
-
+import ch.qos.logback.classic.Logger;
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
+import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
+import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
+import constants.Messages;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
+import errors.EditCodes;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,16 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
-import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
-import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
-import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
-import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
-
-import ch.qos.logback.classic.Logger;
-import constants.Messages;
-import errors.EditCodes;
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class QuestionController {
@@ -70,7 +68,7 @@ public class QuestionController {
                 message = Messages.QUESTION_CREATED;
             } else {
                 message = Messages.FAILURE;
-            }    
+            }
             mView.setViewName("instructor/questionmanager");
             mView.addObject("message", message);
         }
@@ -95,8 +93,8 @@ public class QuestionController {
     @RequestMapping(value = "/instructor/saveMultipleChoiceQuestion", method = RequestMethod.POST)
     public ModelAndView saveMultipleChoiceQuestion(@ModelAttribute ListOfOptions options, @RequestParam("title") String questionTitle,
                                                    @RequestParam("question") String question, @RequestParam("type") String questionType, Principal principal) {
-    	String message;
-    	questionManagerService = SystemConfig.instance().getQuestionManagerService();
+        String message;
+        questionManagerService = SystemConfig.instance().getQuestionManagerService();
         ModelAndView mView = new ModelAndView();
         Question questionObject = new Question();
         questionObject.setTitle(questionTitle);
@@ -130,7 +128,7 @@ public class QuestionController {
     @RequestMapping(value = "/instructor/deleteQuestion", method = RequestMethod.POST)
     public ModelAndView deleteQuestionPageSubmit(@ModelAttribute("question") Question question, Principal principal, Model model) {
         String message;
-    	questionManagerService = SystemConfig.instance().getQuestionManagerService();
+        questionManagerService = SystemConfig.instance().getQuestionManagerService();
         ModelAndView mView = new ModelAndView();
         logger.info("question selected is" + question.getQuestionId());
         int status = questionManagerService.deleteQuestion(principal.getName(), question);

@@ -9,7 +9,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.csci5308.groupme.course.dao.CourseDAOImpl;
+import com.csci5308.groupme.course.dao.CourseDaoImpl;
 import com.csci5308.groupme.course.model.Course;
 
 import errors.EditCodes;
@@ -18,7 +18,7 @@ import errors.EditCodes;
 public class CourseServiceImplTest {
 
     @Mock
-    private CourseDAOImpl courseDAO;
+    private CourseDaoImpl courseDao;
 
     @InjectMocks
     private CourseServiceImpl courseServiceImpl;
@@ -27,28 +27,28 @@ public class CourseServiceImplTest {
     @Test
     public void saveCourseTest() throws Exception {
         Course course = new Course("CSCI 5308", "Adv Software Development", 12345);
-        when(courseDAO.save(course)).thenReturn(1);
+        when(courseDao.save(course)).thenReturn(1);
         assertEquals(1, courseServiceImpl.createCourse(course));
     }
 
     @Test
     public void courseExistsTest() throws Exception {
         Course course = new Course("CSCI 5308", "Adv Software Development", 12345);
-        when(courseDAO.save(course)).thenReturn(EditCodes.COURSE_EXISTS);
+        when(courseDao.save(course)).thenReturn(EditCodes.COURSE_EXISTS);
         assertEquals(EditCodes.COURSE_EXISTS, courseServiceImpl.createCourse(course));
     }
 
     @Test
     public void deleteCourseTest() throws Exception {
         Course course = new Course("CSCI 5308", "Adv Software Development", 12345);
-        when(courseDAO.remove(course.getCourseCode())).thenReturn(1);
+        when(courseDao.remove(course.getCourseCode())).thenReturn(1);
         assertEquals(1, courseServiceImpl.delete(course.getCourseCode()));
     }
 
     @Test
     public void noCourseToDeleteTest() throws Exception {
         Course course = new Course("CSCI 5308", "Adv Software Development", 12345);
-        when(courseDAO.remove(course.getCourseCode())).thenReturn(EditCodes.COURSE_DOES_NOT_EXIST);
+        when(courseDao.remove(course.getCourseCode())).thenReturn(EditCodes.COURSE_DOES_NOT_EXIST);
         assertEquals(EditCodes.COURSE_DOES_NOT_EXIST, courseServiceImpl.delete(course.getCourseCode()));
     }
 

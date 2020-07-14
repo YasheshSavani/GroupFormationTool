@@ -22,10 +22,23 @@ public class Question {
         this.title = questionTitle;
     }
 
+    public Question(String questionTitle, Integer questionId, String question) {
+        this.title = questionTitle;
+        this.questionId = questionId;
+        this.question = question;
+    }
+
     public Question(String questionTitle, Integer questionId, Date questionDate) {
         this.title = questionTitle;
         this.questionId = questionId;
         this.createdDate = questionDate;
+    }
+
+    public Question(String questionTitle, Integer questionId, String question, String questionType) {
+        this.title = questionTitle;
+        this.questionId = questionId;
+        this.question = question;
+        this.type = questionType;
     }
 
     public Question(String questionTitle, Integer questionId, Date questionDate, String question, String questionType) {
@@ -69,6 +82,7 @@ public class Question {
     }
 
     public Date getCreatedDate() {
+
         return createdDate;
     }
 

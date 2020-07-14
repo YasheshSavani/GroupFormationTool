@@ -1,6 +1,7 @@
 package com.csci5308.groupme.auth;
 
 import com.csci5308.groupme.auth.config.LoginSuccessHandler;
+import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -31,7 +32,7 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForAdmin() {
         String adminLandingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_ADMIN");
+        roles.add(Roles.ADMIN);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -46,7 +47,7 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForGuest() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_GUEST");
+        roles.add(Roles.GUEST);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -61,7 +62,7 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForStudent() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_STUDENT");
+        roles.add(Roles.STUDENT);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -76,7 +77,7 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForTA() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_TA");
+        roles.add(Roles.TA);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -91,7 +92,7 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForInstructor() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_INSTRUCTOR");
+        roles.add(Roles.INSTRUCTOR);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -106,8 +107,8 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForStudentTA() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_STUDENT");
-        roles.add("ROLE_TA");
+        roles.add(Roles.STUDENT);
+        roles.add(Roles.TA);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -122,8 +123,8 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForStudentInstructor() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_STUDENT");
-        roles.add("ROLE_INSTRUCTOR");
+        roles.add(Roles.STUDENT);
+        roles.add(Roles.INSTRUCTOR);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -139,8 +140,8 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForTAInstructor() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_TA");
-        roles.add("ROLE_INSTRUCTOR");
+        roles.add(Roles.TA);
+        roles.add(Roles.INSTRUCTOR);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -155,9 +156,9 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForStudentTAInstructor() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_TA");
-        roles.add("ROLE_INSTRUCTOR");
-        roles.add("ROLE_STUDENT");
+        roles.add(Roles.TA);
+        roles.add(Roles.INSTRUCTOR);
+        roles.add(Roles.STUDENT);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);
@@ -172,10 +173,10 @@ public class LoginSuccessHandlerTest {
     public void landingUrlTestForGuestOverride() {
         String landingUrl = "";
         List<String> roles = new ArrayList<String>();
-        roles.add("ROLE_TA");
-        roles.add("ROLE_INSTRUCTOR");
-        roles.add("ROLE_STUDENT");
-        roles.add("ROLE_GUEST");
+        roles.add(Roles.TA);
+        roles.add(Roles.INSTRUCTOR);
+        roles.add(Roles.STUDENT);
+        roles.add(Roles.GUEST);
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.forEach(role -> {
             GrantedAuthority authority = new SimpleGrantedAuthority(role);

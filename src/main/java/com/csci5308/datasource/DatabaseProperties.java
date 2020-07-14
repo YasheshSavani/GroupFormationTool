@@ -9,10 +9,11 @@ public class DatabaseProperties {
 
     public DatabaseProperties() {
         try {
+
             dbDriver = System.getenv("DB_DRIVER");
             dbURL = System.getenv("DB_URL");
-            dbUserName = System.getenv("USERNAME");
-            dbPassword = System.getenv("PASSWORD");
+            dbUserName = System.getenv("DB_USERNAME");
+            dbPassword = System.getenv("DB_PASSWORD");
         } catch (Exception e) {
             e.printStackTrace();
         }
