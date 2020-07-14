@@ -34,15 +34,17 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
 
-            logger.info("SurveyOperationDaoImpl: Connecting to database");
+            logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("SurveyOperationDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to database successfully...");
             if (roleName.equals(Roles.TA)) {
+                logger.debug("FIND_QUESTIONS_BY_TA_ROLE procedure called");
                 callableStatement = connection.prepareCall("{call FIND_QUESTIONS_BY_TA_ROLE(?,?)}");
                 callableStatement.setString(1, userName);
                 callableStatement.setString(2, courseCode);
 
             } else {
+                logger.debug("FIND_QUESTIONS_BY_INSTRUCTOR_ROLE procedure called");
                 callableStatement = connection.prepareCall("{call FIND_QUESTIONS_BY_INSTRUCTOR_ROLE(?)}");
                 callableStatement.setString(1, userName);
             }
@@ -59,7 +61,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             } while (resultSet.next());
 
         } catch (Exception e) {
-            logger.info("SurveyOperationDaoImpl: ", e);
+            logger.info("", e);
         } finally {
             if (resultSet != null) {
                 try {
@@ -67,19 +69,19 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                logger.info("SurveyOperationDaoImpl: ResultSet Closed");
+                logger.info("ResultSet Closed");
                 if (callableStatement != null) {
                     try {
                         callableStatement.close();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    logger.info("SurveyOperationDaoImpl: CallableStatement Closed");
+                    logger.info("CallableStatement Closed");
                 }
                 if (connection != null) {
                     try {
                         connection.close();
-                        logger.info("SurveyOperationDaoImpl: Connection to DataBase closed");
+                        logger.info("Connection to database closed");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -97,11 +99,10 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
-            logger.info("SurveyOperationDaoImpl: Connecting to database");
+            logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("SurveyOperationDaoImpl: Connected to DataBase successfully...");
-
+            logger.info("Connected to database successfully...");
+            logger.debug("GET_JSON_QUESTION_DATA procedure called");
             callableStatement = connection.prepareCall("{call GET_JSON_QUESTION_DATA(?)}");
             callableStatement.setString(1, courseCode);
             resultSet = callableStatement.executeQuery();
@@ -113,7 +114,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             } while (resultSet.next());
             logger.info("jsonResult :" + jsonResult);
         } catch (Exception e) {
-            logger.info("SurveyOperationDaoImpl: ", e);
+            logger.info("", e);
         } finally {
             if (resultSet != null) {
                 try {
@@ -121,19 +122,19 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                logger.info("SurveyOperationDaoImpl: ResultSet Closed");
+                logger.info("ResultSet Closed");
                 if (callableStatement != null) {
                     try {
                         callableStatement.close();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    logger.info("SurveyOperationDaoImpl: CallableStatement Closed");
+                    logger.info("CallableStatement Closed");
                 }
                 if (connection != null) {
                     try {
                         connection.close();
-                        logger.info("SurveyOperationDaoImpl: Connection to DataBase closed");
+                        logger.info("Connection to database closed");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -144,7 +145,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
     }
 
     @Override
-    public int writeJsonObjectOfQuestions(String courseCode, String jsonString, Integer questionId, Boolean removeQuestion) {
+    public int insertQuestionToSurvey(String courseCode, String jsonString, Integer questionId) {
         databaseProperties = SystemConfig.instance().getDatabaseProperties();
         int rowCount = 0;
         try {
@@ -152,26 +153,21 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
 
-            logger.info("SurveyOperationDaoImpl: Connecting to database");
+            logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("SurveyOperationDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to database successfully...");
 
+            logger.debug("INSERT_SURVEY_QUESTION procedure called");
             callableStatement = connection.prepareCall("{call INSERT_SURVEY_QUESTION(?,?)}");
             callableStatement.setString(1, courseCode);
             callableStatement.setString(2, jsonString);
             rowCount = callableStatement.executeUpdate();
-
-            if (removeQuestion) {
-                callableStatement = connection.prepareCall("{call REMOVE_QUESTION_FROM_SURVEY(?)}");
-                callableStatement.setInt(1, questionId);
-
-            } else {
-                callableStatement = connection.prepareCall("{call UPDATE_QUESTION_FLAG(?)}");
-                callableStatement.setInt(1, questionId);
-            }
+            logger.debug("UPDATE_QUESTION_FLAG procedure called");
+            callableStatement = connection.prepareCall("{call UPDATE_QUESTION_FLAG(?)}");
+            callableStatement.setInt(1, questionId);
             callableStatement.executeUpdate();
         } catch (Exception e) {
-            logger.info("SurveyOperationDaoImpl: ", e);
+            e.printStackTrace();
         } finally {
             if (resultSet != null) {
                 try {
@@ -179,19 +175,72 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                logger.info("SurveyOperationDaoImpl: ResultSet Closed");
+                logger.info("ResultSet Closed");
                 if (callableStatement != null) {
                     try {
                         callableStatement.close();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    logger.info("SurveyOperationDaoImpl: CallableStatement Closed");
+                    logger.info("CallableStatement Closed");
                 }
                 if (connection != null) {
                     try {
                         connection.close();
-                        logger.info("SurveyOperationDaoImpl: Connection to DataBase closed");
+                        logger.info("Connection to database closed");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return rowCount;
+    }
+
+    @Override
+    public int deleteQuestionFromSurvey(String courseCode, String jsonString, Integer questionId) {
+        databaseProperties = SystemConfig.instance().getDatabaseProperties();
+        int rowCount = 0;
+        try {
+            String DB_URL = databaseProperties.getDbURL();
+            String USER = databaseProperties.getDbUserName();
+            String PASSWORD = databaseProperties.getDbPassword();
+
+            logger.info("Connecting to database");
+            connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            logger.info("Connected to database successfully...");
+            logger.debug("INSERT_SURVEY_QUESTION procedure called");
+            callableStatement = connection.prepareCall("{call INSERT_SURVEY_QUESTION(?,?)}");
+            callableStatement.setString(1, courseCode);
+            callableStatement.setString(2, jsonString);
+            rowCount = callableStatement.executeUpdate();
+            logger.debug("REMOVE_QUESTION_FROM_SURVEY procedure called");
+            callableStatement = connection.prepareCall("{call REMOVE_QUESTION_FROM_SURVEY(?)}");
+            callableStatement.setInt(1, questionId);
+            callableStatement.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                logger.info("ResultSet Closed");
+                if (callableStatement != null) {
+                    try {
+                        callableStatement.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    logger.info("CallableStatement Closed");
+                }
+                if (connection != null) {
+                    try {
+                        connection.close();
+                        logger.info("Connection to database closed");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -203,8 +252,8 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
 
     public Map<String, Integer> checkIfSurveyExist(String courseCode) {
         databaseProperties = SystemConfig.instance().getDatabaseProperties();
-        Integer surveyId = 0;
-        Integer isPublished = 0;
+        Integer surveyId;
+        Integer isPublished;
         Map<String, Integer> conditions = null;
         try {
             conditions = new HashMap<>();
@@ -212,10 +261,10 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
 
-            logger.info("SurveyOperationDaoImpl: Connecting to database");
+            logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("SurveyOperationDaoImpl: Connected to DataBase successfully...");
-
+            logger.info("Connected to database successfully...");
+            logger.debug("CHECK_IF_SURVEY_EXIST procedure called");
             callableStatement = connection.prepareCall("{call CHECK_IF_SURVEY_EXIST(?,?,?)}");
             callableStatement.setString(1, courseCode);
             callableStatement.registerOutParameter(2, Types.INTEGER);
@@ -224,6 +273,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             surveyId = callableStatement.getInt(2);
             isPublished = callableStatement.getInt(3);
             if (surveyId == 0) {
+                logger.debug("CREATE_SURVEY procedure called");
                 callableStatement = connection.prepareCall("{call CREATE_SURVEY(?)}");
                 callableStatement.setString(1, courseCode);
                 callableStatement.executeUpdate();
@@ -231,7 +281,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             conditions.put("surveyId", surveyId);
             conditions.put("isPublished", isPublished);
         } catch (Exception e) {
-            logger.info("SurveyOperationDaoImpl: ", e);
+            e.printStackTrace();
         } finally {
             if (callableStatement != null) {
                 try {
@@ -239,12 +289,12 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                logger.info("SurveyOperationDaoImpl: CallableStatement Closed");
+                logger.info("CallableStatement Closed");
             }
             if (connection != null) {
                 try {
                     connection.close();
-                    logger.info("SurveyOperationDaoImpl: Connection to DataBase closed");
+                    logger.info("Connection to database closed");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -263,15 +313,17 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
 
-            logger.info("SurveyOperationDaoImpl: Connecting to database");
+            logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("SurveyOperationDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to database successfully...");
 
             if (roleName.equals(Roles.TA)) {
+                logger.debug("GET_ADDED_SURVEY_QUESTIONS_BY_TA procedure called");
                 callableStatement = connection.prepareCall("{call GET_ADDED_SURVEY_QUESTIONS_BY_TA(?,?)}");
                 callableStatement.setString(1, userName);
                 callableStatement.setString(2, courseCode);
             } else {
+                logger.debug("GET_ADDED_SURVEY_QUESTIONS_BY_INSTRUCTOR procedure called");
                 callableStatement = connection.prepareCall("{call GET_ADDED_SURVEY_QUESTIONS_BY_INSTRUCTOR(?)}");
                 callableStatement.setString(1, userName);
             }
@@ -287,7 +339,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 addedQuestionsList.add(new Question(questionTitle, questionId, question, questionType));
             } while (resultSet.next());
         } catch (Exception e) {
-            logger.info("SurveyOperationDaoImpl: ", e);
+            logger.info("", e);
         } finally {
             if (resultSet != null) {
                 try {
@@ -295,7 +347,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                logger.info("SurveyOperationDaoImpl: ResultSet Closed");
+                logger.info("ResultSet Closed");
             }
             if (callableStatement != null) {
                 try {
@@ -303,12 +355,12 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                logger.info("SurveyOperationDaoImpl: CallableStatement Closed");
+                logger.info("CallableStatement Closed");
             }
             if (connection != null) {
                 try {
                     connection.close();
-                    logger.info("SurveyOperationDaoImpl: Connection to DataBase closed");
+                    logger.info("Connection to database closed");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

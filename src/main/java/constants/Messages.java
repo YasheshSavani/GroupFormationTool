@@ -1,7 +1,7 @@
 package constants;
 
 public class Messages {
-    
+
     public static final String USERNAME_EXISTS = "Username already exists!";
 
     public static final String USERNAME_DOES_NOT_EXIST = "Username does not exist!";
@@ -50,10 +50,12 @@ public class Messages {
 
     public static final String NONE = "none";
 
-    public static final String SURVEY_PUBLISHED = "Survey can not be edited! It is already published!";
+    public static final String SURVEY_PUBLISHED = "Survey published for course: ";
 
     public static final String SURVEY_NOT_PUBLISHED = "Survey is not published!";
 
-    public static final String SURVEY_ALREADY_PUBLISHED = "Survey is already published. You cannot edit the survey ";
+    public static final String SURVEY_ALREADY_PUBLISHED = "Survey is already published. You cannot edit the survey";
+
+    public static final String CANNOT_PUBLISH_SURVEY = "Create Survey by clicking on Create Survey Button, Survey does not Exist for course:";
 
 }

@@ -2,14 +2,13 @@ package com.csci5308.groupme.survey.service;
 
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
 import com.csci5308.groupme.survey.dao.SurveyOperationDao;
-import com.csci5308.groupme.survey.model.SurveyForm;
+import com.csci5308.groupme.survey.model.SurveyQuestion;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import constants.Messages;
 import constants.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,31 +36,39 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
     }
 
     @Override
-    public int addQuestionToSurvey(String courseCode, String questionTitle, Integer questionId, String question, String questionType) throws Exception {
+    public int addQuestionToSurvey(String courseCode, SurveyQuestion surveyQuestion) throws Exception {
 
         int rowCount = 0;
         String newJson;
-        Boolean removeQuestion = false;
-        Map<String, String> map;
+        Map<String, Map<String, String>> dbSurveyForm;
+        Map<String, String> parameters = new HashMap<>();
+        String questionID = surveyQuestion.getQuestionId();
         ObjectMapper objectMapper = new ObjectMapper();
-        SurveyForm questionObj = new SurveyForm();
-        questionObj.setQuestion(question);
-        questionObj.setQuestionTitle(questionTitle);
-        questionObj.setQuestionType(questionType);
-        questionObj.setCriterion(Messages.NONE);
-        questionObj.setUpperBound(Messages.NONE);
-        questionObj.setLowerBound(Messages.NONE);
-        questionObj.setWeight(Messages.NONE);
-        objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-        logger.info("Questions Object Created For questionId : " + questionId + " And Question: " + question);
+
+        parameters.put("title", surveyQuestion.getQuestionTitle());
+        parameters.put("question", surveyQuestion.getQuestion());
+        parameters.put("type", surveyQuestion.getQuestionType());
+        parameters.put("criterion", surveyQuestion.getCriterion());
+        parameters.put("weight", surveyQuestion.getWeight());
+        parameters.put("upperBound", surveyQuestion.getUpperBound());
+        parameters.put("lowerBound", surveyQuestion.getLowerBound());
+        logger.info("Parameters map created for question to be added");
+        logger.info("Questions Object Created For questionId : " + surveyQuestion.getQuestionId()
+                + " And Question: " + surveyQuestion.getQuestion());
         String jsonQuestionResult = surveyOperationDao.getJsonObjectOfQuestions(courseCode);
         try {
-            map = objectMapper.readValue(jsonQuestionResult, Map.class);
-            map.put(questionId.toString(), questionObj.toString());
-            newJson = objectMapper.writeValueAsString(map);
-            logger.info("New Survey Questions: " + newJson);
-            rowCount = surveyOperationDao.writeJsonObjectOfQuestions(courseCode, newJson, questionId, removeQuestion);
-            logger.info("Question added to Survey : " + questionId + " : " + question);
+            dbSurveyForm = objectMapper.readValue(jsonQuestionResult, Map.class);
+//            for (Map.Entry<?, ?> entry : dbSurveyForm.entrySet()) {
+//                String questionID = (String) entry.getKey();
+//                logger.info((String) entry.getKey());
+//                logger.info((String) entry.getValue());
+//            }
+            dbSurveyForm.put(surveyQuestion.getQuestionId(), parameters);
+            logger.debug(surveyQuestion.toString());
+            newJson = objectMapper.writeValueAsString(dbSurveyForm);
+            logger.info("Questions in survey after addition: " + newJson);
+            rowCount = surveyOperationDao.insertQuestionToSurvey(courseCode, newJson, Integer.parseInt(questionID));
+            logger.info("Question added to Survey : " + questionID + " : " + surveyQuestion.getQuestion());
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("Error in Fetching JSON");
@@ -86,7 +93,6 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
     @Override
     public int removeQuestionFromSurvey(String questionId, String courseCode) throws Exception {
         int rowCount = 0;
-        Boolean removeQuestion = true;
         Map<?, ?> map;
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonQuestionResult = surveyOperationDao.getJsonObjectOfQuestions(courseCode);
@@ -95,12 +101,11 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
             map.remove(questionId);
             String newJson = objectMapper.writeValueAsString(map);
             logger.info("New Survey Questions: " + newJson);
-            rowCount = surveyOperationDao.writeJsonObjectOfQuestions(courseCode, newJson, Integer.parseInt(questionId), removeQuestion);
+            rowCount = surveyOperationDao.deleteQuestionFromSurvey(courseCode, newJson, Integer.parseInt(questionId));
             logger.info("Question Removed from Survey : " + questionId);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("Error in Fetching JSON");
-
         }
         return rowCount;
     }

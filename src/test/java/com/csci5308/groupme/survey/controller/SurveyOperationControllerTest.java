@@ -11,9 +11,6 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
-import javax.management.relation.Role;
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -32,7 +29,6 @@ class SurveyOperationControllerTest {
     private final String questionTitleParamString = "questionTitle";
     private final String courseCode = "csci0010";
     private final String roleName = Roles.TA;
-    private final String instructorRoleName = Roles.INSTRUCTOR;
     private final String questionType = QuestionTypeConstants.numericType;
     private final String questionId = "1";
     private final String question = "How?";
@@ -59,11 +55,8 @@ class SurveyOperationControllerTest {
     void removeQuestionFromSurveyTest() throws Exception {
         this.mockMvc.perform(post("/survey/removeQuestionFromSurvey")
                 .param(questionIdParamString, questionId)
-                .param(questionParamString, question)
-                .param(questionTitleParamString, questionTitle)
                 .param(courseCodeParamString, courseCode)
-                .param(roleNameParamString, roleName)
-                .param(questionTypeParamString, questionType)).andDo(print()).andExpect(status().is(302))
+                .param(roleNameParamString, roleName)).andDo(print()).andExpect(status().is(302))
                 .andExpect(view().name("redirect:/survey/createSurvey"));
     }
 

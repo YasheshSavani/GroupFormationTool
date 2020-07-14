@@ -39,7 +39,12 @@ public class SurveyOperationDaoImplMock implements SurveyOperationDao {
     }
 
     @Override
-    public int writeJsonObjectOfQuestions(String courseCode, String jsonString, Integer questionId, Boolean removeQuestion) {
+    public int insertQuestionToSurvey(String courseCode, String jsonString, Integer questionId) {
+        return 1;
+    }
+
+    @Override
+    public int deleteQuestionFromSurvey(String courseCode, String jsonString, Integer questionId) {
         return 1;
     }
 

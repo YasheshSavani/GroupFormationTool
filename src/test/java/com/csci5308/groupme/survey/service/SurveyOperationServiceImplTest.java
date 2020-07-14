@@ -3,14 +3,19 @@ package com.csci5308.groupme.survey.service;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
 import com.csci5308.groupme.survey.dao.SurveyOperationDao;
 import com.csci5308.groupme.survey.dao.SurveyOperationDaoImplMock;
+import com.csci5308.groupme.survey.model.SurveyQuestion;
+import constants.Messages;
 import constants.Roles;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@ExtendWith(SpringExtension.class)
 public class SurveyOperationServiceImplTest {
 
     private SurveyOperationDao surveyOperationDao;
@@ -21,7 +26,7 @@ public class SurveyOperationServiceImplTest {
     private String questionTest = "Level in Python";
     private String questionTitleTest = "Python";
     private String questionTypeTest = "Numeric";
-    private Integer questionIdTest = 2;
+    private String questionIdTest = "2";
 
     public SurveyOperationServiceImplTest() {
         surveyOperationDao = new SurveyOperationDaoImplMock();
@@ -36,7 +41,16 @@ public class SurveyOperationServiceImplTest {
 
     @Test
     void addQuestionToSurveyTest() throws Exception {
-        int rowCount = surveyOperationService.addQuestionToSurvey(courseCodeTest, questionTitleTest, questionIdTest, questionTest, questionTypeTest);
+        SurveyQuestion surveyQuestion = new SurveyQuestion();
+        surveyQuestion.setQuestionId(questionIdTest);
+        surveyQuestion.setQuestion(questionTest);
+        surveyQuestion.setQuestionTitle(questionTitleTest);
+        surveyQuestion.setQuestionType(questionTypeTest);
+        surveyQuestion.setCriterion(Messages.NONE);
+        surveyQuestion.setUpperBound(Messages.NONE);
+        surveyQuestion.setLowerBound(Messages.NONE);
+        surveyQuestion.setWeight(Messages.NONE);
+        int rowCount = surveyOperationService.addQuestionToSurvey(courseCodeTest, surveyQuestion);
         assertEquals(rowCount, 1);
     }
 
@@ -55,7 +69,7 @@ public class SurveyOperationServiceImplTest {
 
     @Test
     void removeQuestionFromSurveyTest() throws Exception {
-        int rowCount = surveyOperationService.removeQuestionFromSurvey(questionIdTest.toString(), courseCodeTest);
+        int rowCount = surveyOperationService.removeQuestionFromSurvey(questionIdTest, courseCodeTest);
         assertEquals(rowCount, 1);
     }
 }

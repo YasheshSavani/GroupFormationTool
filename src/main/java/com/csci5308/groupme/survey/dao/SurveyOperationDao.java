@@ -11,7 +11,9 @@ public interface SurveyOperationDao {
 
     public String getJsonObjectOfQuestions(String courseCode);
 
-    public int writeJsonObjectOfQuestions(String courseCode, String jsonString, Integer questionId, Boolean removeQuestion);
+    public int insertQuestionToSurvey(String courseCode, String jsonString, Integer questionId);
+
+    public int deleteQuestionFromSurvey(String courseCode, String jsonString, Integer questionId);
 
     public Map<String, Integer> checkIfSurveyExist(String courseCode);
 
