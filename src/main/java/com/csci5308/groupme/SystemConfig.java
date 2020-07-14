@@ -8,10 +8,10 @@ import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentServ
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentServiceImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerServiceImpl;
-import com.csci5308.groupme.course.courseadmin.survey.dao.SurveyOperationDao;
-import com.csci5308.groupme.course.courseadmin.survey.dao.SurveyOperationDaoImpl;
-import com.csci5308.groupme.course.courseadmin.survey.service.SurveyOperationService;
-import com.csci5308.groupme.course.courseadmin.survey.service.SurveyOperationServiceImpl;
+import com.csci5308.groupme.survey.dao.SurveyOperationDao;
+import com.csci5308.groupme.survey.dao.SurveyOperationDaoImpl;
+import com.csci5308.groupme.survey.service.SurveyOperationService;
+import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDao;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
@@ -38,8 +38,9 @@ public class SystemConfig {
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
-        surveyOperationService = new SurveyOperationServiceImpl();
         surveyOperationDao = new SurveyOperationDaoImpl();
+        surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
+
     }
 
     public static SystemConfig instance() {
@@ -120,5 +121,7 @@ public class SystemConfig {
     public void setSurveyOperationDao(SurveyOperationDao surveyOperationDao) {
         this.surveyOperationDao = surveyOperationDao;
     }
+
+
 }
 

@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -39,7 +40,7 @@ public class CourseDetailsServiceImplTest {
 	public void getCoursesByUserNameAndRoleTest() throws Exception {
 
 		String userName = "ysavani";
-		String roleName = "ROLE_TA";
+		String roleName = Roles.TA;
 		List<Course> defaultCourseList = new ArrayList<>();
 		Course courseOne = new Course("CSCI5308", "Adv Software Development", 12345);
 		defaultCourseList.add(courseOne);

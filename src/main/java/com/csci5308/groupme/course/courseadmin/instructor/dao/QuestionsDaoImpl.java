@@ -27,8 +27,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
         String USER = databaseProperties.getDbUserName();
         String PASS = databaseProperties.getDbPassword();
         try {
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.SAVE_QUESTION);
             preparedStatement.setString(1, instructorUserName);
             preparedStatement.setString(2, question.getTitle());
@@ -68,9 +69,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String PASSWORD = databaseProperties.getDbPassword();
             String DRIVER = databaseProperties.getDriver();
             Class.forName(DRIVER);
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("Connected to the database successfully...");
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             callableStatement = connection.prepareCall("{call INSERT_QUESTION(?,?,?,?,?,?)}");
             callableStatement.setString(1, instructorUserName);
             callableStatement.setString(2, question.getQuestion());
@@ -140,9 +141,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("Connected to the database successfully...");
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_QUESTION_TITLE);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
@@ -196,9 +197,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("Connected to the database successfully...");
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.DELETE_QUESTION);
             preparedStatement.setInt(1, question.getQuestionId());
             questionId = question.getQuestionId();
@@ -240,9 +241,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("Connected to the database successfully...");
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_SORTED_TITLE);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
@@ -294,9 +295,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
         String PASSWORD = databaseProperties.getDbPassword();
         try {
             Class.forName(DRIVER);
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("Connected to the database successfully...");
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_TITLES_SORTED_BY_DATE);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
@@ -350,9 +351,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("Connecting to the selected database...");
+            logger.info("QuestionsDaoImpl: Connecting to DataBase");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("Connected to the database successfully...");
+            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_ALL_QUESTIONS);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();

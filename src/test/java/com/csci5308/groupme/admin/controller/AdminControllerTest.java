@@ -1,5 +1,6 @@
 package com.csci5308.groupme.admin.controller;
 
+import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,35 +25,35 @@ public class AdminControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "admin_test", password = "admin19", authorities = {"ROLE_ADMIN"})
+    @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
     void getAdminPageTest() throws Exception {
         this.mockMvc.perform(get("/admin/manageCourses").secure(true)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("admin/managecourses"));
     }
 
     @Test
-    @WithMockUser(username = "admin_test", password = "admin19", authorities = {"ROLE_ADMIN"})
+    @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
     void getAddCoursePageTest() throws Exception {
         this.mockMvc.perform(get("/admin/addCourse").secure(true)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("admin/addcourse"));
     }
 
     @Test
-    @WithMockUser(username = "admin_test", password = "admin19", authorities = {"ROLE_ADMIN"})
+    @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
     void getAddCourseStatusPageTest() throws Exception {
         this.mockMvc.perform(post("/admin/addCourse").secure(true)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("admin/addcourse"));
     }
 
     @Test
-    @WithMockUser(username = "admin_test", password = "admin19", authorities = {"ROLE_ADMIN"})
+    @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
     void getDeleteCoursePageTest() throws Exception {
         this.mockMvc.perform(get("/admin/deleteCourse").secure(true)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("admin/deletecourse"));
     }
 
     @Test
-    @WithMockUser(username = "admin_test", password = "admin19", authorities = {"ROLE_ADMIN"})
+    @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
     void getDeleteCourseStatusPageTest() throws Exception {
         this.mockMvc.perform(post("/admin/deleteCourse").secure(true)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("admin/deletecourse"));

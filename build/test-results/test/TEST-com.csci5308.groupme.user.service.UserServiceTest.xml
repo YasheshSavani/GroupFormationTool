@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.csci5308.groupme.user.service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-07-12T05:38:09" hostname="YASHESH" time="0.102">
+<testsuite name="com.csci5308.groupme.user.service.UserServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-07-14T04:56:28" hostname="YASHESH" time="0.039">
   <properties/>
-  <testcase name="registerUserTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.058"/>
-  <testcase name="updatePasswordTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.032"/>
-  <testcase name="updatePasswordNoEmailTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.003"/>
-  <testcase name="emailAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.003"/>
-  <testcase name="userNameAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.003"/>
-  <system-out><![CDATA[2020-07-12 02:38:09.754  INFO 8920 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
-2020-07-12 02:38:09.789  INFO 8920 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Password updated.....
-2020-07-12 02:38:09.799  INFO 8920 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
+  <testcase name="registerUserTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.03"/>
+  <testcase name="updatePasswordTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.002"/>
+  <testcase name="updatePasswordNoEmailTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.002"/>
+  <testcase name="emailAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.001"/>
+  <testcase name="userNameAlreadytExistsTest()" classname="com.csci5308.groupme.user.service.UserServiceTest" time="0.002"/>
+  <system-out><![CDATA[2020-07-14 01:56:28.448  INFO 30468 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
+2020-07-14 01:56:28.451  INFO 30468 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Password updated.....
+2020-07-14 01:56:28.457  INFO 30468 --- [    Test worker] c.c.g.user.service.UserServiceImpl       : Encoding the password for testuser123
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

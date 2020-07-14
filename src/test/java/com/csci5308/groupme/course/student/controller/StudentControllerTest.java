@@ -1,5 +1,6 @@
 package com.csci5308.groupme.course.student.controller;
 
+import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class StudentControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "testuser2", password = "admin19", authorities = {"ROLE_STUDENT"})
+    @WithMockUser(username = "testuser2", password = "admin19", authorities = {Roles.STUDENT})
     void showStudentHomePageTest() throws Exception {
 
         this.mockMvc.perform(get("/studenthomepage")).andDo(print()).andExpect(status().isOk())

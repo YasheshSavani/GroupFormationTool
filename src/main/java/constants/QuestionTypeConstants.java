@@ -1,4 +1,4 @@
-package com.csci5308.groupme.course.courseadmin.instructor;
+package constants;
 
 public class QuestionTypeConstants {
 

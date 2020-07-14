@@ -50,10 +50,11 @@ public class InstructorController {
     }
 
     @RequestMapping(value = "/instructor/courseAdminPage", method = RequestMethod.GET)
-    public String courseAdminPage(Principal principal, Model model) {
+    public String courseAdminPage(Principal principal, Model model, @RequestParam("roleName") String roleName) {
         try {
             List<Course> coursesList = courseDetailsService.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
+            model.addAttribute("roleName", roleName);
         } catch (Exception e) {
             e.printStackTrace();
         }

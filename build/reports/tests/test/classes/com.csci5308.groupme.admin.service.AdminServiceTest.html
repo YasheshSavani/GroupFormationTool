@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.123s</div>
+<div class="counter">0.056s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,32 +79,32 @@
 </thead>
 <tr>
 <td class="success">assignInstructorToCourseTest()</td>
-<td class="success">0.008s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">classAlreadyExistsTest()</td>
-<td class="success">0.027s</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">courseNotFoundTest()</td>
-<td class="success">0.060s</td>
+<td class="success">0.029s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createAndAssignInstructorToCourseTest()</td>
-<td class="success">0.014s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">dbIssueTest()</td>
-<td class="success">0.008s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">instructorNotFoundTest()</td>
-<td class="success">0.006s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -112,15 +112,15 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2020-07-12 02:38:02.500  INFO 8920 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.admin.service.AdminServiceTest], using DelegatingSmartContextLoader
-2020-07-12 02:38:02.554  INFO 8920 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.admin.service.AdminServiceTest]: no resource found for suffixes {-context.xml}.
-2020-07-12 02:38:02.555  INFO 8920 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.admin.service.AdminServiceTest]: AdminServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2020-07-12 02:38:02.559  INFO 8920 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-2020-07-12 02:38:02.562  INFO 8920 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3d162bb2, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1d95db00, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@6daace8e, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@65f381c7, org.springframework.test.context.support.DirtiesContextTestExecutionListener@69346d70, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@5a4af68d, org.springframework.test.context.event.EventPublishingTestExecutionListener@612f9df4, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@18abc5af, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@523e6427, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5fcd0e73, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4290f843, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4d0db03, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@256e98e2, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@12e7a4aa]
-2020-07-12 02:38:03.543  INFO 8920 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status -8
-2020-07-12 02:38:03.570  INFO 8920 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status 1
-2020-07-12 02:38:03.584  INFO 8920 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status 0
-2020-07-12 02:38:03.609  INFO 8920 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status 1
+<pre>2020-07-14 01:56:17.557  INFO 30468 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.csci5308.groupme.admin.service.AdminServiceTest], using DelegatingSmartContextLoader
+2020-07-14 01:56:17.558  INFO 30468 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.csci5308.groupme.admin.service.AdminServiceTest]: no resource found for suffixes {-context.xml}.
+2020-07-14 01:56:17.558  INFO 30468 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.csci5308.groupme.admin.service.AdminServiceTest]: AdminServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2020-07-14 01:56:17.561  INFO 30468 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-07-14 01:56:17.566  INFO 30468 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6aaee4ed, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@41f1a47c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@18bdb848, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2419f679, org.springframework.test.context.support.DirtiesContextTestExecutionListener@390de79b, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@75937682, org.springframework.test.context.event.EventPublishingTestExecutionListener@19ff80, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@6bd87bc4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3dbf681b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@53763e48, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1cdc2e59, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@34f2705d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@724b3968, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@102dcd17]
+2020-07-14 01:56:18.136  INFO 30468 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status -8
+2020-07-14 01:56:18.147  INFO 30468 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status 1
+2020-07-14 01:56:18.156  INFO 30468 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status 0
+2020-07-14 01:56:18.169  INFO 30468 --- [    Test worker] c.c.g.c.c.i.s.InstructorServiceImpl      : Status 1
 </pre>
 </span>
 </div>
@@ -132,7 +132,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at Jul 12, 2020 2:38:09 AM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at Jul 14, 2020 1:56:28 AM</p>
 </div>
 </div>
 </body>
