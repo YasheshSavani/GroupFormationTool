@@ -37,7 +37,7 @@
 </table>
 <div th:each="questionData: ${notAddedQuestions}" id="notAddedQuestions"
      style="width:100%; overflow:scroll; height: 50%;">
-    <form name="form1" method="POST"
+    <form name="form1" method="post"
           style="display: inline-block;" th:action="@{/survey/addQuestionToSurvey}">
         <table id="notAddedQuestionsDataTable" style="border: #146A74;">
             <tbody th:if="${notAddedQuestions != null}">
@@ -89,7 +89,7 @@
 </table>
 <div th:each="questionData: ${addedQuestions}" id="addedQuestions"
      style="width:100%; overflow:scroll; height: 50%;">
-    <form name="form2" method="POST"
+    <form name="form2" method="post"
           style="display: inline-block;" th:action="@{/survey/removeQuestionFromSurvey}">
         <table id="addedQuestionsDataTable" style="border: #146A74;">
             <tbody th:if="${addedQuestions != null}">

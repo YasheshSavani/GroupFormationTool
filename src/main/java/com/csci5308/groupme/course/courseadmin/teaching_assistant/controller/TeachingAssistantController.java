@@ -40,6 +40,7 @@ public class TeachingAssistantController {
         } else {
             mView.addObject("managedCourses", null);
         }
+        mView.addObject("roleName", roleName);
         mView.addObject("isTA", true);
         return mView;
     }

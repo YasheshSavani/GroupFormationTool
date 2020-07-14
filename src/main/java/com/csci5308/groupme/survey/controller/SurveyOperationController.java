@@ -40,7 +40,7 @@ public class SurveyOperationController {
                                              @RequestParam(roleNameParamString) String roleName,
                                              Principal principal) {
         String message;
-        List<Question> addedQuestions = null;
+        List<Question> addedQuestions;
         surveyOperationService = SystemConfig.instance().getSurveyOperationService();
         ModelAndView mView = new ModelAndView();
         String userName = principal.getName();

@@ -280,9 +280,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 return null;
             }
             do {
-                logger.info(String.valueOf(resultSet.getInt("questionId")));
-                logger.info(resultSet.getString("questionTitle"));
-                logger.info(resultSet.getString("questionTitle"));
                 Integer questionId = resultSet.getInt("questionId");
                 String questionTitle = resultSet.getString("questionTitle");
                 String questionType = resultSet.getString("questionType");

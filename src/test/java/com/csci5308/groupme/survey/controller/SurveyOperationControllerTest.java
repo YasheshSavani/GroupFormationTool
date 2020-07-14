@@ -7,15 +7,17 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
+import javax.management.relation.Role;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
@@ -30,6 +32,7 @@ class SurveyOperationControllerTest {
     private final String questionTitleParamString = "questionTitle";
     private final String courseCode = "csci0010";
     private final String roleName = Roles.TA;
+    private final String instructorRoleName = Roles.INSTRUCTOR;
     private final String questionType = QuestionTypeConstants.numericType;
     private final String questionId = "1";
     private final String question = "How?";
@@ -39,11 +42,11 @@ class SurveyOperationControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @WithMockUser(username = "ysavani", password = "admin19", authorities = {Roles.STUDENT, Roles.TA})
+    @WithMockUser(username = "iuser", password = "password", authorities = {Roles.INSTRUCTOR})
     void showCreateSurveyPageTest() throws Exception {
         this.mockMvc.perform(get("/survey/createSurvey")
-                .param(courseCodeParamString, courseCode).param(roleNameParamString, roleName)).andDo(print()).andExpect(status().isOk())
-                .andExpect(model().attributeExists(roleNameParamString));
+                .param(courseCodeParamString, courseCode)
+                .param(roleNameParamString, instructorRoleName)).andDo(print()).andExpect(status().isOk());
     }
 
     @Test
