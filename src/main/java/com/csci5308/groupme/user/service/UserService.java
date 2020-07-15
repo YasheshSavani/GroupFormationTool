@@ -14,6 +14,8 @@ public interface UserService extends UserDetailsService {
     public int addRole(String userName, String roleName);
 
     public int updatePassword(String email, String newPassword);
+    
+    public int passwordPolicyCheck(User user);
 
 }
 

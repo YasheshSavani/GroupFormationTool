@@ -16,8 +16,6 @@ public class Messages {
 
     public static final String CLASS_ALREADY_CREATED = "Class already created for the instructor and course!";
 
-    public static final String USERROLE_EXISTS = "Userrole already exists!";
-
     public static final String SUCCESS = "successfully";
 
     public static final String SIGNUP_SUCCESS = "Signed up successfuly!";
@@ -57,5 +55,7 @@ public class Messages {
     public static final String SURVEY_ALREADY_PUBLISHED = "Survey is already published. You cannot edit the survey";
 
     public static final String CANNOT_PUBLISH_SURVEY = "Create Survey by clicking on Create Survey Button, Survey does not Exist for course:";
-
+	
+	public static final String PASSWORD_POLICY_MISMATCH = "Password Policy Mismatch!";
+		
 }

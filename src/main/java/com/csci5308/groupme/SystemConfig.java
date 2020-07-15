@@ -2,8 +2,9 @@ package com.csci5308.groupme;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.auth.config.PasswordProperties;
-import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
-import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDaoImpl;
+import com.csci5308.groupme.auth.config.PasswordSecurityConfig;
+import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDAO;
+import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDAOImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentService;
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentServiceImpl;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
@@ -22,6 +23,10 @@ import com.csci5308.groupme.survey.service.SurveyOperationService;
 import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
 import com.csci5308.groupme.survey.service.SurveyPublishService;
 import com.csci5308.groupme.survey.service.SurveyPublishServiceImpl;
+import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDao;
+import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDaoImpl;
+import com.csci5308.groupme.passwordvalidation.service.PasswordValidationService;
+import com.csci5308.groupme.passwordvalidation.service.PasswordValidationServiceImpl;
 
 public class SystemConfig {
 
@@ -38,6 +43,9 @@ public class SystemConfig {
     private SurveyOperationDao surveyOperationDao;
     private SurveyPublishDao surveyPublishDao;
     private SurveyPublishService surveyPublishService;
+    private PasswordValidationService passwordValidationService;
+    private PasswordValidationDao passwordValidationDao;
+    private PasswordSecurityConfig passwordSecurityConfig;
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
@@ -52,7 +60,18 @@ public class SystemConfig {
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
         surveyPublishDao = new SurveyPublishDaoImpl();
         surveyPublishService = new SurveyPublishServiceImpl(surveyPublishDao);
+        passwordValidationDao = new PasswordValidationDaoImpl();
+        passwordValidationService = new PasswordValidationServiceImpl(passwordValidationDao);
+        passwordSecurityConfig = new PasswordSecurityConfig();
     }
+
+	public PasswordValidationDao getPasswordValidationDao() {
+		return passwordValidationDao;
+	}
+
+	public void setPasswordValidationDao(PasswordValidationDao passwordValidationDao) {
+		this.passwordValidationDao = passwordValidationDao;
+	}
 
 	public static SystemConfig instance() {
         if (null == uniqueInstance) {
@@ -118,7 +137,22 @@ public class SystemConfig {
     }
     
     public GroupFormationService getGroupFormationService() {
-		return groupFormationService;
+        return groupFormationService;
+    }
+    public PasswordValidationService getPasswordValidationService() {
+		return passwordValidationService;
+	}
+
+	public void setPasswordValidationService(PasswordValidationService passwordValidationService) {
+		this.passwordValidationService = passwordValidationService;
+	}
+	
+	public PasswordSecurityConfig getPasswordSecurityConfig() {
+		return passwordSecurityConfig;
+	}
+
+	public void setPasswordSecurityConfig(PasswordSecurityConfig passwordSecurityConfig) {
+		this.passwordSecurityConfig = passwordSecurityConfig;
 	}
 
 	public void setGroupFormationService(GroupFormationService groupFormationService) {

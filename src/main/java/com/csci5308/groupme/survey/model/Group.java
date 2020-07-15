@@ -7,6 +7,10 @@ import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Logger;
 
+import org.slf4j.LoggerFactory;
+
+import ch.qos.logback.classic.Logger;
+
 public class Group {
 	
 	private final Logger logger = (Logger) LoggerFactory.getLogger(Group.class);
@@ -14,17 +18,14 @@ public class Group {
 	private Integer groupNo;
 	private List<Candidate> candidates;
 	private Candidate pivotCandidate;
-
-	public Group() {
-		candidates = new ArrayList<Candidate>();
-	}
-
+	
 	public Integer getGroupNo() {
 		return groupNo;
 	}
 
 	public void setGroupNo(Integer groupNo) {
 		this.groupNo = groupNo;
+		System.out.println("group no = "+this.groupNo);
 	}
 
 	public Candidate getPivotCandidate() {

@@ -23,7 +23,6 @@ import errors.EditCodes;
 public class UserAuthController {
 
     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-    PasswordProperties passwordProperties;
     
     @Autowired
     private UserService userService;
@@ -31,25 +30,29 @@ public class UserAuthController {
     @GetMapping("/signup")
     public String showSignUpPage(Model model) {
         User user = new User();
-        passwordProperties = SystemConfig.instance().getPasswordProperties();
         model.addAttribute("user", user);
-        model.addAttribute(passwordProperties);
         return "auth/signup";
     }
 
     @PostMapping("/signup")
     public ModelAndView signUpUser(@ModelAttribute("user") User user) {
         ModelAndView mView = new ModelAndView("auth/signup");
-        passwordProperties = SystemConfig.instance().getPasswordProperties();
-        mView.addObject(passwordProperties);
         String message;
-        int signupStatus = userService.register(user);
-        if (signupStatus == EditCodes.EMAIL_EXISTS) {
-            message = Messages.SIGNUP_SUCCESS;
-        } else if (signupStatus == EditCodes.USERNAME_EXISTS) {
-            message = Messages.USERNAME_EXISTS;
-        } else {
-            message = Messages.SIGNUP_SUCCESS;
+        int passwordValidationStatus = userService.passwordPolicyCheck(user);
+        if(passwordValidationStatus != EditCodes.FAILURE)
+        {
+	        int signupStatus = userService.register(user);
+	        if (signupStatus == EditCodes.EMAIL_EXISTS) {
+	            message = Messages.EMAIL_EXISTS;
+	        } else if (signupStatus == EditCodes.USERNAME_EXISTS) {
+	            message = Messages.USERNAME_EXISTS;
+	        } else {
+	            message = Messages.SIGNUP_SUCCESS;
+	        }
+        }
+        else
+        {
+        	message = Messages.PASSWORD_POLICY_MISMATCH;
         }
         logger.info(user.getEmail());
         mView.addObject("message", message);

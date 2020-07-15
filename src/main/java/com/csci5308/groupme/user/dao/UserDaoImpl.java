@@ -214,6 +214,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int save(User user) {
         int addedUserCount = 0;
+        long millis;
+        Date createdDate;
         try {
             logger.info("Connecting to the selected database...");
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -228,6 +230,13 @@ public class UserDaoImpl implements UserDao {
             preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, Roles.GUEST);
+            addedUserCount = preparedStatement.executeUpdate();
+            preparedStatement = connection.prepareStatement(UserQuery.ADD_USER_IN_PASSWORD_HISTORY);
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getPassword());
+            millis = System.currentTimeMillis();
+            createdDate = new Date(millis);
+            preparedStatement.setDate(3, createdDate);
             addedUserCount = preparedStatement.executeUpdate();
             connection.commit();
         } catch (SQLException se) {

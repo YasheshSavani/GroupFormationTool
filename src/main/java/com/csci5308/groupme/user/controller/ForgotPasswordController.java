@@ -17,6 +17,7 @@ import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
 
+import constants.Messages;
 import errors.EditCodes;
 
 @Controller
@@ -72,15 +73,26 @@ public class ForgotPasswordController {
 	@PostMapping("/resetPassword")
 	public ModelAndView changePassword(@RequestParam(value = "password", required = true) String newPassword,
 			@RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
-		ModelAndView mView;
-		int status = userService.updatePassword(email, newPassword);
-		if (status == EditCodes.SUCCESS) {
-			mView = new ModelAndView("auth/resetPasswordSuccess");
-		} else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
-			mView = new ModelAndView("auth/noEmail");
-		} else {
-			mView = new ModelAndView("auth/failurePage");
+		ModelAndView mView = new ModelAndView();
+		User user = userService.getByEmail(email);
+		int passwordValidationStatus = userService.passwordPolicyCheck(user);
+		if(passwordValidationStatus != EditCodes.FAILURE)
+		{
+			int status = userService.updatePassword(email, newPassword);
+			if (status == EditCodes.SUCCESS) {
+				mView = new ModelAndView("auth/resetPasswordSuccess");
+			} else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
+				mView = new ModelAndView("auth/noEmail");
+			} else {
+				mView = new ModelAndView("auth/failurePage");
+			}
 		}
+		else
+        {
+        	String message;
+			message = Messages.PASSWORD_POLICY_MISMATCH;
+			mView.addObject("message", message);
+        }
 		return mView;
 	}
 

@@ -1,5 +1,7 @@
 package com.csci5308.groupme.user.service;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.passwordvalidation.PasswordValidator;
+import com.csci5308.groupme.passwordvalidation.service.PasswordValidationService;
 import com.csci5308.groupme.user.dao.UserDao;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.model.UserAuthDetails;
@@ -24,6 +29,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    
+    private PasswordValidationService passwordValidationService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -77,5 +84,25 @@ public class UserServiceImpl implements UserService {
         }
         return updateStatus;
     }
+
+	@Override
+	public int passwordPolicyCheck(User user) {
+		int passwordCheckStatus = 1;
+		passwordValidationService = SystemConfig.instance().getPasswordValidationService();
+		String rawPassword = user.getPassword();
+        logger.info("Encoding the password for {}", user.getUserName());
+        user.setPassword(passwordEncoder.encode(rawPassword));
+        List <PasswordValidator> passwordValidators = passwordValidationService.getActiveValidators(user);
+		for(int i = 0; i < passwordValidators.size(); i++) {
+			PasswordValidator validator = passwordValidators.get(i);
+			if (validator.isValid(rawPassword) == false) {
+				logger.info("Password criteria not met!");
+				logger.info(validator.getValidatorName() + "is not satisfied with the constraint of"+  validator.constraint);
+				passwordCheckStatus = EditCodes.FAILURE;
+			}
+		}
+		logger.info("Password check status is " + passwordCheckStatus);	
+		return passwordCheckStatus;
+	}
 
 }
