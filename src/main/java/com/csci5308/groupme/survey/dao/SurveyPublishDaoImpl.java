@@ -24,18 +24,16 @@ public class SurveyPublishDaoImpl implements SurveyPublishDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
-
             if (roleName.equals(Roles.INSTRUCTOR)) {
                 logger.debug("PUBLISH_SURVEY procedure called");
                 callableStatement = connection.prepareCall("{call PUBLISH_SURVEY(?,?)}");
                 callableStatement.setString(1, courseCode);
                 callableStatement.registerOutParameter(2, Types.INTEGER);
             }
-            callableStatement.executeUpdate();
+            int rowCount = callableStatement.executeUpdate();
             surveyPublishStatus = callableStatement.getInt(2);
         } catch (Exception e) {
             e.printStackTrace();

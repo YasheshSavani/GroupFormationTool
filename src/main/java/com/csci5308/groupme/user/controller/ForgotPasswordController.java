@@ -39,49 +39,49 @@ public class ForgotPasswordController {
 	@PostMapping("/forgotPassword")
 	public ModelAndView userEmail(@RequestParam("email") String emailId) {
 		User user = userService.getByEmail(emailId);
-		ModelAndView mView;
+		ModelAndView modelAndView;
 		if (null == user) {
-			mView = new ModelAndView("auth/emailnotfound");
+			modelAndView = new ModelAndView("auth/emailnotfound");
 		} else {
 			boolean isSent = emailService.sendPasswordRecovery(emailId);
 			if (isSent) {
-				mView = new ModelAndView("auth/emailsent");
+				modelAndView = new ModelAndView("auth/emailsent");
 			} else {
-				mView = new ModelAndView("auth/failurePage");
+				modelAndView = new ModelAndView("auth/failurePage");
 			}
 		}
-		return mView;
+		return modelAndView;
 	}
 
 	@GetMapping("/resetPassword")
 	public ModelAndView resetPassword(
 			@RequestParam(value = "secretCode", required = true, defaultValue = "none") String secretCode,
 			@RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
-		ModelAndView mView;
+		ModelAndView modelAndView;
 		passwordProperties = SystemConfig.instance().getPasswordProperties();
 		if (secretCode.equals(AuthConstants.SECRET_CODE)) {
-			mView = new ModelAndView("auth/resetPassword");
-			mView.addObject("email", email);
-			mView.addObject(passwordProperties);
+			modelAndView = new ModelAndView("auth/resetPassword");
+			modelAndView.addObject("email", email);
+			modelAndView.addObject(passwordProperties);
 		} else {
-			mView = new ModelAndView("auth/unauthorized");
+			modelAndView = new ModelAndView("auth/unauthorized");
 		}
-		return mView;
+		return modelAndView;
 	}
 
 	@PostMapping("/resetPassword")
 	public ModelAndView changePassword(@RequestParam(value = "password", required = true) String newPassword,
 			@RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
-		ModelAndView mView;
+		ModelAndView modelAndView;
 		int status = userService.updatePassword(email, newPassword);
 		if (status == EditCodes.SUCCESS) {
-			mView = new ModelAndView("auth/resetPasswordSuccess");
+			modelAndView = new ModelAndView("auth/resetPasswordSuccess");
 		} else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
-			mView = new ModelAndView("auth/noEmail");
+			modelAndView = new ModelAndView("auth/noEmail");
 		} else {
-			mView = new ModelAndView("auth/failurePage");
+			modelAndView = new ModelAndView("auth/failurePage");
 		}
-		return mView;
+		return modelAndView;
 	}
 
 }

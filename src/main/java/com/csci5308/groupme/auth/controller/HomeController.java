@@ -33,22 +33,22 @@ public class HomeController {
 
     @GetMapping("/admin")
     public ModelAndView adminHomePage(Principal principal) {
-        ModelAndView mView = new ModelAndView("admin/home_admin");
-        mView.addObject("userName", principal.getName());
-        return mView;
+        ModelAndView modelAndView = new ModelAndView("admin/home_admin");
+        modelAndView.addObject("userName", principal.getName());
+        return modelAndView;
     }
 
     @GetMapping("/guest")
     public ModelAndView guestUserHomePage(Principal principal) throws Exception {
-        ModelAndView mView = new ModelAndView("guest/home_guest");
+        ModelAndView modelAndView = new ModelAndView("guest/home_guest");
         List<Course> guestCourses = courseDetailsService.findAllCourses();
         if (guestCourses != null) {
-            mView.addObject("details", guestCourses);
+            modelAndView.addObject("details", guestCourses);
         } else {
-            mView.addObject("details", null);
+            modelAndView.addObject("details", null);
         }
-        mView.addObject("userName", principal.getName());
-        return mView;
+        modelAndView.addObject("userName", principal.getName());
+        return modelAndView;
     }
 
     @GetMapping("/home")

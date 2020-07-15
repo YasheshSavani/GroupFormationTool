@@ -12,20 +12,20 @@ public class CourseController {
     @RequestMapping(value = "/operationoncourse", method = RequestMethod.GET)
     public ModelAndView showOperationsOnCourse(@RequestParam("courseCode") String courseCode,
                                                @RequestParam("courseName") String courseName) {
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("coursedetails");
-        mView.addObject("courseCode", courseCode);
-        mView.addObject("courseName", courseName);
-        return mView;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("coursedetails");
+        modelAndView.addObject("courseCode", courseCode);
+        modelAndView.addObject("courseName", courseName);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/coursepage", method = RequestMethod.GET)
     public ModelAndView getCoursePage(@RequestParam("courseName") String courseName,
                                       @RequestParam("courseCode") String courseCode) throws Exception {
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("coursepage");
-        mView.addObject("courseCode", courseCode);
-        mView.addObject("courseName", courseName);
-        return mView;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("coursepage");
+        modelAndView.addObject("courseCode", courseCode);
+        modelAndView.addObject("courseName", courseName);
+        return modelAndView;
     }
 }

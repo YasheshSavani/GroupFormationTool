@@ -26,15 +26,15 @@ public class StudentController {
             Principal principal) throws Exception {
         String studentUserName = principal.getName();
         List<Course> coursesStudentEnrolledIn = courseDetailsService.findCoursesByStudentUserName(studentUserName);
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("student/studenthomepage");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("student/studenthomepage");
         if (null != coursesStudentEnrolledIn) {
-            mView.addObject("studentCourseDetails", coursesStudentEnrolledIn);
+            modelAndView.addObject("studentCourseDetails", coursesStudentEnrolledIn);
         } else {
-            mView.addObject("studentCourseDetails", null);
+            modelAndView.addObject("studentCourseDetails", null);
         }
-        mView.addObject("isTA", isTA);
-        mView.addObject("isInstructor", isInstructor);
-        return mView;
+        modelAndView.addObject("isTA", isTA);
+        modelAndView.addObject("isInstructor", isInstructor);
+        return modelAndView;
     }
 }

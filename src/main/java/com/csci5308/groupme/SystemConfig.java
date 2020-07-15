@@ -22,6 +22,10 @@ import com.csci5308.groupme.survey.service.SurveyOperationService;
 import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
 import com.csci5308.groupme.survey.service.SurveyPublishService;
 import com.csci5308.groupme.survey.service.SurveyPublishServiceImpl;
+import com.csci5308.groupme.survey.dao.SurveyCustomiseDao;
+import com.csci5308.groupme.survey.service.SurveyCustomiseService;
+import com.csci5308.groupme.survey.dao.SurveyCustomiseDaoImpl;
+import com.csci5308.groupme.survey.service.SurveyCustomiseServiceImpl;
 
 public class SystemConfig {
 
@@ -38,6 +42,8 @@ public class SystemConfig {
     private SurveyOperationDao surveyOperationDao;
     private SurveyPublishDao surveyPublishDao;
     private SurveyPublishService surveyPublishService;
+    private SurveyCustomiseDao surveyCustomiseDao;
+    private SurveyCustomiseService surveyCustomiseService;
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
@@ -52,6 +58,8 @@ public class SystemConfig {
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
         surveyPublishDao = new SurveyPublishDaoImpl();
         surveyPublishService = new SurveyPublishServiceImpl(surveyPublishDao);
+        surveyCustomiseDao = new SurveyCustomiseDaoImpl();
+        surveyCustomiseService = new SurveyCustomiseServiceImpl(surveyCustomiseDao);
     }
 
 	public static SystemConfig instance() {
@@ -155,6 +163,22 @@ public class SystemConfig {
 
     public void setSurveyPublishService(SurveyPublishService surveyPublishService) {
         this.surveyPublishService = surveyPublishService;
+    }
+
+    public SurveyCustomiseDao getSurveyCustomiseDao() {
+        return surveyCustomiseDao;
+    }
+
+    public void setSurveyCustomiseDao(SurveyCustomiseDao surveyCustomiseDao) {
+        this.surveyCustomiseDao = surveyCustomiseDao;
+    }
+
+    public SurveyCustomiseService getSurveyCustomiseService() {
+        return surveyCustomiseService;
+    }
+
+    public void setSurveyCustomiseService(SurveyCustomiseService surveyCustomiseService) {
+        this.surveyCustomiseService = surveyCustomiseService;
     }
 }
 

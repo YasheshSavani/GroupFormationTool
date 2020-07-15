@@ -2,6 +2,7 @@ package com.csci5308.groupme.survey.controller;
 
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.survey.constants.SurveyConstants;
 import com.csci5308.groupme.survey.model.SurveyQuestion;
 import com.csci5308.groupme.survey.service.SurveyOperationService;
 import constants.Messages;
@@ -23,31 +24,28 @@ import java.util.Map;
 @RequestMapping(value = "/survey")
 public class SurveyOperationController {
 
-    private final String courseCodeParamString = "courseCode";
-    private final String roleNameParamString = "roleName";
-    private final String questionTypeParamString = "questionType";
-    private final String questionIdParamString = "questionId";
-    private final String questionParamString = "question";
-    private final String questionTitleParamString = "questionTitle";
-
-
+    private final String courseCodeParam = "courseCode";
+    private final String roleNameParam = "roleName";
+    private final String questionTypeParam = "questionType";
+    private final String questionIdParam = "questionId";
+    private final String questionParam = "question";
+    private final String questionTitleParam = "questionTitle";
     private final Logger logger = LoggerFactory.getLogger(SurveyOperationController.class);
-
     SurveyOperationService surveyOperationService;
 
     @RequestMapping(value = "/createSurvey", method = RequestMethod.GET)
-    public ModelAndView showCreateSurveyPage(@RequestParam(courseCodeParamString) String courseCode,
-                                             @RequestParam(roleNameParamString) String roleName,
+    public ModelAndView showCreateSurveyPage(@RequestParam(courseCodeParam) String courseCode,
+                                             @RequestParam(roleNameParam) String roleName,
                                              Principal principal) {
         String message;
         List<Question> addedQuestions;
-        surveyOperationService = SystemConfig.instance().getSurveyOperationService();
-        ModelAndView mView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         String userName = principal.getName();
+        surveyOperationService = SystemConfig.instance().getSurveyOperationService();
         Map<String, Integer> conditions = surveyOperationService.checkIfSurveyExist(courseCode);
-        if (conditions.get("isPublished") != 1) {
+        if (conditions.get("isPublished") != SurveyConstants.SURVEY_STATUS_PUBLISHED) {
             logger.info("Survey for course: " + courseCode + " is not Published");
-            if (conditions.get("surveyId") != 0) {
+            if (conditions.get("surveyId") != SurveyConstants.DEFAULT_SURVEY_ID) {
                 logger.info("Survey Exists for course: " + courseCode);
                 addedQuestions = surveyOperationService.getAlreadyAddedSurveyQuestions(userName, roleName, courseCode);
             } else {
@@ -55,36 +53,37 @@ public class SurveyOperationController {
             }
             List<Question> notAddedQuestions = surveyOperationService.showQuestionsOnCreateSurveyPage(courseCode, roleName, userName);
             if (null != notAddedQuestions) {
-                mView.addObject("notAddedQuestions", notAddedQuestions);
-                mView.addObject("addedQuestions", addedQuestions);
+                modelAndView.addObject("notAddedQuestions", notAddedQuestions);
+                modelAndView.addObject("addedQuestions", addedQuestions);
                 message = Messages.QUESTIONS_FETCHED;
-                mView.addObject("message", message);
+                modelAndView.addObject("message", message);
             } else {
                 notAddedQuestions = new ArrayList<>();
-                mView.addObject("notAddedQuestions", notAddedQuestions);
-                mView.addObject("addedQuestions", addedQuestions);
+                modelAndView.addObject("notAddedQuestions", notAddedQuestions);
+                modelAndView.addObject("addedQuestions", addedQuestions);
                 message = Messages.QUESTIONS_NOT_FETCHED;
-                mView.addObject("message", message);
+                modelAndView.addObject("message", message);
             }
-            mView.addObject("publisherMessage", Messages.SURVEY_NOT_PUBLISHED);
+            modelAndView.addObject("publisherMessage", Messages.SURVEY_NOT_PUBLISHED);
         } else {
             logger.info("Survey for course: " + courseCode + " is Published");
-            mView.addObject("publisherMessage", Messages.SURVEY_ALREADY_PUBLISHED);
+            modelAndView.addObject("publisherMessage", Messages.SURVEY_ALREADY_PUBLISHED);
         }
-        mView.addObject("courseCode", courseCode);
-        mView.addObject("roleName", roleName);
-        mView.setViewName("survey/createsurvey");
-        return mView;
+        modelAndView.addObject("courseCode", courseCode);
+        modelAndView.addObject("roleName", roleName);
+        modelAndView.setViewName("survey/createsurvey");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/addQuestionToSurvey", method = RequestMethod.POST)
-    public ModelAndView addQuestionToSurvey(@RequestParam(value = questionIdParamString) String questionId,
-                                            @RequestParam(value = questionParamString) String question,
-                                            @RequestParam(value = questionTitleParamString) String questionTitle,
-                                            @RequestParam(value = courseCodeParamString) String courseCode,
-                                            @RequestParam(value = roleNameParamString) String roleName,
-                                            @RequestParam(value = questionTypeParamString) String questionType) throws Exception {
+    public ModelAndView addQuestionToSurvey(@RequestParam(value = questionIdParam) String questionId,
+                                            @RequestParam(value = questionParam) String question,
+                                            @RequestParam(value = questionTitleParam) String questionTitle,
+                                            @RequestParam(value = courseCodeParam) String courseCode,
+                                            @RequestParam(value = roleNameParam) String roleName,
+                                            @RequestParam(value = questionTypeParam) String questionType) throws Exception {
         surveyOperationService = SystemConfig.instance().getSurveyOperationService();
+        ModelAndView modelAndView = new ModelAndView();
         SurveyQuestion surveyQuestion = new SurveyQuestion();
         surveyQuestion.setQuestionId(questionId);
         surveyQuestion.setQuestion(question);
@@ -94,40 +93,40 @@ public class SurveyOperationController {
         surveyQuestion.setUpperBound(Messages.NONE);
         surveyQuestion.setLowerBound(Messages.NONE);
         surveyQuestion.setWeight(Messages.NONE);
-        logger.debug("surveyQuestion object created for QuestionId: " + questionId +"and Question: " + question);
+        logger.debug("surveyQuestion object created for QuestionId: " + questionId + "and Question: " + question);
         int rowCount = surveyOperationService.addQuestionToSurvey(courseCode, surveyQuestion);
         logger.info("Number of questions added to survey: " + rowCount);
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("redirect:/survey/createSurvey");
-        mView.addObject("courseCode", courseCode);
-        mView.addObject("roleName", roleName);
-        return mView;
+
+        modelAndView.setViewName("redirect:/survey/createSurvey");
+        modelAndView.addObject("courseCode", courseCode);
+        modelAndView.addObject("roleName", roleName);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/removeQuestionFromSurvey", method = RequestMethod.POST)
-    public ModelAndView removeQuestionFromSurvey(@RequestParam(value = questionIdParamString) String questionId,
-                                                 @RequestParam(value = courseCodeParamString) String courseCode,
-                                                 @RequestParam(value = roleNameParamString) String roleName) throws Exception {
+    public ModelAndView removeQuestionFromSurvey(@RequestParam(value = questionIdParam) String questionId,
+                                                 @RequestParam(value = courseCodeParam) String courseCode,
+                                                 @RequestParam(value = roleNameParam) String roleName) throws Exception {
+        ModelAndView modelAndView = new ModelAndView();
         surveyOperationService = SystemConfig.instance().getSurveyOperationService();
         int rowCount = surveyOperationService.removeQuestionFromSurvey(questionId, courseCode);
         logger.info("Number of questions removed from survey: " + rowCount);
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("redirect:/survey/createSurvey");
-        mView.addObject("courseCode", courseCode);
-        mView.addObject("roleName", roleName);
-        return mView;
+        modelAndView.setViewName("redirect:/survey/createSurvey");
+        modelAndView.addObject("courseCode", courseCode);
+        modelAndView.addObject("roleName", roleName);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/saveSurvey", method = RequestMethod.POST)
-    public ModelAndView saveSurveyAndRedirectToCourseAdmin(@RequestParam(value = roleNameParamString) String roleName) {
-        ModelAndView mView = new ModelAndView();
+    public ModelAndView saveSurveyAndRedirectToCourseAdmin(@RequestParam(value = roleNameParam) String roleName) {
+        ModelAndView modelAndView = new ModelAndView();
         if (roleName.equals(Roles.TA)) {
-            mView.setViewName("redirect:/TAcoursepage");
+            modelAndView.setViewName("redirect:/TAcoursepage");
         } else {
-            mView.setViewName("redirect:/instructor/courseAdminPage");
+            modelAndView.setViewName("redirect:/instructor/courseAdminPage");
         }
-        mView.addObject("roleName", roleName);
-        return mView;
+        modelAndView.addObject("roleName", roleName);
+        return modelAndView;
     }
 
 }

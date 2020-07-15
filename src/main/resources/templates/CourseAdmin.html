@@ -13,12 +13,28 @@
             var isTA = "[[${roleName}]]";
             if (isTA === "ROLE_TA") {
                 document.getElementById('publishSurvey').style.display = "none";
+            } else {
+                document.getElementById('publishSurvey').style.display = "block";
             }
         }
     </script>
 
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        tr {
+            margin: 10px;
+        }
+    </style>
 </head>
-<body onload="showPublishSurveyButton()">
+<body>
 <div class="topnav">
     <a href="#">GroupMe</a>
     <a style="float: right" href="/logout">Logout</a>
@@ -44,10 +60,11 @@
                 <button type="submit" id="createSurvey" class="button"
                         th:formaction="@{/survey/createSurvey}">Create Survey
                 </button>
-                <button id="customizeSurvey" class="button" formaction="#">Customize Survey</button>
+                <button type="submit" id="customizeSurvey" class="button"
+                        th:formaction="@{/customiseSurvey/getSurveyQuestion}">Customize Survey
+                </button>
                 <button type="submit" id="publishSurvey" class="button" th:formaction="@{/publishSurvey}"
-                        style="display: block;">
-                    Publish Survey
+                        style="display: block;" onload="showPublishSurveyButton()">Publish Survey
                 </button>
             </form>
         </td>
