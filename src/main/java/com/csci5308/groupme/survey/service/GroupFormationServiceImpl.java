@@ -14,6 +14,7 @@ import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristic;
 import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristicFactory;
 
 import ch.qos.logback.classic.Logger;
+import errors.EditCodes;
 
 public class GroupFormationServiceImpl implements GroupFormationService{
 
@@ -41,6 +42,18 @@ public class GroupFormationServiceImpl implements GroupFormationService{
 		List<Group> groups = groupingStrategy.getGroups(candidates, groupSize);
 	    
 		return groups;
+	}
+	
+	@Override
+	public int validate(List<Candidate> candidates, Integer groupSize) {
+		int status = EditCodes.SUCCESS;
+		if(groupSize == 0) {
+			status = EditCodes.GROUP_SIZE_IS_ZERO;
+		}
+		else if(groupSize > candidates.size()) {
+			status = EditCodes.GROUP_SIZE_GREATER_THAN_STRENGTH;
+		}
+		return status;
 	}
 	
 }

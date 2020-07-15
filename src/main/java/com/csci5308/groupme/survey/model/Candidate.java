@@ -1,5 +1,7 @@
 package com.csci5308.groupme.survey.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Candidate {
@@ -9,9 +11,10 @@ public class Candidate {
 	private String bannerId;
 	private String firstName;
 	private String lastName;
-	private String responses;
+	private String stringifiedResponses;
 	private Double fitness;	
 	private Map<?,?> questionResponsesMap;	
+	private List<PrettyResponse> prettyResponses;
 	
 	public String getFirstName() {
 		return firstName;
@@ -43,11 +46,11 @@ public class Candidate {
 	public void setBannerId(String bannerId) {
 		this.bannerId = bannerId;
 	}
-	public String getResponses() {
-		return responses;
+	public String getStringifiedResponses() {
+		return stringifiedResponses;
 	}
-	public void setResponses(String responses) {
-		this.responses = responses;
+	public void setStringifiedResponses(String responses) {
+		this.stringifiedResponses = responses;
 	}
 	public Double getFitness() {
 		return fitness;
@@ -59,8 +62,21 @@ public class Candidate {
 	public Map<?, ?> getQuestionResponsesMap() {
 		return questionResponsesMap;
 	}
+	
 	public void setQuestionResponsesMap(Map<?, ?> questionResponsesMap) {
 		this.questionResponsesMap = questionResponsesMap;
 	}
 	
+	public List<PrettyResponse> getPrettyResponses() {
+		prettyResponses = new ArrayList<PrettyResponse>();
+		for (Map.Entry<?, ?> entry : questionResponsesMap.entrySet()) {
+			String questionId = (String) entry.getKey();
+			Map<?,?> questionParamsMap = (Map<?, ?>) questionResponsesMap.get(questionId);
+			PrettyResponse prettyResponse = new PrettyResponse(questionParamsMap);
+			prettyResponse.setQuestionId(questionId);
+			this.prettyResponses.add(prettyResponse);
+		}
+		return prettyResponses;
+	}
+		
 }

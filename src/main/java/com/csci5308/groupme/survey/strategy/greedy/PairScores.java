@@ -2,7 +2,6 @@ package com.csci5308.groupme.survey.strategy.greedy;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,8 +21,6 @@ public class PairScores implements GroupingHeuristic {
 
 	private final int SIMILARITY = 1;
 	private final int DISSIMILARITY = 2;
-	private final int ATLEAST_ONE_WITH_MINIMUM = 3;
-	private final int ATLEAST_ONE_WITH_MAXIMUM = 4;
 	private Map<?, ?> pivotResponses;
 	private Map<?, ?> groupMateCandidateResponses;
 	private final double resolver = 1.25;
@@ -52,17 +49,17 @@ public class PairScores implements GroupingHeuristic {
 		for (Map.Entry<?, ?> entry : pivotResponses.entrySet()) {
 			questionIDs.add((String) entry.getKey());
 		}
-		for (String questionID : questionIDs) {
-			score += weight(questionID) * gain(questionID);
+		for (String questionId : questionIDs) {
+			score += weight(questionId) * gain(questionId);
 		}
 		logger.debug("Pair Score {}", score);
 		return score;
 	}
 
-	private double gain(String questionID) {
+	private double gain(String questionId) {
 		double gain = 0.00;
-		int criterion = Integer.parseInt((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("criterion"));
-		String questionType = (String) ((Map<?, ?>) pivotResponses.get(questionID)).get("type");
+		int criterion = Integer.parseInt((String) ((Map<?, ?>) pivotResponses.get(questionId)).get("criterion"));
+		String questionType = (String) ((Map<?, ?>) pivotResponses.get(questionId)).get("type");
 		int expectedCriterion = 0;
 		if (criterion == Criteria.DISSIMILARITY) {
 			expectedCriterion = DISSIMILARITY;
@@ -70,14 +67,14 @@ public class PairScores implements GroupingHeuristic {
 			expectedCriterion = SIMILARITY;
 		}
 		double pivotAnswer;
-		double candidateAnswer;	
+		double candidateAnswer;
 		switch (questionType) {
-		
+
 		case QuestionTypeConstants.NUMERIC:
-			logger.debug("Numeric type question");
-			pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer"));
+			logger.debug("Numeric type question, {}", questionId);
+			pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionId)).get("answer"));
 			candidateAnswer = Double
-					.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionID)).get("answer"));
+					.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionId)).get("answer"));
 			if (expectedCriterion == SIMILARITY && (pivotAnswer - candidateAnswer) == 0) {
 				gain = 1;
 			} else {
@@ -86,10 +83,10 @@ public class PairScores implements GroupingHeuristic {
 			break;
 
 		case QuestionTypeConstants.MCQ_CHOOSE_ONE:
-			logger.debug("MCQ- Choose one type question");
-			pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer"));
+			logger.debug("MCQ- Choose one type question, {}", questionId);
+			pivotAnswer = Double.parseDouble((String) ((Map<?, ?>) pivotResponses.get(questionId)).get("answer"));
 			candidateAnswer = Double
-					.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionID)).get("answer"));
+					.parseDouble((String) ((Map<?, ?>) groupMateCandidateResponses.get(questionId)).get("answer"));
 
 			int observed;
 			if ((pivotAnswer - candidateAnswer) == 0) {
@@ -101,9 +98,9 @@ public class PairScores implements GroupingHeuristic {
 			break;
 
 		case QuestionTypeConstants.MCQ_CHOOSE_MULTIPLE:
-			logger.debug("MCQ- Choose many type question");
-			List<String> pivotChoicesList = (List<String>) ((Map<?, ?>) pivotResponses.get(questionID)).get("answer");
-			List<String> candidateChoicesList = (List<String>) ((Map<?, ?>) groupMateCandidateResponses.get(questionID))
+			logger.debug("MCQ- Choose many type question, {}", questionId);
+			List<String> pivotChoicesList = (List<String>) ((Map<?, ?>) pivotResponses.get(questionId)).get("answer");
+			List<String> candidateChoicesList = (List<String>) ((Map<?, ?>) groupMateCandidateResponses.get(questionId))
 					.get("answer");
 			Set<String> union = new HashSet<>(pivotChoicesList);
 			union.addAll(candidateChoicesList);
@@ -116,15 +113,36 @@ public class PairScores implements GroupingHeuristic {
 				gain = union.size();
 			}
 			break;
+
+		case QuestionTypeConstants.FREE_TEXT:
+			logger.debug("Free-text type question, {}", questionId);
+			String pivotText = (String) ((Map<?, ?>) pivotResponses.get(questionId)).get("answer");
+			String candidateText = (String) ((Map<?, ?>) groupMateCandidateResponses.get(questionId)).get("answer");
+			boolean isAMatch = pivotText.equalsIgnoreCase(candidateText);
+			if (expectedCriterion == SIMILARITY) {
+				if (isAMatch == true) {
+					gain = 1.0;
+				} else {
+					gain = 0.0;
+				}
+			}
+			if (expectedCriterion == DISSIMILARITY) {
+				if (isAMatch == false) {
+					gain = 1.0;
+				} else {
+					gain = 0.0;
+				}
+			}
+			break;
 		default:
 			gain = 0.00;
 		}
 		return gain;
 	}
 
-	private int weight(String questionID) {
-		String weight = (String) ((Map<?, ?>) pivotResponses.get(questionID)).get("weight");
+	private int weight(String questionId) {
+		String weight = (String) ((Map<?, ?>) pivotResponses.get(questionId)).get("weight");
 		return Integer.parseInt(weight);
 	}
-	
+
 }

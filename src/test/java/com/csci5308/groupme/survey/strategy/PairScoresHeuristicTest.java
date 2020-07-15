@@ -23,8 +23,7 @@ import constants.FilePathConstants;
 @ExtendWith(SpringExtension.class)
 public class PairScoresHeuristicTest {
 
-	private final Logger logger = (Logger) LoggerFactory.getLogger(PairScoresHeuristicTest.class);
-	
+	private final Logger logger = (Logger) LoggerFactory.getLogger(PairScoresHeuristicTest.class);	
 	private static Map<?, ?> testResponses;
 	private static PairScores pairScoresHeuristic;
 	private static Candidate pivotCandidate;

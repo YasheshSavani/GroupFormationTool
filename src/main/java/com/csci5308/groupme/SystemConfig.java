@@ -12,6 +12,8 @@ import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAs
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantServiceImpl;
+import com.csci5308.groupme.survey.service.GroupFormationService;
+import com.csci5308.groupme.survey.service.GroupFormationServiceImpl;
 
 public class SystemConfig {
 
@@ -23,6 +25,7 @@ public class SystemConfig {
     private DatabaseProperties databaseProperties;
     private PasswordProperties passwordProperties;
     private EnrollmentService enrollmentService;
+    private GroupFormationService groupFormationService;
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
@@ -32,9 +35,10 @@ public class SystemConfig {
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
+        groupFormationService = new GroupFormationServiceImpl();
     }
 
-    public static SystemConfig instance() {
+	public static SystemConfig instance() {
         if (null == uniqueInstance) {
             uniqueInstance = new SystemConfig();
         }
@@ -96,6 +100,14 @@ public class SystemConfig {
     public void setEnrollmentService(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
     }
+    
+    public GroupFormationService getGroupFormationService() {
+		return groupFormationService;
+	}
+
+	public void setGroupFormationService(GroupFormationService groupFormationService) {
+		this.groupFormationService = groupFormationService;
+	}
 
 }
 

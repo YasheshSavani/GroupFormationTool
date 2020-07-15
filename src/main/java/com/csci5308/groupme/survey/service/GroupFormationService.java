@@ -13,5 +13,7 @@ public interface GroupFormationService {
 	public GroupingStrategy getGroupingStrategy();
 
 	public void setGroupingStrategy(String algorithm);
+	
+	public int validate(List<Candidate> candidates, Integer groupSize);
 			
 }

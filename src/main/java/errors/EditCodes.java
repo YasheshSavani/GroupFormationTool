@@ -25,5 +25,9 @@ public class EditCodes {
     public static final int CLASS_NOT_CREATED = -10;
     
     public static final int INSTRUCTOR_NOT_CREATED = -11;
+    
+    public static final int GROUP_SIZE_IS_ZERO = -12;
+    
+    public static final int GROUP_SIZE_GREATER_THAN_STRENGTH = -13;
 
 }
