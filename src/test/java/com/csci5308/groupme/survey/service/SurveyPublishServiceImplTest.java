@@ -24,7 +24,7 @@ class SurveyPublishServiceImplTest {
     }
 
     @Test
-    void publishSurveyForStudents() {
+    void publishSurveyForStudentsTest() {
 
         String publisherMessage = surveyPublishService.publishSurveyForStudents(roleNameTest, courseCodeTest);
         String publisherMessageTest = Messages.SURVEY_PUBLISHED + courseCodeTest;

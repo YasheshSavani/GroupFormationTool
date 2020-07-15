@@ -12,14 +12,8 @@ import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAs
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantServiceImpl;
-import com.csci5308.groupme.survey.dao.SurveyOperationDao;
-import com.csci5308.groupme.survey.dao.SurveyOperationDaoImpl;
-import com.csci5308.groupme.survey.dao.SurveyPublishDao;
-import com.csci5308.groupme.survey.dao.SurveyPublishDaoImpl;
-import com.csci5308.groupme.survey.service.SurveyOperationService;
-import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
-import com.csci5308.groupme.survey.service.SurveyPublishService;
-import com.csci5308.groupme.survey.service.SurveyPublishServiceImpl;
+import com.csci5308.groupme.survey.dao.*;
+import com.csci5308.groupme.survey.service.*;
 
 public class SystemConfig {
 
@@ -35,6 +29,8 @@ public class SystemConfig {
     private SurveyOperationDao surveyOperationDao;
     private SurveyPublishDao surveyPublishDao;
     private SurveyPublishService surveyPublishService;
+    private SurveyCustomiseDao surveyCustomiseDao;
+    private SurveyCustomiseService surveyCustomiseService;
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
@@ -48,6 +44,8 @@ public class SystemConfig {
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
         surveyPublishDao = new SurveyPublishDaoImpl();
         surveyPublishService = new SurveyPublishServiceImpl(surveyPublishDao);
+        surveyCustomiseDao = new SurveyCustomiseDaoImpl();
+        surveyCustomiseService = new SurveyCustomiseServiceImpl(surveyCustomiseDao);
     }
 
     public static SystemConfig instance() {
@@ -143,6 +141,22 @@ public class SystemConfig {
 
     public void setSurveyPublishService(SurveyPublishService surveyPublishService) {
         this.surveyPublishService = surveyPublishService;
+    }
+
+    public SurveyCustomiseDao getSurveyCustomiseDao() {
+        return surveyCustomiseDao;
+    }
+
+    public void setSurveyCustomiseDao(SurveyCustomiseDao surveyCustomiseDao) {
+        this.surveyCustomiseDao = surveyCustomiseDao;
+    }
+
+    public SurveyCustomiseService getSurveyCustomiseService() {
+        return surveyCustomiseService;
+    }
+
+    public void setSurveyCustomiseService(SurveyCustomiseService surveyCustomiseService) {
+        this.surveyCustomiseService = surveyCustomiseService;
     }
 }
 

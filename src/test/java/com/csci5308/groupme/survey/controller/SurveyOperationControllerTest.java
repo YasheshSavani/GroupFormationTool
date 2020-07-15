@@ -21,12 +21,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 class SurveyOperationControllerTest {
 
-    private final String courseCodeParamString = "courseCode";
-    private final String roleNameParamString = "roleName";
-    private final String questionTypeParamString = "questionType";
-    private final String questionIdParamString = "questionId";
-    private final String questionParamString = "question";
-    private final String questionTitleParamString = "questionTitle";
+    private final String courseCodeParam = "courseCode";
+    private final String roleNameParam = "roleName";
+    private final String questionTypeParam = "questionType";
+    private final String questionIdParam = "questionId";
+    private final String questionParam = "question";
+    private final String questionTitleParam = "questionTitle";
     private final String courseCode = "csci0010";
     private final String roleName = Roles.TA;
     private final String questionType = QuestionTypeConstants.NUMERIC;
@@ -41,12 +41,12 @@ class SurveyOperationControllerTest {
     @WithMockUser(username = "ysavani", password = "admin19", authorities = {Roles.STUDENT, Roles.TA})
     void addQuestionToSurveyTest() throws Exception {
         this.mockMvc.perform(post("/survey/addQuestionToSurvey")
-                .param(questionIdParamString, questionId)
-                .param(questionParamString, question)
-                .param(questionTitleParamString, questionTitle)
-                .param(courseCodeParamString, courseCode)
-                .param(roleNameParamString, roleName)
-                .param(questionTypeParamString, questionType)).andDo(print()).andExpect(status().is(302))
+                .param(questionIdParam, questionId)
+                .param(questionParam, question)
+                .param(questionTitleParam, questionTitle)
+                .param(courseCodeParam, courseCode)
+                .param(roleNameParam, roleName)
+                .param(questionTypeParam, questionType)).andDo(print()).andExpect(status().is(302))
                 .andExpect(view().name("redirect:/survey/createSurvey"));
     }
 
@@ -54,9 +54,9 @@ class SurveyOperationControllerTest {
     @WithMockUser(username = "ysavani", password = "admin19", authorities = {Roles.STUDENT, Roles.TA})
     void removeQuestionFromSurveyTest() throws Exception {
         this.mockMvc.perform(post("/survey/removeQuestionFromSurvey")
-                .param(questionIdParamString, questionId)
-                .param(courseCodeParamString, courseCode)
-                .param(roleNameParamString, roleName)).andDo(print()).andExpect(status().is(302))
+                .param(questionIdParam, questionId)
+                .param(courseCodeParam, courseCode)
+                .param(roleNameParam, roleName)).andDo(print()).andExpect(status().is(302))
                 .andExpect(view().name("redirect:/survey/createSurvey"));
     }
 
@@ -64,7 +64,7 @@ class SurveyOperationControllerTest {
     @WithMockUser(username = "ysavani", password = "admin19", authorities = {Roles.STUDENT, Roles.TA})
     void saveSurveyAndRedirectToCourseAdminTest() throws Exception {
         this.mockMvc.perform(post("/survey/saveSurvey")
-                .param(roleNameParamString, roleName)).andDo(print()).andExpect(status().is(302))
+                .param(roleNameParam, roleName)).andDo(print()).andExpect(status().is(302))
                 .andExpect(view().name("redirect:/TAcoursepage"));
     }
 }

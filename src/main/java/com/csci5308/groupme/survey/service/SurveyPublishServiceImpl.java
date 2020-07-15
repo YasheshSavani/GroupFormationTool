@@ -21,10 +21,10 @@ public class SurveyPublishServiceImpl implements SurveyPublishService {
         int surveyPublishStatus = surveyPublishDao.publishSurveyForStudents(roleName, courseCode);
         if (surveyPublishStatus == 1) {
             publisherMessage = Messages.SURVEY_PUBLISHED + courseCode;
-            logger.info(publisherMessage + courseCode);
+            logger.info(publisherMessage);
         } else {
             publisherMessage = Messages.CANNOT_PUBLISH_SURVEY + courseCode;
-            logger.info(publisherMessage + courseCode);
+            logger.info(publisherMessage);
         }
         return publisherMessage;
     }

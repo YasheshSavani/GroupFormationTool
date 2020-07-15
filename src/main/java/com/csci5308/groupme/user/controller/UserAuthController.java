@@ -39,9 +39,9 @@ public class UserAuthController {
 
     @PostMapping("/signup")
     public ModelAndView signUpUser(@ModelAttribute("user") User user) {
-        ModelAndView mView = new ModelAndView("auth/signup");
+        ModelAndView modelAndView = new ModelAndView("auth/signup");
         passwordProperties = SystemConfig.instance().getPasswordProperties();
-        mView.addObject(passwordProperties);
+        modelAndView.addObject(passwordProperties);
         String message;
         int signupStatus = userService.register(user);
         if (signupStatus == EditCodes.EMAIL_EXISTS) {
@@ -52,8 +52,8 @@ public class UserAuthController {
             message = Messages.SIGNUP_SUCCESS;
         }
         logger.info(user.getEmail());
-        mView.addObject("message", message);
-        return mView;
+        modelAndView.addObject("message", message);
+        return modelAndView;
     }
 
     @GetMapping("/login")

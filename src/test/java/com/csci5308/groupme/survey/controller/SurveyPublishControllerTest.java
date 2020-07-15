@@ -21,8 +21,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class SurveyPublishControllerTest {
 
-    private final String courseCodeParamString = "courseCode";
-    private final String roleNameParamString = "roleName";
+    private final String courseCodeParam = "courseCode";
+    private final String roleNameParam = "roleName";
     private final String roleName = Roles.INSTRUCTOR;
     private final String courseCode = "csci0010";
 
@@ -33,8 +33,8 @@ class SurveyPublishControllerTest {
     @WithMockUser(username = "iuser", password = "password", authorities = {Roles.INSTRUCTOR})
     void publishSurvey() throws Exception {
         this.mockMvc.perform(get("/publishSurvey")
-                .param(roleNameParamString, roleName)
-                .param(courseCodeParamString, courseCode)).andDo(print()).andExpect(status().isOk())
+                .param(roleNameParam, roleName)
+                .param(courseCodeParam, courseCode)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("survey/publishsurvey"));
     }
 
@@ -42,7 +42,7 @@ class SurveyPublishControllerTest {
     @WithMockUser(username = "iuser", password = "password", authorities = {Roles.INSTRUCTOR})
     void exitPublishSurveyPage() throws Exception {
         this.mockMvc.perform(post("/exitPublishSurveyPage")
-                .param(roleNameParamString, roleName)).andDo(print()).andExpect(status().is(302))
+                .param(roleNameParam, roleName)).andDo(print()).andExpect(status().is(302))
                 .andExpect(view().name("redirect:/instructor/courseAdminPage"));
     }
 }

@@ -39,7 +39,7 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
     public int addQuestionToSurvey(String courseCode, SurveyQuestion surveyQuestion) throws Exception {
 
         int rowCount = 0;
-        String newJson;
+        String newSurveyQuestions;
         Map<String, Map<String, String>> dbSurveyForm;
         Map<String, String> parameters = new HashMap<>();
         String questionID = surveyQuestion.getQuestionId();
@@ -65,9 +65,9 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
 //            }
             dbSurveyForm.put(surveyQuestion.getQuestionId(), parameters);
             logger.debug(surveyQuestion.toString());
-            newJson = objectMapper.writeValueAsString(dbSurveyForm);
-            logger.info("Questions in survey after addition: " + newJson);
-            rowCount = surveyOperationDao.insertQuestionToSurvey(courseCode, newJson, Integer.parseInt(questionID));
+            newSurveyQuestions = objectMapper.writeValueAsString(dbSurveyForm);
+            logger.info("Questions in survey after addition: " + newSurveyQuestions);
+            rowCount = surveyOperationDao.insertQuestionToSurvey(courseCode, newSurveyQuestions, Integer.parseInt(questionID));
             logger.info("Question added to Survey : " + questionID + " : " + surveyQuestion.getQuestion());
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,9 +99,9 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
         try {
             map = objectMapper.readValue(jsonQuestionResult, Map.class);
             map.remove(questionId);
-            String newJson = objectMapper.writeValueAsString(map);
-            logger.info("New Survey Questions: " + newJson);
-            rowCount = surveyOperationDao.deleteQuestionFromSurvey(courseCode, newJson, Integer.parseInt(questionId));
+            String newSurveyQuestions = objectMapper.writeValueAsString(map);
+            logger.info("New Survey Questions: " + newSurveyQuestions);
+            rowCount = surveyOperationDao.deleteQuestionFromSurvey(courseCode, newSurveyQuestions, Integer.parseInt(questionId));
             logger.info("Question Removed from Survey : " + questionId);
         } catch (Exception e) {
             e.printStackTrace();

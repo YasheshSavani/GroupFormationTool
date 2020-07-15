@@ -27,21 +27,21 @@ public class AdminController {
 
 	@GetMapping("/admin/manageCourses")
 	public ModelAndView adminLandingPage(Principal principal) {
-		ModelAndView mView = new ModelAndView("admin/managecourses");
-		return mView;
+		ModelAndView modelAndView = new ModelAndView("admin/managecourses");
+		return modelAndView;
 	}
 
 	@GetMapping("/admin/addCourse")
 	public ModelAndView addCoursePage(Principal principal) {
-		ModelAndView mView = new ModelAndView("admin/addcourse");
-		return mView;
+		ModelAndView modelAndView = new ModelAndView("admin/addcourse");
+		return modelAndView;
 	}
 
 	@PostMapping("/admin/addCourse")
 	public ModelAndView addCourse(@ModelAttribute("course") Course course) throws Exception {
 		int status = courseService.createCourse(course);
 		String message = "";
-		ModelAndView mView = new ModelAndView("admin/addcourse");
+		ModelAndView modelAndView = new ModelAndView("admin/addcourse");
 		if (status == EditCodes.SUCCESS) {
 			message = Messages.COURSE_CREATED;
 		} else if (status == EditCodes.COURSE_EXISTS) {
@@ -49,21 +49,21 @@ public class AdminController {
 		} else {
 			message = Messages.FAILURE;
 		}
-		mView.addObject("message", message);
-		return mView;
+		modelAndView.addObject("message", message);
+		return modelAndView;
 	}
 
 	@GetMapping("/admin/deleteCourse")
 	public ModelAndView deletCoursePage(Principal principal) {
-		ModelAndView mView = new ModelAndView("admin/deletecourse");
-		return mView;
+		ModelAndView modelAndView = new ModelAndView("admin/deletecourse");
+		return modelAndView;
 	}
 
 	@PostMapping("/admin/deleteCourse")
 	public ModelAndView deleteCourse(@ModelAttribute("course") Course course) throws Exception {
 		int status = courseService.delete(course.getCourseCode());
 		String message = "";
-		ModelAndView mView = new ModelAndView("admin/deletecourse");
+		ModelAndView modelAndView = new ModelAndView("admin/deletecourse");
 		if (status >= EditCodes.SUCCESS) {
 			message = Messages.COURSE_DELETED;
 		} else if (status == EditCodes.COURSE_DOES_NOT_EXIST) {
@@ -71,20 +71,20 @@ public class AdminController {
 		} else {
 			message = Messages.FAILURE;
 		}
-		mView.addObject("message", message);
-		return mView;
+		modelAndView.addObject("message", message);
+		return modelAndView;
 	}
 
 	@GetMapping("/admin/manageInstructors")
 	public ModelAndView getManageInstructorsPage() {
-		ModelAndView mView = new ModelAndView("admin/manageinstructors");
-		return mView;
+		ModelAndView modelAndView = new ModelAndView("admin/manageinstructors");
+		return modelAndView;
 	}
 
 	@GetMapping("/admin/createClass")
 	public ModelAndView getAddInstructorToCoursePage() {
-		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
-		return mView;
+		ModelAndView modelAndView = new ModelAndView("admin/addinstructortocourse");
+		return modelAndView;
 	}
 
 	@PostMapping("/admin/createClass")
@@ -105,9 +105,9 @@ public class AdminController {
 		} else {
 			message = Messages.FAILURE;
 		}
-		ModelAndView mView = new ModelAndView("admin/addinstructortocourse");
-		mView.addObject("message", message);
-		return mView;
+		ModelAndView modelAndView = new ModelAndView("admin/addinstructortocourse");
+		modelAndView.addObject("message", message);
+		return modelAndView;
 	}
 
 }
