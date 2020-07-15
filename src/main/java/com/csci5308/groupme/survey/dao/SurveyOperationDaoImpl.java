@@ -3,6 +3,7 @@ package com.csci5308.groupme.survey.dao;
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.survey.constants.SurveyConstants;
 import com.csci5308.groupme.survey.model.Candidate;
 import constants.Roles;
 import org.slf4j.Logger;
@@ -62,7 +63,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             } while (resultSet.next());
 
         } catch (Exception e) {
-            logger.info("", e);
+            e.printStackTrace();
         } finally {
             if (resultSet != null) {
                 try {
@@ -273,7 +274,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             callableStatement.executeUpdate();
             surveyId = callableStatement.getInt(2);
             isPublished = callableStatement.getInt(3);
-            if (surveyId == 0) {
+            if (surveyId == SurveyConstants.DEFAULT_SURVEY_ID) {
                 logger.debug("CREATE_SURVEY procedure called");
                 callableStatement = connection.prepareCall("{call CREATE_SURVEY(?)}");
                 callableStatement.setString(1, courseCode);
