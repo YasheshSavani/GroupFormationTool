@@ -1,10 +1,9 @@
 package com.csci5308.groupme.survey.model;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.survey.constants.Criteria;
 
 @SuppressWarnings("unchecked")
