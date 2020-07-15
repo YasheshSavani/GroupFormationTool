@@ -38,17 +38,17 @@ public class InstructorController {
 
     @RequestMapping(value = "/instructorhomepage", method = RequestMethod.GET)
     public ModelAndView instructorHomePage(Principal principal, Model model) {
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("instructor/instructorhomepage");
-        mView.addObject("isInstructor", true);
-        mView.addObject("roleName", Roles.INSTRUCTOR);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("instructor/instructorhomepage");
+        modelAndView.addObject("isInstructor", true);
+        modelAndView.addObject("roleName", Roles.INSTRUCTOR);
         try {
             List<Course> coursesList = courseDetailsService.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mView;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/courseAdminPage", method = RequestMethod.GET)
@@ -69,17 +69,17 @@ public class InstructorController {
                                           @RequestParam(value = "courseCode") String courseCode, Principal p) throws Exception {
         teachingAssistantService = SystemConfig.instance().getTeachingAssistantService();
         int assignmentConfirmation = teachingAssistantService.assignTAToCourse(emailTA, courseCode);
-        ModelAndView mView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         if (assignmentConfirmation == EditCodes.SUCCESS) {
-            mView.addObject("status", Messages.TA_ASSIGNED);
+            modelAndView.addObject("status", Messages.TA_ASSIGNED);
         } else if(assignmentConfirmation == EditCodes.EMAIL_DOES_NOT_EXIST) {
-            mView.addObject("status", Messages.EMAIL_DOES_NOT_EXIST);
+            modelAndView.addObject("status", Messages.EMAIL_DOES_NOT_EXIST);
         }
         else {
-            mView.addObject("status", Messages.TA_ASSIGNED);
+            modelAndView.addObject("status", Messages.TA_ASSIGNED);
         }
-        mView.setViewName("coursedetails");
-        return mView;
+        modelAndView.setViewName("coursedetails");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/courseAdmin/course", method = RequestMethod.GET)

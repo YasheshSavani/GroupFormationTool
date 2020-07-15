@@ -23,10 +23,17 @@ import com.csci5308.groupme.survey.service.SurveyOperationService;
 import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
 import com.csci5308.groupme.survey.service.SurveyPublishService;
 import com.csci5308.groupme.survey.service.SurveyPublishServiceImpl;
+<<<<<<< HEAD
 import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDao;
 import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDaoImpl;
 import com.csci5308.groupme.passwordvalidation.service.PasswordValidationService;
 import com.csci5308.groupme.passwordvalidation.service.PasswordValidationServiceImpl;
+=======
+import com.csci5308.groupme.survey.dao.SurveyCustomiseDao;
+import com.csci5308.groupme.survey.service.SurveyCustomiseService;
+import com.csci5308.groupme.survey.dao.SurveyCustomiseDaoImpl;
+import com.csci5308.groupme.survey.service.SurveyCustomiseServiceImpl;
+>>>>>>> develop
 
 public class SystemConfig {
 
@@ -43,9 +50,14 @@ public class SystemConfig {
     private SurveyOperationDao surveyOperationDao;
     private SurveyPublishDao surveyPublishDao;
     private SurveyPublishService surveyPublishService;
+<<<<<<< HEAD
     private PasswordValidationService passwordValidationService;
     private PasswordValidationDao passwordValidationDao;
     private PasswordSecurityConfig passwordSecurityConfig;
+=======
+    private SurveyCustomiseDao surveyCustomiseDao;
+    private SurveyCustomiseService surveyCustomiseService;
+>>>>>>> develop
 
     private SystemConfig() {
         teachingAssistantDao = new TeachingAssistantDaoImpl();
@@ -60,9 +72,14 @@ public class SystemConfig {
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
         surveyPublishDao = new SurveyPublishDaoImpl();
         surveyPublishService = new SurveyPublishServiceImpl(surveyPublishDao);
+<<<<<<< HEAD
         passwordValidationDao = new PasswordValidationDaoImpl();
         passwordValidationService = new PasswordValidationServiceImpl(passwordValidationDao);
         passwordSecurityConfig = new PasswordSecurityConfig();
+=======
+        surveyCustomiseDao = new SurveyCustomiseDaoImpl();
+        surveyCustomiseService = new SurveyCustomiseServiceImpl(surveyCustomiseDao);
+>>>>>>> develop
     }
 
 	public PasswordValidationDao getPasswordValidationDao() {
@@ -189,6 +206,22 @@ public class SystemConfig {
 
     public void setSurveyPublishService(SurveyPublishService surveyPublishService) {
         this.surveyPublishService = surveyPublishService;
+    }
+
+    public SurveyCustomiseDao getSurveyCustomiseDao() {
+        return surveyCustomiseDao;
+    }
+
+    public void setSurveyCustomiseDao(SurveyCustomiseDao surveyCustomiseDao) {
+        this.surveyCustomiseDao = surveyCustomiseDao;
+    }
+
+    public SurveyCustomiseService getSurveyCustomiseService() {
+        return surveyCustomiseService;
+    }
+
+    public void setSurveyCustomiseService(SurveyCustomiseService surveyCustomiseService) {
+        this.surveyCustomiseService = surveyCustomiseService;
     }
 }
 

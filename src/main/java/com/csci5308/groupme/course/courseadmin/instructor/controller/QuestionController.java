@@ -35,9 +35,9 @@ public class QuestionController {
 
     @RequestMapping(value = "/instructor/createQuestion", method = RequestMethod.GET)
     public ModelAndView createQuestionPage() {
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("instructor/createquestion");
-        return mView;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("instructor/createquestion");
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/createQuestion", method = RequestMethod.POST)
@@ -49,16 +49,16 @@ public class QuestionController {
         questionObject.setTitle(questionTitle);
         questionObject.setQuestion(question);
         questionObject.setType(questionType);
-        ModelAndView mView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         if (questionType.equals(QuestionTypeConstants.MCQ_CHOOSE_ONE)
                 || questionType.equals(QuestionTypeConstants.MCQ_CHOOSE_MULTIPLE)) {
             ListOfOptions options = new ListOfOptions();
             List<Option> optionList = new ArrayList<>();
             optionList.add(new Option("", count, count));
             options.setOptionList(optionList);
-            mView.setViewName("instructor/createoptions");
-            mView.addObject("options", options);
-            mView.addObject("questionDetails", questionObject);
+            modelAndView.setViewName("instructor/createoptions");
+            modelAndView.addObject("options", options);
+            modelAndView.addObject("questionDetails", questionObject);
         } else if (questionType.equals(QuestionTypeConstants.NUMERIC)
                 || questionType.equals(QuestionTypeConstants.FREE_TEXT)) {
             questionManagerService = SystemConfig.instance().getQuestionManagerService();
@@ -69,10 +69,10 @@ public class QuestionController {
             } else {
                 message = Messages.FAILURE;
             }
-            mView.setViewName("instructor/questionmanager");
-            mView.addObject("message", message);
+            modelAndView.setViewName("instructor/questionmanager");
+            modelAndView.addObject("message", message);
         }
-        return mView;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/createOptions/newOption", method = RequestMethod.POST)
@@ -95,7 +95,7 @@ public class QuestionController {
                                                    @RequestParam("question") String question, @RequestParam("type") String questionType, Principal principal) {
         String message;
         questionManagerService = SystemConfig.instance().getQuestionManagerService();
-        ModelAndView mView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         Question questionObject = new Question();
         questionObject.setTitle(questionTitle);
         questionObject.setQuestion(question);
@@ -107,12 +107,12 @@ public class QuestionController {
             } else {
                 message = Messages.FAILURE;
             }
-            mView.setViewName("instructor/questionmanager");
-            mView.addObject("message", message);
+            modelAndView.setViewName("instructor/questionmanager");
+            modelAndView.addObject("message", message);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mView;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/deleteQuestion", method = RequestMethod.GET)
@@ -129,7 +129,7 @@ public class QuestionController {
     public ModelAndView deleteQuestionPageSubmit(@ModelAttribute("question") Question question, Principal principal, Model model) {
         String message;
         questionManagerService = SystemConfig.instance().getQuestionManagerService();
-        ModelAndView mView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         logger.info("question selected is" + question.getQuestionId());
         int status = questionManagerService.deleteQuestion(principal.getName(), question);
         if (status == EditCodes.SUCCESS) {
@@ -137,47 +137,47 @@ public class QuestionController {
         } else {
             message = Messages.FAILURE;
         }
-        mView.setViewName("instructor/questionmanager");
-        mView.addObject("message", message);
-        return mView;
+        modelAndView.setViewName("instructor/questionmanager");
+        modelAndView.addObject("message", message);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/listAllTitles", method = RequestMethod.GET)
     public ModelAndView listAllQuestionsPage(Principal principal) {
         questionManagerService = SystemConfig.instance().getQuestionManagerService();
         List<Question> listQuestionDetails = questionManagerService.getAllTitles(principal.getName());
-        ModelAndView mView = new ModelAndView("instructor/listalltitles");
+        ModelAndView modelAndView = new ModelAndView("instructor/listalltitles");
         if (listQuestionDetails != null) {
-            mView.addObject("titles", listQuestionDetails);
+            modelAndView.addObject("titles", listQuestionDetails);
         } else {
-            mView.addObject("titles", null);
+            modelAndView.addObject("titles", null);
         }
-        return mView;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/sortTitlesByTitles", method = RequestMethod.GET)
     public ModelAndView listSortedTitlesByTitles(Principal principal) {
         questionManagerService = SystemConfig.instance().getQuestionManagerService();
         List<Question> listSortedTitlesByTitles = questionManagerService.getAllSortedTitlesByTitles(principal.getName());
-        ModelAndView mView = new ModelAndView("instructor/sortedtitles");
+        ModelAndView modelAndView = new ModelAndView("instructor/sortedtitles");
         if (listSortedTitlesByTitles != null) {
-            mView.addObject("sortedTitles", listSortedTitlesByTitles);
+            modelAndView.addObject("sortedTitles", listSortedTitlesByTitles);
         } else {
-            mView.addObject("sortedTitles", null);
+            modelAndView.addObject("sortedTitles", null);
         }
-        return mView;
+        return modelAndView;
     }
 
     @RequestMapping(value = "/instructor/sortTitlesByDates", method = RequestMethod.GET)
     public ModelAndView listSortedTitlesByDates(Principal principal) {
         questionManagerService = SystemConfig.instance().getQuestionManagerService();
         List<Question> listSortedTitlesByDates = questionManagerService.getAllSortedTitlesByDates(principal.getName());
-        ModelAndView mView = new ModelAndView("instructor/sortedtitlesdates");
+        ModelAndView modelAndView = new ModelAndView("instructor/sortedtitlesdates");
         if (listSortedTitlesByDates != null) {
-            mView.addObject("sortedTitles", listSortedTitlesByDates);
+            modelAndView.addObject("sortedTitles", listSortedTitlesByDates);
         } else {
-            mView.addObject("sortedTitles", null);
+            modelAndView.addObject("sortedTitles", null);
         }
-        return mView;
+        return modelAndView;
     }
 }

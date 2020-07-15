@@ -33,31 +33,31 @@ public class TeachingAssistantController {
         String userName = principal.getName();
         String roleName = Roles.TA;
         List<Course> managedCourses = courseDetailsService.getCoursesByUserNameAndRole(userName, roleName);
-        ModelAndView mView = new ModelAndView();
-        mView.setViewName("ta/tahomepage");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("ta/tahomepage");
         if (null != managedCourses) {
-            mView.addObject("managedCourses", managedCourses);
+            modelAndView.addObject("managedCourses", managedCourses);
         } else {
-            mView.addObject("managedCourses", null);
+            modelAndView.addObject("managedCourses", null);
         }
-        mView.addObject("roleName", roleName);
-        mView.addObject("isTA", true);
-        return mView;
+        modelAndView.addObject("roleName", roleName);
+        modelAndView.addObject("isTA", true);
+        return modelAndView;
     }
 
     @RequestMapping(value = "/TAcoursepage", method = RequestMethod.GET)
     public ModelAndView getCoursesByUserNameAndRole(Principal p, @RequestParam(value = "roleName") String roleName) throws Exception {
         String userName = p.getName();
         List<Course> courseTACourses = courseDetailsService.getCoursesByUserNameAndRole(userName, roleName);
-        ModelAndView mView = new ModelAndView();
+        ModelAndView modelAndView = new ModelAndView();
         if (null != courseTACourses) {
-            mView.addObject("courses", courseTACourses);
-            mView.addObject("roleName", roleName);
+            modelAndView.addObject("courses", courseTACourses);
+            modelAndView.addObject("roleName", roleName);
         } else {
-            mView.addObject("courses", null);
-            mView.addObject("roleName", roleName);
+            modelAndView.addObject("courses", null);
+            modelAndView.addObject("roleName", roleName);
         }
-        mView.setViewName("CourseAdmin");
-        return mView;
+        modelAndView.setViewName("CourseAdmin");
+        return modelAndView;
     }
 }

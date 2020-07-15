@@ -1,5 +1,6 @@
 package com.csci5308.groupme.survey.service;
 
+import com.csci5308.groupme.survey.constants.SurveyConstants;
 import com.csci5308.groupme.survey.dao.SurveyPublishDao;
 import constants.Messages;
 import org.slf4j.Logger;
@@ -19,12 +20,12 @@ public class SurveyPublishServiceImpl implements SurveyPublishService {
 
         String publisherMessage;
         int surveyPublishStatus = surveyPublishDao.publishSurveyForStudents(roleName, courseCode);
-        if (surveyPublishStatus == 1) {
+        if (surveyPublishStatus == SurveyConstants.SURVEY_STATUS_PUBLISHED) {
             publisherMessage = Messages.SURVEY_PUBLISHED + courseCode;
-            logger.info(publisherMessage + courseCode);
+            logger.info(publisherMessage);
         } else {
             publisherMessage = Messages.CANNOT_PUBLISH_SURVEY + courseCode;
-            logger.info(publisherMessage + courseCode);
+            logger.info(publisherMessage);
         }
         return publisherMessage;
     }

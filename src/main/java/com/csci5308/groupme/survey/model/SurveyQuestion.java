@@ -74,17 +74,5 @@ public class SurveyQuestion {
     public void setLowerBound(String lowerBound) {
         this.lowerBound = lowerBound;
     }
-
-    @Override
-    public String toString() {
-        return "{" +
-                " 'questionTitle': '" + questionTitle + "'" +
-                ", 'questionType': '" + questionType + "'" +
-                ", 'question': '" + question + "'" +
-                ", 'criterion': '" + criterion + "'" +
-                ", 'weight': '" + weight + "'" +
-                ", 'upperBound': '" + upperBound + "'" +
-                ", 'lowerBound': '" + lowerBound + "'" +
-                '}';
-    }
+    
 }

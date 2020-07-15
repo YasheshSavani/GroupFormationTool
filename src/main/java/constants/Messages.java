@@ -55,7 +55,15 @@ public class Messages {
     public static final String SURVEY_ALREADY_PUBLISHED = "Survey is already published. You cannot edit the survey";
 
     public static final String CANNOT_PUBLISH_SURVEY = "Create Survey by clicking on Create Survey Button, Survey does not Exist for course:";
+<<<<<<< HEAD
 	
 	public static final String PASSWORD_POLICY_MISMATCH = "Password Policy Mismatch!";
 		
+=======
+
+    public static final String CANNOT_CUSTOMISE_SURVEY = "Create Survey by clicking on Create Survey Button, Survey does not Exist for course:";
+
+    public static final String TA_CANNOT_PUBLISH_SURVEY = "TA cannot publish survey";
+
+>>>>>>> develop
 }

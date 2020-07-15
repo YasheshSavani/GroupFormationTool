@@ -3,6 +3,8 @@ package com.csci5308.groupme.survey.dao;
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.survey.constants.SurveyConstants;
+import com.csci5308.groupme.survey.model.Candidate;
 import constants.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,7 +63,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             } while (resultSet.next());
 
         } catch (Exception e) {
-            logger.info("", e);
+            e.printStackTrace();
         } finally {
             if (resultSet != null) {
                 try {
@@ -94,7 +96,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
     @Override
     public String getJsonObjectOfQuestions(String courseCode) {
         databaseProperties = SystemConfig.instance().getDatabaseProperties();
-        String jsonResult = null;
+        String surveyQuestions = null;
         try {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
@@ -110,11 +112,11 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 return null;
             }
             do {
-                jsonResult = resultSet.getString("questions");
+                surveyQuestions = resultSet.getString("questions");
             } while (resultSet.next());
-            logger.info("jsonResult :" + jsonResult);
+            logger.info("surveyQuestions :" + surveyQuestions);
         } catch (Exception e) {
-            logger.info("", e);
+            e.printStackTrace();
         } finally {
             if (resultSet != null) {
                 try {
@@ -141,7 +143,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 }
             }
         }
-        return jsonResult;
+        return surveyQuestions;
     }
 
     @Override
@@ -272,7 +274,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             callableStatement.executeUpdate();
             surveyId = callableStatement.getInt(2);
             isPublished = callableStatement.getInt(3);
-            if (surveyId == 0) {
+            if (surveyId == SurveyConstants.DEFAULT_SURVEY_ID) {
                 logger.debug("CREATE_SURVEY procedure called");
                 callableStatement = connection.prepareCall("{call CREATE_SURVEY(?)}");
                 callableStatement.setString(1, courseCode);
@@ -339,7 +341,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 addedQuestionsList.add(new Question(questionTitle, questionId, question, questionType));
             } while (resultSet.next());
         } catch (Exception e) {
-            logger.info("", e);
+            e.printStackTrace();
         } finally {
             if (resultSet != null) {
                 try {
@@ -368,5 +370,72 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
         }
         return addedQuestionsList;
     }
+
+    @Override
+    public List<Candidate> getSurveyResponses(Integer surveyIdToGetResponses) {
+        databaseProperties = SystemConfig.instance().getDatabaseProperties();
+        List<Candidate> candidateList = null;
+        try {
+            candidateList = new ArrayList<>();
+            String DB_URL = databaseProperties.getDbURL();
+            String USER = databaseProperties.getDbUserName();
+            String PASSWORD = databaseProperties.getDbPassword();
+            logger.info("Connecting to database");
+            connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+            logger.info("Connected to database successfully...");
+            logger.debug("GET_SURVEY_RESPONSES procedure called");
+            callableStatement = connection.prepareCall("{call GET_SURVEY_RESPONSES(?)}");
+            callableStatement.setInt(1, surveyIdToGetResponses);
+            resultSet = callableStatement.executeQuery();
+            if (resultSet.next() == false) {
+                return null;
+            }
+            do {
+                Integer surveyId = resultSet.getInt("surveyId");
+                String userName = resultSet.getString("studentUserName");
+                String stringifiedResponses = resultSet.getString("responses");
+                String bannerId = resultSet.getString("bannerId");
+                String firstName = resultSet.getString("firstName");
+                String lastName = resultSet.getString("lastName");
+                Candidate candidate = new Candidate();
+                candidate.setSurveyId(surveyId);
+                candidate.setUserName(userName);
+                candidate.setStringifiedResponses(stringifiedResponses);
+                candidate.setBannerId(bannerId);
+                candidate.setFirstName(firstName);
+                candidate.setLastName(lastName);
+                candidateList.add(candidate);
+            } while (resultSet.next());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                logger.info("ResultSet Closed");
+            }
+            if (callableStatement != null) {
+                try {
+                    callableStatement.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                logger.info("CallableStatement Closed");
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                    logger.info("Connection to database closed");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return candidateList;
+    }
+
 }
 
