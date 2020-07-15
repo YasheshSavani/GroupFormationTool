@@ -1,5 +1,7 @@
 package com.csci5308.groupme.user.model;
 
+import constants.Roles;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class UserMock {
         user.setEmail("kharechakaran67@gmail.com");
         user.setPassword("B00xxxxxx");
         List<String> roles = new ArrayList<>();
-        roles.add("ROLE_STUDENT");
+        roles.add(Roles.STUDENT);
         user.setRoles(roles);
         List<String> permissions = new ArrayList<>();
         permissions.add("permitted");

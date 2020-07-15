@@ -2,6 +2,7 @@ package com.csci5308.groupme.user.dao;
 
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.user.model.User;
+import constants.Roles;
 import errors.EditCodes;
 import errors.SqlErrors;
 import org.slf4j.Logger;
@@ -226,7 +227,7 @@ public class UserDaoImpl implements UserDao {
             addedUserCount = preparedStatement.executeUpdate();
             preparedStatement = connection.prepareStatement(UserQuery.ADD_USERROLE);
             preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, "ROLE_GUEST");
+            preparedStatement.setString(2, Roles.GUEST);
             addedUserCount = preparedStatement.executeUpdate();
             connection.commit();
         } catch (SQLException se) {

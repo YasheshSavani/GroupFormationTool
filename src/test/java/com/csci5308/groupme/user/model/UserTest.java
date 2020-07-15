@@ -1,5 +1,6 @@
 package com.csci5308.groupme.user.model;
 
+import constants.Roles;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ class UserTest {
     @Test
     public void getRolesTest() {
         List<String> roles = new ArrayList<>();
-        roles.add("ROLE_STUDENT");
+        roles.add(Roles.STUDENT);
         user.setRoles(roles);
         assertEquals(roles, user.getRoles());
     }
@@ -93,10 +94,10 @@ class UserTest {
     public void setRolesTest() {
         User user = new User();
         List<String> userRoles = new ArrayList<>();
-        userRoles.add("ROLE_STUDENT");
+        userRoles.add(Roles.STUDENT);
         user.setRoles(userRoles);
         List<String> roles = new ArrayList<>();
-        roles.add("ROLE_STUDENT");
+        roles.add(Roles.STUDENT);
         user.setRoles(roles);
         assertEquals(roles, user.getRoles());
     }

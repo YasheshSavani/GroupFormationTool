@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentService;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
+import constants.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,6 +41,7 @@ public class InstructorController {
         ModelAndView mView = new ModelAndView();
         mView.setViewName("instructor/instructorhomepage");
         mView.addObject("isInstructor", true);
+        mView.addObject("roleName", Roles.INSTRUCTOR);
         try {
             List<Course> coursesList = courseDetailsService.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
@@ -50,10 +52,11 @@ public class InstructorController {
     }
 
     @RequestMapping(value = "/instructor/courseAdminPage", method = RequestMethod.GET)
-    public String courseAdminPage(Principal principal, Model model) {
+    public String courseAdminPage(Principal principal, Model model, @RequestParam("roleName") String roleName) {
         try {
             List<Course> coursesList = courseDetailsService.findCoursesByInstructor(principal.getName());
             model.addAttribute("courses", coursesList);
+            model.addAttribute("roleName", roleName);
         } catch (Exception e) {
             e.printStackTrace();
         }

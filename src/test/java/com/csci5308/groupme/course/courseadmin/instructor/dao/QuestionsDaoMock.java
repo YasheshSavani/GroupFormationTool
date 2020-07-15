@@ -1,6 +1,5 @@
 package com.csci5308.groupme.course.courseadmin.instructor.dao;
 
-import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDAO;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
 
@@ -8,7 +7,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionsDaoMock implements QuestionsDAO {
+public class QuestionsDaoMock implements QuestionsDao {
 
     @Override
     public int saveNonMCQ(String instructorUserName, Question question) {

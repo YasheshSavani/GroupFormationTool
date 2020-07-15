@@ -6,20 +6,21 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.csci5308.groupme.course.dao.CourseDetailsDAOImpl;
+import com.csci5308.groupme.course.dao.CourseDetailsDaoImpl;
 import com.csci5308.groupme.course.model.Course;
 
 @ExtendWith(SpringExtension.class)
 public class CourseDetailsServiceImplTest {
 
 	@Mock
-	private CourseDetailsDAOImpl courseDAO;
+	private CourseDetailsDaoImpl courseDao;
 
 	@InjectMocks
 	private CourseDetailsServiceImpl courseDetailsServiceImpl;
@@ -30,7 +31,7 @@ public class CourseDetailsServiceImplTest {
 		List<Course> defaultCourseList = new ArrayList<>();
 		Course courseOne = new Course("CSCI5308", "Adv Software Development", 12345);
 		defaultCourseList.add(courseOne);
-		when(courseDAO.findAllCourses()).thenReturn(defaultCourseList);
+		when(courseDao.findAllCourses()).thenReturn(defaultCourseList);
 		List<Course> checkCourseList = courseDetailsServiceImpl.findAllCourses();
 		assertEquals(1, checkCourseList.size());
 	}
@@ -39,11 +40,11 @@ public class CourseDetailsServiceImplTest {
 	public void getCoursesByUserNameAndRoleTest() throws Exception {
 
 		String userName = "ysavani";
-		String roleName = "ROLE_TA";
+		String roleName = Roles.TA;
 		List<Course> defaultCourseList = new ArrayList<>();
 		Course courseOne = new Course("CSCI5308", "Adv Software Development", 12345);
 		defaultCourseList.add(courseOne);
-		when(courseDAO.getCoursesByUserNameAndRole(userName, roleName)).thenReturn(defaultCourseList);
+		when(courseDao.getCoursesByUserNameAndRole(userName, roleName)).thenReturn(defaultCourseList);
 		List<Course> checkCourseList = courseDetailsServiceImpl.getCoursesByUserNameAndRole(userName, roleName);
 		assertEquals(1, checkCourseList.size());
 	}
@@ -55,7 +56,7 @@ public class CourseDetailsServiceImplTest {
 		List<Course> defaultCourseList = new ArrayList<>();
 		Course courseOne = new Course("CSCI 5308", "Adv Software Development", 12345);
 		defaultCourseList.add(courseOne);
-		when(courseDAO.findCoursesByStudentUserName(studentUserName)).thenReturn(defaultCourseList);
+		when(courseDao.findCoursesByStudentUserName(studentUserName)).thenReturn(defaultCourseList);
 		List<Course> checkCourseList = courseDetailsServiceImpl.findCoursesByStudentUserName(studentUserName);
 		assertEquals(1, checkCourseList.size());
 	}

@@ -1,8 +1,8 @@
 package com.csci5308.groupme.course.courseadmin.instructor.service;
 
 import com.csci5308.groupme.auth.service.EmailService;
-import com.csci5308.groupme.course.student.dao.StudentDAO;
-import com.csci5308.groupme.course.student.dao.StudentDAOImpl;
+import com.csci5308.groupme.course.student.dao.StudentDao;
+import com.csci5308.groupme.course.student.dao.StudentDaoImpl;
 import com.csci5308.groupme.course.student.model.Student;
 import com.csci5308.groupme.user.model.User;
 import com.opencsv.CSVReader;
@@ -28,15 +28,15 @@ public class EnrollmentServiceImpl implements EnrollmentService {
             if (records != null) {
                 for (String[] record : records.subList(1, records.size())) {
                     Student student = new Student(record[0] + record[1], record[0]);
-                    StudentDAO studentDAO = new StudentDAOImpl(student);
-                    if (studentDAO.isNotEnrolled()) {
+                    StudentDao studentDao = new StudentDaoImpl(student);
+                    if (studentDao.isNotEnrolled()) {
                         User user = new User();
                         user.setUserName(record[0] + record[1]);
                         user.setLastName(record[1]);
                         user.setFirstName(record[2]);
                         user.setEmail(record[3]);
                         user.setPassword(record[0]);
-                        if (studentDAO.enrol(user, instructorID, courseCode)) {
+                        if (studentDao.enrol(user, instructorID, courseCode)) {
                             emailService.sendCredentials(user);
                         }
                     }

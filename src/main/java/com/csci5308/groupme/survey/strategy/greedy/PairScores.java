@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.slf4j.LoggerFactory;
 
-import com.csci5308.groupme.course.courseadmin.instructor.QuestionTypeConstants;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.survey.constants.Criteria;
 import com.csci5308.groupme.survey.model.Candidate;
 
