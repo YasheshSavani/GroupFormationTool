@@ -64,6 +64,7 @@ public class GreedyGroupingWithPairScores implements GroupingStrategy {
 	}
 
 	public List<Group> getGroupsUsingObtainedPivots(List<Candidate> allCandidates, Integer groupSize) {
+		logger.debug("Forming groups with arbitrary pivots...");
 		return null;
 	}
 
@@ -94,7 +95,6 @@ public class GreedyGroupingWithPairScores implements GroupingStrategy {
 	}
 
 	private boolean meetsBoundedCriteria(Candidate candidate) {
-
 		return false;
 	}
 }

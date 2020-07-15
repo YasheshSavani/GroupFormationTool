@@ -12,8 +12,20 @@ import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAs
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantServiceImpl;
-import com.csci5308.groupme.survey.dao.*;
-import com.csci5308.groupme.survey.service.*;
+import com.csci5308.groupme.survey.service.GroupFormationService;
+import com.csci5308.groupme.survey.service.GroupFormationServiceImpl;
+import com.csci5308.groupme.survey.dao.SurveyOperationDao;
+import com.csci5308.groupme.survey.dao.SurveyOperationDaoImpl;
+import com.csci5308.groupme.survey.dao.SurveyPublishDao;
+import com.csci5308.groupme.survey.dao.SurveyPublishDaoImpl;
+import com.csci5308.groupme.survey.service.SurveyOperationService;
+import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
+import com.csci5308.groupme.survey.service.SurveyPublishService;
+import com.csci5308.groupme.survey.service.SurveyPublishServiceImpl;
+import com.csci5308.groupme.survey.dao.SurveyCustomiseDao;
+import com.csci5308.groupme.survey.service.SurveyCustomiseService;
+import com.csci5308.groupme.survey.dao.SurveyCustomiseDaoImpl;
+import com.csci5308.groupme.survey.service.SurveyCustomiseServiceImpl;
 
 public class SystemConfig {
 
@@ -25,6 +37,7 @@ public class SystemConfig {
     private DatabaseProperties databaseProperties;
     private PasswordProperties passwordProperties;
     private EnrollmentService enrollmentService;
+    private GroupFormationService groupFormationService;
     private SurveyOperationService surveyOperationService;
     private SurveyOperationDao surveyOperationDao;
     private SurveyPublishDao surveyPublishDao;
@@ -40,6 +53,7 @@ public class SystemConfig {
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
+        groupFormationService = new GroupFormationServiceImpl();
         surveyOperationDao = new SurveyOperationDaoImpl();
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
         surveyPublishDao = new SurveyPublishDaoImpl();
@@ -48,7 +62,7 @@ public class SystemConfig {
         surveyCustomiseService = new SurveyCustomiseServiceImpl(surveyCustomiseDao);
     }
 
-    public static SystemConfig instance() {
+	public static SystemConfig instance() {
         if (null == uniqueInstance) {
             uniqueInstance = new SystemConfig();
         }
@@ -110,6 +124,14 @@ public class SystemConfig {
     public void setEnrollmentService(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
     }
+    
+    public GroupFormationService getGroupFormationService() {
+		return groupFormationService;
+	}
+
+	public void setGroupFormationService(GroupFormationService groupFormationService) {
+		this.groupFormationService = groupFormationService;
+	}
 
     public SurveyOperationService getSurveyOperationService() {
         return surveyOperationService;

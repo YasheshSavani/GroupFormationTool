@@ -1309,7 +1309,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "7"
+			"answer": "3"
 		},
 		"2": {
 			"title": "default",
@@ -1319,7 +1319,7 @@
 			"weight": "2",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "3"
+			"answer": "4"
 		},
 		"3": {
 			"title": "default",
@@ -1339,7 +1339,7 @@
 			"weight": "1",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "2"
+			"answer": "4"
 		},
 		"5": {
 			"title": "default",
@@ -1350,7 +1350,9 @@
 			"upperBound": "none",
 			"lowerBound": "none",
 			"answer": [
-				"6"
+				"7",
+				"5",
+				"2"
 			]
 		},
 		"6": {
@@ -1373,7 +1375,7 @@
 			"weight": "2",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "Good"
 		},
 		"8": {
 			"title": "default",
@@ -1383,7 +1385,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "2"
 		},
 		"9": {
 			"title": "default",
@@ -1403,7 +1405,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "4"
 		}
 	},
 	"c14": {
@@ -1425,7 +1427,7 @@
 			"weight": "2",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "3"
+			"answer": "4"
 		},
 		"3": {
 			"title": "default",
@@ -1456,7 +1458,7 @@
 			"upperBound": "none",
 			"lowerBound": "none",
 			"answer": [
-				"6"
+				"4"
 			]
 		},
 		"6": {
@@ -1479,7 +1481,7 @@
 			"weight": "2",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "5"
 		},
 		"8": {
 			"title": "default",
@@ -1489,7 +1491,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "3"
 		},
 		"9": {
 			"title": "default",
@@ -1499,7 +1501,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "5"
 		},
 		"10": {
 			"title": "default",
@@ -1509,7 +1511,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "4"
 		}
 	},
 	"c15": {
@@ -1521,7 +1523,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "7"
+			"answer": "8"
 		},
 		"2": {
 			"title": "default",
@@ -1541,7 +1543,7 @@
 			"weight": "7",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "5"
+			"answer": "4"
 		},
 		"4": {
 			"title": "default",
@@ -1551,7 +1553,7 @@
 			"weight": "1",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "2"
+			"answer": "6"
 		},
 		"5": {
 			"title": "default",
@@ -1574,7 +1576,9 @@
 			"upperBound": "none",
 			"lowerBound": "none",
 			"answer": [
-				"6"
+				"5",
+				"7",
+				"3"
 			]
 		},
 		"7": {
@@ -1585,7 +1589,7 @@
 			"weight": "2",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "Bad"
 		},
 		"8": {
 			"title": "default",
@@ -1595,7 +1599,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "9"
 		},
 		"9": {
 			"title": "default",
@@ -1605,7 +1609,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "5"
 		},
 		"10": {
 			"title": "default",
@@ -1615,7 +1619,7 @@
 			"weight": "5",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "6"
+			"answer": "9"
 		}
 	},
 	"c16": {
@@ -1637,7 +1641,7 @@
 			"weight": "2",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "3"
+			"answer": "4"
 		},
 		"3": {
 			"title": "default",
@@ -1657,7 +1661,7 @@
 			"weight": "1",
 			"upperBound": "none",
 			"lowerBound": "none",
-			"answer": "2"
+			"answer": "6"
 		},
 		"5": {
 			"title": "default",
@@ -2084,6 +2088,8 @@
 			"answer": "2"
 		},
 		"5": {
+			"title": "default",
+			"question": "default",
 			"type": "Multiple choice - choose multiple",
 			"criterion": "2",
 			"weight": "5",

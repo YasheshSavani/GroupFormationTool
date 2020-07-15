@@ -58,11 +58,6 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
         String jsonQuestionResult = surveyOperationDao.getJsonObjectOfQuestions(courseCode);
         try {
             dbSurveyForm = objectMapper.readValue(jsonQuestionResult, Map.class);
-//            for (Map.Entry<?, ?> entry : dbSurveyForm.entrySet()) {
-//                String questionID = (String) entry.getKey();
-//                logger.info((String) entry.getKey());
-//                logger.info((String) entry.getValue());
-//            }
             dbSurveyForm.put(surveyQuestion.getQuestionId(), parameters);
             logger.debug(surveyQuestion.toString());
             newSurveyQuestions = objectMapper.writeValueAsString(dbSurveyForm);
