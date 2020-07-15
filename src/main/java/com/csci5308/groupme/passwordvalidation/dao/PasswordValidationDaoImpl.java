@@ -25,8 +25,6 @@ public class PasswordValidationDaoImpl implements PasswordValidationDao{
     
     @Override
 	public HashMap<Long, String> loadActivePasswordValidators() {
-    	
-    	logger.info("Inside loading active from mysql");
 		
 		HashMap<Long, String> activeValidators = new HashMap<Long, String>();
 		ResultSet resultSet = null;
@@ -50,11 +48,10 @@ public class PasswordValidationDaoImpl implements PasswordValidationDao{
             {
             	long validatorId = resultSet.getLong(1);
             	String name = resultSet.getString(2);
-            	logger.info("id and name " + validatorId + " " + name);
+            	logger.info("Enabled validator id: " + validatorId + ",name: " + name);
             	activeValidators.put(validatorId, name);
             }
             while(resultSet.next());
-            logger.info("active ones mysql are"+activeValidators);
         }
         catch(Exception e){
         	e.printStackTrace();
@@ -109,7 +106,7 @@ public class PasswordValidationDaoImpl implements PasswordValidationDao{
             	do
 				{
             		constraint = resultSet.getString(1);
-            		logger.info("in dao by id: constraint value is " + constraint);
+            		logger.info("Constraint value loaded is " + constraint);
 				}
             	while (resultSet.next());
         }

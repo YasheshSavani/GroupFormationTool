@@ -36,13 +36,7 @@ public class UserAuthController {
 
     @PostMapping("/signup")
     public ModelAndView signUpUser(@ModelAttribute("user") User user) {
-<<<<<<< HEAD
         ModelAndView mView = new ModelAndView("auth/signup");
-=======
-        ModelAndView modelAndView = new ModelAndView("auth/signup");
-        passwordProperties = SystemConfig.instance().getPasswordProperties();
-        modelAndView.addObject(passwordProperties);
->>>>>>> develop
         String message;
         int passwordValidationStatus = userService.passwordPolicyCheck(user);
         if(passwordValidationStatus != EditCodes.FAILURE)
@@ -58,11 +52,11 @@ public class UserAuthController {
         }
         else
         {
-        	message = Messages.PASSWORD_POLICY_MISMATCH;
+        	message = Messages.PASSWORD_POLICY_MISMATCHED;
         }
-        logger.info(user.getEmail());
-        modelAndView.addObject("message", message);
-        return modelAndView;
+        logger.info("Signing up with email: "+ user.getEmail());
+        mView.addObject("message", message);
+        return mView;
     }
 
     @GetMapping("/login")

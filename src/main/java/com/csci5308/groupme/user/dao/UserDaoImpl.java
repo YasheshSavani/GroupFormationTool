@@ -325,6 +325,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int update(User user) {
         int updatedRowCount = 0;
+        long millis;
+        Date createdDate;
         try {
             Class.forName(JDBC_DRIVER);
             logger.info("Connecting to the selected database...");
@@ -337,6 +339,13 @@ public class UserDaoImpl implements UserDao {
             preparedStatement.setString(4, user.getPassword());
             preparedStatement.setString(5, user.getUserName());
             updatedRowCount = preparedStatement.executeUpdate();
+            preparedStatement = connection.prepareStatement(UserQuery.ADD_USER_IN_PASSWORD_HISTORY);
+            preparedStatement.setString(1, user.getUserName());
+            preparedStatement.setString(2, user.getPassword());
+            millis = System.currentTimeMillis();
+            createdDate = new Date(millis);
+            preparedStatement.setDate(3, createdDate);
+            preparedStatement.executeUpdate();
             connection.commit();
         } catch (SQLException se) {
             try {

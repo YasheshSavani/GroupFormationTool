@@ -17,6 +17,7 @@ import com.csci5308.groupme.user.dao.UserDao;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.model.UserAuthDetails;
 
+import constants.Messages;
 import errors.EditCodes;
 
 @Service
@@ -90,18 +91,16 @@ public class UserServiceImpl implements UserService {
 		int passwordCheckStatus = 1;
 		passwordValidationService = SystemConfig.instance().getPasswordValidationService();
 		String rawPassword = user.getPassword();
-        logger.info("Encoding the password for {}", user.getUserName());
-        user.setPassword(passwordEncoder.encode(rawPassword));
         List <PasswordValidator> passwordValidators = passwordValidationService.getActiveValidators(user);
 		for(int i = 0; i < passwordValidators.size(); i++) {
 			PasswordValidator validator = passwordValidators.get(i);
 			if (validator.isValid(rawPassword) == false) {
 				logger.info("Password criteria not met!");
-				logger.info(validator.getValidatorName() + "is not satisfied with the constraint of"+  validator.constraint);
+				logger.info(validator.getValidatorName() + " is not satisfied with the constraint of "+  validator.constraint);
+				Messages.PASSWORD_POLICY_MISMATCHED = validator.getValidatorName()+ Messages.PASSWORD_POLICY_MISMATCHED_TRAIL;
 				passwordCheckStatus = EditCodes.FAILURE;
 			}
 		}
-		logger.info("Password check status is " + passwordCheckStatus);	
 		return passwordCheckStatus;
 	}
 

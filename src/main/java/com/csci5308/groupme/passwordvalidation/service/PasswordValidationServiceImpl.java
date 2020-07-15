@@ -37,17 +37,12 @@ public class PasswordValidationServiceImpl implements PasswordValidationService{
 	@Override
 	public List<PasswordValidator> getActiveValidators(User user) {
 		
-		logger.info("Inside getActiveValidators");
-		
 		activeValidators = new ArrayList<PasswordValidator>();
 		for (@SuppressWarnings("rawtypes") Map.Entry item : validators.entrySet()) 
 		{
 			long key = (long) item.getKey();
 			String value = (String) item.getValue();
-			logger.info("values are "+ value);
 			String constraint = passwordValidationDao.loadConstraintByValidatorId(key);
-			
-			logger.info("-----in active, constraints are "+ constraint);
 	        
 			if(value.equals(PasswordValidatorName.MINIMUMLENGTH.toString())) {
 	        	activeValidators.add(new MinimumLengthValidator(constraint));
@@ -73,7 +68,7 @@ public class PasswordValidationServiceImpl implements PasswordValidationService{
 	        }   
  
 		}
-		logger.info("----------active validators are: "+activeValidators);
+		logger.info("List of active validators are: "+ activeValidators);
 		return activeValidators;
 	}
 

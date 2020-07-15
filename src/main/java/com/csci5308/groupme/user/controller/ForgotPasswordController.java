@@ -76,6 +76,8 @@ public class ForgotPasswordController {
 <<<<<<< HEAD
 		ModelAndView mView = new ModelAndView();
 		User user = userService.getByEmail(email);
+		user.setPassword(newPassword);
+		logger.info("Resetting password for: "+user.getUserName());
 		int passwordValidationStatus = userService.passwordPolicyCheck(user);
 		if(passwordValidationStatus != EditCodes.FAILURE)
 		{
@@ -91,7 +93,8 @@ public class ForgotPasswordController {
 		else
         {
         	String message;
-			message = Messages.PASSWORD_POLICY_MISMATCH;
+        	mView = new ModelAndView("auth/resetPassword");
+			message = Messages.PASSWORD_POLICY_MISMATCHED;
 			mView.addObject("message", message);
         }
 		return mView;
