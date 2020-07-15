@@ -13,10 +13,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.Group;
 import com.csci5308.groupme.survey.strategy.greedy.GreedyGroupingWithPairScores;
 import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristic;
+import com.csci5308.groupme.survey.strategy.greedy.PairScores;
 import com.csci5308.groupme.survey.strategy.mock.MockHeuristic;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -32,12 +34,12 @@ public class GreedyGroupingWithPairScoresTest {
 	private static GreedyGroupingWithPairScores greedyGrouping;
 	private static Candidate pivotCandidate;
 	private static GroupingHeuristic groupingHeuristic;
-
+	
 	@BeforeAll
 	public static void init() {
 		pivotCandidate = new Candidate();
 		greedyGrouping = new GreedyGroupingWithPairScores();
-		groupingHeuristic = new MockHeuristic();
+		groupingHeuristic = new PairScores();
 		greedyGrouping.setGroupingHeuristic(groupingHeuristic);
 		try {
 			ObjectMapper mapper = new ObjectMapper();
@@ -59,14 +61,13 @@ public class GreedyGroupingWithPairScoresTest {
 		}
 		List<Group> groups = greedyGrouping.getGroups(candidates, groupSize);
 		for(Group group: groups) {
-			logger.debug("------Group-{}-------", group.getGroupNo());
+			logger.info("------Group-{}-------", group.getGroupNo());
 			int i = 1;
 			for(Candidate candidate: group.getCandidates()) {
-				logger.debug("Candidate-{} fitness: {}", i++, candidate.getFitness());
+				logger.info("Candidate-{} fitness: {}", i++, candidate.getFitness());
 			}
 		}
-		assert(groups.size() >= candidates.size()/groupSize);
-		
+		assert(groups.size() >= candidates.size()/groupSize);		
 	}
 	
 	@Test
@@ -80,10 +81,10 @@ public class GreedyGroupingWithPairScoresTest {
 		}
 		List<Group> groups = greedyGrouping.getGroups(candidates, groupSize);
 		for(Group group: groups) {
-			logger.debug("------Group-{}-------", group.getGroupNo());
+			logger.info("------Group-{}-------", group.getGroupNo());
 			int i = 1;
 			for(Candidate candidate: group.getCandidates()) {
-				logger.debug("Candidate-{} fitness: {}", i++, candidate.getFitness());
+				logger.info("Candidate-{} fitness: {}", i++, candidate.getFitness());
 			}
 		}
 		int remainderGroupSize = groups.get(groups.size() - 1).getCandidates().size();
@@ -104,7 +105,7 @@ public class GreedyGroupingWithPairScoresTest {
 		Group group = greedyGrouping.generateOneGreedyGroup(candidates, pivotCandidate, groupSize);
 		int i = 1;
 		for (Candidate candidate : group.getCandidates()) {
-			logger.debug("Candidate-{} fitness: {}", i++, candidate.getFitness());
+			logger.info("Candidate-{} fitness: {}", i++, candidate.getFitness());
 		}
 		assert (group.getCandidates().size() == groupSize);
 	}

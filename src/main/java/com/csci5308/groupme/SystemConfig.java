@@ -12,6 +12,8 @@ import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAs
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantServiceImpl;
+import com.csci5308.groupme.survey.service.GroupFormationService;
+import com.csci5308.groupme.survey.service.GroupFormationServiceImpl;
 import com.csci5308.groupme.survey.dao.SurveyOperationDao;
 import com.csci5308.groupme.survey.dao.SurveyOperationDaoImpl;
 import com.csci5308.groupme.survey.dao.SurveyPublishDao;
@@ -31,6 +33,7 @@ public class SystemConfig {
     private DatabaseProperties databaseProperties;
     private PasswordProperties passwordProperties;
     private EnrollmentService enrollmentService;
+    private GroupFormationService groupFormationService;
     private SurveyOperationService surveyOperationService;
     private SurveyOperationDao surveyOperationDao;
     private SurveyPublishDao surveyPublishDao;
@@ -44,13 +47,14 @@ public class SystemConfig {
         passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
+        groupFormationService = new GroupFormationServiceImpl();
         surveyOperationDao = new SurveyOperationDaoImpl();
         surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
         surveyPublishDao = new SurveyPublishDaoImpl();
         surveyPublishService = new SurveyPublishServiceImpl(surveyPublishDao);
     }
 
-    public static SystemConfig instance() {
+	public static SystemConfig instance() {
         if (null == uniqueInstance) {
             uniqueInstance = new SystemConfig();
         }
@@ -112,6 +116,14 @@ public class SystemConfig {
     public void setEnrollmentService(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
     }
+    
+    public GroupFormationService getGroupFormationService() {
+		return groupFormationService;
+	}
+
+	public void setGroupFormationService(GroupFormationService groupFormationService) {
+		this.groupFormationService = groupFormationService;
+	}
 
     public SurveyOperationService getSurveyOperationService() {
         return surveyOperationService;

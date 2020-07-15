@@ -16,7 +16,7 @@
             var minUpperCase = "[[${passwordProperties.getMinUpperCase()}]]";
             var minLowerCase = "[[${passwordProperties.getMinLowerCase()}]]";
             var minSpecialChars = "[[${passwordProperties.getMinSpecialChars()}]]";
-            var invalidChars = [[${passwordProperties.getInvalidChars()}]];
+            var invalidChars = "[[${passwordProperties.getInvalidChars()}]]";
             var minUpperCaseChecker = new RegExp(`^(.*?[A-Z]){${minUpperCase},}`);
             var minLowerCaseChecker = new RegExp(`^(.*?[a-z]){${minLowerCase},}`);
             var minSpecialCharsChecker = new RegExp(`^(.*?[!@#\$%\^\&*\)\(+=._-]){${minSpecialChars},}`);
