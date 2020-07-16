@@ -1,6 +1,7 @@
 package com.csci5308.groupme.course.courseadmin.instructor.service;
 
 import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.TestsConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.service.EnrollmentService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +22,7 @@ public class EnrollmentServiceImplTest {
 
     @Test
     public void readAllTest() {
-        EnrollmentService enrollmentService = SystemConfig.instance().getEnrollmentService();
+        EnrollmentService enrollmentService = TestsConfig.instance().getEnrollmentService();
         try {
             reader = new BufferedReader(new FileReader("src/test/resources/validrecords.csv"));
             List<String[]> records = enrollmentService.readAll(reader);

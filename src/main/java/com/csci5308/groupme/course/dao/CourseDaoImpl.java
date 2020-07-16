@@ -85,7 +85,7 @@ public class CourseDaoImpl implements CourseDao {
             deleteCourseStatement = connection.prepareStatement(CourseQuery.DELETE_COURSE);
             deleteCourseStatement.setString(1, courseCode);
             rowCount = deleteCourseStatement.executeUpdate();
-            logger.info("Course deleted with code: "+ courseCode);
+            logger.info("Course deleted with code: " + courseCode);
             if (rowCount == 0) {
                 return EditCodes.COURSE_DOES_NOT_EXIST;
             }

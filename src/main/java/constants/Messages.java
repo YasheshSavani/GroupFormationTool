@@ -4,8 +4,6 @@ public class Messages {
 
     public static final String USERNAME_EXISTS = "Username already exists!";
 
-    public static final String USERNAME_DOES_NOT_EXIST = "Username does not exist!";
-
     public static final String EMAIL_EXISTS = "Email already exists!";
 
     public static final String EMAIL_DOES_NOT_EXIST = "Email does not exist!";

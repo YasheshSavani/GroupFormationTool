@@ -1,9 +1,7 @@
 package com.csci5308.groupme.auth.config;
 
 import com.csci5308.groupme.auth.LandingUri;
-
 import constants.Roles;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;

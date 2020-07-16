@@ -2,7 +2,6 @@ package com.csci5308.groupme.course.survey.dao;
 
 import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
-import com.csci5308.groupme.course.survey.dao.SurveyOperationDao;
 import com.csci5308.groupme.course.survey.model.Candidate;
 
 import java.util.ArrayList;

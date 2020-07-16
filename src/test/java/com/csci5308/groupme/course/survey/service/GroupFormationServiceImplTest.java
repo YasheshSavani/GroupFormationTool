@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.csci5308.groupme.TestsConfig;
 import com.csci5308.groupme.course.survey.service.GroupFormationService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -25,7 +26,7 @@ public class GroupFormationServiceImplTest {
 
 	@BeforeAll
 	public static void init() {
-		groupFormationService = SystemConfig.instance().getGroupFormationService();
+		groupFormationService = TestsConfig.instance().getGroupFormationService();
 	}
 
 	@Test

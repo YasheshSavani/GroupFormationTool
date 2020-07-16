@@ -2,12 +2,12 @@ package com.csci5308.groupme.course.courseadmin.instructor.controller;
 
 import ch.qos.logback.classic.Logger;
 import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
 import com.csci5308.groupme.course.courseadmin.instructor.service.QuestionManagerService;
 import constants.Messages;
-import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import errors.EditCodes;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;

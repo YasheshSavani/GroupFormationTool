@@ -35,7 +35,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -44,7 +43,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 callableStatement = connection.prepareCall("{call FIND_QUESTIONS_BY_TA_ROLE(?,?)}");
                 callableStatement.setString(1, userName);
                 callableStatement.setString(2, courseCode);
-
             } else {
                 logger.debug("FIND_QUESTIONS_BY_INSTRUCTOR_ROLE procedure called");
                 callableStatement = connection.prepareCall("{call FIND_QUESTIONS_BY_INSTRUCTOR_ROLE(?)}");
@@ -61,7 +59,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 String question = resultSet.getString("question");
                 notAddedQuestionsList.add(new Question(questionTitle, questionId, question, questionType));
             } while (resultSet.next());
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -154,11 +151,9 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
-
             logger.debug("INSERT_SURVEY_QUESTION procedure called");
             callableStatement = connection.prepareCall("{call INSERT_SURVEY_QUESTION(?,?)}");
             callableStatement.setString(1, courseCode);
@@ -207,7 +202,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -220,7 +214,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             callableStatement = connection.prepareCall("{call REMOVE_QUESTION_FROM_SURVEY(?)}");
             callableStatement.setInt(1, questionId);
             callableStatement.executeUpdate();
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -314,11 +307,9 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
-
             if (roleName.equals(Roles.TA)) {
                 logger.debug("GET_ADDED_SURVEY_QUESTIONS_BY_TA procedure called");
                 callableStatement = connection.prepareCall("{call GET_ADDED_SURVEY_QUESTIONS_BY_TA(?,?)}");
@@ -437,6 +428,5 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
         }
         return candidateList;
     }
-
 }
 

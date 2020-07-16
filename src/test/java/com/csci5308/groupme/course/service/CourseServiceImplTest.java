@@ -23,7 +23,6 @@ public class CourseServiceImplTest {
     @InjectMocks
     private CourseServiceImpl courseServiceImpl;
 
-    
     @Test
     public void saveCourseTest() throws Exception {
         Course course = new Course("CSCI 5308", "Adv Software Development", 12345);

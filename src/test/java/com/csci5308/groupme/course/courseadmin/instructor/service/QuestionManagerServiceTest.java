@@ -1,5 +1,6 @@
 package com.csci5308.groupme.course.courseadmin.instructor.service;
 
+import com.csci5308.groupme.TestsConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDaoMock;
@@ -21,12 +22,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 public class QuestionManagerServiceTest {
     private QuestionManagerService questionManagerService;
-    private QuestionsDao questionsDao;
     private Logger logger = LoggerFactory.getLogger(QuestionManagerServiceTest.class);
 
     public QuestionManagerServiceTest() {
-        questionsDao = new QuestionsDaoMock();
-        questionManagerService = new QuestionManagerServiceImpl(questionsDao);
+        questionManagerService = TestsConfig.instance().getQuestionManagerService();
     }
 
     @Test
