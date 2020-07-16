@@ -52,7 +52,7 @@ public class Messages {
 
     public static final String SURVEY_PUBLISHED = "Survey published for course: ";
 
-    public static final String SURVEY_NOT_PUBLISHED = "Survey is not published!";
+    public static final String SURVEY_NOT_PUBLISHED = "Survey is not published for this course!";
 
     public static final String SURVEY_ALREADY_PUBLISHED = "Survey is already published. You cannot edit the survey";
 
@@ -61,5 +61,14 @@ public class Messages {
     public static final String CANNOT_CUSTOMISE_SURVEY = "Create Survey by clicking on Create Survey Button, Survey does not Exist for course:";
 
     public static final String TA_CANNOT_PUBLISH_SURVEY = "TA cannot publish survey";
+    
+   public static final String NO_SURVEY_FOR_COURSE = "This course does not have a survey";
+   
+   public static final String SELECT_GROUPING_FORMULA = "Select the grouping formula";
+   
+   public static final String GROUP_SIZE_IS_ZERO = "Group size cannot be zero";
+   
+   public static final String GROUP_SIZE_GREATER_THAN_STRENGTH = "Group size is greater than the total number of survey results";
 
+   public static final String NO_RESPONSES = "No responses to the survey yet!";
 }

@@ -1,6 +1,7 @@
 package com.csci5308.groupme.survey.service;
 
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.SurveyQuestion;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface SurveyOperationService {
     public Map<String, Integer> checkIfSurveyExist(String courseCode);
 
     public List<Question> getAlreadyAddedSurveyQuestions(String userName, String roleName, String courseCode);
+    
+    public List<Candidate> getAllResponsesForSurvey(Integer surveyId);
 }

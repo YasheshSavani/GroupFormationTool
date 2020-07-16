@@ -2,6 +2,8 @@ package errors;
 
 public class EditCodes {
 
+	public static final int DEFAULT = 0;
+	
 	public static final int FAILURE = -1;
 	
     public static final int USERNAME_EXISTS = -2;
@@ -29,5 +31,7 @@ public class EditCodes {
     public static final int GROUP_SIZE_IS_ZERO = -12;
     
     public static final int GROUP_SIZE_GREATER_THAN_STRENGTH = -13;
+    
+    public static final int NO_RESPONSES = -14;
 
 }

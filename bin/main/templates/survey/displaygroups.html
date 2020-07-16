@@ -33,6 +33,12 @@
 	</div>
 
 	<div class="container">
+		<h1 th:text="${message}"></h1>
+		<input type="button" onclick="history.back();" value="Back">
+
+	</div>
+
+	<div class="container">
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -45,7 +51,7 @@
 					<td>No Groups Available</td>
 				</tr>
 				<tr th:each="group : ${groups}">
-					<td th:text="${group.groupNo}"></td>
+					<td th:text="${group.groupNo}" style="font-size: 30px"></td>
 					<td>
 						<table class="table table-striped">
 							<thead>
@@ -88,6 +94,7 @@
 				</tr>
 			</tbody>
 		</table>
+
 
 	</div>
 </body>

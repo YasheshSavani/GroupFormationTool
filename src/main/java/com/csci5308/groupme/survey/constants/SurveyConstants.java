@@ -1,7 +1,5 @@
 package com.csci5308.groupme.survey.constants;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
 public class SurveyConstants {
 
     public static final Integer SURVEY_STATUS_PUBLISHED = 1;

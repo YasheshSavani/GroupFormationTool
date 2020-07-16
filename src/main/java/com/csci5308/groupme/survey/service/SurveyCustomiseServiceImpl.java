@@ -12,6 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("unchecked")
 public class SurveyCustomiseServiceImpl implements SurveyCustomiseService {
 
     private SurveyCustomiseDao surveyCustomiseDao;
@@ -21,7 +22,7 @@ public class SurveyCustomiseServiceImpl implements SurveyCustomiseService {
         this.surveyCustomiseDao = surveyCustomiseDao;
     }
 
-    @Override
+	@Override
     public List<SurveyQuestion> getSurveyQuestions(String courseCode) {
 
         Map<String, Map<String, String>> dbSurveyForm;

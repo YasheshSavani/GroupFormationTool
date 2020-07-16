@@ -34,7 +34,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -206,7 +205,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -313,7 +311,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");

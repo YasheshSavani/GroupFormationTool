@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.qos.logback.classic.Logger;
@@ -104,6 +105,30 @@ public class CandidateTest {
 		candidate.setQuestionResponsesMap(candidateResponses);
 		List<PrettyResponse> prettyResponses = candidate.getPrettyResponses();
 		assertEquals(questionId, prettyResponses.get(0).getQuestionId());
+	}
+	
+	@Test
+	public void storeResponsesAsMapTest() {
+		String stringifiedJSON = "{" +
+	            "\"1\": { " +
+	            " \"title\": \"default\"," +
+	            "\"question\": \"default\"," +
+	            "\"type\": \"Numeric\"," +
+	            "\"criterion\": \"1\"," +
+	            "\"weight\": \"5\"," +
+	            "\"upperBound\": \"none\"," +
+	            "\"lowerBound\": \"none\"}" +
+	            "}";
+			candidate.storeResponsesAsMap(stringifiedJSON);
+			Map<?,?> questionResponseMap = candidate.getQuestionResponsesMap();
+		    assertEquals("1", (String) questionResponseMap.entrySet().iterator().next().getKey());
+		    assertEquals("default", (String) ((Map<?,?>) questionResponseMap.get("1")).get("title"));
+		    assertEquals("default", (String) ((Map<?,?>) questionResponseMap.get("1")).get("question"));
+		    assertEquals("Numeric", (String) ((Map<?,?>) questionResponseMap.get("1")).get("type"));
+		    assertEquals("1", (String) ((Map<?,?>) questionResponseMap.get("1")).get("criterion"));
+		    assertEquals("5", (String) ((Map<?,?>) questionResponseMap.get("1")).get("weight"));
+		    assertEquals("none", (String) ((Map<?,?>) questionResponseMap.get("1")).get("upperBound"));
+		    assertEquals("none", (String) ((Map<?,?>) questionResponseMap.get("1")).get("lowerBound"));
 	}
 
 }

@@ -1,11 +1,22 @@
 package com.csci5308.groupme.survey.model;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import constants.FilePathConstants;
+
 public class Candidate {
 	
+	private final Logger logger = LoggerFactory.getLogger(Candidate.class);
 	private Integer surveyId;
 	private String userName;
 	private String bannerId;
@@ -77,6 +88,17 @@ public class Candidate {
 			this.prettyResponses.add(prettyResponse);
 		}
 		return prettyResponses;
+	}
+	
+	public void storeResponsesAsMap(String stringifiedResponses) {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			this.questionResponsesMap = mapper.readValue(stringifiedResponses, Map.class);
+		} catch (JsonProcessingException e) {
+			logger.error("Failed to convert from JSON string to Map");
+			e.printStackTrace();
+		}
+		
 	}
 		
 }

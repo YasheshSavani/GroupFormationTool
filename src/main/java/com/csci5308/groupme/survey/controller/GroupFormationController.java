@@ -1,7 +1,5 @@
 package com.csci5308.groupme.survey.controller;
 
-import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,49 +10,80 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.survey.constants.Algorithms;
+import com.csci5308.groupme.survey.constants.SurveyConstants;
 import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.Group;
 import com.csci5308.groupme.survey.model.PrettyResponse;
 import com.csci5308.groupme.survey.service.GroupFormationService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.csci5308.groupme.survey.service.SurveyOperationService;
 
-import constants.FilePathConstants;
+import constants.Messages;
+import errors.EditCodes;
 
 @Controller
+@RequestMapping(value = "/grouping")
 public class GroupFormationController {
+	
 	private final Logger logger = LoggerFactory.getLogger(GroupFormationController.class);
 	private GroupFormationService groupFormationService = SystemConfig.instance().getGroupFormationService();
-	private static Map<?, ?> testResponses;
+	private SurveyOperationService surveyOperationService = SystemConfig.instance().getSurveyOperationService();
+
+	@RequestMapping(value = "/configureGroupingStrategy", method = RequestMethod.GET)
+	public String configureGroupingStrategy(Model model, @RequestParam("courseCode") String courseCode,
+			@RequestParam(value = "message", required = false) String message) {
+		Integer surveyId = null;
+		Integer isPublished = null;
+		List<String> groupingStrategies = new ArrayList<String>();
+		Map<String, Integer> surveyIdStatus = surveyOperationService.checkIfSurveyExist(courseCode);
+		if (surveyIdStatus == null) {
+			message = Messages.NO_SURVEY_FOR_COURSE;
+		} else {
+			surveyId = surveyIdStatus.get("surveyId");
+			isPublished = surveyIdStatus.get("isPublished");
+			logger.info("Survey exits for course: Survey id: {}, Survey status {}", surveyId, isPublished);
+			if (isPublished == SurveyConstants.SURVEY_STATUS_NOT_PUBLISHED) {
+				message = Messages.SURVEY_NOT_PUBLISHED;
+			} else {
+				groupingStrategies = groupFormationService.getAllGroupingStrategies();
+				message = Messages.SELECT_GROUPING_FORMULA;
+			}
+		}
+		model.addAttribute("message", message);
+		model.addAttribute("groupingStrategies", groupingStrategies);
+		model.addAttribute("surveyId", surveyId);
+		model.addAttribute("isPublished", isPublished);
+		model.addAttribute("courseCode", "courseCode");
+		return "survey/selectgroupingformula";
+	}
 
 	@RequestMapping(value = "/getGroups", method = RequestMethod.GET)
-	public String showGroupsFormed(Model model) {
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			testResponses = mapper.readValue(Paths.get(FilePathConstants.TEST_RESPONSES_JSON_FILE).toFile(), Map.class);
-		} catch (IOException e) {
-			e.printStackTrace();
+	public String showGroupsFormed(Model model, @RequestParam("algorithm") String algorithm,
+			@RequestParam("groupSize") Integer groupSize, @RequestParam("surveyId") Integer surveyId) {
+		int status = EditCodes.DEFAULT;
+		String message = null;
+		List<Candidate> candidates = surveyOperationService.getAllResponsesForSurvey(surveyId);
+		status = groupFormationService.validate(candidates, groupSize);
+		if (status == EditCodes.GROUP_SIZE_IS_ZERO) {
+			message = Messages.GROUP_SIZE_IS_ZERO;
+			model.addAttribute("message", message);
+			return "survey/error";
+		} else if (status == EditCodes.GROUP_SIZE_GREATER_THAN_STRENGTH) {
+			message = Messages.GROUP_SIZE_GREATER_THAN_STRENGTH;
+			model.addAttribute("message", message);
+			return "survey/error";
 		}
-		int groupSize = 3;
-		List<Candidate> candidates = new ArrayList<Candidate>();
-		int i = 0;
-		for (Map.Entry<?, ?> entry : testResponses.entrySet()) {
-			Candidate candidate = new Candidate();
-			candidate.setUserName("testuser");
-			candidate.setBannerId("B0" + i++);
-			candidate.setFirstName("Test");
-			candidate.setLastName("User" + i++);
-			candidate.setQuestionResponsesMap((Map<?, ?>) entry.getValue());
-			candidates.add(candidate);
-		}
-		groupFormationService.setGroupingStrategy(Algorithms.GREEDY_GROUPING_WITH_PAIR_SCORES);
+		if(candidates == null || candidates.isEmpty()) {
+			message = Messages.GROUP_SIZE_GREATER_THAN_STRENGTH;
+			model.addAttribute("message", message);
+			return "survey/error";
+		}		
+		groupFormationService.configureGroupingStrategy(algorithm);
 		List<Group> groups = groupFormationService.formGroups(candidates, groupSize);
 		for (Group group : groups) {
-			logger.info("Groups formed: Group-" + group.getGroupNo());
-
+			logger.info("Group formed: Group-" + group.getGroupNo());
 			for (Candidate candidate : group.getCandidates()) {
 				logger.info("candidate id : {} ", candidate.getBannerId());
 				for (PrettyResponse prettyResponse : candidate.getPrettyResponses()) {
@@ -63,6 +92,7 @@ public class GroupFormationController {
 			}
 		}
 		model.addAttribute("groups", groups);
+		model.addAttribute("message", message);
 		return "survey/displaygroups";
 	}
 }

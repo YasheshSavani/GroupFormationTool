@@ -1,12 +1,7 @@
 package com.csci5308.groupme.survey.controller;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.survey.constants.SurveyConstants;
-import com.csci5308.groupme.survey.model.SurveyQuestion;
-import com.csci5308.groupme.survey.model.SurveyQuestionList;
-import com.csci5308.groupme.survey.service.SurveyCustomiseService;
-import constants.Messages;
-import constants.Roles;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -16,7 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.survey.constants.SurveyConstants;
+import com.csci5308.groupme.survey.model.SurveyQuestion;
+import com.csci5308.groupme.survey.model.SurveyQuestionList;
+import com.csci5308.groupme.survey.service.SurveyCustomiseService;
+
+import constants.Messages;
+import constants.Roles;
 
 @Controller
 @RequestMapping(value = "/customiseSurvey")
@@ -48,7 +50,7 @@ public class SurveyCustomiseController {
                 modelAndView.addObject("arraySize",1);
             }else{
                 modelAndView.addObject("arraySize",0);
-                modelAndView.addObject("publisherMessage",Messages.CANNOT_CUSTOMISE_SURVEY + courseCode);
+                modelAndView.addObject("publisherMessage", Messages.CANNOT_CUSTOMISE_SURVEY + courseCode);
             }
         } else {
             modelAndView.addObject("publisherMessage", Messages.SURVEY_ALREADY_PUBLISHED);

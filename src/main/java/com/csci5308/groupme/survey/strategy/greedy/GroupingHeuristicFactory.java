@@ -1,6 +1,8 @@
 package com.csci5308.groupme.survey.strategy.greedy;
 
 import com.csci5308.groupme.survey.constants.Heuristics;
+import com.csci5308.groupme.survey.strategy.MockHeuristic;
+;
 
 public class GroupingHeuristicFactory {
 
@@ -8,8 +10,8 @@ public class GroupingHeuristicFactory {
 		if(heuristic.equalsIgnoreCase(Heuristics.PAIR_SCORES)) {
 			return new PairScores();
 		}
-		else if(heuristic.equalsIgnoreCase(Heuristics.MOCK)) {
-			return new PairScores();
+		if(heuristic.equalsIgnoreCase(Heuristics.MOCK)) {
+			return new MockHeuristic();
 		}
 		return null;
 	}

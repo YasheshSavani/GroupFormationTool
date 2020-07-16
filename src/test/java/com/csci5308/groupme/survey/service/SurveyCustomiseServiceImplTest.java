@@ -31,7 +31,6 @@ class SurveyCustomiseServiceImplTest {
         assertEquals(surveyQuestionList.size(), 1);
     }
 
-
     @Test
     void checkIfSurveyIsPublishedTest() {
         int rowCount = surveyCustomiseService.checkIfSurveyIsPublished(courseCodeTest);
