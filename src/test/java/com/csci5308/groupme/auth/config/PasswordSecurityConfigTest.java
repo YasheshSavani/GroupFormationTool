@@ -7,13 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class PasswordSecurityConfigTest {
 	
 	@Test
-	public String encryptPassword(String rawPassword)
+	public String encryptPasswordTest(String rawPassword)
 	{
 		return "encrypted";
 	}
 	
 	@Test
-	public boolean matches(String rawPassword, String encryptedPassword)
+	public boolean matchesTest(String rawPassword, String encryptedPassword)
 	{
 		if (null == rawPassword || rawPassword.isEmpty())
 		{

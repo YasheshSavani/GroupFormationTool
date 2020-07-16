@@ -33,7 +33,7 @@ class UserTest {
     }
 
     @Test
-    public void getPassword() {
+    public void getPasswordTest() {
         assertEquals("B00xxxxxx", user.getPassword());
     }
 
@@ -103,7 +103,7 @@ class UserTest {
     }
 
     @Test
-    public void setPermissions() {
+    public void setPermissionsTest() {
         User user = new User();
         List<String> userPermissions = new ArrayList<>();
         userPermissions.add("permitted");

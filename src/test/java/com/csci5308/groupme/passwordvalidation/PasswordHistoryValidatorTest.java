@@ -13,7 +13,7 @@ import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDaoImplTest
 public class PasswordHistoryValidatorTest {
 	
 	@Test
-	public void isValid() 
+	public void isValidTest()
 	{
 		PasswordValidationDaoImplTest validatorDB = new PasswordValidationDaoImplTest();
 		int historyCount = 3;

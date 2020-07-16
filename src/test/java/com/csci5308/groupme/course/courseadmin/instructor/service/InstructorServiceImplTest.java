@@ -41,7 +41,7 @@ public class InstructorServiceImplTest {
     }
 
     @Test
-    public void getByUserName() throws Exception {
+    public void getByUserNameTest() throws Exception {
         String userName = "inst_test";
         Instructor instructorTest = new Instructor();
         instructorTest.setFirstName("karan");
@@ -59,7 +59,7 @@ public class InstructorServiceImplTest {
     }
 
     @Test
-    public void getByEmail() throws Exception {
+    public void getByEmailTest() throws Exception {
         String email = "instructor@dal.ca";
         User user = new User();
         user.setFirstName("karan");

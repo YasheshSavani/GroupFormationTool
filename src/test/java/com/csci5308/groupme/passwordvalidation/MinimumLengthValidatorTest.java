@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MinimumLengthValidatorTest {
 	
 	@Test
-	public void isValid() 
+	public void isValidTest()
 	{
 		int minimumLength = 5;
 		String password = "passed";

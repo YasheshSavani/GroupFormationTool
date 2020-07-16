@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MinimumLowercaseValidatorTest {
 	
 	@Test
-	public void isValid() 
+	public void isValidTest()
 	{
 		int minimumLowercase = 5;
 		
@@ -22,7 +22,7 @@ public class MinimumLowercaseValidatorTest {
 		
 	}
 	
-	public int countLowercase(String password) 
+	public int countLowercase(String password)
 	{
 		int countLower = 0;
 		for (int i=0; i < password.length(); i++)

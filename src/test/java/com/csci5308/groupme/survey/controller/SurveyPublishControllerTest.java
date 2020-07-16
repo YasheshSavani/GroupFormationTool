@@ -31,7 +31,7 @@ class SurveyPublishControllerTest {
 
     @Test
     @WithMockUser(username = "iuser", password = "password", authorities = {Roles.INSTRUCTOR})
-    void publishSurvey() throws Exception {
+    void publishSurveyTest() throws Exception {
         this.mockMvc.perform(get("/publishSurvey")
                 .param(roleNameParam, roleName)
                 .param(courseCodeParam, courseCode)).andDo(print()).andExpect(status().isOk())
@@ -40,7 +40,7 @@ class SurveyPublishControllerTest {
 
     @Test
     @WithMockUser(username = "iuser", password = "password", authorities = {Roles.INSTRUCTOR})
-    void exitPublishSurveyPage() throws Exception {
+    void exitPublishSurveyPageTest() throws Exception {
         this.mockMvc.perform(post("/exitPublishSurveyPage")
                 .param(roleNameParam, roleName)).andDo(print()).andExpect(status().is(302))
                 .andExpect(view().name("redirect:/instructor/courseAdminPage"));

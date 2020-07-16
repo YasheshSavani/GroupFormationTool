@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class RestrictedCharacterValidatorTest {
 	
 	@Test
-	public void isValid() 
+	public void isValidTest()
 	{
 		String restrictedCharacter = "#";
 		String pass = "Pas@sed";

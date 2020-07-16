@@ -63,7 +63,6 @@
     <form th:action="@{/courseAdmin/uploadfile}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="courseCode" th:value="${courseCode}">
         <input type="hidden" name="courseName" th:value="${courseName}">
-        <!--        <input type="hidden" name="courseCrn" th:value="${courseCrn}">-->
         <input type="file" id="file" name="file"/>
         <br>
         <input type="submit"/>
@@ -86,12 +85,6 @@
                     <input type="email" th:name="email" id="email" placeholder="Enter Email" required>
                 </td>
             </tr>
-            <!--            <tr>-->
-            <!--                <td><label for="courseCode">Course Code</label></td>-->
-            <!--                <td>-->
-            <!--                    <input type="text" th:name="courseCode" id="courseCode" placeholder="Enter Course Code" required>-->
-            <!--                </td>-->
-            <!--            </tr>-->
             <tr>
                 <td>
                     <button type="submit">Submit</button>

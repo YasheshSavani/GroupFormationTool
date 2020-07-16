@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MinimumSymbolValidatorTest {
 	
 	@Test
-	public void isValid() 
+	public void isValidTest()
 	{
 		int minimumSymbols = 1;
 		String pass = "Pas@sed";
