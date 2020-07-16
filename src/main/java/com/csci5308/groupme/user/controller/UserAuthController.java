@@ -1,5 +1,8 @@
 package com.csci5308.groupme.user.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +26,6 @@ import errors.EditCodes;
 public class UserAuthController {
 
     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-    PasswordProperties passwordProperties;
     
     @Autowired
     private UserService userService;
@@ -31,29 +33,35 @@ public class UserAuthController {
     @GetMapping("/signup")
     public String showSignUpPage(Model model) {
         User user = new User();
-        passwordProperties = SystemConfig.instance().getPasswordProperties();
         model.addAttribute("user", user);
-        model.addAttribute(passwordProperties);
         return "auth/signup";
     }
 
     @PostMapping("/signup")
     public ModelAndView signUpUser(@ModelAttribute("user") User user) {
-        ModelAndView modelAndView = new ModelAndView("auth/signup");
-        passwordProperties = SystemConfig.instance().getPasswordProperties();
-        modelAndView.addObject(passwordProperties);
-        String message;
-        int signupStatus = userService.register(user);
-        if (signupStatus == EditCodes.EMAIL_EXISTS) {
-            message = Messages.SIGNUP_SUCCESS;
-        } else if (signupStatus == EditCodes.USERNAME_EXISTS) {
-            message = Messages.USERNAME_EXISTS;
-        } else {
-            message = Messages.SIGNUP_SUCCESS;
+        ModelAndView mView = new ModelAndView("auth/signup");
+        String message = null;
+        
+        Map<String,String> passwordValidation = userService.passwordPolicyCheck(user);
+        Integer passwordValidationStatus = Integer.parseInt(passwordValidation.get("passwordCheckStatus"));
+        if (passwordValidationStatus == EditCodes.FAILURE) {
+        	message = passwordValidation.get("passwordPolicy") + Messages.PASSWORD_POLICY_MISMATCHED_TRAIL;
         }
-        logger.info(user.getEmail());
-        modelAndView.addObject("message", message);
-        return modelAndView;
+        if(passwordValidationStatus != EditCodes.FAILURE)
+        {
+	        int signupStatus = userService.register(user);
+	        if (signupStatus == EditCodes.EMAIL_EXISTS) {
+	            message = Messages.EMAIL_EXISTS;
+	        } else if (signupStatus == EditCodes.USERNAME_EXISTS) {
+	            message = Messages.USERNAME_EXISTS;
+	        } else {
+	            message = Messages.SIGNUP_SUCCESS;
+	        }
+        }
+ 
+        logger.info("Signing up with email: "+ user.getEmail());
+        mView.addObject("message", message);
+        return mView;
     }
 
     @GetMapping("/login")
