@@ -29,6 +29,7 @@ public class InstructorServiceImpl implements InstructorService {
             instructor.setLastName(user.getLastName());
             instructor.setEmail(user.getEmail());
         }
+        logger.info("Instructor information by username: " + instructor.getFirstName());
         return instructor;
     }
 

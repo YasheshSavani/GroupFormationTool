@@ -32,7 +32,7 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
             preparedStatement = connection.prepareStatement(UserQuery.FIND_BY_EMAIL);
             preparedStatement.setString(1, emailId);
             resultSet = preparedStatement.executeQuery();
-            logger.info("Execution of Course Select Query is Completed...");
+            logger.debug("FIND_BY_EMAIL Query executed");
             if (resultSet.next() == false) {
                 return EditCodes.EMAIL_DOES_NOT_EXIST;
             }
@@ -44,11 +44,13 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
                         callableStatementToAddTA.setString(1, taUserName);
                         callableStatementToAddTA.setString(2, courseCode);
                         callableStatementToAddTA.executeUpdate();
+                        logger.debug("INSERT_TA procedure called to assign TA to course");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
                     callableStatementToAddTA.close();
+                    logger.debug("Callable Statement to add TA closed");
                 }
             } while (resultSet.next());
         } catch (Exception e) {
@@ -57,6 +59,7 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
             if (resultSet != null) {
                 try {
                     resultSet.close();
+                    logger.debug("Result set closed");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -64,6 +67,7 @@ public class TeachingAssistantDaoImpl implements TeachingAssistantDao {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
+                    logger.debug("Prepared Statement closed");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

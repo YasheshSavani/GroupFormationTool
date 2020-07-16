@@ -8,6 +8,8 @@ import constants.Messages;
 import constants.Roles;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
@@ -27,6 +29,7 @@ public class SurveyOperationServiceImplTest {
     private String questionTitleTest = "Python";
     private String questionTypeTest = "Numeric";
     private String questionIdTest = "2";
+    private Logger logger = LoggerFactory.getLogger(SurveyCustomiseServiceImplTest.class);
 
     public SurveyOperationServiceImplTest() {
         surveyOperationDao = new SurveyOperationDaoImplMock();
@@ -36,6 +39,7 @@ public class SurveyOperationServiceImplTest {
     @Test
     void showQuestionsOnCreateSurveyPageTest() {
         List<Question> notAddedQuestion = surveyOperationService.showQuestionsOnCreateSurveyPage(courseCodeTest, roleNameTest, userNameTest);
+        logger.info("List of question not added to survey: {} ", notAddedQuestion);
         assertEquals(notAddedQuestion.size(), 1);
     }
 
@@ -51,12 +55,14 @@ public class SurveyOperationServiceImplTest {
         surveyQuestion.setLowerBound(Messages.NONE);
         surveyQuestion.setWeight(Messages.NONE);
         int rowCount = surveyOperationService.addQuestionToSurvey(courseCodeTest, surveyQuestion);
+        logger.info("Number of queestion added to Survey: {} ", rowCount);
         assertEquals(rowCount, 1);
     }
 
     @Test
     void getAlreadyAddedSurveyQuestionsTest() {
         List<Question> addedQuestion = surveyOperationService.getAlreadyAddedSurveyQuestions(userNameTest, roleNameTest, courseCodeTest);
+        logger.info("Questions already in survey: {} ", addedQuestion);
         assertEquals(addedQuestion.size(), 1);
     }
 
@@ -70,6 +76,7 @@ public class SurveyOperationServiceImplTest {
     @Test
     void removeQuestionFromSurveyTest() throws Exception {
         int rowCount = surveyOperationService.removeQuestionFromSurvey(questionIdTest, courseCodeTest);
+        logger.info("Questions removed from survey with question id: {} ", questionIdTest);
         assertEquals(rowCount, 1);
     }
 }
