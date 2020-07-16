@@ -1,5 +1,8 @@
 package com.csci5308.groupme.user.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +40,13 @@ public class UserAuthController {
     @PostMapping("/signup")
     public ModelAndView signUpUser(@ModelAttribute("user") User user) {
         ModelAndView mView = new ModelAndView("auth/signup");
-        String message;
-        int passwordValidationStatus = userService.passwordPolicyCheck(user);
+        String message = null;
+        
+        Map<String,String> passwordValidation = userService.passwordPolicyCheck(user);
+        Integer passwordValidationStatus = Integer.parseInt(passwordValidation.get("passwordCheckStatus"));
+        if (passwordValidationStatus == EditCodes.FAILURE) {
+        	message = passwordValidation.get("passwordPolicy") + Messages.PASSWORD_POLICY_MISMATCHED_TRAIL;
+        }
         if(passwordValidationStatus != EditCodes.FAILURE)
         {
 	        int signupStatus = userService.register(user);
@@ -50,10 +58,7 @@ public class UserAuthController {
 	            message = Messages.SIGNUP_SUCCESS;
 	        }
         }
-        else
-        {
-        	message = Messages.PASSWORD_POLICY_MISMATCHED;
-        }
+ 
         logger.info("Signing up with email: "+ user.getEmail());
         mView.addObject("message", message);
         return mView;

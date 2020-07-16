@@ -1,6 +1,9 @@
 package com.csci5308.groupme.user.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,21 +90,28 @@ public class UserServiceImpl implements UserService {
     }
 
 	@Override
-	public int passwordPolicyCheck(User user) {
-		int passwordCheckStatus = 1;
+	public Map<String, String> passwordPolicyCheck(User user) {
+		Integer passwordCheckStatus = 1;
 		passwordValidationService = SystemConfig.instance().getPasswordValidationService();
 		String rawPassword = user.getPassword();
         List <PasswordValidator> passwordValidators = passwordValidationService.getActiveValidators(user);
+        Map<String,String> statusCheck = new HashMap<>();
+        StringBuilder buildFailedPasswordPoliciesString = new StringBuilder();
 		for(int i = 0; i < passwordValidators.size(); i++) {
 			PasswordValidator validator = passwordValidators.get(i);
 			if (validator.isValid(rawPassword) == false) {
 				logger.info("Password criteria not met!");
 				logger.info(validator.getValidatorName() + " is not satisfied with the constraint of "+  validator.constraint);
-				Messages.PASSWORD_POLICY_MISMATCHED = validator.getValidatorName()+ Messages.PASSWORD_POLICY_MISMATCHED_TRAIL;
+				String passwordPolicy = validator.getValidatorName();
 				passwordCheckStatus = EditCodes.FAILURE;
-			}
+				buildFailedPasswordPoliciesString.append(passwordPolicy+"\n");
+				}
 		}
-		return passwordCheckStatus;
+		if (passwordCheckStatus == EditCodes.FAILURE) {
+			statusCheck.put("passwordPolicy",buildFailedPasswordPoliciesString.toString());
+		}
+		statusCheck.put("passwordCheckStatus",passwordCheckStatus.toString());
+		return statusCheck;
 	}
 
 }

@@ -18,7 +18,11 @@ public class Group {
 	private Integer groupNo;
 	private List<Candidate> candidates;
 	private Candidate pivotCandidate;
-	
+
+    public Group() {
+        candidates = new ArrayList<Candidate>();
+    }
+
 	public Integer getGroupNo() {
 		return groupNo;
 	}
