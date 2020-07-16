@@ -26,7 +26,6 @@ import errors.EditCodes;
 @Controller
 @RequestMapping(value = "/grouping")
 public class GroupFormationController {
-	
 	private final Logger logger = LoggerFactory.getLogger(GroupFormationController.class);
 	private GroupFormationService groupFormationService = SystemConfig.instance().getGroupFormationService();
 	private SurveyOperationService surveyOperationService = SystemConfig.instance().getSurveyOperationService();
@@ -65,6 +64,16 @@ public class GroupFormationController {
 		int status = EditCodes.DEFAULT;
 		String message = null;
 		List<Candidate> candidates = surveyOperationService.getAllResponsesForSurvey(surveyId);
+		if (candidates == null || candidates.isEmpty()) {
+			message = Messages.NO_RESPONSES;
+			model.addAttribute("message", message);
+			return "survey/error";
+		}
+		for (Candidate candidate : candidates) {
+			logger.info("User Name : {}", candidate.getUserName());
+			logger.info("Responses : {}", candidate.getStringifiedResponses());
+			candidate.storeResponsesAsMap(candidate.getStringifiedResponses());
+		}
 		status = groupFormationService.validate(candidates, groupSize);
 		if (status == EditCodes.GROUP_SIZE_IS_ZERO) {
 			message = Messages.GROUP_SIZE_IS_ZERO;
@@ -75,11 +84,6 @@ public class GroupFormationController {
 			model.addAttribute("message", message);
 			return "survey/error";
 		}
-		if(candidates == null || candidates.isEmpty()) {
-			message = Messages.GROUP_SIZE_GREATER_THAN_STRENGTH;
-			model.addAttribute("message", message);
-			return "survey/error";
-		}		
 		groupFormationService.configureGroupingStrategy(algorithm);
 		List<Group> groups = groupFormationService.formGroups(candidates, groupSize);
 		for (Group group : groups) {

@@ -45,11 +45,11 @@ public class PairScores implements GroupingHeuristic {
 		double score = 0.0;
 		this.pivotResponses = pivotCandidate.getQuestionResponsesMap();
 		this.groupMateCandidateResponses = groupMateCandidate.getQuestionResponsesMap();
-		List<String> questionIDs = new ArrayList<String>();
+		List<String> questionIds = new ArrayList<String>();
 		for (Map.Entry<?, ?> entry : pivotResponses.entrySet()) {
-			questionIDs.add((String) entry.getKey());
+			questionIds.add((String) entry.getKey());
 		}
-		for (String questionId : questionIDs) {
+		for (String questionId : questionIds) {
 			score += weight(questionId) * gain(questionId);
 		}
 		logger.debug("Pair Score {}", score);
