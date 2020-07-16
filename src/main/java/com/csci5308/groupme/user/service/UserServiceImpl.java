@@ -1,5 +1,10 @@
 package com.csci5308.groupme.user.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +13,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.passwordvalidation.PasswordValidator;
+import com.csci5308.groupme.passwordvalidation.service.PasswordValidationService;
 import com.csci5308.groupme.user.dao.UserDao;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.model.UserAuthDetails;
 
+import constants.Messages;
 import errors.EditCodes;
 
 @Service
@@ -24,6 +33,8 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    
+    private PasswordValidationService passwordValidationService;
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -77,5 +88,30 @@ public class UserServiceImpl implements UserService {
         }
         return updateStatus;
     }
+
+	@Override
+	public Map<String, String> passwordPolicyCheck(User user) {
+		Integer passwordCheckStatus = 1;
+		passwordValidationService = SystemConfig.instance().getPasswordValidationService();
+		String rawPassword = user.getPassword();
+        List <PasswordValidator> passwordValidators = passwordValidationService.getActiveValidators(user);
+        Map<String,String> statusCheck = new HashMap<>();
+        StringBuilder buildFailedPasswordPoliciesString = new StringBuilder();
+		for(int i = 0; i < passwordValidators.size(); i++) {
+			PasswordValidator validator = passwordValidators.get(i);
+			if (validator.isValid(rawPassword) == false) {
+				logger.info("Password criteria not met!");
+				logger.info(validator.getValidatorName() + " is not satisfied with the constraint of "+  validator.constraint);
+				String passwordPolicy = validator.getValidatorName();
+				passwordCheckStatus = EditCodes.FAILURE;
+				buildFailedPasswordPoliciesString.append(passwordPolicy+"\n");
+				}
+		}
+		if (passwordCheckStatus == EditCodes.FAILURE) {
+			statusCheck.put("passwordPolicy",buildFailedPasswordPoliciesString.toString());
+		}
+		statusCheck.put("passwordCheckStatus",passwordCheckStatus.toString());
+		return statusCheck;
+	}
 
 }

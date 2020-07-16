@@ -1,5 +1,7 @@
 package com.csci5308.groupme.user.controller;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
 
+import constants.Messages;
 import errors.EditCodes;
 
 @Controller
@@ -72,16 +75,34 @@ public class ForgotPasswordController {
 	@PostMapping("/resetPassword")
 	public ModelAndView changePassword(@RequestParam(value = "password", required = true) String newPassword,
 			@RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
-		ModelAndView modelAndView;
-		int status = userService.updatePassword(email, newPassword);
-		if (status == EditCodes.SUCCESS) {
-			modelAndView = new ModelAndView("auth/resetPasswordSuccess");
-		} else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
-			modelAndView = new ModelAndView("auth/noEmail");
-		} else {
-			modelAndView = new ModelAndView("auth/failurePage");
+		ModelAndView mView = new ModelAndView();
+		String message = null;
+		User user = userService.getByEmail(email);
+		user.setPassword(newPassword);
+		logger.info("Resetting password for: "+user.getUserName());
+		Map<String,String> passwordValidation = userService.passwordPolicyCheck(user);
+        Integer passwordValidationStatus = Integer.parseInt(passwordValidation.get("passwordCheckStatus"));
+        if (passwordValidationStatus == EditCodes.FAILURE) {
+        	message = passwordValidation.get("passwordPolicy") + Messages.PASSWORD_POLICY_MISMATCHED_TRAIL;
+        }
+	
+		if(passwordValidationStatus != EditCodes.FAILURE)
+		{
+			int status = userService.updatePassword(email, newPassword);
+			if (status == EditCodes.SUCCESS) {
+				mView = new ModelAndView("auth/resetPasswordSuccess");
+			} else if (status == EditCodes.EMAIL_DOES_NOT_EXIST) {
+				mView = new ModelAndView("auth/noEmail");
+			} else {
+				mView = new ModelAndView("auth/failurePage");
+			}
 		}
-		return modelAndView;
+		else
+        {
+        	mView = new ModelAndView("auth/resetPassword");
+			mView.addObject("message", message);
+        }
+		return mView;
 	}
 
 }
