@@ -1,16 +1,15 @@
 package com.csci5308.groupme.course.student.controller;
 
-import java.security.Principal;
-import java.util.List;
-
+import com.csci5308.groupme.course.model.Course;
+import com.csci5308.groupme.course.service.CourseDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.csci5308.groupme.course.model.Course;
-import com.csci5308.groupme.course.service.CourseDetailsService;
+import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class StudentController {

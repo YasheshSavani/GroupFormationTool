@@ -96,7 +96,6 @@ public class SurveyOperationController {
         logger.debug("surveyQuestion object created for QuestionId: " + questionId + "and Question: " + question);
         int rowCount = surveyOperationService.addQuestionToSurvey(courseCode, surveyQuestion);
         logger.info("Number of questions added to survey: " + rowCount);
-
         modelAndView.setViewName("redirect:/survey/createSurvey");
         modelAndView.addObject("courseCode", courseCode);
         modelAndView.addObject("roleName", roleName);

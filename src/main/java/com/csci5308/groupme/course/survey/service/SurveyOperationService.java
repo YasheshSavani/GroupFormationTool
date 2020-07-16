@@ -18,6 +18,6 @@ public interface SurveyOperationService {
     public Map<String, Integer> checkIfSurveyExist(String courseCode);
 
     public List<Question> getAlreadyAddedSurveyQuestions(String userName, String roleName, String courseCode);
-    
+
     public List<Candidate> getAllResponsesForSurvey(Integer surveyId);
 }

@@ -74,5 +74,5 @@ public class SurveyQuestion {
     public void setLowerBound(String lowerBound) {
         this.lowerBound = lowerBound;
     }
-    
+
 }

@@ -17,12 +17,10 @@ import org.slf4j.LoggerFactory;
 import com.csci5308.datasource.DatabaseProperties;
 
 import sql.PasswordValidationQuery;
-import sql.QuestionsQuery;
 
 public class PasswordValidationDaoImpl implements PasswordValidationDao{
 	
 	Logger logger = LoggerFactory.getLogger(PasswordValidationDaoImpl.class);
-    private DatabaseProperties databaseProperties;
     private Connection connection = null;
     
     @Override

@@ -9,7 +9,6 @@ public class DatabaseProperties {
 
     public DatabaseProperties() {
         try {
-
             dbDriver = System.getenv("DB_DRIVER");
             dbURL = System.getenv("DB_URL");
             dbUserName = System.getenv("DB_USERNAME");

@@ -47,13 +47,6 @@ public class AdminControllerTest {
 
     @Test
     @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
-    void getDeleteCoursePageTest() throws Exception {
-        this.mockMvc.perform(get("/admin/deleteCourse").secure(true)).andDo(print()).andExpect(status().isOk())
-                .andExpect(view().name("admin/deletecourse"));
-    }
-
-    @Test
-    @WithMockUser(username = "admin_test", password = "admin19", authorities = {Roles.ADMIN})
     void getDeleteCourseStatusPageTest() throws Exception {
         this.mockMvc.perform(post("/admin/deleteCourse").secure(true)).andDo(print()).andExpect(status().isOk())
                 .andExpect(view().name("admin/deletecourse"));

@@ -34,6 +34,7 @@ public class SurveyPublishDaoImpl implements SurveyPublishDao {
                 callableStatement.registerOutParameter(2, Types.INTEGER);
             }
             int rowCount = callableStatement.executeUpdate();
+            logger.info("{} survey published", rowCount);
             surveyPublishStatus = callableStatement.getInt(2);
         } catch (Exception e) {
             e.printStackTrace();

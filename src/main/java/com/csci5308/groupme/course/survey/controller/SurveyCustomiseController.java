@@ -1,8 +1,12 @@
 package com.csci5308.groupme.course.survey.controller;
 
-import java.util.List;
-
+import com.csci5308.groupme.SystemConfig;
+import com.csci5308.groupme.course.survey.constants.SurveyConstants;
+import com.csci5308.groupme.course.survey.model.SurveyQuestion;
 import com.csci5308.groupme.course.survey.model.SurveyQuestionList;
+import com.csci5308.groupme.course.survey.service.SurveyCustomiseService;
+import constants.Messages;
+import constants.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -12,13 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.course.survey.constants.SurveyConstants;
-import com.csci5308.groupme.course.survey.model.SurveyQuestion;
-import com.csci5308.groupme.course.survey.service.SurveyCustomiseService;
-
-import constants.Messages;
-import constants.Roles;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/customiseSurvey")
@@ -47,9 +45,9 @@ public class SurveyCustomiseController {
             if (surveyQuestion.size() > SurveyConstants.DEFAULT_LIST_SIZE) {
                 surveyQuestionList.setSurveyQuestionList(surveyQuestion);
                 modelAndView.addObject(surveyQuestionsModelAttribute, surveyQuestionList);
-                modelAndView.addObject("arraySize",1);
-            }else{
-                modelAndView.addObject("arraySize",0);
+                modelAndView.addObject("arraySize", 1);
+            } else {
+                modelAndView.addObject("arraySize", 0);
                 modelAndView.addObject("publisherMessage", Messages.CANNOT_CUSTOMISE_SURVEY + courseCode);
             }
         } else {
@@ -71,6 +69,7 @@ public class SurveyCustomiseController {
         ModelAndView modelAndView = new ModelAndView();
         logger.info(String.valueOf(surveyQuestionList.getSurveyQuestionList()));
         Integer rowCount = surveyCustomiseService.saveCustomisedQuestionsToSurvey(surveyQuestionList, courseCode);
+        logger.info("{} customised survey saved", rowCount);
         if (roleName.equals(Roles.TA)) {
             modelAndView.setViewName("redirect:/TAcoursepage");
         } else {
