@@ -8,161 +8,47 @@
           integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/theme.css}"/>
-    <script type="text/javascript" th:inline="javascript">
-
-        function validate() {
-            var minLength = "[[${passwordProperties.getMinLength()}]]";
-            var maxLength = "[[${passwordProperties.getMaxLength()}]]";
-            var minUpperCase = "[[${passwordProperties.getMinUpperCase()}]]";
-            var minLowerCase = "[[${passwordProperties.getMinLowerCase()}]]";
-            var minSpecialChars = "[[${passwordProperties.getMinSpecialChars()}]]";
-            var invalidChars = "[[${passwordProperties.getInvalidChars()}]]";
-            var minUpperCaseChecker = new RegExp(`^(.*?[A-Z]){${minUpperCase},}`);
-            var minLowerCaseChecker = new RegExp(`^(.*?[a-z]){${minLowerCase},}`);
-            var minSpecialCharsChecker = new RegExp(`^(.*?[!@#\$%\^\&*\)\(+=._-]){${minSpecialChars},}`);
-            var invalidCharsChecker = new RegExp(`^[^${invalidChars}]*$`);
-
-            if (document.signUpForm.password.value.length < minLength) {
-                alert(`Password should be atleast ${minLength} characters`);
-                document.signUpForm.password.focus();
-                return false;
-            }
-
-            if (document.signUpForm.password.value.length > maxLength) {
-                alert(`Password should be atmost ${maxLength} characters`);
-                document.signUpForm.password.focus();
-                return false;
-            }
-
-
-            if (minUpperCaseChecker.test(document.signUpForm.password.value) === false) {
-                alert(`Password should have atleast ${minUpperCase} uppercase characters`);
-                document.signUpForm.password.focus();
-                return false;
-            }
-
-            if (minLowerCaseChecker.test(document.signUpForm.password.value) === false) {
-                alert(`Password should have atleast ${minLowerCase} lowercase characters`);
-                document.signUpForm.password.focus();
-                return false;
-            }
-
-            if (invalidCharsChecker.test(document.signUpForm.password.value) === false) {
-                alert(`Password cannot contain the characters: ${invalidChars}`);
-                document.signUpForm.password.focus();
-                return false;
-            }
-
-            if (minSpecialCharsChecker.test(document.signUpForm.password.value) === false) {
-                alert(`Password should have atleast ${minSpecialChars} special characters`);
-                document.signUpForm.password.focus();
-                return false;
-            }
-
-
-            if (document.signUpForm.userName.value == "") {
-                alert("Please provide your user name!");
-                document.signUpForm.userName.focus();
-                return false;
-            }
-
-            if (document.signUpForm.firstName.value == "") {
-                alert("Please provide your first name!");
-                document.signUpForm.firstName.focus();
-                return false;
-            }
-            if (document.signUpForm.lastName.value == "") {
-                alert("Please provide your last name!");
-                document.signUpForm.lastName.focus();
-                return false;
-            }
-            if (document.signUpForm.email.value == "") {
-                alert("Please provide your email id!");
-                document.signUpForm.email.focus();
-                return false;
-            }
-            if (document.signUpForm.password.value == "") {
-                alert("Please provide your password!");
-                document.signUpForm.password.focus();
-                return false;
-            }
-            if (document.signUpForm.confirmPassword.value == "") {
-                alert("Please confirm your password!");
-                document.signUpForm.confirmPassword.focus();
-                return false;
-            }
-            if ((/^[a-zA-Z0-9._]+$/.test(document.signUpForm.userName.value)) === false) {
-                alert("Username should consist only of letters, digits, _ or .!");
-                document.signUpForm.userName.focus();
-                return false;
-            }
-            if ((/^(\w+\.)*\w+@(\w+\.)+[A-Za-z]+$/
-                .test(document.signUpForm.email.value)) === false) {
-                alert("Enter email in the right format!");
-                document.signUpForm.email.focus();
-                return false;
-            }
-
-            if (document.signUpForm.password.value != document.signUpForm.confirmPassword.value) {
-                alert("Passwords do not match!");
-                document.signUpForm.confirmPassword.focus();
-                return false;
-            }
-            return true;
-        }
-    </script>
 </head>
-
 <body>
 <div class="topnav">
-    <a class="active" href="/">GroupMe</a> <a style="float: right" href="/signup">Sign Up</a> <a
-        style="float: right" href="/login">Login</a>
+    <a class="active" href="/">GroupMe</a>
+    <a style="float: right" href="/signup">Sign Up</a>
+    <a style="float: right" href="/login">Login</a>
 </div>
 
 <div class="container">
-
     <h2 style="text-align: center">Sign Up</h2>
-    <form name="signUpForm" onSubmit="return validate();" th:action="@{/signup}" method="post" th:object="${user}"
+    <form name="signUpForm" th:action="@{/signup}" method="post" th:object="${user}"
           class="custom-form-control">
-
         <p>
             <input type="text" id="userName" name="userName" placeholder="Username" required="true" autofocus=""
                    th:field="*{userName}">
         </p>
-
         <p>
             <input type="text" id="firstName" name="firstName" placeholder="First Name" required="true" autofocus=""
                    th:field="*{firstName}"/>
         </p>
-
         <p>
             <input type="text" id="lastName" name="lastName" placeholder="Last Name" required="true" autofocus=""
                    th:field="*{lastName}"/>
         </p>
-
         <p>
             <input type="text" id="email" name="email" placeholder="Email" required="true" autofocus="true"
                    th:field="*{email}"/>
         </p>
-
         <p>
             <input type="password" id="password" name="password" placeholder="Password" required="true"
                    autofocus="true" th:field="*{password}"/>
         </p>
-
         <p>
             <input type="password" id="confirm" name="confirmPassword" placeholder="Confirm Password" required="true"
                    autofocus=""/>
         </p>
-
         <button class="btn btn-lg btn-primary btn-block btn-submit" type="submit">Sign up</button>
 
         <button class="btn btn-lg btn-primary btn-block btn-submit" type="reset">Reset</button>
-
-
     </form>
-    <p1 style="text-align: center" class="text-center" th:text="${message}"></p1>
-
+    <p style="text-align: center" class="text-center" th:text="${message}"></p>
 </div>
 </body>
 

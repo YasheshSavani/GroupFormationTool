@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,6 +27,8 @@ public class InstructorServiceImplTest {
     @InjectMocks
     InstructorServiceImpl instructorService;
 
+    private Logger logger = LoggerFactory.getLogger(InstructorServiceImplTest.class);
+
     @Test
     public void createInstructorTest() throws Exception {
         Instructor instructor = new Instructor();
@@ -32,11 +36,12 @@ public class InstructorServiceImplTest {
         instructor.setAbout("PhD");
         when(instructorDao.save(instructor)).thenReturn(1);
         int status = instructorService.createInstructor(instructor);
+        logger.info("Instructor Created with username : {}", instructor.getUserName());
         assertEquals(1, status);
     }
 
     @Test
-    public void getByUserName() throws Exception {
+    public void getByUserNameTest() throws Exception {
         String userName = "inst_test";
         Instructor instructorTest = new Instructor();
         instructorTest.setFirstName("karan");
@@ -48,11 +53,13 @@ public class InstructorServiceImplTest {
         when(instructorDao.findByUserName(userName)).thenReturn(instructorTest);
         when(userService.getByUserName(userName)).thenReturn(user);
         Instructor instructor = instructorService.getByUserName(userName);
+        logger.info("Found Instructor firstname: {}, lastname: {} by username: {}",
+                instructor.getFirstName(), instructorTest.getFirstName(), userName);
         assertEquals(instructor.getFirstName(), instructorTest.getFirstName());
     }
 
     @Test
-    public void getByEmail() throws Exception {
+    public void getByEmailTest() throws Exception {
         String email = "instructor@dal.ca";
         User user = new User();
         user.setFirstName("karan");
@@ -64,6 +71,8 @@ public class InstructorServiceImplTest {
         when(userService.getByEmail(email)).thenReturn(user);
         when(instructorDao.findByUserName(user.getUserName())).thenReturn(instructorTest);
         Instructor instructor = instructorService.getByEmail(email);
+        logger.info("Found Instructor firstname: {}, lastname: {} by email: {}",
+                instructor.getFirstName(), instructorTest.getFirstName(), email);
         assertEquals(instructor.getFirstName(), instructorTest.getFirstName());
     }
 }

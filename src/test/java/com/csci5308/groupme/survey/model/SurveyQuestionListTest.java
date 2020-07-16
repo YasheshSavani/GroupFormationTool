@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class SurveyQuestionListTest {
 
     @Test
-    void getSurveyQuestionList() {
+    void getSurveyQuestionListTest() {
         SurveyQuestionList surveyQuestionList = new SurveyQuestionList();
         SurveyQuestion surveyQuestion = new SurveyQuestion();
         surveyQuestion.setQuestionId("1");
@@ -24,7 +24,7 @@ class SurveyQuestionListTest {
     }
 
     @Test
-    void setSurveyQuestionList() {
+    void setSurveyQuestionListTest() {
         SurveyQuestionList surveyQuestionList = new SurveyQuestionList();
         SurveyQuestion surveyQuestion = new SurveyQuestion();
         surveyQuestion.setQuestionId("1");

@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MaximumLengthValidatorTest {
 	
 	@Test
-	public void isValid()
+	public void isValidTest()
 	{
 		int maximumLength = 5;
 		String password = "pass";

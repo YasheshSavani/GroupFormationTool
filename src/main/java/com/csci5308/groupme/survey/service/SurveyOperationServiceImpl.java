@@ -59,14 +59,13 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
         try {
             dbSurveyForm = objectMapper.readValue(jsonQuestionResult, Map.class);
             dbSurveyForm.put(surveyQuestion.getQuestionId(), parameters);
-            logger.debug(surveyQuestion.toString());
             newSurveyQuestions = objectMapper.writeValueAsString(dbSurveyForm);
             logger.info("Questions in survey after addition: " + newSurveyQuestions);
             rowCount = surveyOperationDao.insertQuestionToSurvey(courseCode, newSurveyQuestions, Integer.parseInt(questionID));
             logger.info("Question added to Survey : " + questionID + " : " + surveyQuestion.getQuestion());
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("Error in Fetching JSON");
+            logger.error("Error in Fetching JSON from database");
         }
         return rowCount;
     }
@@ -100,7 +99,7 @@ public class SurveyOperationServiceImpl implements SurveyOperationService {
             logger.info("Question Removed from Survey : " + questionId);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("Error in Fetching JSON");
+            logger.error("Error in Fetching JSON from database");
         }
         return rowCount;
     }

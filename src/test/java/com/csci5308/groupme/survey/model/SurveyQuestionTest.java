@@ -52,7 +52,7 @@ class SurveyQuestionTest {
     }
 
     @Test
-    void setQuestionType() {
+    void setQuestionTypeTest() {
         SurveyQuestion surveyQuestion = new SurveyQuestion();
         surveyQuestion.setQuestionType(questionTypeTest);
         assertEquals(surveyQuestion.getQuestionType(), questionTypeTest);

@@ -2,11 +2,9 @@ package errors;
 
 public class EditCodes {
 
-	public static final int FAILURE = -1;
-	
-    public static final int USERNAME_EXISTS = -2;
+    public static final int FAILURE = -1;
 
-    public static final int USERNAME_DOES_NOT_EXIST = -3;
+    public static final int USERNAME_EXISTS = -2;
 
     public static final int EMAIL_EXISTS = -4;
 
@@ -22,12 +20,10 @@ public class EditCodes {
 
     public static final int SUCCESS = 1;
 
-    public static final int CLASS_NOT_CREATED = -10;
-    
     public static final int INSTRUCTOR_NOT_CREATED = -11;
-    
+
     public static final int GROUP_SIZE_IS_ZERO = -12;
-    
+
     public static final int GROUP_SIZE_GREATER_THAN_STRENGTH = -13;
 
 }

@@ -262,7 +262,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -282,6 +281,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             }
             conditions.put("surveyId", surveyId);
             conditions.put("isPublished", isPublished);
+            logger.info("Survey Id: {} And is published on not: {} ", surveyId, isPublished);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -339,6 +339,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 String questionType = resultSet.getString("questionType");
                 String question = resultSet.getString("question");
                 addedQuestionsList.add(new Question(questionTitle, questionId, question, questionType));
+                logger.info("Question added to list:{} and its question Id: {} ", question, questionId);
             } while (resultSet.next());
         } catch (Exception e) {
             e.printStackTrace();

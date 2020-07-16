@@ -6,11 +6,11 @@ import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDaoMock;
 import com.csci5308.groupme.course.courseadmin.instructor.model.ListOfOptions;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Option;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
-
 import errors.EditCodes;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
@@ -22,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class QuestionManagerServiceTest {
     private QuestionManagerService questionManagerService;
     private QuestionsDao questionsDao;
+    private Logger logger = LoggerFactory.getLogger(QuestionManagerServiceTest.class);
 
     public QuestionManagerServiceTest() {
         questionsDao = new QuestionsDaoMock();
@@ -37,6 +38,7 @@ public class QuestionManagerServiceTest {
         question.setType(QuestionTypeConstants.FREE_TEXT);
         question.setTitle("Programming Language Preference");
         int status = questionManagerService.createQuestion(instructorUserName, question, options);
+        logger.info("Question: {} of type: {} created", question.getQuestion(), question.getType());
         assertEquals(EditCodes.SUCCESS, status);
     }
 
@@ -54,6 +56,7 @@ public class QuestionManagerServiceTest {
         optionList.add(new Option("Expert", 3, 3));
         options.setOptionList(optionList);
         int status = questionManagerService.createQuestion(instructorUserName, question, options);
+        logger.info("Question: {} of type: {} created", question.getQuestion(), question.getType());
         assertEquals(4, status);
     }
 
@@ -61,6 +64,7 @@ public class QuestionManagerServiceTest {
     public void getAllTitlesTest() {
         String instructorUserName = "iuser";
         List<Question> questions = questionManagerService.getAllTitles(instructorUserName);
+        logger.info("questions: {} created by instructor with username: {}", questions, instructorUserName);
         assertEquals(1, questions.size());
     }
 
@@ -70,6 +74,7 @@ public class QuestionManagerServiceTest {
         Question question = new Question();
         question.setQuestionId(1);
         int status = questionManagerService.deleteQuestion(instructorUserName, question);
+        logger.info("Question deleted with question id: {}", question.getQuestionId());
         assertEquals(EditCodes.SUCCESS, status);
     }
 
@@ -77,6 +82,7 @@ public class QuestionManagerServiceTest {
     public void getAllSortedTitlesByTitlesTest() {
         String instructorUserName = "iuser";
         List<Question> questions = questionManagerService.getAllSortedTitlesByTitles(instructorUserName);
+        logger.info("questions: {} sorted by title", questions);
         assertEquals(questions.size(), 2);
     }
 
@@ -84,6 +90,7 @@ public class QuestionManagerServiceTest {
     public void getAllSortedTitlesByDatesTest() {
         String instructorUserName = "iuser";
         List<Question> questions = questionManagerService.getAllSortedTitlesByDates(instructorUserName);
+        logger.info("questions: {} sorted by date", questions);
         assertEquals(questions.size(), 2);
     }
 
@@ -91,6 +98,7 @@ public class QuestionManagerServiceTest {
     public void getAllQuestionsTest() {
         String instructorUserName = "iuser";
         List<Question> questions = questionManagerService.getAllQuestions(instructorUserName);
+        logger.info("all questions: {} sorted by date", questions);
         assertEquals(questions.size(), 1);
 
     }

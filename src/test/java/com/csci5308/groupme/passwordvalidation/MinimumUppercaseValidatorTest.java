@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MinimumUppercaseValidatorTest {
 	
 	@Test
-	public void isValid() 
+	public void isValidTest()
 	{
 		int minimumUppercase = 1;
 		String pass = "Passed";

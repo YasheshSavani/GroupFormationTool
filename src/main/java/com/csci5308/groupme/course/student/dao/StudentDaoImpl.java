@@ -1,8 +1,11 @@
 package com.csci5308.groupme.course.student.dao;
 
 import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.student.model.Student;
 import com.csci5308.groupme.user.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.CallableStatement;
@@ -17,9 +20,11 @@ public class StudentDaoImpl implements StudentDao {
     DatabaseProperties databaseProperties;
     BCryptPasswordEncoder passwordEncoder;
 
+    private Logger logger = LoggerFactory.getLogger(StudentDaoImpl.class);
+
     public StudentDaoImpl(Student student) {
         this.student = student;
-        this.databaseProperties = new DatabaseProperties();
+        this.databaseProperties = SystemConfig.instance().getDatabaseProperties();
     }
 
     @Override
@@ -42,6 +47,7 @@ public class StudentDaoImpl implements StudentDao {
             if (connection != null) {
                 try {
                     connection.close();
+                    logger.info("Connection to database closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -49,6 +55,7 @@ public class StudentDaoImpl implements StudentDao {
             if (statement != null) {
                 try {
                     statement.close();
+                    logger.debug("statement closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -74,6 +81,7 @@ public class StudentDaoImpl implements StudentDao {
                 statement.setString("proccoursecode", courseID);
                 statement.executeUpdate();
             }
+            logger.info("Student enrolled in course: " + user.getUserName());
             return true;
         } catch (Exception e) {
             return false;
@@ -81,6 +89,7 @@ public class StudentDaoImpl implements StudentDao {
             if (connection != null) {
                 try {
                     connection.close();
+                    logger.info("Connection to database closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -88,6 +97,7 @@ public class StudentDaoImpl implements StudentDao {
             if (statement != null) {
                 try {
                     statement.close();
+                    logger.debug("Statement closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
