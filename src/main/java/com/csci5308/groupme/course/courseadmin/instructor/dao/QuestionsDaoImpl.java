@@ -27,9 +27,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
         String USER = databaseProperties.getDbUserName();
         String PASS = databaseProperties.getDbPassword();
         try {
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database");
             connection = DriverManager.getConnection(DB_URL, USER, PASS);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.SAVE_QUESTION);
             preparedStatement.setString(1, instructorUserName);
             preparedStatement.setString(2, question.getTitle());
@@ -37,6 +37,8 @@ public class QuestionsDaoImpl implements QuestionsDao {
             preparedStatement.setString(4, question.getQuestion());
             preparedStatement.setDate(5, question.getCreatedDate());
             rowCount = preparedStatement.executeUpdate();
+            logger.debug("SAVE_QUESTION Query executed");
+            logger.info("Question added to database: " + question.getQuestion() + " of type: " + question.getType());
         } catch (Exception se) {
             se.printStackTrace();
         } finally {
@@ -69,9 +71,9 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String PASSWORD = databaseProperties.getDbPassword();
             String DRIVER = databaseProperties.getDriver();
             Class.forName(DRIVER);
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database...");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             callableStatement = connection.prepareCall("{call INSERT_QUESTION(?,?,?,?,?,?)}");
             callableStatement.setString(1, instructorUserName);
             callableStatement.setString(2, question.getQuestion());
@@ -80,11 +82,14 @@ public class QuestionsDaoImpl implements QuestionsDao {
             callableStatement.setDate(5, question.getCreatedDate());
             callableStatement.registerOutParameter(6, Types.INTEGER);
             rowCount = callableStatement.executeUpdate();
+            logger.debug("INSERT_QUESTION procedure called");
             int questionId = callableStatement.getInt(6);
+            logger.debug("INSERT_OPTIONS procedure called for list of options");
             for (Option option : optionList) {
                 CallableStatement callableStatementOption = null;
                 try {
                     if (option.getOptionText().isEmpty() == false) {
+
                         callableStatementOption = connection.prepareCall("{call INSERT_OPTIONS(?,?,?,?)}");
                         callableStatementOption.setInt(1, questionId);
                         callableStatementOption.setString(2, option.getOptionText());
@@ -99,18 +104,21 @@ public class QuestionsDaoImpl implements QuestionsDao {
                     if (callableStatementOption != null) {
                         try {
                             callableStatementOption.close();
+                            logger.info("Callable Statement for options Closed...");
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
                 }
             }
+            logger.info("Number of question and options added to database: " + rowCount);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (callableStatement != null) {
                 try {
                     callableStatement.close();
+                    logger.debug("Callable Statement for questions Closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -141,10 +149,11 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_QUESTION_TITLE);
+            logger.debug("GET_QUESTION_TITLE query executed");
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next() == false) {
@@ -155,19 +164,21 @@ public class QuestionsDaoImpl implements QuestionsDao {
                 Integer questionId = resultSet.getInt("questionId");
                 Date questionDate = resultSet.getDate("dateCreated");
                 instructorQuestionDetails.add(new Question(questionTitle, questionId, questionDate));
-                logger.info(questionTitle);
+                logger.info("Found Questions Title:" + questionTitle);
             } while (resultSet.next());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
                 resultSet.close();
-            } catch (SQLException e1) {
+                logger.debug("Result Set closed...");
+            } catch (Exception e1) {
                 e1.printStackTrace();
             }
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
+                    logger.debug("Prepared Statement closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -197,20 +208,23 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.DELETE_QUESTION);
+            logger.debug("DELETE_QUESTION query executed");
             preparedStatement.setInt(1, question.getQuestionId());
             questionId = question.getQuestionId();
             preparedStatement.setInt(1, questionId);
             status = preparedStatement.executeUpdate();
+            logger.info("Number of questions deleted : " + status);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
+                    logger.debug("Prepared Statement closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -241,10 +255,11 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_SORTED_TITLE);
+            logger.debug("GET_SORTED_TITLE query executed");
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next() == false) {
@@ -295,10 +310,11 @@ public class QuestionsDaoImpl implements QuestionsDao {
         String PASSWORD = databaseProperties.getDbPassword();
         try {
             Class.forName(DRIVER);
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_TITLES_SORTED_BY_DATE);
+            logger.debug("GET_TITLES_SORTED_BY_DATE query executed");
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next() == false) {
@@ -351,12 +367,13 @@ public class QuestionsDaoImpl implements QuestionsDao {
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
             Class.forName(DRIVER);
-            logger.info("QuestionsDaoImpl: Connecting to DataBase");
+            logger.info("Connecting to Database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-            logger.info("QuestionsDaoImpl: Connected to DataBase successfully...");
+            logger.info("Connected to Database successfully...");
             preparedStatement = connection.prepareStatement(QuestionsQuery.GET_ALL_QUESTIONS);
             preparedStatement.setString(1, instructorUserName);
             resultSet = preparedStatement.executeQuery();
+            logger.debug("GET_ALL_QUESTIONS query executed");
             if (resultSet.next() == false) {
                 return null;
             }
@@ -367,20 +384,22 @@ public class QuestionsDaoImpl implements QuestionsDao {
                 String question = resultSet.getString("question");
                 String questionType = resultSet.getString("questionType");
                 instructorQuestions.add(new Question(questionTitle, questionId, questionDate, question, questionType));
-                logger.info("finding question data :" + questionTitle + " " + questionId + " " + questionDate + " "
-                        + question + " " + questionType);
+                logger.info("Found question data :" + questionTitle + "," + questionId + "," + questionDate + ","
+                        + question + "," + questionType);
             } while (resultSet.next());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
                 resultSet.close();
+                logger.debug("Result Set closed...");
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
             if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
+                    logger.debug("Prepared Statement closed...");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

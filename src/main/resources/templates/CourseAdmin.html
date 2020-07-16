@@ -51,7 +51,7 @@
         <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseCrn}"></td>
         <td th:if="${course.courseCode != null}" th:hidden="false">
-            <form method="get" th:action="@{/courseAdmin/course}">
+            <form method="get" th:action="@{/courseAdmin/course}" style="width: auto;">
                 <input type="hidden" name="courseCode" th:value="${course.courseCode}">
                 <input type="hidden" name="courseName" th:value="${course.courseName}">
                 <input type="hidden" name="courseCrn" th:value="${course.courseCrn}">

@@ -33,6 +33,7 @@ public class TeachingAssistantController {
         String userName = principal.getName();
         String roleName = Roles.TA;
         List<Course> managedCourses = courseDetailsService.getCoursesByUserNameAndRole(userName, roleName);
+        logger.info("username: " + userName + " and user's courses: " + managedCourses);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("ta/tahomepage");
         if (null != managedCourses) {
@@ -49,6 +50,7 @@ public class TeachingAssistantController {
     public ModelAndView getCoursesByUserNameAndRole(Principal p, @RequestParam(value = "roleName") String roleName) throws Exception {
         String userName = p.getName();
         List<Course> courseTACourses = courseDetailsService.getCoursesByUserNameAndRole(userName, roleName);
+        logger.info("username: " + userName + " and user's courses: " + courseTACourses);
         ModelAndView modelAndView = new ModelAndView();
         if (null != courseTACourses) {
             modelAndView.addObject("courses", courseTACourses);

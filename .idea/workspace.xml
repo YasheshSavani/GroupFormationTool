@@ -31,12 +31,62 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/templates/auth/emailnotfound.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/templates/auth/emailnotfound.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/templates/auth/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/templates/auth/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/templates/auth/resetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/templates/auth/resetPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/templates/auth/signup2.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/templates/auth/signup2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/main/templates/operationoncourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/bin/main/templates/operationoncourse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/SystemConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/SystemConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/auth/config/PasswordSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/auth/config/PasswordSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/dao/UserDaoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/dao/UserDaoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/user/service/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/errors/EditCodes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/errors/EditCodes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sql/CourseQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sql/CourseQuery.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sql/UserQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sql/UserQuery.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/emailnotfound.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/auth/emailnotfound.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/noEmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/auth/noEmail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/resetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/auth/resetPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/resetPasswordSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/auth/resetPasswordSuccess.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/auth/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/signup2.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/auth/signup2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/instructor/instructorhomepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/instructor/instructorhomepage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/operationoncourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/operationoncourse.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/SurveyQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/SurveyQuestion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/Group.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/controller/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/controller/ForgotPasswordController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/FilePathConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/FilePathConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/constants/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/Messages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/errors/EditCodes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/errors/EditCodes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sql/CourseQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sql/CourseQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sql/QuestionsQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sql/QuestionsQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sql/SurveyStatusQuery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sql/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sql/UserQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/emailnotfound.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/emailnotfound.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/noEmail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/noEmail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/resetPassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/resetPassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/resetPasswordSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/resetPasswordSuccess.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/signup2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth/signup2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/operationoncourse.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/operationoncourse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/auth/config/PasswordSecurityConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/auth/config/PasswordSecurityConfigTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/instructor/service/InstructorServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/instructor/service/InstructorServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MaximumLengthValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MaximumLengthValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLengthValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLengthValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLowercaseValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLowercaseValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumSymbolValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumSymbolValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumUppercaseValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumUppercaseValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/PasswordHistoryValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/PasswordHistoryValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/RestrictedCharacterValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/RestrictedCharacterValidatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/controller/SurveyPublishControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/controller/SurveyPublishControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/dao/SurveyPublishDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/dao/SurveyPublishDaoImplMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/CandidateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/CandidateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/SurveyQuestionListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/SurveyQuestionListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/SurveyQuestionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/SurveyQuestionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/user/model/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/user/model/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +182,7 @@
       <recent name="E:\DAL\group19\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroupmeApplication">
+  <component name="RunManager" selected="Gradle.Tests in 'groupme'">
     <configuration name="SurveyCustomiseControllerTest.getSurveyQuestionsToCustomise" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -305,6 +355,10 @@
       <workItem from="1594756342464" duration="314000" />
       <workItem from="1594765641301" duration="24846000" />
       <workItem from="1594794726297" duration="63000" />
+      <workItem from="1594832552679" duration="1417000" />
+      <workItem from="1594848925445" duration="8628000" />
+      <workItem from="1594865922468" duration="1554000" />
+      <workItem from="1594867531302" duration="810000" />
     </task>
     <servers />
   </component>
@@ -397,64 +451,64 @@
     </state>
     <state x="515" y="173" key="FileChooserDialogImpl/0.0.1470.864@0.0.1470.864" timestamp="1593549109062" />
     <state x="516" y="173" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1591057274995" />
-    <state width="1427" height="358" key="GridCell.Tab.0.bottom" timestamp="1594794788771">
+    <state width="1427" height="358" key="GridCell.Tab.0.bottom" timestamp="1594868340949">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="358" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594794788771" />
+    <state width="1427" height="358" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594868340949" />
     <state width="1429" height="416" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="358" key="GridCell.Tab.0.center" timestamp="1594794788770">
+    <state width="1427" height="358" key="GridCell.Tab.0.center" timestamp="1594868340949">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="358" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594794788770" />
+    <state width="1427" height="358" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594868340949" />
     <state width="1429" height="416" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="358" key="GridCell.Tab.0.left" timestamp="1594794788770">
+    <state width="1427" height="358" key="GridCell.Tab.0.left" timestamp="1594868340948">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="358" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594794788770" />
+    <state width="1427" height="358" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594868340948" />
     <state width="1429" height="416" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="358" key="GridCell.Tab.0.right" timestamp="1594794788770">
+    <state width="1427" height="358" key="GridCell.Tab.0.right" timestamp="1594868340949">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="358" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594794788770" />
+    <state width="1427" height="358" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594868340949" />
     <state width="1429" height="416" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="409" key="GridCell.Tab.1.bottom" timestamp="1594793638215">
+    <state width="1427" height="358" key="GridCell.Tab.1.bottom" timestamp="1594863196655">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598210" />
-    <state width="1427" height="409" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594793638215" />
+    <state width="1427" height="358" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594863196655" />
     <state width="1429" height="416" key="GridCell.Tab.1.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197637" />
-    <state width="1427" height="409" key="GridCell.Tab.1.center" timestamp="1594793638214">
+    <state width="1427" height="358" key="GridCell.Tab.1.center" timestamp="1594863196655">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
-    <state width="1427" height="409" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1594793638214" />
+    <state width="1427" height="358" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1594863196655" />
     <state width="1429" height="416" key="GridCell.Tab.1.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="409" key="GridCell.Tab.1.left" timestamp="1594793638214">
+    <state width="1427" height="358" key="GridCell.Tab.1.left" timestamp="1594863196655">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
-    <state width="1427" height="409" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1594793638214" />
+    <state width="1427" height="358" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1594863196655" />
     <state width="1429" height="416" key="GridCell.Tab.1.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="409" key="GridCell.Tab.1.right" timestamp="1594793638214">
+    <state width="1427" height="358" key="GridCell.Tab.1.right" timestamp="1594863196655">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598210" />
-    <state width="1427" height="409" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1594793638214" />
+    <state width="1427" height="358" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1594863196655" />
     <state width="1429" height="416" key="GridCell.Tab.1.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197637" />
     <state width="1427" height="409" key="GridCell.Tab.2.bottom" timestamp="1594793638215">
@@ -517,10 +571,10 @@
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state x="466" y="193" key="extract.method.dialog/0.0.1470.864@0.0.1470.864" timestamp="1591227008141" />
-    <state x="446" y="31" width="910" height="801" key="find.popup" timestamp="1594789416875">
+    <state x="446" y="31" width="910" height="801" key="find.popup" timestamp="1594867666930">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
-    <state x="446" y="31" width="910" height="801" key="find.popup/0.0.1470.864@0.0.1470.864" timestamp="1594789416875" />
+    <state x="446" y="31" width="910" height="801" key="find.popup/0.0.1470.864@0.0.1470.864" timestamp="1594867666930" />
     <state x="447" y="31" width="578" height="801" key="find.popup/0.0.1472.864@0.0.1472.864" timestamp="1590996240118" />
     <state x="447" y="31" width="580" height="801" key="find.popup/0.0.1474.864@0.0.1474.864" timestamp="1592509294207" />
     <state x="536" y="221" key="git4idea.merge.GitMergeDialog" timestamp="1591318231595">

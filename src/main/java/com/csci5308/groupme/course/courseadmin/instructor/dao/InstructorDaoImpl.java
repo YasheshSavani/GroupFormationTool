@@ -34,6 +34,7 @@ public class InstructorDaoImpl implements InstructorDao {
             logger.info("Connecting to the selected database...");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to the database successfully...");
+            logger.debug("GET_INSTRUCTOR_BY_USERNAME Query executed");
             preparedStatement = connection.prepareStatement(InstructorQuery.GET_INSTRUCTOR_BY_USERNAME);
             preparedStatement.setString(1, userName);
             resultSet = preparedStatement.executeQuery();
@@ -44,9 +45,6 @@ public class InstructorDaoImpl implements InstructorDao {
                 instructor.setUserName(resultSet.getString("userName"));
                 instructor.setAbout(resultSet.getString("about"));
             } while (resultSet.next());
-
-        } catch (SQLException se) {
-            se.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -88,6 +86,7 @@ public class InstructorDaoImpl implements InstructorDao {
             logger.info("Connecting to the selected database...");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to the database successfully...");
+            logger.debug("SAVE_INSTRUCTOR Query executed");
             preparedStatement = connection.prepareStatement(InstructorQuery.SAVE_INSTRUCTOR);
             preparedStatement.setString(1, instructor.getUserName());
             preparedStatement.setString(2, instructor.getAbout());

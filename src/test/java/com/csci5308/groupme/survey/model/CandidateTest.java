@@ -71,7 +71,7 @@ public class CandidateTest {
 	}
 
 	@Test
-	public void getUserName() {
+	public void getUserNameTest() {
 		candidate.setUserName(userName);
 		assertEquals(userName, candidate.getUserName());
 	}
@@ -89,19 +89,19 @@ public class CandidateTest {
 	}
 
 	@Test
-	public void getFitness() {
+	public void getFitnessTest() {
 		candidate.setFitness(fitness);
 		assertEquals(fitness, candidate.getFitness());
 	}
 
 	@Test
-	public void getQuestionResponsesMap() {
+	public void getQuestionResponsesMapTest() {
 		candidate.setQuestionResponsesMap(candidateResponses);
 		assertEquals(candidateResponses, candidate.getQuestionResponsesMap());
 	}
 
 	@Test
-	public void getPrettyResponses() {
+	public void getPrettyResponsesTest() {
 		candidate.setQuestionResponsesMap(candidateResponses);
 		List<PrettyResponse> prettyResponses = candidate.getPrettyResponses();
 		assertEquals(questionId, prettyResponses.get(0).getQuestionId());

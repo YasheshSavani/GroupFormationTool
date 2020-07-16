@@ -3,6 +3,7 @@ package com.csci5308.groupme.survey.dao;
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
+import com.csci5308.groupme.survey.constants.SurveyConstants;
 import com.csci5308.groupme.survey.model.Candidate;
 import constants.Roles;
 import org.slf4j.Logger;
@@ -34,6 +35,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
+
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -61,7 +63,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             } while (resultSet.next());
 
         } catch (Exception e) {
-            logger.info("", e);
+            e.printStackTrace();
         } finally {
             if (resultSet != null) {
                 try {
@@ -205,6 +207,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
+
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -259,7 +262,6 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
-
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -271,7 +273,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             callableStatement.executeUpdate();
             surveyId = callableStatement.getInt(2);
             isPublished = callableStatement.getInt(3);
-            if (surveyId == 0) {
+            if (surveyId == SurveyConstants.DEFAULT_SURVEY_ID) {
                 logger.debug("CREATE_SURVEY procedure called");
                 callableStatement = connection.prepareCall("{call CREATE_SURVEY(?)}");
                 callableStatement.setString(1, courseCode);
@@ -279,6 +281,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             }
             conditions.put("surveyId", surveyId);
             conditions.put("isPublished", isPublished);
+            logger.info("Survey Id: {} And is published on not: {} ", surveyId, isPublished);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -311,6 +314,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
             String DB_URL = databaseProperties.getDbURL();
             String USER = databaseProperties.getDbUserName();
             String PASSWORD = databaseProperties.getDbPassword();
+
             logger.info("Connecting to database");
             connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
             logger.info("Connected to database successfully...");
@@ -335,6 +339,7 @@ public class SurveyOperationDaoImpl implements SurveyOperationDao {
                 String questionType = resultSet.getString("questionType");
                 String question = resultSet.getString("question");
                 addedQuestionsList.add(new Question(questionTitle, questionId, question, questionType));
+                logger.info("Question added to list:{} and its question Id: {} ", question, questionId);
             } while (resultSet.next());
         } catch (Exception e) {
             e.printStackTrace();

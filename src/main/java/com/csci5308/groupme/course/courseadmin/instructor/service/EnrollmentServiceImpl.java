@@ -6,6 +6,8 @@ import com.csci5308.groupme.course.student.dao.StudentDaoImpl;
 import com.csci5308.groupme.course.student.model.Student;
 import com.csci5308.groupme.user.model.User;
 import com.opencsv.CSVReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,6 +18,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class EnrollmentServiceImpl implements EnrollmentService {
+
+    private Logger logger = LoggerFactory.getLogger(EnrollmentServiceImpl.class);
 
     @Autowired
     private EmailService emailService;
@@ -41,6 +45,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
                         }
                     }
                 }
+                logger.info("enrol method called to upload student information");
                 return true;
             }
         } catch (Exception e) {
@@ -54,6 +59,7 @@ public class EnrollmentServiceImpl implements EnrollmentService {
         CSVReader csvReader = new CSVReader(reader);
         try {
             List<String[]> records = csvReader.readAll();
+            logger.info("Data of students read from uploaded csv");
             reader.close();
             csvReader.close();
             return records;
