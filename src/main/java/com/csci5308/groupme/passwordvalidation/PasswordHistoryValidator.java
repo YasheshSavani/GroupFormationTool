@@ -1,5 +1,9 @@
 package com.csci5308.groupme.passwordvalidation;
 
+/**
+ * @author Krutarth Patel
+ */
+
 import java.util.List;
 
 import org.slf4j.LoggerFactory;

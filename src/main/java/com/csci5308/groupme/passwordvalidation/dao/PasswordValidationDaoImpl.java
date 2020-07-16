@@ -1,5 +1,7 @@
 package com.csci5308.groupme.passwordvalidation.dao;
-
+/**
+ * @author Krutarth Patel
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

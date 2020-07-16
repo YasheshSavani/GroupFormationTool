@@ -3,7 +3,6 @@ package com.csci5308.groupme;
 import com.csci5308.datasource.DatabaseProperties;
 import com.csci5308.groupme.auth.config.PasswordEncryptionConfig;
 import com.csci5308.groupme.auth.config.PasswordEncryptionConfigImpl;
-import com.csci5308.groupme.auth.config.PasswordProperties;
 import com.csci5308.groupme.auth.config.PasswordSecurityConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDao;
 import com.csci5308.groupme.course.courseadmin.instructor.dao.QuestionsDaoImpl;
@@ -15,24 +14,12 @@ import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAs
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoImpl;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantService;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.service.TeachingAssistantServiceImpl;
-import com.csci5308.groupme.survey.service.GroupFormationService;
-import com.csci5308.groupme.survey.service.GroupFormationServiceImpl;
-import com.csci5308.groupme.survey.dao.SurveyOperationDao;
-import com.csci5308.groupme.survey.dao.SurveyOperationDaoImpl;
-import com.csci5308.groupme.survey.dao.SurveyPublishDao;
-import com.csci5308.groupme.survey.dao.SurveyPublishDaoImpl;
-import com.csci5308.groupme.survey.service.SurveyOperationService;
-import com.csci5308.groupme.survey.service.SurveyOperationServiceImpl;
-import com.csci5308.groupme.survey.service.SurveyPublishService;
-import com.csci5308.groupme.survey.service.SurveyPublishServiceImpl;
+import com.csci5308.groupme.course.survey.dao.*;
+import com.csci5308.groupme.course.survey.service.*;
 import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDao;
 import com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDaoImpl;
 import com.csci5308.groupme.passwordvalidation.service.PasswordValidationService;
 import com.csci5308.groupme.passwordvalidation.service.PasswordValidationServiceImpl;
-import com.csci5308.groupme.survey.dao.SurveyCustomiseDao;
-import com.csci5308.groupme.survey.service.SurveyCustomiseService;
-import com.csci5308.groupme.survey.dao.SurveyCustomiseDaoImpl;
-import com.csci5308.groupme.survey.service.SurveyCustomiseServiceImpl;
 
 public class SystemConfig {
 
@@ -42,7 +29,6 @@ public class SystemConfig {
     private TeachingAssistantDao teachingAssistantDao;
     private TeachingAssistantService teachingAssistantService;
     private DatabaseProperties databaseProperties;
-    private PasswordProperties passwordProperties;
     private EnrollmentService enrollmentService;
     private GroupFormationService groupFormationService;
     private SurveyOperationService surveyOperationService;
@@ -61,7 +47,6 @@ public class SystemConfig {
         teachingAssistantService = new TeachingAssistantServiceImpl(teachingAssistantDao);
         questionsDao = new QuestionsDaoImpl();
         questionManagerService = new QuestionManagerServiceImpl(questionsDao);
-        passwordProperties = new PasswordProperties();
         databaseProperties = new DatabaseProperties();
         enrollmentService = new EnrollmentServiceImpl();
         groupFormationService = new GroupFormationServiceImpl();
@@ -77,19 +62,19 @@ public class SystemConfig {
         passwordEncryptionConfig = new PasswordEncryptionConfigImpl();
     }
 
-	public PasswordValidationDao getPasswordValidationDao() {
-		return passwordValidationDao;
-	}
-
-	public void setPasswordValidationDao(PasswordValidationDao passwordValidationDao) {
-		this.passwordValidationDao = passwordValidationDao;
-	}
-
-	public static SystemConfig instance() {
+    public static SystemConfig instance() {
         if (null == uniqueInstance) {
             uniqueInstance = new SystemConfig();
         }
         return uniqueInstance;
+    }
+
+    public PasswordValidationDao getPasswordValidationDao() {
+        return passwordValidationDao;
+    }
+
+    public void setPasswordValidationDao(PasswordValidationDao passwordValidationDao) {
+        this.passwordValidationDao = passwordValidationDao;
     }
 
     public TeachingAssistantDao getTeachingAssistantDao() {
@@ -132,14 +117,6 @@ public class SystemConfig {
         this.databaseProperties = databaseProperties;
     }
 
-    public PasswordProperties getPasswordProperties() {
-        return passwordProperties;
-    }
-
-    public void setPasswordProperties(PasswordProperties passwordProperties) {
-        this.passwordProperties = passwordProperties;
-    }
-
     public EnrollmentService getEnrollmentService() {
         return enrollmentService;
     }
@@ -147,29 +124,30 @@ public class SystemConfig {
     public void setEnrollmentService(EnrollmentService enrollmentService) {
         this.enrollmentService = enrollmentService;
     }
-    
+
     public GroupFormationService getGroupFormationService() {
         return groupFormationService;
     }
+
+    public void setGroupFormationService(GroupFormationService groupFormationService) {
+        this.groupFormationService = groupFormationService;
+    }
+
     public PasswordValidationService getPasswordValidationService() {
-		return passwordValidationService;
-	}
+        return passwordValidationService;
+    }
 
-	public void setPasswordValidationService(PasswordValidationService passwordValidationService) {
-		this.passwordValidationService = passwordValidationService;
-	}
-	
-	public PasswordSecurityConfig getPasswordSecurityConfig() {
-		return passwordSecurityConfig;
-	}
+    public void setPasswordValidationService(PasswordValidationService passwordValidationService) {
+        this.passwordValidationService = passwordValidationService;
+    }
 
-	public void setPasswordSecurityConfig(PasswordSecurityConfig passwordSecurityConfig) {
-		this.passwordSecurityConfig = passwordSecurityConfig;
-	}
+    public PasswordSecurityConfig getPasswordSecurityConfig() {
+        return passwordSecurityConfig;
+    }
 
-	public void setGroupFormationService(GroupFormationService groupFormationService) {
-		this.groupFormationService = groupFormationService;
-	}
+    public void setPasswordSecurityConfig(PasswordSecurityConfig passwordSecurityConfig) {
+        this.passwordSecurityConfig = passwordSecurityConfig;
+    }
 
     public SurveyOperationService getSurveyOperationService() {
         return surveyOperationService;
@@ -218,14 +196,14 @@ public class SystemConfig {
     public void setSurveyCustomiseService(SurveyCustomiseService surveyCustomiseService) {
         this.surveyCustomiseService = surveyCustomiseService;
     }
-    
-    public PasswordEncryptionConfig getPasswordEncryptionConfig() {
-		return passwordEncryptionConfig;
-	}
 
-	public void setPasswordEncryptionConfig(PasswordEncryptionConfig passwordEncryptionConfig) {
-		this.passwordEncryptionConfig = passwordEncryptionConfig;
-	}
+    public PasswordEncryptionConfig getPasswordEncryptionConfig() {
+        return passwordEncryptionConfig;
+    }
+
+    public void setPasswordEncryptionConfig(PasswordEncryptionConfig passwordEncryptionConfig) {
+        this.passwordEncryptionConfig = passwordEncryptionConfig;
+    }
 
 }
 

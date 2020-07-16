@@ -1,5 +1,9 @@
 package com.csci5308.groupme.passwordvalidation.dao;
 
+/**
+ * @author Krutarth Patel
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
