@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.csci5308.groupme.course.survey.model.Candidate;
+import com.csci5308.groupme.course.survey.strategy.GroupingHeuristic;
 import org.slf4j.LoggerFactory;
 
 import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;

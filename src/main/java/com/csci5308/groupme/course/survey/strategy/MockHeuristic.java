@@ -5,8 +5,6 @@ import java.util.List;
 import com.csci5308.groupme.course.survey.model.Candidate;
 import org.slf4j.LoggerFactory;
 
-import com.csci5308.groupme.course.survey.strategy.greedy.GroupingHeuristic;
-
 import ch.qos.logback.classic.Logger;
 
 public class MockHeuristic implements GroupingHeuristic{

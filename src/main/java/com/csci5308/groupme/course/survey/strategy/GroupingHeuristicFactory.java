@@ -1,8 +1,7 @@
-package com.csci5308.groupme.course.survey.strategy.greedy;
+package com.csci5308.groupme.course.survey.strategy;
 
 import com.csci5308.groupme.course.survey.constants.Heuristics;
-import com.csci5308.groupme.course.survey.strategy.MockHeuristic;
-;
+import com.csci5308.groupme.course.survey.strategy.greedy.PairScores;
 
 public class GroupingHeuristicFactory {
 

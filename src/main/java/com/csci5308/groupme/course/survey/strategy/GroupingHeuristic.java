@@ -1,4 +1,4 @@
-package com.csci5308.groupme.course.survey.strategy.greedy;
+package com.csci5308.groupme.course.survey.strategy;
 
 import java.util.List;
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.csci5308.groupme.course.survey.model.Group;
 import com.csci5308.groupme.course.survey.model.Candidate;
-import com.csci5308.groupme.course.survey.strategy.greedy.GroupingHeuristic;
 
 @SuppressWarnings("unused")
 public class MockGroupingStrategy implements GroupingStrategy{

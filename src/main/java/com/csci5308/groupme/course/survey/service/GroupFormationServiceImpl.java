@@ -12,8 +12,8 @@ import com.csci5308.groupme.course.survey.model.Candidate;
 import com.csci5308.groupme.course.survey.strategy.GroupingStrategy;
 import com.csci5308.groupme.course.survey.strategy.MockGroupingStrategy;
 import com.csci5308.groupme.course.survey.strategy.greedy.GreedyGroupingWithPairScores;
-import com.csci5308.groupme.course.survey.strategy.greedy.GroupingHeuristic;
-import com.csci5308.groupme.course.survey.strategy.greedy.GroupingHeuristicFactory;
+import com.csci5308.groupme.course.survey.strategy.GroupingHeuristic;
+import com.csci5308.groupme.course.survey.strategy.GroupingHeuristicFactory;
 
 import ch.qos.logback.classic.Logger;
 import errors.EditCodes;

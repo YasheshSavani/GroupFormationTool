@@ -31,99 +31,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/SystemConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/SystemConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/csci5308/groupme/auth/config/PasswordProperties.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/errors/EditCodes.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/errors/EditCodes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/csci5308/groupme/auth/config/PasswordPropertiesTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/password.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/CourseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/CourseAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/login2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/auth/signup2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logfile.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/logfile.log.2020-07-14.0.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/SystemConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/SystemConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/auth/config/PasswordProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MaximumLengthValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MaximumLengthValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumLengthValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumLengthValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumLowercaseValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumLowercaseValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumSymbolValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumSymbolValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumUppercaseValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/MinimumUppercaseValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/PasswordHistoryValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/PasswordHistoryValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/PasswordValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/PasswordValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/PasswordValidatorName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/PasswordValidatorName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/RestrictedCharacterValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/RestrictedCharacterValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/dao/PasswordValidationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/dao/PasswordValidationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/dao/PasswordValidationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/passwordvalidation/dao/PasswordValidationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/constants/Algorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/constants/Algorithms.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/constants/Criteria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/constants/Criteria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/constants/Heuristics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/constants/Heuristics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/constants/SurveyConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/constants/SurveyConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/controller/GroupFormationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/controller/GroupFormationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/controller/SurveyCustomiseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/controller/SurveyCustomiseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/controller/SurveyOperationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/controller/SurveyOperationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/controller/SurveyPublishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/controller/SurveyPublishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/dao/SurveyCustomiseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/dao/SurveyCustomiseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/dao/SurveyCustomiseDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/dao/SurveyCustomiseDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/dao/SurveyOperationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/dao/SurveyOperationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/dao/SurveyOperationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/dao/SurveyOperationDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/dao/SurveyPublishDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/dao/SurveyPublishDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/dao/SurveyPublishDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/dao/SurveyPublishDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/Candidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/model/Candidate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/model/Group.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/PrettyResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/model/PrettyResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/SurveyQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/model/SurveyQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/model/SurveyQuestionList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/model/SurveyQuestionList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/GroupFormationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/GroupFormationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/GroupFormationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/SurveyCustomiseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/SurveyCustomiseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/SurveyCustomiseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/SurveyCustomiseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/SurveyOperationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/SurveyOperationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/SurveyOperationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/SurveyOperationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/SurveyPublishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/SurveyPublishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/service/SurveyPublishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/SurveyPublishServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/GroupingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/MockGroupingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockGroupingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/MockHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockHeuristic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/greedy/GreedyGroupingWithPairScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GreedyGroupingWithPairScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/greedy/GroupingHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GroupingHeuristic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/greedy/GroupingHeuristicFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GroupingHeuristicFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/survey/strategy/greedy/PairScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/PairScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/controller/ForgotPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/controller/ForgotPasswordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/controller/UserAuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/user/controller/UserAuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/constants/FilePathConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/constants/FilePathConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/password.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/login2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth/signup2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/auth/config/PasswordPropertiesTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MaximumLengthValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MaximumLengthValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLengthValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLengthValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLowercaseValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumLowercaseValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumSymbolValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumSymbolValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumUppercaseValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/MinimumUppercaseValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/PasswordHistoryValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/PasswordHistoryValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/RestrictedCharacterValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/RestrictedCharacterValidatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/dao/PasswordValidationDaoImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/passwordvalidation/dao/PasswordValidationDaoImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/controller/SurveyCustomiseControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/controller/SurveyCustomiseControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/controller/SurveyOperationControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/controller/SurveyOperationControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/controller/SurveyPublishControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/controller/SurveyPublishControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/dao/SurveyCustomiseDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyCustomiseDaoImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/dao/SurveyOperationDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyOperationDaoImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/dao/SurveyPublishDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyPublishDaoImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/CandidateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/model/CandidateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/GroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/model/GroupTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/PrettyResponseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/model/PrettyResponseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/SurveyQuestionListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/model/SurveyQuestionListTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/model/SurveyQuestionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/model/SurveyQuestionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/service/GroupFormationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/service/SurveyCustomiseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyCustomiseServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/service/SurveyOperationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyOperationServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/service/SurveyPublishServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyPublishServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/strategy/GreedyGroupingWithPairScoresTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/GreedyGroupingWithPairScoresTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/survey/strategy/PairScoresHeuristicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/PairScoresHeuristicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockGroupingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockGroupingStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockHeuristic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GreedyGroupingWithPairScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GreedyGroupingWithPairScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GroupingHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingHeuristic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GroupingHeuristicFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingHeuristicFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/PairScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/PairScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/GreedyGroupingWithPairScoresTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/GreedyGroupingWithPairScoresTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -397,6 +317,7 @@
       <workItem from="1594865922468" duration="1554000" />
       <workItem from="1594867531302" duration="810000" />
       <workItem from="1594911291607" duration="1736000" />
+      <workItem from="1594913179755" duration="169000" />
     </task>
     <servers />
   </component>
@@ -489,64 +410,64 @@
     </state>
     <state x="515" y="173" key="FileChooserDialogImpl/0.0.1470.864@0.0.1470.864" timestamp="1593549109062" />
     <state x="516" y="173" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1591057274995" />
-    <state width="1427" height="357" key="GridCell.Tab.0.bottom" timestamp="1594913071256">
+    <state width="1427" height="357" key="GridCell.Tab.0.bottom" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594913071256" />
+    <state width="1427" height="357" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.0.center" timestamp="1594913071256">
+    <state width="1427" height="357" key="GridCell.Tab.0.center" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594913071256" />
+    <state width="1427" height="357" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.0.left" timestamp="1594913071256">
+    <state width="1427" height="357" key="GridCell.Tab.0.left" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594913071256" />
+    <state width="1427" height="357" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.0.right" timestamp="1594913071256">
+    <state width="1427" height="357" key="GridCell.Tab.0.right" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594913071256" />
+    <state width="1427" height="357" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.1.bottom" timestamp="1594913071257">
+    <state width="1427" height="357" key="GridCell.Tab.1.bottom" timestamp="1594913348313">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598210" />
-    <state width="1427" height="357" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594913071257" />
+    <state width="1427" height="357" key="GridCell.Tab.1.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594913348313" />
     <state width="1429" height="416" key="GridCell.Tab.1.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197637" />
-    <state width="1427" height="357" key="GridCell.Tab.1.center" timestamp="1594913071257">
+    <state width="1427" height="357" key="GridCell.Tab.1.center" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
-    <state width="1427" height="357" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1594913071257" />
+    <state width="1427" height="357" key="GridCell.Tab.1.center/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.1.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.1.left" timestamp="1594913071257">
+    <state width="1427" height="357" key="GridCell.Tab.1.left" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
-    <state width="1427" height="357" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1594913071257" />
+    <state width="1427" height="357" key="GridCell.Tab.1.left/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.1.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.1.right" timestamp="1594913071257">
+    <state width="1427" height="357" key="GridCell.Tab.1.right" timestamp="1594913348312">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.1.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598210" />
-    <state width="1427" height="357" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1594913071257" />
+    <state width="1427" height="357" key="GridCell.Tab.1.right/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
     <state width="1429" height="416" key="GridCell.Tab.1.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747005" />
     <state width="1431" height="318" key="GridCell.Tab.1.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197637" />
     <state width="1427" height="409" key="GridCell.Tab.2.bottom" timestamp="1594793638215">

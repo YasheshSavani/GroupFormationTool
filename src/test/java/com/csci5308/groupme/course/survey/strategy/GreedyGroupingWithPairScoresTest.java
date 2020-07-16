@@ -16,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.csci5308.groupme.course.survey.model.Candidate;
 import com.csci5308.groupme.course.survey.model.Group;
 import com.csci5308.groupme.course.survey.strategy.greedy.GreedyGroupingWithPairScores;
-import com.csci5308.groupme.course.survey.strategy.greedy.GroupingHeuristic;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.qos.logback.classic.Logger;
