@@ -4,33 +4,6 @@
     <meta charset="ISO-8859-1">
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <title>Forget Password</title>
-    <script type="text/javascript">
-        function validate() {
-
-            if (document.resetPasswordForm.password.value == "") {
-                alert("Please provide your password!");
-                document.resetPasswordForm.password.focus();
-                return false;
-            }
-            if (document.resetPasswordForm.confirmPassword.value == "") {
-                alert("Please confirm your password!");
-                document.resetPasswordForm.confirmPassword.focus();
-                return false;
-            }
-            if ((/^[A-Za-z._$#?@!%^&*-=+]{3,30}$/
-                .test(document.resetPasswordForm.password.value)) === false) {
-                alert("Your password can include letters, digits and special characters, having a minimum length of 4!");
-                document.resetPasswordForm.password.focus();
-                return false;
-            }
-            if (document.resetPasswordForm.password.value != document.resetPasswordForm.confirmPassword.value) {
-                alert("Passwords do not match!");
-                document.resetPasswordForm.confirmPassword.focus();
-                return false;
-            }
-            return true;
-        }
-    </script>
 </head>
 <body>
 <ul>
@@ -39,13 +12,10 @@
 
 </ul>
 <h2 style="text-align: center">Reset Password</h2>
-<form name="resetPasswordForm" onSubmit="return (validate());"
-      th:action="@{/resetPassword}" method="post">
-
+<form name="resetPasswordForm" th:action="@{/resetPassword}" method="post">
     <table style="margin-left: auto; margin-right: auto;">
         <tr>
-            <td colspan="2"><h3 style="text-align: center">Enter new
-                password</h3></td>
+            <td colspan="2"><h3 style="text-align: center">Enter new password</h3></td>
         </tr>
         <tr>
             <td align="right">Email</td>
@@ -53,11 +23,11 @@
         </tr>
         <tr>
             <td align="right">Password</td>
-            <td><input type="password" name="password"/></td>
+            <td><input type="password" name="password" required/></td>
         </tr>
         <tr>
             <td align="right">Confirm Password</td>
-            <td><input type="password" name="confirmPassword"/></td>
+            <td><input type="password" name="confirmPassword" required/></td>
         </tr>
         <tr>
             <td align="right"></td>

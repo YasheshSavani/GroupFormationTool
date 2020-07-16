@@ -13,7 +13,6 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
-
         td {
             padding: 10px;
         }
@@ -40,7 +39,7 @@
 <div>
     <form name="surveyQuestionForm" method="post" th:action="@{/customiseSurvey/saveCustomisedSurvey}"
           th:object="${surveyQuestions}">
-        <table th:if="${surveyPublish} != 1 and ${arraySize} != 0" id="surveyQuestionTableData">
+        <table th:if="${surveyPublish} != 1 and ${arraySize} != 0" style="width:100%;" id="surveyQuestionTableData">
             <thead>
             <tr>
                 <td>Question ID</td>
@@ -59,17 +58,17 @@
                            class="inputbox" readonly/>
                 </td>
                 <td>
-                    <input type="text" id="questionTitle"
+                    <input type="text" id="questionTitle" style="overflow: scroll;"
                            th:field="*{surveyQuestionList[__${state.index}__].questionTitle}"
                            class="inputbox" readonly/>
                 </td>
                 <td>
-                    <input type="text" id="question"
+                    <input type="text" id="question" style="overflow: scroll;"
                            th:field="*{surveyQuestionList[__${state.index}__].question}"
                            class="inputbox" readonly/>
                 </td>
                 <td>
-                    <input type="text" id="questionType"
+                    <input type="text" id="questionType" style="overflow: scroll;"
                            th:field="*{surveyQuestionList[__${state.index}__].questionType}"
                            class="inputbox" readonly/>
                 </td>

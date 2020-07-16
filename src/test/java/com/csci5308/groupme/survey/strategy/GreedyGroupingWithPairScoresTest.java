@@ -13,13 +13,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import com.csci5308.datasource.DatabaseProperties;
+import com.csci5308.groupme.survey.constants.Heuristics;
 import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.model.Group;
 import com.csci5308.groupme.survey.strategy.greedy.GreedyGroupingWithPairScores;
 import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristic;
-import com.csci5308.groupme.survey.strategy.greedy.PairScores;
-import com.csci5308.groupme.survey.strategy.mock.MockHeuristic;
+import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristicFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.qos.logback.classic.Logger;
@@ -39,7 +38,7 @@ public class GreedyGroupingWithPairScoresTest {
 	public static void init() {
 		pivotCandidate = new Candidate();
 		greedyGrouping = new GreedyGroupingWithPairScores();
-		groupingHeuristic = new PairScores();
+		groupingHeuristic = new MockHeuristic();
 		greedyGrouping.setGroupingHeuristic(groupingHeuristic);
 		try {
 			ObjectMapper mapper = new ObjectMapper();

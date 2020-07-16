@@ -1,19 +1,13 @@
-package com.csci5308.groupme.survey.strategy.mock;
+package com.csci5308.groupme.survey.strategy;
 
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.LoggerFactory;
 
 import com.csci5308.groupme.survey.model.Candidate;
 import com.csci5308.groupme.survey.strategy.greedy.GroupingHeuristic;
-import com.csci5308.groupme.survey.strategy.greedy.PairScores;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.qos.logback.classic.Logger;
-import constants.FilePathConstants;
 
 public class MockHeuristic implements GroupingHeuristic{
 

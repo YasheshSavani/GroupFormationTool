@@ -51,7 +51,7 @@
         <td th:text="${course.courseName}"></td>
         <td th:text="${course.courseCrn}"></td>
         <td th:if="${course.courseCode != null}" th:hidden="false">
-            <form method="get" th:action="@{/courseAdmin/course}">
+            <form method="get" th:action="@{/courseAdmin/course}" style="width: auto;">
                 <input type="hidden" name="courseCode" th:value="${course.courseCode}">
                 <input type="hidden" name="courseName" th:value="${course.courseName}">
                 <input type="hidden" name="courseCrn" th:value="${course.courseCrn}">
@@ -65,6 +65,9 @@
                 </button>
                 <button type="submit" id="publishSurvey" class="button" th:formaction="@{/publishSurvey}"
                         style="display: block;" onload="showPublishSurveyButton()">Publish Survey
+                </button>
+                <button type="submit" id="createGroups" class="button" th:formaction="@{/grouping/configureGroupingStrategy}"
+                        style="display: block;" > Group Formation
                 </button>
             </form>
         </td>
