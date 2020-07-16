@@ -1,7 +1,5 @@
 package com.csci5308.groupme.course.survey.dao;
 
-import com.csci5308.groupme.course.survey.dao.SurveyCustomiseDao;
-
 public class SurveyCustomiseDaoImplMock implements SurveyCustomiseDao {
 
     private final String surveyQuestionTest = "{" +

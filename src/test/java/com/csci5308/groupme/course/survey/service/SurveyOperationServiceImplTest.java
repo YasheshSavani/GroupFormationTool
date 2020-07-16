@@ -1,8 +1,7 @@
 package com.csci5308.groupme.course.survey.service;
 
+import com.csci5308.groupme.TestsConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.model.Question;
-import com.csci5308.groupme.course.survey.dao.SurveyOperationDao;
-import com.csci5308.groupme.course.survey.dao.SurveyOperationDaoImplMock;
 import com.csci5308.groupme.course.survey.model.SurveyQuestion;
 import constants.Messages;
 import constants.Roles;
@@ -20,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 public class SurveyOperationServiceImplTest {
 
-    private SurveyOperationDao surveyOperationDao;
     private SurveyOperationService surveyOperationService;
     private String userNameTest = "ysavani";
     private String roleNameTest = Roles.INSTRUCTOR;
@@ -32,8 +30,7 @@ public class SurveyOperationServiceImplTest {
     private Logger logger = LoggerFactory.getLogger(SurveyCustomiseServiceImplTest.class);
 
     public SurveyOperationServiceImplTest() {
-        surveyOperationDao = new SurveyOperationDaoImplMock();
-        surveyOperationService = new SurveyOperationServiceImpl(surveyOperationDao);
+        surveyOperationService = TestsConfig.instance().getSurveyOperationService();
     }
 
     @Test

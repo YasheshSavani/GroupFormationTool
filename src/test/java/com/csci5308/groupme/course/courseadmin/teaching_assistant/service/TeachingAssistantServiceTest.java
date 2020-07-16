@@ -2,6 +2,7 @@ package com.csci5308.groupme.course.courseadmin.teaching_assistant.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.csci5308.groupme.TestsConfig;
 import com.csci5308.groupme.course.courseadmin.teaching_assistant.dao.TeachingAssistantDaoMock;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,12 +15,10 @@ import errors.EditCodes;
 @ExtendWith(SpringExtension.class)
 public class TeachingAssistantServiceTest {
 
-    private TeachingAssistantDao taDao;
-    private TeachingAssistantServiceImpl teachingAssistantService;
+    private TeachingAssistantService teachingAssistantService;
    
     public TeachingAssistantServiceTest() {
-    	taDao = new TeachingAssistantDaoMock();
-    	teachingAssistantService = new TeachingAssistantServiceImpl(taDao);
+    	teachingAssistantService = TestsConfig.instance().getTeachingAssistantService();
     }
 
     @Test

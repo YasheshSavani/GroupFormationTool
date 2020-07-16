@@ -1,8 +1,7 @@
 package com.csci5308.groupme.course.survey.service;
 
+import com.csci5308.groupme.TestsConfig;
 import com.csci5308.groupme.course.courseadmin.instructor.constants.QuestionTypeConstants;
-import com.csci5308.groupme.course.survey.dao.SurveyCustomiseDao;
-import com.csci5308.groupme.course.survey.dao.SurveyCustomiseDaoImplMock;
 import com.csci5308.groupme.course.survey.model.SurveyQuestion;
 import com.csci5308.groupme.course.survey.model.SurveyQuestionList;
 import constants.Messages;
@@ -17,14 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SurveyCustomiseServiceImplTest {
 
-    private SurveyCustomiseDao surveyCustomiseDao;
     private SurveyCustomiseService surveyCustomiseService;
     private String courseCodeTest = "csci0010";
     private Logger logger = LoggerFactory.getLogger(SurveyCustomiseServiceImplTest.class);
 
     public SurveyCustomiseServiceImplTest() {
-        surveyCustomiseDao = new SurveyCustomiseDaoImplMock();
-        surveyCustomiseService = new SurveyCustomiseServiceImpl(surveyCustomiseDao);
+        surveyCustomiseService = TestsConfig.instance().getSurveyCustomiseService();
     }
 
     @Test

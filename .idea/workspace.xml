@@ -24,26 +24,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockGroupingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockGroupingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/MockHeuristic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GreedyGroupingWithPairScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GreedyGroupingWithPairScores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GroupingHeuristic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingHeuristic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/GroupingHeuristicFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/GroupingHeuristicFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/PairScores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/csci5308/groupme/course/survey/strategy/greedy/PairScores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/instructor/service/EnrollmentServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/instructor/service/EnrollmentServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/instructor/service/QuestionManagerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/instructor/service/QuestionManagerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/service/TeachingAssistantServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/courseadmin/teaching_assistant/service/TeachingAssistantServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/service/CourseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/service/CourseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/student/model/StudentMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/student/model/StudentMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyCustomiseDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyCustomiseDaoImplMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyOperationDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyOperationDaoImplMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyPublishDaoImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/dao/SurveyPublishDaoImplMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/GroupFormationServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyCustomiseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyCustomiseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyOperationServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyOperationServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyPublishServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/service/SurveyPublishServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/GreedyGroupingWithPairScoresTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/GreedyGroupingWithPairScoresTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/PairScoresHeuristicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/csci5308/groupme/course/survey/strategy/PairScoresHeuristicTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +73,8 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -139,13 +141,13 @@
       <recent name="E:\DAL\SEM 3\ASDC\project\group19\src\test\java\com\csci5308\groupme\survey\dao" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.GroupmeApplication">
-    <configuration name="SurveyCustomiseControllerTest.getSurveyQuestionsToCustomise" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'groupme'">
+    <configuration name="MaximumLengthValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.survey.controller.SurveyCustomiseControllerTest.getSurveyQuestionsToCustomise&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.passwordvalidation.MaximumLengthValidatorTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -159,12 +161,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SurveyCustomiseControllerTest.redirectToCourseAdmin" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MinimumLengthValidatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.survey.controller.SurveyCustomiseControllerTest.redirectToCourseAdmin&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.passwordvalidation.MinimumLengthValidatorTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -178,12 +180,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SurveyQuestionListTest.getSurveyQuestionList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PairScoresHeuristicTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.survey.model.SurveyQuestionListTest.getSurveyQuestionList&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.course.survey.strategy.PairScoresHeuristicTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -197,12 +199,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SurveyQuestionListTest.setSurveyQuestionList" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PasswordValidationDaoImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.survey.model.SurveyQuestionListTest.setSurveyQuestionList&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.csci5308.groupme.passwordvalidation.dao.PasswordValidationDaoImplTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -245,10 +247,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Tests in 'groupme'" />
-        <item itemvalue="Gradle.SurveyQuestionListTest.setSurveyQuestionList" />
-        <item itemvalue="Gradle.SurveyQuestionListTest.getSurveyQuestionList" />
-        <item itemvalue="Gradle.SurveyCustomiseControllerTest.getSurveyQuestionsToCustomise" />
-        <item itemvalue="Gradle.SurveyCustomiseControllerTest.redirectToCourseAdmin" />
+        <item itemvalue="Gradle.MinimumLengthValidatorTest" />
+        <item itemvalue="Gradle.MaximumLengthValidatorTest" />
+        <item itemvalue="Gradle.PasswordValidationDaoImplTest" />
+        <item itemvalue="Gradle.PairScoresHeuristicTest" />
       </list>
     </recent_temporary>
   </component>
@@ -318,6 +320,7 @@
       <workItem from="1594867531302" duration="810000" />
       <workItem from="1594911291607" duration="1736000" />
       <workItem from="1594913179755" duration="169000" />
+      <workItem from="1594934733428" duration="1014000" />
     </task>
     <servers />
   </component>
@@ -410,36 +413,36 @@
     </state>
     <state x="515" y="173" key="FileChooserDialogImpl/0.0.1470.864@0.0.1470.864" timestamp="1593549109062" />
     <state x="516" y="173" key="FileChooserDialogImpl/0.0.1472.864@0.0.1472.864" timestamp="1591057274995" />
-    <state width="1427" height="357" key="GridCell.Tab.0.bottom" timestamp="1594913348312">
+    <state width="1427" height="357" key="GridCell.Tab.0.bottom" timestamp="1594935749195">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.bottom/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.bottom/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
+    <state width="1427" height="357" key="GridCell.Tab.0.bottom/0.0.1470.864@0.0.1470.864" timestamp="1594935749195" />
     <state width="1429" height="416" key="GridCell.Tab.0.bottom/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.0.center" timestamp="1594913348312">
+    <state width="1427" height="357" key="GridCell.Tab.0.center" timestamp="1594935749195">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.center/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.center/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
+    <state width="1427" height="357" key="GridCell.Tab.0.center/0.0.1470.864@0.0.1470.864" timestamp="1594935749195" />
     <state width="1429" height="416" key="GridCell.Tab.0.center/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.0.left" timestamp="1594913348312">
+    <state width="1427" height="357" key="GridCell.Tab.0.left" timestamp="1594935749195">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.left/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.left/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
+    <state width="1427" height="357" key="GridCell.Tab.0.left/0.0.1470.864@0.0.1470.864" timestamp="1594935749195" />
     <state width="1429" height="416" key="GridCell.Tab.0.left/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
-    <state width="1427" height="357" key="GridCell.Tab.0.right" timestamp="1594913348312">
+    <state width="1427" height="357" key="GridCell.Tab.0.right" timestamp="1594935749195">
       <screen x="0" y="0" width="1470" height="864" />
     </state>
     <state width="1425" height="277" key="GridCell.Tab.0.right/0.0.1467.864@0.0.1467.864" timestamp="1592170598209" />
     <state width="1425" height="319" key="GridCell.Tab.0.right/0.0.1468.864@0.0.1468.864" timestamp="1591764857096" />
-    <state width="1427" height="357" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594913348312" />
+    <state width="1427" height="357" key="GridCell.Tab.0.right/0.0.1470.864@0.0.1470.864" timestamp="1594935749195" />
     <state width="1429" height="416" key="GridCell.Tab.0.right/0.0.1472.864@0.0.1472.864" timestamp="1591080747004" />
     <state width="1431" height="318" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1592464197636" />
     <state width="1427" height="357" key="GridCell.Tab.1.bottom" timestamp="1594913348313">
