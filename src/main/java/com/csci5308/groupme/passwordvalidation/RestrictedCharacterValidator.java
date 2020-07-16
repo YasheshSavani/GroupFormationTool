@@ -1,5 +1,9 @@
 package com.csci5308.groupme.passwordvalidation;
 
+/**
+ * @author Krutarth Patel
+ */
+
 public class RestrictedCharacterValidator extends PasswordValidator{
 	
 	public RestrictedCharacterValidator(String constraint) {

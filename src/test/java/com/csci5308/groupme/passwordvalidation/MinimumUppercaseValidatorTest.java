@@ -1,5 +1,9 @@
 package com.csci5308.groupme.passwordvalidation;
 
+/**
+ * @author Krutarth Patel
+ */
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;

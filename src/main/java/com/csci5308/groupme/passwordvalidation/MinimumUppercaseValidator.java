@@ -1,5 +1,9 @@
 package com.csci5308.groupme.passwordvalidation;
 
+/**
+ * @author Krutarth Patel
+ */
+
 public class MinimumUppercaseValidator extends PasswordValidator {
 
 	public MinimumUppercaseValidator(String constraint) {

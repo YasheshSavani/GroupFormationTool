@@ -1,8 +1,6 @@
 package com.csci5308.groupme.user.controller;
 
-import com.csci5308.groupme.SystemConfig;
 import com.csci5308.groupme.auth.AuthConstants;
-import com.csci5308.groupme.auth.config.PasswordProperties;
 import com.csci5308.groupme.auth.service.EmailService;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
@@ -24,7 +22,6 @@ import java.util.Map;
 public class ForgotPasswordController {
 
     Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
-    PasswordProperties passwordProperties;
 
     @Autowired
     private UserService userService;
@@ -59,11 +56,9 @@ public class ForgotPasswordController {
             @RequestParam(value = "secretCode", required = true, defaultValue = "none") String secretCode,
             @RequestParam(value = "email", required = true, defaultValue = "noEmail") String email) {
         ModelAndView modelAndView;
-        passwordProperties = SystemConfig.instance().getPasswordProperties();
         if (secretCode.equals(AuthConstants.SECRET_CODE)) {
             modelAndView = new ModelAndView("auth/resetPassword");
             modelAndView.addObject("email", email);
-            modelAndView.addObject(passwordProperties);
         } else {
             modelAndView = new ModelAndView("auth/unauthorized");
         }

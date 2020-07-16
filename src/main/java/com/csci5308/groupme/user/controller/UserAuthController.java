@@ -1,6 +1,5 @@
 package com.csci5308.groupme.user.controller;
 
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.csci5308.groupme.SystemConfig;
-import com.csci5308.groupme.auth.config.PasswordProperties;
 import com.csci5308.groupme.user.model.User;
 import com.csci5308.groupme.user.service.UserService;
 import com.csci5308.groupme.user.service.UserServiceImpl;
@@ -41,7 +38,6 @@ public class UserAuthController {
     public ModelAndView signUpUser(@ModelAttribute("user") User user) {
         ModelAndView mView = new ModelAndView("auth/signup");
         String message = null;
-        
         Map<String,String> passwordValidation = userService.passwordPolicyCheck(user);
         Integer passwordValidationStatus = Integer.parseInt(passwordValidation.get("passwordCheckStatus"));
         if (passwordValidationStatus == EditCodes.FAILURE) {
@@ -58,7 +54,6 @@ public class UserAuthController {
 	            message = Messages.SIGNUP_SUCCESS;
 	        }
         }
- 
         logger.info("Signing up with email: "+ user.getEmail());
         mView.addObject("message", message);
         return mView;

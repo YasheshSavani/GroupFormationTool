@@ -1,4 +1,7 @@
 package com.csci5308.groupme.passwordvalidation;
+/**
+ * @author Krutarth Patel
+ */
 
 public class MinimumSymbolValidator extends PasswordValidator{
 
