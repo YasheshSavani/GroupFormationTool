@@ -1,5 +1,7 @@
 package com.csci5308.groupme.auth.config;
 
+import com.csci5308.groupme.SystemConfig;
+import org.omg.CORBA.INTERNAL;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,10 +15,14 @@ public class EmailSenderConfig {
     @Bean
     public JavaMailSender javaMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
-        mailSender.setUsername("groupmecsci5308@gmail.com");
-        mailSender.setPassword("groupme@CSCI5308");
+        String hostname = System.getenv("HOSTNAME");
+        String port = System.getenv("PORT");
+        String email = System.getenv("EMAIL");
+        String password = System.getenv("EMAIL_PASSWORD");
+        mailSender.setHost(hostname);
+        mailSender.setPort(Integer.parseInt(port));
+        mailSender.setUsername(email);
+        mailSender.setPassword(password);
         Properties properties = mailSender.getJavaMailProperties();
         properties.put("mail.transport.protocol", "smtp");
         properties.put("mail.smtp.starttls.enable", "true");
